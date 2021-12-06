@@ -4,7 +4,10 @@
   "description": "MERN stack NBA betting app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server:debug": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon app.js",
+    "start": "node app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

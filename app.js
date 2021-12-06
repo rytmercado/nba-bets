@@ -9,6 +9,7 @@ const passport = require("passport");
 
 
 
+
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log('Connected to mongoDB'))
@@ -20,13 +21,14 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json()); 
 
+app.use("/api/users", users);
 
 
 // app.get("/", (req, res) => {
 //   const user = new User({
-//     handle: "owen",
-//     email: "owen@owen.net",
-//     password: "qwerty123"
+//     handle: "theUser",
+//     email: "lol@lol.com",
+//     password: "qwerty1234"
 //   })
 //   user.save()
 // });

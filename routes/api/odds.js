@@ -24,5 +24,5 @@ h2hOdds().then(odds => {
 
 console.log(odds_obj)
 
-export default odds_obj; 
+
 

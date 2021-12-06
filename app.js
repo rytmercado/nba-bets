@@ -9,9 +9,10 @@ const passport = require("passport");
 
 
 
-mongoose.connect(db, {  useNewUrlParser: true }).then(
-  () => console.log("connected to mongoDB")
-)
+mongoose
+    .connect(db, { useNewUrlParser: true })
+    .then(() => console.log('Connected to mongoDB'))
+    .catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -21,16 +22,16 @@ app.use(bodyParser.json());
 
 
 
-app.get("/", (req, res) => {
-  const user = new User({
-    handle: "owen",
-    email: "owen@owen.net",
-    password: "qwerty123"
-  })
-  user.save()
-});
+// app.get("/", (req, res) => {
+//   const user = new User({
+//     handle: "owen",
+//     email: "owen@owen.net",
+//     password: "qwerty123"
+//   })
+//   user.save()
+// });
 
-// app.get("/", (req, res) => res.send("Hello World!!"));
+app.get("/", (req, res) => res.send("Hello World!!"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

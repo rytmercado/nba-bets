@@ -9,6 +9,7 @@ const passport = require("passport");
 const getGameOdds = require('./util/odds')
 const getGameResults = require('./util/games')
 const Game = require('./models/Game')
+const tasks = require('./util/cron')
 
 
 mongoose
@@ -40,4 +41,6 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 
-getGameResults()
+// getGameResults()
+
+tasks();

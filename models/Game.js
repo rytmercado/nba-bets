@@ -24,7 +24,7 @@ const GameSchema = new Schema({
     required: true
   },
   status: {
-    type: Boolean,
+    type: String,
     required: true
   },
   home_score: {

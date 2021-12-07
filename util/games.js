@@ -25,12 +25,14 @@ const getGameResults = () => {
       awayScore = data[i].visitor_team_score 
 
       if (data[i].status === 'Final'){
-        result = true; 
+        result = result
+      } else if (homeScore > 0) {
+        result = "In Progress"; 
       } else {
-        result = false; 
+        result = "Incomplete"
       }
 
-      
+      // homeScore = 20;
       Game.findOne({home_team: `${fullHomeName}`})
       .then(game => {
         console.log(game)

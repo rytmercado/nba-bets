@@ -18,7 +18,7 @@ const getGameOdds = () => {
         odds_obj.away_odds = odds[i].bookmakers[0].markets[0].outcomes[1].price
 
         //Default values to be changed by balldontlie 
-        odds_obj.status = false 
+        odds_obj.status = "Incomplete"
         odds_obj.home_score = -1;
         odds_obj.away_score = -1;
 

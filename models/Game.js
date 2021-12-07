@@ -22,6 +22,18 @@ const GameSchema = new Schema({
   away_odds: {
     type: Number,
     required: true
+  },
+  status: {
+    type: String,
+    required: true
+  },
+  home_score: {
+    type: Number,
+    required: true
+  },
+  away_score: {
+    type: Number, 
+    required: true 
   }
  },
   {

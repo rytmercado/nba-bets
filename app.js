@@ -6,9 +6,10 @@ const users = require("./routes/api/users")
 const User = require("./models/User")
 const bodyParser = require("body-parser")
 const passport = require("passport");
-const getAllGames = require('./util/odds')
-
-
+const getGameOdds = require('./util/odds')
+const getGameResults = require('./util/games')
+const Game = require('./models/Game')
+const tasks = require('./util/cron')
 
 
 mongoose
@@ -24,9 +25,11 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
-// getAllGames(); 
+// console.log(Game.find({home_team: "Golden State Warriors"}, () => {
 
-app.get("/", (req, res) => res.send("Hello World!!"));
+// }))
+
+// app.get("/", (req, res) => res.send("Hello World!!"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -37,3 +40,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
+
+// getGameResults()
+
+tasks();

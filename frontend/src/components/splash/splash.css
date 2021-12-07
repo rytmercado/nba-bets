@@ -1,0 +1,21 @@
+
+.main-splash {
+
+}
+
+.main-splash img {
+    margin: 0 auto 0 auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.age-buttons {
+    z-index: 1;
+}
+
+

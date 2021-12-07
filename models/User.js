@@ -10,6 +10,8 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  //Datetime is not hooked into mongoose, makes data manipulation and database application diffcult 
+  //https://github.com/Automattic/mongoose/issues/1598
   password: {
     type: String,
     required: true

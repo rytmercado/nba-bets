@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
-getAllGames(); 
+// getAllGames(); 
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 

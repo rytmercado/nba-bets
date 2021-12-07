@@ -31,7 +31,6 @@ const getGameResults = () => {
       }
 
       
-      homeScore = 20; 
       Game.findOne({home_team: `${fullHomeName}`})
       .then(game => {
         console.log(game)

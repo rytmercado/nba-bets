@@ -11,9 +11,11 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-        <ProtectedRoute exact path="/" component={MainPage} />
+        <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+        <ProtectedRoute exact path="/profile" component={ProfileContainter} />
     </Switch>
   </div>
 );

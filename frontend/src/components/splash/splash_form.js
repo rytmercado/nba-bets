@@ -10,9 +10,10 @@ class SplashForm extends React.Component {
     return (
       <div className="main-splash">
         <img className="logo" src="https://i.ibb.co/0MHYw3Z/NBAA-Logo.jpg" />
+        <u style={{color: "#CBB26A" }}>Please verify your age to participate</u>
         <div className="age-buttons">
-            <Link to="/login"><button>I am over 21 years old</button></Link>
-            <button>I am under 21 years</button>
+            <button id="button1"><span className="button-text">I am 21+</span></button>
+            <button id="button2"><span className="button-text">I am not 21</span></button>
             <p id="errors"></p>
         </div>
         <footer>

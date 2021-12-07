@@ -6,6 +6,7 @@ const users = require("./routes/api/users")
 const User = require("./models/User")
 const bodyParser = require("body-parser")
 const passport = require("passport");
+const getAllGames = require('./util/odds')
 
 
 
@@ -23,15 +24,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
-
-// app.get("/", (req, res) => {
-//   const user = new User({
-//     handle: "theUser",
-//     email: "lol@lol.com",
-//     password: "qwerty1234"
-//   })
-//   user.save()
-// });
+getAllGames(); 
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 

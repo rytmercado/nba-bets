@@ -28,6 +28,6 @@ const GameSchema = new Schema({
     timestamps: true 
 }) 
 
-const Game = mongoose.model("games". GameSchema)
+const Game = mongoose.model("games", GameSchema)
 
 module.exports = Game; 

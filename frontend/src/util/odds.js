@@ -20,3 +20,13 @@ axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=u
   console.log(odds_obj)
 }
 )
+
+// {
+//   games: [
+//     {
+//       start_time: '2021-12-07T00:10:00Z',
+//       home_team: 'Charlotte Hornets',
+//       away_team: 'Philadelphia 76ers',
+//       odds_home: 250,
+//       odds_away: -310
+//     },

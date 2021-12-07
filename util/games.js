@@ -24,7 +24,7 @@ const getGameResults = () => {
       homeScore = data[i].home_team_score 
       awayScore = data[i].visitor_team_score 
 
-      homeScore = 100;
+      // homeScore = 100;
       if (data[i].status === 'Final'){
         result = result
       } else if (homeScore > 0) {

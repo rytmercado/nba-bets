@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const BetSchema = require('../../models/bet')
 const User = require('../../models/User')
 const Game = require('../../models/Game');
 const e = require("express");
-const Bet = require("../../models/bet");
+const Bet = require("../../models/Bet");
 
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 

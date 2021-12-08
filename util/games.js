@@ -14,7 +14,7 @@ const getGameResults = () => {
     let data = res.data.data;
 
     for(let i = 0; i < data.length; i++){
-      let result;
+      let result = data[i].status;
       
       let fullHomeName = data[i].home_team.full_name 
       let fullAwayName = data[i].visitor_team.full_name 
@@ -24,7 +24,7 @@ const getGameResults = () => {
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
-        result = result
+        result = 'Final'
       } else if (homeScore > 0) {
         result = "In Progress"; 
       } else {

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+//Need to add currency 
 const UserSchema = new Schema({
   handle: {
     type: String,
@@ -15,6 +17,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  currency: {
+    type: Number,
+    required: true 
   }
 }, {
   timestamps: true

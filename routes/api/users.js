@@ -31,7 +31,8 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           handle: req.body.handle,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          currency: 1000
         })
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -63,6 +64,7 @@ router.post('/login', (req, res) => {
       bcrypt.compare(req.body.password, user.password).then(isMatch => {
         if (!!isMatch){
           const payload = {
+            //is this mongo's object id?
             id: user.id,
             handle: user.handle,
             email: user.email

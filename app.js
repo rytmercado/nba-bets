@@ -11,6 +11,7 @@ const getGameOdds = require('./util/odds')
 const getGameResults = require('./util/games')
 const Game = require('./models/Game')
 const tasks = require('./util/cron')
+const bets = require('./routes/api/bets')
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/games", games)
+app.use("/api/bets/", bets)
 
 // console.log(Game.find({home_team: "Golden State Warriors"}, () => {
 

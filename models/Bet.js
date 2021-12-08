@@ -1,17 +1,18 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
+var ObjectId = require('mongodb').ObjectID;
 
 const BetSchema = new Schema({
   game: {
     type: ObjectId, 
     required: true 
   },
-  selection: {
-    type: String,
-    required: true 
-  },
   user: {
     type: ObjectId, 
+    required: true 
+  },
+  selection: {
+    type: String,
     required: true 
   },
   amount: {
@@ -24,14 +25,15 @@ const BetSchema = new Schema({
   status: {
     type: String,
     required: true 
+  },
+  payout: {
+    type: Number,
+    required: true 
   }
-  //Payout? 
+},
+{
+  timestamps: true
 })
-//TODO: Payout
-//Validations: is selection one of the two teams? Did the user bet a possible amount?  
-//TODO: backend validations 
-//frontend, model, database contraints 
-
-const Bet = mongoose.model("bets", BetSchema)
+const Bet = mongoose.model("Bet", BetSchema)
 
 module.exports = Bet;

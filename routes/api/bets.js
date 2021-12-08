@@ -2,52 +2,57 @@ const express = require("express");
 const router = express.Router();
 const BetSchema = require('../../models/bet')
 const User = require('../../models/User')
-const Game = require('../../models/game');
+const Game = require('../../models/Game');
 const e = require("express");
 const Bet = require("../../models/bet");
 
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 
-  //Find user 
-  let user = User.findById(req.user)
-  debugger
-  //Caculate if bet is possible
-  //TODO: Need to check that game is Incomplete
-  if (user.currency - req.amount > 0){
-    bet.user = user;
-    let game = Game.findById(req.game)
-    bet.game = game; 
-    bet.status = 'Incomplete'
-    bet.amount = req.amount;
-    let bet = {};
-    if (!!res.selection){
-      bet.selection = game.home_team
-      if (game.home_odds > 0){
-        bet.payout = (game.home_odds/100) * amount + bet.amount
-      } else {
-        bet.payout = (100/game.home_odds) * amount * -1 + bet.amount
-      }
+  // console.log(req.body.user)
+  User.findById(req.body.userId, (err, user) => {
+    //TODO: Need to check that game is Incomplete
+    if (user.currency - req.body.amount > 0){
+      let bet = {}
+      bet.user = user;
+      Game.findById(req.body.game, (err, game) => {
+        bet.game = req.body.game; 
+        bet.status = 'Incomplete'
+        bet.amount = parseInt(req.body.amount);
+        if (req.body.selection === "true"){
+          selection = true;
+        } else {
+          selection = false; 
+        }
+        if (selection){
+          bet.selection = game.home_team
+          if (game.home_odds > 0){
+            bet.payout = (game.home_odds/100) * bet.amount + bet.amount
+          } else {
+            bet.payout = (100/game.home_odds) * bet.amount * -1 + bet.amount
+          }
+        } else {
+          bet.selection = game.away_team 
+          if (game.away_odds > 0){
+            bet.payout = (game.away_odds/100) * bet.amount + bet.amount
+          } else {
+            bet.payout = (100/game.away_odds) * bet.amount * -1 + bet.amount
+          }
+        }
+        bet.payout = Math.floor(bet.payout)
+        user.currency -= bet.amount
+        //does this work
+        // bet = new Bet(bet)
+        let newBet = new Bet(bet)
+        user.save()
+        newBet.save()
+        return res.json({bet: newBet})
+      })
     } else {
-      bet.selection = game.away_team 
-      if (game.away_odds > 0){
-        bet.payout = (game.away_odds/100) * amount + bet.amount
-      } else {
-        bet.payout = (100/game.away_odds) * amount * -1 + bet.amount
-      }
-      bet.payout = Math.floor(bet.payout)
+      //If it's not, respond with an error + message
+      return res.status(422).json({msg: `${user.handle} bet ${req.amount - user.currency} too much`})
     }
-    //TODO: update user's currency to subtract the amount wagered 
-    user.currency -= bet.amount
-
-    //does this work
-    bet = new Bet(bet)
-    user.save()
-    bet.save()
-  } else {
-    //If it's not, respond with an error + message
-    return res.status(422).json({msg: `${user.handle} bet ${req.amount - user.currency} too much`})
-  }
-  //If it is, caculate payout, set status, deduct amount, respond with the the made bet
+    //If it is, caculate payout, set status, deduct amount, respond with the the made bet
+  })
 })
 
 

@@ -30,16 +30,10 @@ const BetSchema = new Schema({
     type: Number,
     required: true 
   }
-  //Payout
+},
+{
+  timestamps: true
 })
-//TODO: Payout
-//Validations: is selection one of the two teams? Did the user bet a possible amount?  
-//TODO: backend validations 
-
-//
-
-//define validations here
-
-const Bet = mongoose.model("bets", BetSchema)
+const Bet = mongoose.model("Bet", BetSchema)
 
 module.exports = Bet;

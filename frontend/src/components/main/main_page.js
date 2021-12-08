@@ -2,6 +2,18 @@ import React from 'react';
 import NavBar from '../nav/navbar';
 
 class MainPage extends React.Component {
+  constructor(props) {
+      super(props);
+  }
+
+   {
+
+  }
+
+  renderGames () {
+    const games = this.props.fetchAllGames;
+    const today = Date.getMonth() + " " + Date.getDay();
+  }
 
   render() {
     return (

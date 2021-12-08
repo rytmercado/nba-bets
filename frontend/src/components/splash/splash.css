@@ -1,5 +1,6 @@
 
 .main-splash {
+    font-family:'Lucida Sans', Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +23,7 @@
     flex-direction: column;
     align-items: center;
     width: 700px;
-    height:700px;
+    height:740px;
     top: 5%;
     left: 30%;
     border-radius: 8px;
@@ -86,7 +87,8 @@ button span {
     margin-bottom: 5px;
 }
 
-
-
+a {
+    background-color: black;
+}
 
 

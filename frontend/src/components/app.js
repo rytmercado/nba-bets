@@ -9,15 +9,20 @@ import './reset.css'
 import './splash/splash.css'
 import './nav/navbar.css'
 import './session/login_form.css'
+import './session/signup_form.css'
 
 
 const App = () => (
   <div>
     <Switch>
-        <AuthRoute exact path="/main" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        
+        <ProtectedRoute exact path="/main" component={MainPage} />
+        
+        
         <Route path="/" component={SplashForm} />
+        
         {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
     </Switch>
   </div>

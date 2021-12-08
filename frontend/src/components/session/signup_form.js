@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../nav/navbar_container'
+import { Link } from 'react-router-dom'
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -47,7 +49,7 @@ class SignupForm extends React.Component {
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="login-error-messages" key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
@@ -57,38 +59,53 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="sigup-page">
         <NavbarContainer />
         <div className="signup-form-container">
-          <form onSubmit={this.handleSubmit}>
-            <div className="signup-form">
-              <br/>
+          <form className="form-container-signup" onSubmit={this.handleSubmit}>
+            <div className="form-container-signup-2">
+              <div>(Insert Img)</div>
+                <h1 className="signup-header">Sign Up</h1>
+                <div>Email</div>
                 <input type="text"
+                className="signup-form-fields"
                   value={this.state.email}
                   onChange={this.update('email')}
-                  placeholder="Email"
                 />
               <br/>
+                <div>Username</div>
                 <input type="text"
+                  className="signup-form-fields"
                   value={this.state.handle}
                   onChange={this.update('handle')}
-                  placeholder="Handle"
                 />
               <br/>
+                <div>Password</div>
                 <input type="password"
+                  className="signup-form-fields"
                   value={this.state.password}
                   onChange={this.update('password')}
-                  placeholder="Password"
                 />
               <br/>
+              <div>Confirm Password</div>
                 <input type="password"
+                  className="signup-form-fields"
                   value={this.state.password2}
                   onChange={this.update('password2')}
-                  placeholder="Confirm Password"
                 />
               <br/>
-              <input type="submit" value="Submit" />
               {this.renderErrors()}
+              <input className="submit-btn" type="submit" value="Sign Up" />
+              <div className="signup-container-message">
+                <div className="signup-message">Already have an account?</div>
+                <Link className="signup-page-login-btn" to={'/login'}>Login</Link>
+              </div>
+              <div className="line"></div>
+              <div className="warning-text">
+                If you or someone you know has a gambling problem, 
+                crisis counseling and referral services can be 
+                accessed by calling 1-800-GAMBLER (1-800-426-2537).
+              </div>
             </div>
           </form>
         </div>

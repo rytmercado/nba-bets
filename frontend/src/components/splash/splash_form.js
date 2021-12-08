@@ -17,7 +17,7 @@ class SplashForm extends React.Component {
             <button id="button2"><span className="button-text2">Not 21</span></button>
             <p id="errors"></p>
             <footer>
-              Copyright &copy; 2021 NBA bets
+              Copyright &copy; 2021 NBA Bets
             </footer>
         </div>
         

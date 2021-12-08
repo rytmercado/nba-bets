@@ -40,6 +40,9 @@
 .age-buttons strong {
     background-color: black;
     color: #CBB26A;
+    position: absolute;
+    margin-top: -50px;
+    font-size: 20px;
 }
 
 .age-buttons footer {

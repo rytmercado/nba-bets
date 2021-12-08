@@ -18,53 +18,69 @@
     display: flex;
     background-color: #000000;
     position: absolute;
-    justify-content: space-between;
-    align-items: stretch;
-    width: 250px;
-    height:250px;
-    top: 60%;
-    left: 38%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    height:700px;
+    top: 5%;
+    left: 30%;
+    border-radius: 8px;
 }
 
+.age-buttons span {
+    background-color: #CBB26A;
+    color: black;
+    position: absolute;
+    font-family:'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    margin-top: -20px;
+}
+
+.age-buttons strong {
+    background-color: black;
+    color: #CBB26A;
+}
+
+.age-buttons footer {
+    background-color: black;
+    color: #cbb26a;
+    margin-bottom: 20px;
+}
+
+
 .age-buttons button {
-    background-color: #000000;
-    border: 2px solid white;
     cursor: pointer;
     padding: 40px;
     height: 25px;
-    width: 300px;
-    margin: 30px;
+    width: 250px;
+    border-radius: 4px;
+    margin-bottom: 60px;
+    margin-top: 10px;
 }
 
-.main-splash footer {
-    background-color: black;
-    top: 90%;
-    left: 38%;
-    color: #CBB26A;
-    justify-self: flex-end;
-    position: absolute;
+.age-buttons img {
+    height: 350px;
+    width: 622px;
 }
 
 #button1 {
-    background-color: green;
+    background-color:#CBB26A;
     color: black;
 }
 
 #button2 {
-    background-color: red;
+    background-color: #CBB26A;
     color: black;
 }
 
-.main-splash u {
-    background-color: #000000;
-    position: absolute;
-    margin-top: 130px;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.button-text {
-
+button span {
+    background-color: #CBB26A;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    margin-left: 60px;
+    margin-bottom: 5px;
 }
 
 

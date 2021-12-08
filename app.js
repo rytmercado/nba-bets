@@ -11,6 +11,12 @@ const getGameResults = require('./util/games')
 const Game = require('./models/Game')
 const tasks = require('./util/cron')
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 
 mongoose
     .connect(db, { useNewUrlParser: true })

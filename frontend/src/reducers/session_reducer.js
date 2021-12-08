@@ -24,7 +24,12 @@ const sessionReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        isSignedIn: true
+        isSignedIn: true,
+        user: {
+          id: action.currentUser.data._id,
+          handle: action.currentUser.data.handle,
+          email: action.currentUser.data.email
+        }
       }
     default:
       return state;

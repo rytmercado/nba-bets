@@ -6,7 +6,7 @@ const gamesReducer = (state={}, action) => {
 
     switch(action.type){
         case RECEIVE_GAMES:
-            return action.games;
+            return action.games.data;
         default:
             return state;
     }

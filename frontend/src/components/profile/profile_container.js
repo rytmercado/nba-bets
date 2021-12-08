@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 
 const mSTP = (state) => ({
-    user: state
+    currentUser: state.session.user
 })
 
 const mDTP = (dispatch) => ({

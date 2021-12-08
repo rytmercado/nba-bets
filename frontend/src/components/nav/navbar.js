@@ -29,7 +29,7 @@ class NavBar extends React.Component {
         return (
             <nav className="nav-bar-container">
                 <img className="logo" src={logo}></img>
-                <Link className="signup-btn" to={'/signup'}>Signup</Link>
+                <Link className="signup-btn" to={'/signup'}>Sign Up</Link>
                 <Link className="login-btn" to={'/login'}>Log In</Link>
             </nav>
         );

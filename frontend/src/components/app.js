@@ -7,6 +7,8 @@ import SignupFormContainer from './session/signup_form_container';
 import SplashForm from './splash/splash_form'
 import './reset.css'
 import './splash/splash.css'
+import './nav/navbar.css'
+import './session/login_form.css'
 
 
 const App = () => (

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { logout } from '../../actions/session_actions';
+import logo from '../../images/smallest-logo.JPG'
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -27,7 +29,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <nav className="nav-bar-container">
-                <Link className="signup-btn" to={'/signup'}>Signup</Link>
+                <img className="logo" src={logo}></img>
+                <Link className="signup-btn" to={'/signup'}>Sign Up</Link>
                 <Link className="login-btn" to={'/login'}>Log In</Link>
             </nav>
         );

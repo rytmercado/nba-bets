@@ -33,15 +33,17 @@ const getGameResults = () => {
 
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
-        console.log(homeScore)
-        console.log(awayScore)
-        game.status = result;
-        game.home_score = homeScore
-        game.away_score = awayScore 
 
-        console.log(game)
+        if(!!game) {
 
-        game.save();
+          game.status = result;
+          game.home_score = homeScore
+          game.away_score = awayScore 
+  
+          console.log(game)
+  
+          game.save();
+        }
       })
       .catch(err => console.log(err))
     }

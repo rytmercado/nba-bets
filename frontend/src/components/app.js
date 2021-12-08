@@ -10,6 +10,7 @@ import './splash/splash.css'
 import './nav/navbar.css'
 import './session/login_form.css'
 import './session/signup_form.css'
+import '../components/games/game_index_item.css'
 
 
 const App = () => (

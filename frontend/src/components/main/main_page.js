@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../nav/navbar_container';
+import GameIndexContainer from '../games/game_index_container';
+
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -10,10 +12,13 @@ class MainPage extends React.Component {
     return (
       <div className="main">
         <NavBarContainer/>
-        <h1>NBA BETS APP</h1>
-        <footer>
-          Copyright &copy; 2021 NBA bets
-        </footer>
+          <div className="all-games">
+          <h1>Today's Games</h1>
+            <GameIndexContainer />
+          <footer>
+            Copyright &copy; 2021 NBA bets
+          </footer>
+          </div>
       </div>
     );
   }

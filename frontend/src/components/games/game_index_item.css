@@ -1,0 +1,45 @@
+.game-index-item-grid {
+    display: grid;
+    grid-template-columns: 200px 40px;
+    grid-template-rows: 25px 25px;
+    background-color: #000000;
+    width: 240px;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.odds, .team {
+    color: white;
+    background-color: #000000;
+    border: 1px solid grey;
+}
+
+.team {
+    padding-left: 5px;
+}
+
+.outer-grid {
+    
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+
+
+}
+
+.all-games {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main h1 {
+    font-size: 40px;
+    margin: 10px;
+    font-weight: 800;
+}
+
+.main footer {
+    justify-self: flex-end;
+}
+

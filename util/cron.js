@@ -6,7 +6,11 @@ const getGameOdds = require('./odds')
 // console.log(cron.validate('*/4 * * * *'));
 
 const tasks = () => {
+<<<<<<< HEAD
     cron.schedule('0 */2 * * * *', () => {
+=======
+    cron.schedule('*/2 * * * *', () => {
+>>>>>>> wes
       console.log('running every 2 minutes');
       getGameResults();
     });

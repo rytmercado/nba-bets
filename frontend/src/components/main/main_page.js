@@ -6,16 +6,6 @@ class MainPage extends React.Component {
       super(props);
   }
 
-   {
-
-  }
-
-  renderGames () {
-    const games = this.props.fetchAllGames;
-    const today = Date.getMonth() + " " + Date.getDay();
-    
-  }
-
   render() {
     return (
       <div className="main">

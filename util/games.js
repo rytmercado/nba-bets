@@ -3,10 +3,13 @@ const mongoose = require('mongoose')
 const Game = require('../models/Game')
 
 const getGameResults = () => {
+  //GMT? 
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
+
+
   
   today = yyyy + '-' + mm + '-' + dd;
   axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2022&seasons[]=2021&dates[]=${today}`)
@@ -15,7 +18,6 @@ const getGameResults = () => {
 
     for(let i = 0; i < data.length; i++){
       let result = data[i].status;
-      
       let fullHomeName = data[i].home_team.full_name 
       let fullAwayName = data[i].visitor_team.full_name 
       

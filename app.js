@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const db = require('./config/keys').mongoURI
 const users = require("./routes/api/users")
 const games = require("./routes/api/games")
+const bets = require("./routes/api/bets")
 const User = require("./models/User")
 const bodyParser = require("body-parser")
 const passport = require("passport");
@@ -32,8 +33,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); 
 
 app.use("/api/users", users);
-app.use("/api/games", games);
-app.use("/api/bets", odds);
+app.use("/api/games", games)
+app.use("/api/bets/", bets)
 
 // console.log(Game.find({home_team: "Golden State Warriors"}, () => {
 

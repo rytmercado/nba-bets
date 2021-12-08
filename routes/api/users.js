@@ -64,6 +64,7 @@ router.post('/login', (req, res) => {
       bcrypt.compare(req.body.password, user.password).then(isMatch => {
         if (!!isMatch){
           const payload = {
+            //is this mongo's object id?
             id: user.id,
             handle: user.handle,
             email: user.email

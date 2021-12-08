@@ -38,6 +38,7 @@ class NavBar extends React.Component {
         <div className="navbar">
             <img src="https://i.ibb.co/RzwvGf5/logo-small.jpg"/>
             <Link to="/profile">Profile</Link>
+            <span>Account Balance:</span>
             <button onClick={this.logoutUser}>Logout</button>
         </div>
       );

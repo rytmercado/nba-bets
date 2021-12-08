@@ -13,6 +13,7 @@ class MainPage extends React.Component {
   renderGames () {
     const games = this.props.fetchAllGames;
     const today = Date.getMonth() + " " + Date.getDay();
+    
   }
 
   render() {

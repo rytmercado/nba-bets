@@ -7,7 +7,8 @@
     "server:debug": "nodemon --inspect app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -20,6 +21,8 @@
     "node-cron": "^3.0.0",
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {

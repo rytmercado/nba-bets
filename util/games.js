@@ -12,21 +12,19 @@ const getGameResults = () => {
   axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2022&seasons[]=2021&dates[]=${today}`)
   .then(res => {
     let data = res.data.data;
-    let fullHomeName;
-    let fullAwayName;
-    let homeScore;
-    let awayScore;
-    let result;
+
     for(let i = 0; i < data.length; i++){
+      let result = data[i].status;
       
-      fullHomeName = data[i].home_team.full_name 
-      fullAwayName = data[i].visitor_team.full_name 
-      homeScore = data[i].home_team_score 
-      awayScore = data[i].visitor_team_score 
+      let fullHomeName = data[i].home_team.full_name 
+      let fullAwayName = data[i].visitor_team.full_name 
+      
+      let homeScore = data[i].home_team_score 
+      let awayScore = data[i].visitor_team_score 
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
-        result = result
+        result = 'Final'
       } else if (homeScore > 0) {
         result = "In Progress"; 
       } else {
@@ -35,11 +33,17 @@ const getGameResults = () => {
 
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
-        console.log(game)
-        game.status = result;
-        game.home_score = homeScore
-        game.away_score = awayScore 
-        game.save();
+
+        if(!!game) {
+
+          game.status = result;
+          game.home_score = homeScore
+          game.away_score = awayScore 
+  
+          console.log(game)
+  
+          game.save();
+        }
       })
       .catch(err => console.log(err))
     }

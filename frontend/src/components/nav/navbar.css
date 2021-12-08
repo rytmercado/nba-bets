@@ -1,10 +1,11 @@
 nav {
-    /* background-color: #000000; */
+    background-color: #000000;
 }
 
 .nav-bar-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     /* color: white; */
     color: black;
     padding: 12px;
@@ -24,6 +25,7 @@ nav {
     font-family:'Lucida Sans', Arial, sans-serif;
     /* background-color: #000000; */
     margin-right: 30px;  
+    margin-top: 8px;
     padding: 5px 15px 5px 15px;
     /* border: 1px solid white; */
     border: 1px solid #000000;
@@ -34,8 +36,17 @@ nav {
     font-family:'Lucida Sans', Arial, sans-serif;
     /* background-color: #000000; */
     margin-right: 20px;
+    margin-top: 8px;
     padding: 5px 15px 5px 15px;
     /* border: 1px solid white; */
     border: 1px solid #000000;
     border-radius: 2px;
+}
+
+.logo {
+    background-color: black;
+    margin-right: auto;
+    padding-left: 10px;
+    width: auto;
+    height: 50px;
 }

@@ -66,7 +66,6 @@ class LoginForm extends React.Component {
         <div className="form-container">
           <form className="form-container-login" onSubmit={this.handleSubmit}>
             <div className="form-container-login-2">
-                <div>(Insert Img)</div>
                 <h1 className="login-header">Log In</h1>
                 <div>Email</div>
                 <input type="text"

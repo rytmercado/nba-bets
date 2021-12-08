@@ -11,11 +11,11 @@ import './splash/splash.css'
 
 const App = () => (
   <div>
-    <Route path="/" component={SplashForm} />
     <Switch>
         <AuthRoute exact path="/main" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <Route path="/" component={SplashForm} />
         {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
     </Switch>
   </div>

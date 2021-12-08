@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
+import { getGames } from './actions/game_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -35,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // If this is a first time user, start with an empty store
     store = configureStore({});
   }
+
+  window.getGames = getGames;
+  window.store = store;
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
 

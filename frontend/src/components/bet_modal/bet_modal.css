@@ -13,7 +13,7 @@
     width: 600px;
     height:400px;
     top: 30%;
-    left: 30%;
+    left: 38%;
 }
 
 
@@ -82,4 +82,12 @@
 
 #bet-amount {
     border: 1px solid black;
+}
+
+.make-bet {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: black;
+    color: white;
 }

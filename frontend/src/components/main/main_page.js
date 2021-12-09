@@ -16,7 +16,7 @@ class MainPage extends React.Component {
         </div>
         <div className="all-games">
           <h1>Today's Games</h1>
-          <button>Make Bet</button>
+          <button className="make-bet">Make Bet</button>
           <GameIndexContainer />
           <footer>
             Copyright &copy; 2021 NBA bets

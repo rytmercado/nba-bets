@@ -39,6 +39,7 @@ const getGameResults = () => {
       .then(game => {
         console.log(game)
         if(!!game) {
+
           //TODO: 
           // if (result === 'Final'){
           //   if(homeScore > awayScore){
@@ -46,8 +47,7 @@ const getGameResults = () => {
           //   } else {
           //     winner = fullAwayName
           //   }
-          //   //TODO: trigger action
-          //   // resolveBets(winner, game._id)
+          //  resolveBets(winner, game._id)
           // }
 
           game.status = result;
@@ -64,7 +64,7 @@ const getGameResults = () => {
           game.away_score = awayScore 
 
           //Crossover with odds API
-          //These will not work if the APIs treat names diffrenetly 
+          //These will corrupt the database if the APIs treat names diffrently 
           game.home_team = fullHomeName
           game.away_team = fullAwayName
 
@@ -74,7 +74,10 @@ const getGameResults = () => {
           game.home_odds = -1
           game.away_odds = -1
 
-          game.save();
+          //Use the schema 
+          let newGame = new Game(game)
+
+          newGame.save();
 
         }
 

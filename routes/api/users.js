@@ -21,8 +21,12 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/handshake', (req, res) => {
-  User.findById(req.body.UserId).then(user => {
+  // console.log(req.body.userId)
+  User.findById(req.body.userId).then(user => {
     if (user) {
+      if (parseInt(req.body.amount) !== user.currency){
+        return res.status(401).json({"msg": "User currency data is inconsistent"})
+      }
       return res.json(user.currency)
     } else {
       return res.status(404).json({"msg": "User not found"})

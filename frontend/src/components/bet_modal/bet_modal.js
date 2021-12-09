@@ -7,9 +7,6 @@ class BetModal extends React.Component {
 
 
     render () {
-        if (!this.props.show) {
-            return null
-        } else {
             return (
                 <div className="modal">
                     <div className="modal-content">
@@ -18,10 +15,12 @@ class BetModal extends React.Component {
                         </div>
                         <div className="modal-body">
                             <h6 className="matchup">Golden State Warriors vs. Los Angeles Lakers</h6>
-                            <input type="radio" id="favorite" value="odds" name="odds">-200</input>
-                            <input type="radio" id="underdog" value="odds" name="odds">+300</input>
+                            <label for="favorite">-200</label>
+                            <input type="radio" id="favorite" value="odds" name="odds"/>
+                            <label for="underdog">+300</label>
+                            <input type="radio" id="underdog" value="odds" name="odds"/>
                             <label for="bet-amount">Bet Amount:</label>
-                            <input id="bet-mount"></input>
+                            <input id="bet-amount"/>
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button">Place Bet</button>
@@ -31,6 +30,6 @@ class BetModal extends React.Component {
                 </div>
         )
     }
-}}
+}
 
 export default BetModal;

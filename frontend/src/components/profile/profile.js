@@ -12,7 +12,7 @@ class Profile extends React.Component {
             <div className="profile-container">
                 <NavBarContainer />
                 <div className="profile-body-container">
-                    <div>{this.props.currentUser.handle}</div>
+                    <div className="profile-body-header">{this.props.currentUser.handle}</div>
                 </div>
             </div>
         )

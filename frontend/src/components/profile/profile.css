@@ -8,6 +8,7 @@
 
 .profile-body-container {
     width: 900px;
+    height: 200px;
     padding-top: 20px;
     padding-right: 40px;
     padding-left: 40px;
@@ -15,8 +16,16 @@
     position: absolute;
     background: white;
     text-align: center;
-    top: 20%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
+}
+
+.profile-body-header {
+    background-color: lightblue;
+    display: block;
+    padding: 5px 10px 5px 10px;
+    overflow:hidden;
+    border-radius: 5px;  
 }

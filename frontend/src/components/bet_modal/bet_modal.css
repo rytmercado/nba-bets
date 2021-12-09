@@ -32,7 +32,7 @@
     padding-right: 80px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    color: white;
+    color: black;
 
 }
 
@@ -42,11 +42,18 @@
 
 }
 
-.modal-header, .modal-footer {
+.modal-header {
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.modal-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
 }
     
 .modal-title {

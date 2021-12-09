@@ -19,10 +19,10 @@ class MainPage extends React.Component {
         <div className="main-nav">
           <NavBarContainer/>
         </div>
-        <div className="main-content">
+        <div className="all-games">
           <h1>Today's Games</h1>
           <GameIndexContainer />
-          <button className="make-bet" onClick={() => this.setState({modalOpen: true})}>Make Bet</button>
+          <button onClick={() => this.setState({modalOpen: true})}>Make Bet</button>
           <footer>
             Copyright &copy; 2021 NBA bets
           </footer>

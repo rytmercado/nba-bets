@@ -1,5 +1,6 @@
 const axios = require('axios')
 const mongoose = require('mongoose')
+const Bet = require('../models/Bet')
 const Game = require('../models/Game')
 const resolveBets = require('./resolveBets')
 
@@ -39,16 +40,17 @@ const getGameResults = () => {
       .then(game => {
         console.log(game)
         if(!!game) {
+          // debugger 
 
-          //TODO: 
-          // if (result === 'Final'){
-          //   if(homeScore > awayScore){
-          //     winner = fullHomeName
-          //   } else {
-          //     winner = fullAwayName
-          //   }
-          //  resolveBets(winner, game._id)
-          // }
+          if (result === 'Final'){
+            if(homeScore > awayScore){
+              winner = fullHomeName
+            } else {
+              winner = fullAwayName
+            }
+            resolveBets(game._doc._id, winner)
+          }
+
 
           game.status = result;
           game.home_score = homeScore
@@ -58,27 +60,27 @@ const getGameResults = () => {
   
           game.save();
         } else {
-          //Doesn't work yet 
-          //BallDontLie data 
-          game.status = result;
-          game.home_score = homeScore
-          game.away_score = awayScore 
+          // //Doesn't work yet 
+          // //BallDontLie data 
+          // game.status = result;
+          // game.home_score = homeScore
+          // game.away_score = awayScore 
 
-          //Crossover with odds API
-          //These will corrupt the database if the APIs treat names diffrently 
-          game.home_team = fullHomeName
-          game.away_team = fullAwayName
+          // //Crossover with odds API
+          // //These will corrupt the database if the APIs treat names diffrently 
+          // game.home_team = fullHomeName
+          // game.away_team = fullAwayName
 
 
-          //Placeholders for odds API
-          game.start_time = "Unknown"
-          game.home_odds = -1
-          game.away_odds = -1
+          // //Placeholders for odds API
+          // game.start_time = "Unknown"
+          // game.home_odds = -1
+          // game.away_odds = -1
 
-          //Use the schema 
-          let newGame = new Game(game)
+          // //Use the schema 
+          // let newGame = new Game(game)
 
-          newGame.save();
+          // newGame.save();
 
         }
 

@@ -24,7 +24,7 @@ const getGameOdds = () => {
 
         //If status is false, update game 
         //home team, away team, status
-      Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}, {status: "Incomplete"}]}).then(game => {
+      Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}]}).then(game => {
         if (game === null){
           let newGame = new Game(odds_obj)
           newGame.save()

@@ -23,6 +23,7 @@ class MainPage extends React.Component {
         </div>
         <div className="main-content">
           <h1>NBA BETS APP</h1>
+          <GameIndexContainer />
           <button onClick={() => this.setState({modalOpen: true})}>Make Bet</button>
           <footer>
             Copyright &copy; 2021 NBA bets

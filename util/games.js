@@ -36,7 +36,10 @@ const getGameResults = () => {
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
         if(!!game) {
-
+          if (result === 'Final'){
+            //Trigger logic to resolve the bets for the given game 
+            
+          }
           game.status = result;
           game.home_score = homeScore
           game.away_score = awayScore 

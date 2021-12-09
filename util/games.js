@@ -1,6 +1,7 @@
 const axios = require('axios')
 const mongoose = require('mongoose')
 const Game = require('../models/Game')
+const resolveBets = require('./resolveBets')
 
 const getGameResults = () => {
   //GMT? 
@@ -37,8 +38,13 @@ const getGameResults = () => {
       .then(game => {
         if(!!game) {
           if (result === 'Final'){
-            //Trigger logic to resolve the bets for the given game 
-            
+            if(homeScore > awayScore){
+              winner = fullHomeName
+            } else {
+              winner = fullAwayName
+            }
+            //TODO: trigger action
+            resolveBets(winner, game._id)
           }
           game.status = result;
           game.home_score = homeScore

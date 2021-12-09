@@ -74,7 +74,8 @@ router.post('/login', (req, res) => {
             //is this mongo's object id?
             id: user.id,
             handle: user.handle,
-            email: user.email
+            email: user.email,
+            currency: user.currency,
           }
 
           jwt.sign(

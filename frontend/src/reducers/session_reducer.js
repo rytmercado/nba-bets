@@ -10,10 +10,11 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+      console.log(action.currentUser)
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
-        user: action.currentUser
+        user: action.currentUser,
       };
     case RECEIVE_USER_LOGOUT:
       return {
@@ -28,7 +29,8 @@ const sessionReducer = (state = initialState, action) => {
         user: {
           id: action.currentUser.data._id,
           handle: action.currentUser.data.handle,
-          email: action.currentUser.data.email
+          email: action.currentUser.data.email,
+          currency: action.currentUser.data.currency
         }
       }
     default:

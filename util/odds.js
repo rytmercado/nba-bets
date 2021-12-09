@@ -9,10 +9,10 @@ const getGameOdds = () => {
   .then( res => {
     for(let i = 0; i < res.data.length; i++){
       let odds_obj = {}; 
-      if(144000000> Date.parse(res.data[i].commence_time) + offset - Date.now() > 0){
+      if(144000000 > Date.parse(res.data[i].commence_time) + offset - Date.now() > 0){
         let odds = res.data; 
-        odds_obj.start_time = odds[i].commence_time,
-        odds_obj.home_team = odds[i].home_team,
+        odds_obj.start_time = odds[i].commence_time
+        odds_obj.home_team = odds[i].home_team
         odds_obj.away_team = odds[i].away_team
         odds_obj.home_odds = odds[i].bookmakers[0].markets[0].outcomes[0].price
         odds_obj.away_odds = odds[i].bookmakers[0].markets[0].outcomes[1].price
@@ -23,13 +23,13 @@ const getGameOdds = () => {
         odds_obj.away_score = -1;
 
         //If status is false, update game 
-      Game.findOne({start_time: odds_obj.start_time}).then(game => {
-        console.log(game)
+        //home team, away team, status
+      Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}, {status: "Incomplete"}]}).then(game => {
         if (game === null){
           let newGame = new Game(odds_obj)
           newGame.save()
         }else {
-          if (!game.status){
+          if (game.status === "Incomplete"){
             game.home_odds = odds_obj.home_odds
             game.away_odds = odds_obj.away_odds
             game.save()

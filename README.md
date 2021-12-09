@@ -13,15 +13,15 @@ A MERN-stack NBA betting app with live odds, scores, and results.
 9. [Sources](#sources)
 
 ## In NBAA-Bets, users will be able to: <a name="description"></a>
-#### Place bets on real NBA games with virtual currency.
-#### Win or lose currency based on the results of NBA games.
-#### View a history of bets made on NBA games.
+ * Place bets on real NBA games with virtual currency.
+ * Win or lose currency based on the results of NBA games.
+ * View a history of bets made on NBA games.
 
 ## In addition, this project will include: <a name="additional-features"></a>
-#### A production README
-#### Real-time NBA game odds and scores.
-#### Nav links to include links to this project's Github repo and team member's Linkedin.
-#### Ability to add more currency to fund future bets.
+ * A production README
+ * Real-time NBA game odds and scores.
+ * Nav links to include links to this project's Github repo and team member's Linkedin.
+ * Ability to add more currency to fund future bets.
 
 ## Technologies <a name="technologies"></a>
  * Mongoose

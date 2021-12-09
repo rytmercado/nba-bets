@@ -8,7 +8,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    postBet: () => dispatch(getGames()),
-  });
+
+});
 
 export default connect(null, mDTP)(MainPage);

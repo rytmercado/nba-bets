@@ -3,34 +3,31 @@ A MERN-stack NBA betting app with live odds, scores, and results.
 
 ## Table of Contents
 1. [Description](#description)
-2. [Additional Features](#installation)
-3. [Wireframe](#wireframe)
-4. [Technologies](#technologies)
-5. [Implementation Timeline](#implementation-timeline)
-6. [Contributions](#contributions)
-7. [Illustrations](#illustrations)
-8. [Questions](#questions)
-9. [Status](#status)
-10. [Sources](#sources)
+2. [Additional Features](#additional-features)
+3. [Technologies](#technologies)
+4. [Implementation Timeline](#implementation-timeline)
+5. [Contributions](#contributions)
+6. [Illustrations](#illustrations)
+7. [Questions](#questions)
+8. [Status](#status)
+9. [Sources](#sources)
 
 ## In NBAA-Bets, users will be able to: <a name="description"></a>
 #### Place bets on real NBA games with virtual currency.
 #### Win or lose currency based on the results of NBA games.
 #### View a history of bets made on NBA games.
 
-## In addition, this project will include: <a name="description"></a>
+## In addition, this project will include: <a name="additional-features"></a>
 #### A production README
 #### Real-time NBA game odds and scores.
 #### Nav links to include links to this project's Github repo and team member's Linkedin.
 #### Ability to add more currency to fund future bets.
 
-## Wireframe
-
 ## Technologies <a name="technologies"></a>
-#### -Mongoose
-#### -Express
-#### -React
-#### -Node.js
+ * Mongoose
+ * Express
+ * React
+ * Node.js
 
 ## Implementation Timeline <a name="implementation-timeline"></a>
 #### 12/5/21
@@ -52,10 +49,12 @@ A MERN-stack NBA betting app with live odds, scores, and results.
  * Node Cron
  * the-odds-api
  * ball-dont-lie-api
+
 ## Contributions <a name="contributions"></a>
 ##### You can make contributions to my project here! 
  <a href="https://github.com/rytmercado">Contribute Here</a>
 ## Illustrations <a name="illustrations"></a>
+![nbaabetssplash](https://user-images.githubusercontent.com/83959916/145456513-3a1eeac9-eb73-4db0-a64f-e74bf27a9847.png)
 
 ## Questions <a name="questions"></a>
 #### If you have any questions please reach out to me via E-Mail: rytmercado@gmail.com

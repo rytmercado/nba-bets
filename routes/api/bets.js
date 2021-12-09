@@ -12,6 +12,7 @@ router.get('/index', (req, res) => {
   })
 })
 
+
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 
 
@@ -30,12 +31,14 @@ router.post('/create', (req, res) => {
         bet.status = 'Incomplete'
         bet.amount = parseInt(req.body.amount);
 
+        // set status 
         if (req.body.selection === "true"){
           selection = true;
         } else {
           selection = false; 
         }
 
+        //caculate payout
         if (selection){
           bet.selection = game.home_team
           if (game.home_odds > 0){
@@ -51,13 +54,14 @@ router.post('/create', (req, res) => {
             bet.payout = (100/game.away_odds) * bet.amount * -1 + bet.amount
           }
         }
-
         bet.payout = Math.floor(bet.payout)
+
+        // deduct amount
         user.currency -= bet.amount
-
-
-        let newBet = new Bet(bet)
         user.save()
+
+        //respond with the the made bet
+        let newBet = new Bet(bet)
         newBet.save()
 
 
@@ -67,7 +71,7 @@ router.post('/create', (req, res) => {
       //If it's not, respond with an error + message
       return res.status(422).json({msg: `${user.handle} bet ${req.body.amount - user.currency} too much`})
     }
-    //If it is, caculate payout, set status, deduct amount, respond with the the made bet
+    //If it is, caculate payout, , respond with the the made bet
   })
 })
 

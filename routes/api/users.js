@@ -16,7 +16,7 @@ router.post('/add', (req, res) => {
     console.log(user)
     user.currency += parseInt(req.body.amount)
     user.save()
-    return res.json(user)
+    return res.json(user.currency)
   })
 })
 

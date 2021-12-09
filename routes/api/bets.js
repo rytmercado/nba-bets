@@ -5,6 +5,7 @@ const Game = require('../../models/Game');
 const e = require("express");
 const Bet = require("../../models/Bet");
 
+//index for a given user 
 router.get('/index', (req, res) => {
   Bet.find({user: req.body.userId}, (err, bets) => {
     return res.json(bets)
@@ -13,16 +14,15 @@ router.get('/index', (req, res) => {
 
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 
-  // console.log(req.body.user)
-  console.log(req.body.userId)
+
   User.findById(req.body.userId, (err, user) => {
-    // console.log(user.currency)
+
     if (user.currency - req.body.amount > 0){
       let bet = {}
       bet.user = user;
 
       Game.findById(req.body.game, (err, game) => {
-        if (game.status === 'Final' || game.status === 'Progress'){
+        if (game.status === 'Final' || game.status === 'In Progress'){
           return res.status(422).json({"msg": `game ${game.status}`})
         }
 

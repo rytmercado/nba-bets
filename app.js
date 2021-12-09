@@ -35,9 +35,6 @@ app.use("/api/users", users);
 app.use("/api/games", games)
 app.use("/api/bets", bets)
 
-// console.log(Game.find({home_team: "Golden State Warriors"}, () => {
-
-// }))
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 
@@ -51,6 +48,4 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 
-// getGameResults()
-// getGameOdds();
-tasks();
+tasks(); // odds and game results node cron tasks

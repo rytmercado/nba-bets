@@ -58,6 +58,7 @@ const getGameResults = () => {
   
           game.save();
         } else {
+          //Doesn't work yet 
           //BallDontLie data 
           game.status = result;
           game.home_score = homeScore

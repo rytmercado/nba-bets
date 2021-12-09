@@ -55,7 +55,12 @@ A MERN-stack NBA betting app with live odds, scores, and results.
 ![nbaabetssplash](https://user-images.githubusercontent.com/83959916/145456513-3a1eeac9-eb73-4db0-a64f-e74bf27a9847.png)
 
 ## Questions <a name="questions"></a>
-#### If you have any questions please reach out to me via E-Mail: rytmercado@gmail.com
+#### If you have any questions please reach out to any team-member via E-Mail: 
+ * rytmercado@gmail.com
+ * littlehouse2104@gmail.com
+ * tharpercp@gmail.com
+ * wesley.h.cheung@gmail.com
+
 ## Status <a name="status"></a>
 In progress.
 ## Sources <a name="sources"></a>

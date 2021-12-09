@@ -21,9 +21,8 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/handshake', (req, res) => {
-  let currency = req.body.currency;
   User.findById(req.body.UserId).then(user => {
-    if (user){
+    if (user) {
       return res.json(user.currency)
     } else {
       return res.status(404).json({"msg": "User not found"})

@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/games", games)
-app.use("/api/bets/", bets)
+app.use("/api/bets", bets)
 
 // console.log(Game.find({home_team: "Golden State Warriors"}, () => {
 

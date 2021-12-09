@@ -11,8 +11,10 @@ class Profile extends React.Component {
         return(
             <div className="profile-container">
                 <NavBarContainer />
-                <div>
-                    <div>{this.props.currentUser.handle}</div>
+                <div className="profile-body-container">
+                    <div className="profile-body-header">{this.props.currentUser.handle}</div>
+                    <div className="profile-body">games go here</div>
+
                 </div>
             </div>
         )

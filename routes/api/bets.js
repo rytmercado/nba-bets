@@ -4,6 +4,7 @@ const User = require('../../models/User')
 const Game = require('../../models/Game');
 const e = require("express");
 const Bet = require("../../models/Bet");
+const mongoose = require("mongoose");
 
 //index for a given user 
 router.get('/index', (req, res) => {
@@ -15,8 +16,11 @@ router.get('/index', (req, res) => {
 
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 
-
+  // console.log(req.body.user)
+  // let userObjectId = mongoose.Types.ObjectId(req.body.userId)
+  // console.log(userObjectId)
   User.findById(req.body.userId, (err, user) => {
+    //TODO: Need to check that game is Incomplete
 
     if (user.currency - req.body.amount > 0){
       let bet = {}

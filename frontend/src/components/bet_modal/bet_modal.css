@@ -1,0 +1,51 @@
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+
+
+.bet-button{
+    background-color: #53d337;
+    border: 1px solid #53d337;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 23px;
+    font-weight:bold;
+    margin-top: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 83px;
+    padding-right: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.modal-content {
+    width: 500px;
+    background-color: #fff;
+
+}
+
+.modal-header, .modal-footer {
+    padding: 10px;
+}
+    
+.modal-title {
+    margin: 0;
+}
+ 
+.modal-body {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+    

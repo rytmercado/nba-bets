@@ -1,0 +1,93 @@
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border: 1px solid grey;
+    position: absolute;
+    width: 600px;
+    height:400px;
+    top: 30%;
+    left: 38%;
+}
+
+
+
+.bet-button{
+    background-color: #53d337;
+    border: 1px solid #53d337;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 23px;
+    font-weight:bold;
+    margin-top: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 83px;
+    padding-right: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+
+}
+
+.modal-content {
+    width: 500px;
+    background-color: #fff;
+
+}
+
+.modal-header, .modal-footer {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+.modal-title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    float: 
+}
+ 
+.modal-body {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#favorite {
+    float: inline-start;
+}
+
+#underdog {
+    float: inline-end;
+}
+    
+
+.matchup {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+#bet-amount {
+    border: 1px solid black;
+}
+
+.make-bet {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}

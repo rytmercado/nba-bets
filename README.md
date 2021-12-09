@@ -28,6 +28,9 @@ A MERN-stack NBA betting app with live odds, scores, and results.
  * Express
  * React
  * Node.js
+ * Node Cron
+ * the-odds-api
+ * ball-dont-lie-api
 
 ## Implementation Timeline <a name="implementation-timeline"></a>
 #### 12/5/21
@@ -44,11 +47,6 @@ A MERN-stack NBA betting app with live odds, scores, and results.
  * Modal to place bets.
  * Bets resolving logic.
  * User profile with historical and future bets.
-
-## Technologies <a name="technologies"></a>
- * Node Cron
- * the-odds-api
- * ball-dont-lie-api
 
 ## Contributions <a name="contributions"></a>
 ##### You can make contributions to my project here! 

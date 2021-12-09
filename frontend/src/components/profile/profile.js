@@ -13,6 +13,8 @@ class Profile extends React.Component {
                 <NavBarContainer />
                 <div className="profile-body-container">
                     <div className="profile-body-header">{this.props.currentUser.handle}</div>
+                    <div className="profile-body">games go here</div>
+
                 </div>
             </div>
         )

@@ -39,15 +39,17 @@ const getGameResults = () => {
       .then(game => {
         console.log(game)
         if(!!game) {
-          if (result === 'Final'){
-            if(homeScore > awayScore){
-              winner = fullHomeName
-            } else {
-              winner = fullAwayName
-            }
-            //TODO: trigger action
-            // resolveBets(winner, game._id)
-          }
+          //TODO: 
+          // if (result === 'Final'){
+          //   if(homeScore > awayScore){
+          //     winner = fullHomeName
+          //   } else {
+          //     winner = fullAwayName
+          //   }
+          //   //TODO: trigger action
+          //   // resolveBets(winner, game._id)
+          // }
+
           game.status = result;
           game.home_score = homeScore
           game.away_score = awayScore 
@@ -55,7 +57,27 @@ const getGameResults = () => {
           console.log(game)
   
           game.save();
+        } else {
+          //BallDontLie data 
+          game.status = result;
+          game.home_score = homeScore
+          game.away_score = awayScore 
+
+          //Crossover with odds API
+          //These will not work if the APIs treat names diffrenetly 
+          game.home_team = fullHomeName
+          game.away_team = fullAwayName
+
+
+          //Placeholders for odds API
+          game.start_time = "Unknown"
+          game.home_odds = -1
+          game.away_odds = -1
+
+          game.save();
+
         }
+
       })
       .catch(err => console.log(err))
     }

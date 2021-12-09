@@ -11,7 +11,7 @@ class Profile extends React.Component {
         return(
             <div className="profile-container">
                 <NavBarContainer />
-                <div>
+                <div className="profile-body-container">
                     <div>{this.props.currentUser.handle}</div>
                 </div>
             </div>

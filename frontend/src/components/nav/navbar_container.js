@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
   user: state.session.user
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(NavBar);
+const mDTP = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(mapStateToProps, mDTP)(NavBar);

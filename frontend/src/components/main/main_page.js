@@ -21,7 +21,7 @@ class MainPage extends React.Component {
         <div className="main-nav">
           <NavBarContainer/>
         </div>
-        <div className="main-content">
+        <div className="all-games">
           <h1>NBA BETS APP</h1>
           <GameIndexContainer />
           <button onClick={() => this.setState({modalOpen: true})}>Make Bet</button>

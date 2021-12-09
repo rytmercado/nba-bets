@@ -5,23 +5,37 @@ const Game = require('../../models/Game');
 const e = require("express");
 const Bet = require("../../models/Bet");
 
+router.get('/index', (req, res) => {
+  Bet.find({user: req.body.userId}, (err, bets) => {
+    return res.json(bets)
+  })
+})
+
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 
   // console.log(req.body.user)
+  console.log(req.body.userId)
   User.findById(req.body.userId, (err, user) => {
-    //TODO: Need to check that game is Incomplete
+    // console.log(user.currency)
     if (user.currency - req.body.amount > 0){
       let bet = {}
       bet.user = user;
+
       Game.findById(req.body.game, (err, game) => {
+        if (game.status === 'Final' || game.status === 'Progress'){
+          return res.status(422).json({"msg": `game ${game.status}`})
+        }
+
         bet.game = req.body.game; 
         bet.status = 'Incomplete'
         bet.amount = parseInt(req.body.amount);
+
         if (req.body.selection === "true"){
           selection = true;
         } else {
           selection = false; 
         }
+
         if (selection){
           bet.selection = game.home_team
           if (game.home_odds > 0){
@@ -37,18 +51,21 @@ router.post('/create', (req, res) => {
             bet.payout = (100/game.away_odds) * bet.amount * -1 + bet.amount
           }
         }
+
         bet.payout = Math.floor(bet.payout)
         user.currency -= bet.amount
-        //does this work
-        // bet = new Bet(bet)
+
+
         let newBet = new Bet(bet)
         user.save()
         newBet.save()
+
+
         return res.json({bet: newBet})
       })
     } else {
       //If it's not, respond with an error + message
-      return res.status(422).json({msg: `${user.handle} bet ${req.amount - user.currency} too much`})
+      return res.status(422).json({msg: `${user.handle} bet ${req.body.amount - user.currency} too much`})
     }
     //If it is, caculate payout, set status, deduct amount, respond with the the made bet
   })

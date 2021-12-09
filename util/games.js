@@ -13,7 +13,8 @@ const getGameResults = () => {
 
   
   today = yyyy + '-' + mm + '-' + dd;
-  axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2022&seasons[]=2021&dates[]=${today}`)
+  console.log(today)
+  axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2021&dates[]=${today}`)
   .then(res => {
     let data = res.data.data;
 
@@ -36,6 +37,7 @@ const getGameResults = () => {
       
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
+        console.log(game)
         if(!!game) {
           if (result === 'Final'){
             if(homeScore > awayScore){
@@ -44,7 +46,7 @@ const getGameResults = () => {
               winner = fullAwayName
             }
             //TODO: trigger action
-            resolveBets(winner, game._id)
+            // resolveBets(winner, game._id)
           }
           game.status = result;
           game.home_score = homeScore

@@ -6,10 +6,18 @@ const keys = require('../../config/keys_development')
 const jwt = require('jsonwebtoken')
 const validateRegisterInput = require('../../config/validation/register')
 const validateLoginInput = require('../../config/validation/login')
+const mongoose = require('mongoose')
 
-
-router.get("/test", (req, res) => {
-  res.json({msg: "this is the user router"})
+router.post('/add', (req, res) => {
+  User.findById(req.body.userId, (err, user) => {
+    if (user === null){
+      return res.status(404).json({"msg": "user not found"})
+    }
+    console.log(user)
+    user.currency += parseInt(req.body.amount)
+    user.save()
+    return res.json(user)
+  })
 })
 
 

@@ -7,7 +7,10 @@ const betsReducer = (state = [], action) => {
     switch(action.type) {
         case RECEIVE_BET:
             // console.log(action.bet.data.bet.user)
-            newState[action.bet.data.bet.user] = action.bet.data;
+            // debugger
+            // newState[action.bet.data.bet.user] = action.bet.data;
+            // newState[action.currentUser.currency] -= action.bet.data.payout;
+            newState[action.bet._id] = action.bet
             return newState;
             // return action.bet.data
         default: 

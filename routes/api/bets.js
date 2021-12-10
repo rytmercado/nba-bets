@@ -69,7 +69,8 @@ router.post('/create', (req, res) => {
         newBet.save()
 
 
-        return res.json({bet: newBet})
+        return res.json({bet: newBet, user: user })
+        
       })
     } else {
       //If it's not, respond with an error + message

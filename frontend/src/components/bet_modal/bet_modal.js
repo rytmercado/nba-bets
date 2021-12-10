@@ -11,6 +11,13 @@ class BetModal extends React.Component {
             amount: 100,
         }
 
+        this.renderErrors = this.renderErrors.bind(this);
+
+
+    }
+
+    componentDidMount () {
+        this.props.resetErrors();
     }
 
     handleInput(type) {
@@ -36,6 +43,22 @@ class BetModal extends React.Component {
     handleSubmit() {
         this.props.postBet(this.state)
     }
+
+    renderErrors() {
+        if (this.props.errors.length > 0) {
+          return(
+            <ul>
+              {this.props.errors.map((error, i) => (
+                <li key={i}>
+                  <p className="error">{error}</p>
+                </li>
+              ))}
+            </ul>
+          );
+        } else {
+          return null; 
+        }
+      }
     
 
 
@@ -63,17 +86,21 @@ class BetModal extends React.Component {
                                     <option>Select a matchup</option>
                                     { gameOptions }
                                 </select>
+                            <br/>
                             <label for="home-team">{game.home_team} {this.printOdds(game.home_odds)}</label>
                             <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
+                            <br/>
                             <label for="away-team">{game.away_team} {this.printOdds(game.away_odds)}</label>
                             <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
+                            <br/>
                             <label htmlFor="amount">Bet Amount:</label>
-                            <input onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                            <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                            <br/>
+                            <div className="errors">{this.renderErrors()}</div>
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" onClick={() => this.handleSubmit()}>Place Bet</button>
                             <button className="bet-button" onClick={this.props.onClose}>Close</button>
-                            <p className="errors"></p>
                         </div>
                     </div>
                 </div>

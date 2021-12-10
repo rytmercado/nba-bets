@@ -49,3 +49,9 @@
     border-bottom: 1px solid #eee;
 }
     
+.make-bet {
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+}

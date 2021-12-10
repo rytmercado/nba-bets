@@ -12,10 +12,12 @@ class MainPage extends React.Component {
       this.state = {
         modalOpen: false,
       }
+
   }
 
   componentDidMount(){
-    
+    console.log(this.props)
+    this.props.getBets(this.props.userId)
   }
 
   render() {

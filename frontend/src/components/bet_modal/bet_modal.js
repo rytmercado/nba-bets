@@ -11,7 +11,7 @@ class BetModal extends React.Component {
             amount: 100,
         }
 
-        this.renderErrors = this.renderErrors.bind(this);
+        // this.renderErrors = this.renderErrors.bind(this);
 
 
     }
@@ -44,40 +44,30 @@ class BetModal extends React.Component {
         this.props.postBet(this.state)
     }
 
-    renderErrors() {
-        if (this.props.errors.length > 0) {
-          return(
-            <ul>
-              {this.props.errors.map((error, i) => (
-                <li key={i}>
-                  <p className="error">{error}</p>
-                </li>
-              ))}
-            </ul>
-          );
-        } else {
-          return null; 
-        }
-      }
+    // renderErrors() {
+    //     return(
+    //       <ul>
+    //         {Object.keys(this.props.errors).map((error, i) => (
+    //           <li className="error" key={i}>
+    //             {this.state.errors[error]}
+    //           </li>
+    //         ))}
+    //       </ul>
+    //     );
+    //   }
+
     
 
 
     render () {
-        console.log(this.props.games)
         const todaysGames = this.props.games.filter(game => game.status !== 'Final')
-        console.log(todaysGames)
-        
-        const gameOptions = todaysGames.map(game => {
-                            return(
-                                <option htmlFor="game" key={game.id} value={game._id}>{game.home_team}  vs.  {game.away_team}</option>
-                            )})
+        const gameOptions = todaysGames.map(game => { return(<option htmlFor="game" key={game.id} value={game._id}>{game.home_team}  vs.  {game.away_team}</option>)})
         if (this.props.modalOpen) {
             { if (this.state.game !== 'Select a matchup' && this.state.game !== '') {
                 const game = this.props.games.find(game => game._id === this.state.game)
-                console.log(game)
             return (
                 <div className="modal-open">
-                    <div className="modal-content">
+                    <form className="modal-form" onSubmit={this.handleSubmit()}>
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
@@ -86,28 +76,28 @@ class BetModal extends React.Component {
                                     <option>Select a matchup</option>
                                     { gameOptions }
                                 </select>
-                            <br/>
-                            <label for="home-team">{game.home_team} {this.printOdds(game.home_odds)}</label>
-                            <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
-                            <br/>
-                            <label for="away-team">{game.away_team} {this.printOdds(game.away_odds)}</label>
-                            <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
-                            <br/>
-                            <label htmlFor="amount">Bet Amount:</label>
-                            <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                            <br/>
-                            <div className="errors">{this.renderErrors()}</div>
+                                <br/>
+                                <label htmlFor="home-team">{game.home_team} {this.printOdds(game.home_odds)}</label>
+                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
+                                <br/>
+                                <label htmlFor="away-team">{game.away_team} {this.printOdds(game.away_odds)}</label>
+                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
+                                <br/>
+                                <label htmlFor="amount">Bet Amount:</label>
+                                <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                                <br/>
+                                {/* <div>{this.renderErrors()}</div> */}
                         </div>
                         <div className="modal-footer">
-                            <button className="bet-button" onClick={() => this.handleSubmit()}>Place Bet</button>
+                            <button className="bet-button" type="submit">Place Bet</button>
                             <button className="bet-button" onClick={this.props.onClose}>Close</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
         )} else {
             return (
                 <div className="modal-open">
-                    <div className="modal-content">
+                    <form className="modal-form">
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
@@ -117,7 +107,7 @@ class BetModal extends React.Component {
                                     { gameOptions }
                                 </select>
                         </div>
-                    </div>
+                    </form>
                 </div>
             )}
 
@@ -125,6 +115,6 @@ class BetModal extends React.Component {
     } else {
     return null;
     }
-}
-}
+}}
+
 export default BetModal;

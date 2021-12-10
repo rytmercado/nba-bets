@@ -40,15 +40,16 @@
 
 }
 
-.modal-content {
+.modal-form {
+    display: inline-flex;
+    flex-direction: column;
     background-color: #fff;
     width: 500px;
-    height: 350px;
+    height: 370px;
     border: 1px solid black;
     float: right;
     margin-top: -235px;
     margin-right: 30px;
-
 }
 
 .modal-header {
@@ -76,9 +77,10 @@
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    height: 200px;
 }
 
 #favorite {

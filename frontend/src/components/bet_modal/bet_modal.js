@@ -64,9 +64,9 @@ class BetModal extends React.Component {
                                     { gameOptions }
                                 </select>
                             <label for="home-team">{game.home_team} {this.printOdds(game.home_odds)}</label>
-                            <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" />
+                            <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
                             <label for="away-team">{game.away_team} {this.printOdds(game.away_odds)}</label>
-                            <input id="away-team" onChange={this.handleInput("selection")} type="radio" value="false"/>
+                            <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
                             <label htmlFor="amount">Bet Amount:</label>
                             <input onChange={this.handleAmount("amount")} value={this.state.amount}/>
                         </div>

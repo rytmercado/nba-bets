@@ -53,6 +53,9 @@ A MERN-stack NBA betting app with live odds, scores, and results.
  <a href="https://github.com/rytmercado">Contribute Here</a>
 ## Illustrations <a name="illustrations"></a>
 ![nbaabetssplash](https://user-images.githubusercontent.com/83959916/145456513-3a1eeac9-eb73-4db0-a64f-e74bf27a9847.png)
+![login_form](https://user-images.githubusercontent.com/83959916/145600979-912788a4-0599-4b02-9509-2e57111ec5a1.png)
+![games_index](https://user-images.githubusercontent.com/83959916/145601573-c4d334a7-6804-44ae-856e-631a0fac28fc.png)
+![bet_modal](https://user-images.githubusercontent.com/83959916/145601579-99216df0-81ea-470c-a791-844d268bb90b.png)
 
 ## Questions <a name="questions"></a>
 #### If you have any questions please reach out to any team-member via E-Mail: 

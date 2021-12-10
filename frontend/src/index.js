@@ -39,10 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
 
-  window.getGames = getGames;
-  window.store = store;
-  window.postBet = postBet;
-  window.getBets = getBets;
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
 

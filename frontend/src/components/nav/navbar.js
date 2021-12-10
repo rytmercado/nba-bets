@@ -31,7 +31,7 @@ class NavBar extends React.Component {
                 <button className="currency-deposit">Deposit</button>
                 <div className="currency-header" onClick={this.updateCurrency}>Balance: </div>
                 <div className="currency-amt">{this.props.user.currency}</div>
-                <button className="profile-btn"><Link to={'/profile'}>Profile</Link></button>
+                <button className="profile-btn"><Link to={'/profile'}>{this.props.user.handle}</Link></button>
                 <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
             </nav>
             {/* <div className="currency-container">

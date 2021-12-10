@@ -11,7 +11,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     fetchAllGames: () => dispatch(getGames()),
-    postBet: bet => dispatch(postBet(bet))
+    postBet: (bet) => dispatch(postBet(bet))
 });
 
 export default connect(mSTP, mDTP)(BetModal);

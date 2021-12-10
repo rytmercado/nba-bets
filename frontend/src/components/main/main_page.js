@@ -13,6 +13,11 @@ class MainPage extends React.Component {
         modalOpen: false,
       }
   }
+
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <div className="main">

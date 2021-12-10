@@ -36,7 +36,6 @@ class BetModal extends React.Component {
     handleSubmit() {
         this.props.postBet(this.state)
     }
-
     
 
 

@@ -14,7 +14,7 @@ const getGameResults = () => {
 
   
   today = yyyy + '-' + mm + '-' + dd;
-  console.log(today)
+  // console.log(today)
   axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2021&dates[]=${today}`)
   .then(res => {
     let data = res.data.data;
@@ -56,7 +56,7 @@ const getGameResults = () => {
           game.home_score = homeScore
           game.away_score = awayScore 
   
-          console.log(game)
+          // console.log(game)
   
           game.save();
         } else {

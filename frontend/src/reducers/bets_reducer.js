@@ -1,4 +1,4 @@
-import { RECEIVE_BET } from '../actions/bet_actions';
+import { RECEIVE_BET, RECEIVE_USER_BETS } from '../actions/bet_actions';
 
 const betsReducer = (state = [], action) => {
     Object.freeze(state);
@@ -13,6 +13,9 @@ const betsReducer = (state = [], action) => {
             newState[action.bet._id] = action.bet
             return newState;
             // return action.bet.data
+        case RECEIVE_USER_BETS:
+            // debugger
+            return action.bets.data
         default: 
             return state;
     }

@@ -12,10 +12,11 @@ class MainPage extends React.Component {
       this.state = {
         modalOpen: false,
       }
+
   }
 
   componentDidMount(){
-    
+    this.props.getBets(this.props.userId)
   }
 
   render() {
@@ -26,8 +27,8 @@ class MainPage extends React.Component {
         </div>
         <div className="all-games">
           <h1>Today's Games</h1>
-          <GameIndexContainer />
           <button onClick={() => this.setState({modalOpen: true})} className="make-bet">Make Bet</button>
+          <GameIndexContainer />
           <footer>
             Copyright &copy; 2021 NBA bets
           </footer>

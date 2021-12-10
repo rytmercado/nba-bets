@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 //index for a given user 
 router.get('/index', (req, res) => {
+  console.log(req.body)
   Bet.find({user: req.body.userId}, (err, bets) => {
     return res.json(bets)
   })

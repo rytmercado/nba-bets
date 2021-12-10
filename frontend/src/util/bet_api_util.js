@@ -4,6 +4,13 @@ export const postBet = (betData) => {
     return axios.post('api/bets/create', betData)
 };
 
+export const getBets = (userId) => {
+    return axios.get(`api/bets/index/${userId}`)
+}
+
+
+
+
 
 //when games > "Final" status > we need to trigger actions in frontend and backend
 //frontend: games that are "Final" which users bet on them

@@ -6,7 +6,6 @@ const e = require("express");
 const Bet = require("../../models/Bet");
 const mongoose = require("mongoose");
 
-//index for a given user 
 // router.get('/index', (req, res) => {
 //   console.log(req.body)
 //   Bet.find({user: req.body.userId}, (err, bets) => {
@@ -72,11 +71,9 @@ router.post('/create', (req, res) => {
         user.currency -= bet.amount
         user.save()
 
-        //respond with the the made bet
+        //respond with the the made bet and the updated user 
         let newBet = new Bet(bet)
         newBet.save()
-
-
         return res.json({bet: newBet, user: user })
         
       })
@@ -84,7 +81,6 @@ router.post('/create', (req, res) => {
       //If it's not, respond with an error + message
       return res.status(422).json({msg: `${user.handle} bet ${req.body.amount - user.currency} too much`})
     }
-    //If it is, caculate payout, , respond with the the made bet
   })
 })
 

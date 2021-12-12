@@ -20,10 +20,18 @@ const getGameOdds = () => {
         odds_obj.home_team = odds[i].home_team
         odds_obj.away_team = odds[i].away_team
 
-        //POTENTIAL TODO: Iterate through and find the average odds 
-        //for all of the bookmakers meeting validation criteria 
-        odds_obj.home_odds = odds[i].bookmakers[0].markets[0].outcomes[0].price
-        odds_obj.away_odds = odds[i].bookmakers[0].markets[0].outcomes[1].price
+        //Iterates over odds for all the bookmakers and assigns the average
+        //to the odds_obj 
+        let home_oddsSum = 0;
+        let away_oddsSum = 0; 
+
+        for (let j = 0; j < odds[i].bookmakers.length; j++){
+          home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
+          away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+        }
+
+        odds_obj.home_odds = Math.floor(home_oddsSum / odds[i].bookmakers.length)
+        odds_obj.away_odds = Math.floor(away_oddsSum / odds[i].bookmakers.length)
 
         //Default values to be changed by balldontlie 
         odds_obj.status = "Incomplete"

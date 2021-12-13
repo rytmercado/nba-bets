@@ -7,6 +7,10 @@ class Profile extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        this.props.getBets(this.props.currentUser.id)
+    }
+
     render() {
         return(
             <div className="profile-container">

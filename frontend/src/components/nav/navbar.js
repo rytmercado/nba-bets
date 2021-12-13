@@ -9,12 +9,18 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
-    this.updateCurrency = this.updateCurrency(this);
+    this.updateCurrency = this.updateCurrency.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
+  }
+  
+  handleClick() {
+    const demoUser = {handle: "Demo User", email: "demo@gmail.com", password: "password"}
+    this.props.login(demoUser)
   }
 
   updateCurrency() {
@@ -47,6 +53,7 @@ class NavBar extends React.Component {
                 <Link className="logo" to={'/main'}><img src={logo}></img></Link>
                 <Link className="signup-btn" to={'/signup'}>Sign Up</Link>
                 <Link className="login-btn" to={'/login'}>Log In</Link>
+                <button className="demo-btn" onClick={this.handleClick}>Demo Login</button>
             </nav>
         );
       }

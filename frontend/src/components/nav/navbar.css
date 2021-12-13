@@ -73,6 +73,17 @@ nav {
     border-radius: 2px;
 }
 
+.demo-btn {
+    font-family:'Lucida Sans', Arial, sans-serif;
+    /* background-color: #000000; */
+    margin-right: 20px;
+    margin-top: 8px;
+    padding: 5px 15px 5px 15px;
+    /* border: 1px solid white; */
+    border: 1px solid #000000;
+    border-radius: 2px;
+}
+
 .currency-container {
     display: flex;
     justify-content: flex-end;

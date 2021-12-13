@@ -12,6 +12,7 @@ class BetModal extends React.Component {
         }
 
         // this.renderErrors = this.renderErrors.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
 
     }
@@ -40,9 +41,13 @@ class BetModal extends React.Component {
         }
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault(); 
+        console.log(this.state)
         this.props.postBet(this.state)
     }
+
+
 
     // renderErrors() {
     //     return(
@@ -67,7 +72,7 @@ class BetModal extends React.Component {
                 const game = this.props.games.find(game => game._id === this.state.game)
             return (
                 <div className="modal-open">
-                    <form className="modal-form" onSubmit={this.handleSubmit()}>
+                    <form className="modal-form" onSubmit={this.handleSubmit}>
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>

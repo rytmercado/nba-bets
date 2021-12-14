@@ -15,9 +15,8 @@ router.get('/leaderboard/:userCount', (req, res) => {
     if (users.length - req.params.userCount < 0){
       return res.status(400).json({"msg": `More users were requested than exist, request ${(users.length - req.params.userCount) * -1} less users`})
     } else{
-      console.log(orderedUsers.slice(orderedUsers.length -  req.params.userCount ))
+      //potential TODO lighten payload
       return res.json(orderedUsers.slice(orderedUsers.length -  req.params.userCount ).reverse())
-      // return res.json(orderedUsers)
     }
   })
 })

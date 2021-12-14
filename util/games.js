@@ -39,6 +39,7 @@ const getGameResults = () => {
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
         console.log(game)
+        console.log(fullHomeName)
         if(!!game) {
           // debugger 
 

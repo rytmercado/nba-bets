@@ -51,6 +51,6 @@ app.listen(port, () => {
 })
 
 // // tasks(); // odds and game results node cron tasks
-// // getGameOdds();
+// getGameOdds();
 // // setTimeout(getGameResults, 50000)
-// getGameResults()
+getGameResults()

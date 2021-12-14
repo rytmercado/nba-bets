@@ -20,6 +20,23 @@ router.get('/index/:userId', (req, res) => {
   })
 })
 
+router.delete('/bet/:betId', (req, res) => {
+  Bet.findByIdAndUpdate(req.params.betId, (err, bet) => {
+    if (!!err){
+      return res.status(422).json({"msg": "Failded to delete bet"})
+    } else {
+      User.findById(bet.user, (err, user) => {
+        if (!!err){
+          return res.status(404).json({"msg": "Bet is pointing to a nonexistent user"})
+        }
+        user.currency += bet.amount
+        user.save()
+        return res.json({"currency": user.currency})
+      })
+    }
+  })
+})
+
 
 router.post('/create', (req, res) => {
   //From fronted: selection, amount, game, user 

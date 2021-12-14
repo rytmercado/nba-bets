@@ -17,6 +17,7 @@ router.get('/leaderboard/:userCount', (req, res) => {
     } else{
       //potential TODO lighten payload
       return res.json(orderedUsers.slice(orderedUsers.length -  req.params.userCount ).reverse())
+      // return res.json(orderedUsers)
     }
   })
 })

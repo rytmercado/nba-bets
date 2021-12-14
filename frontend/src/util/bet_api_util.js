@@ -8,7 +8,9 @@ export const getBets = (userId) => {
     return axios.get(`api/bets/index/${userId}`)
 }
 
-
+export const deleteBet = (betId) => {
+    return axios.delete(`api/bets/${betId}`)
+}
 
 
 

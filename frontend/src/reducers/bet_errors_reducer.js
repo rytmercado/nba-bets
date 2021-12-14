@@ -5,7 +5,7 @@ import {
   
   const _nullErrors = [];
   
-  const SessionErrorsReducer = (state = _nullErrors, action) => {
+  const betErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch(action.type) {
       case RECEIVE_SESSION_ERRORS:
@@ -17,4 +17,4 @@ import {
     }
   };
   
-  export default SessionErrorsReducer;
+  export default betErrorsReducer;

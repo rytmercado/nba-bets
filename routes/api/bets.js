@@ -6,13 +6,6 @@ const e = require("express");
 const Bet = require("../../models/Bet");
 const mongoose = require("mongoose");
 
-// router.get('/index', (req, res) => {
-//   console.log(req.body)
-//   Bet.find({user: req.body.userId}, (err, bets) => {
-//     return res.json(bets)
-//   })
-// })
-
 router.get('/index/:userId', (req, res) => { 
   let userId = req.params.userId
   Bet.find({user: userId}, (err, bets) => {

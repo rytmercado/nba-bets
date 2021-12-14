@@ -17,7 +17,6 @@ router.get('/leaderboard/:userCount', (req, res) => {
     } else{
       //potential TODO lighten payload
       return res.json(orderedUsers.slice(orderedUsers.length -  req.params.userCount ).reverse())
-      // return res.json(orderedUsers)
     }
   })
 })
@@ -47,7 +46,6 @@ router.get('/show/:userId', (req, res) => {
 
 
 // router.get('/handshake', (req, res) => {
-//   // console.log(req.body.userId)
 //   User.findById(req.body.userId).then(user => {
 //     if (user) {
 //       if (parseInt(req.body.amount) !== user.currency){

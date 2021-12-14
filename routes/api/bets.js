@@ -20,8 +20,8 @@ router.get('/index/:userId', (req, res) => {
   })
 })
 
-router.delete('/bet/:betId', (req, res) => {
-  Bet.findByIdAndUpdate(req.params.betId, (err, bet) => {
+router.delete('/:betId', (req, res) => {
+  Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
     if (!!err){
       return res.status(422).json({"msg": "Failded to delete bet"})
     } else {
@@ -29,9 +29,23 @@ router.delete('/bet/:betId', (req, res) => {
         if (!!err){
           return res.status(404).json({"msg": "Bet is pointing to a nonexistent user"})
         }
-        user.currency += bet.amount
-        user.save()
-        return res.json({"currency": user.currency})
+        Game.findById(bet.game, (err, game) => {
+          if(!!game){
+            if(game.status === "Incomplete"){
+              if (bet.status === "Incomplete"){
+                user.currency += bet.amount
+                user.save()
+                return res.json({"currency": user.currency})
+              } else {
+                return res.json({"msg": "Bet was already resolved"})
+              }
+            } else {
+              return res.status(422).json({"msg": "Game is in progress or concluded."})
+            }
+          } else {
+            return res.status(404).json({"msg": "Bet is refrencing a non-existent game"})
+          }
+        })
       })
     }
   })

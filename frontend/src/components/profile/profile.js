@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBarContainer from '../nav/navbar_container'
+import NavBarContainer from '../nav/navbar_container';
+import BetIndexContainer from '../profile_bets/bet_index_container';
 
 class Profile extends React.Component {
     constructor(props){
@@ -17,7 +18,10 @@ class Profile extends React.Component {
                 <NavBarContainer />
                 <div className="profile-body-container">
                     <div className="profile-body-header">{this.props.currentUser.handle}</div>
-                    <div className="profile-body">games go here</div>
+                    <div className="profile-body">
+                        <BetIndexContainer />
+                    </div>
+
 
                 </div>
             </div>

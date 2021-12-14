@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout, login } from '../../actions/session_actions';
+import { logout, login, fetchUser } from '../../actions/session_actions';
 
 import NavBar from './navbar';
 
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 
 const mDTP = dispatch => ({
   logout: () => dispatch(logout()),
-  login: (user) => dispatch(login(user))
+  login: (user) => dispatch(login(user)),
+  fetchUser: (userId) => dispatch(fetchUser(userId))
 })
 
 export default connect(mapStateToProps, mDTP)(NavBar);

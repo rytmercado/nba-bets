@@ -13,6 +13,11 @@ class NavBar extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  componentDidMount(){
+    //if this.rpops.loggedin > fetchCurrentUser
+    this.props.fetchUser(this.props.user.id)
+  }
+
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
@@ -29,14 +34,15 @@ class NavBar extends React.Component {
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
+      console.log(this.props.user)
       if (this.props.loggedIn) {
         return (
           <div>
             <nav className="nav-bar-container">
                 <Link className="logo" to={'/main'}><img src={logo}></img></Link>
-                <button className="currency-deposit">Deposit</button>
                 <div className="currency-header" onClick={this.updateCurrency}>Balance: </div>
                 <div className="currency-amt">{this.props.user.currency}</div>
+                <button className="currency-deposit">Deposit</button>
                 <button className="profile-btn"><Link to={'/profile'}>{this.props.user.handle}</Link></button>
                 <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
             </nav>
@@ -60,6 +66,9 @@ class NavBar extends React.Component {
   }
 
   render() {
+    if(this.props.user.currency === 530){
+      // debugger
+    }
       return (
         <div>
             { this.getLinks() }

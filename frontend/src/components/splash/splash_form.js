@@ -13,8 +13,9 @@ class SplashForm extends React.Component {
         <div className="age-buttons">
             <img className="logo" src="https://i.ibb.co/nDm0spD/logo-medium.jpg" />
             <strong>Please verify your age to participate</strong>
-            <button id="button1"><span className="button-text">I am 21+</span></button>
-            <button id="button2"><span className="button-text2">Not 21</span></button>
+            <Link className="button-text" to={'/signup'}><button id="button1">I am 18+</button></Link>
+            {/* <Link className="button-text2" to={'https://www.tiktok.com/'}><button id="button2">Not 18</button></Link> */}
+            <a className="button-text2" href="https://www.tiktok.com/"><button id="button2">Not 18</button></a>
             <p id="errors"></p>
             <footer>
               Copyright &copy; 2021 NBA Bets

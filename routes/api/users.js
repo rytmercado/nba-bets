@@ -24,9 +24,21 @@ router.post('/add', (req, res) => {
 //   let count = req.params.
 // })
 
-router.get('/show', (req, res) => {
-  let userId = req.params.userId
-  User.findById(userId)
+// router.get('/show', (req, res) => {
+//   console.log(req.body)
+//   console.log(req.userId)
+//   User.findById(req.body.userId)
+//   .then( user => {
+//     if (!!user){
+//       return res.json(user)
+//     } else {
+//       return res.status(404).json({"msg": "User not found"})
+//     }
+//   })
+// } )
+
+router.get('/show/:userId', (req, res) => {
+  User.findById(req.params.userId)
   .then( user => {
     if (!!user){
       return res.json(user)
@@ -34,7 +46,7 @@ router.get('/show', (req, res) => {
       return res.status(404).json({"msg": "User not found"})
     }
   })
-} )
+}) 
 
 
 router.get('/handshake', (req, res) => {

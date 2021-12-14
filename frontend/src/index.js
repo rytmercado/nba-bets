@@ -8,6 +8,7 @@ import { logout } from './actions/session_actions';
 import { getGames } from './actions/game_actions';
 import { postBet } from './actions/bet_actions';
 import { getBets } from './util/bet_api_util';
+import {fetchUser} from './util/session_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Decode the token to obtain the user's information
     const decodedUser = jwt_decode(localStorage.jwtToken);
-
+    window.fetchUser = fetchUser; 
     // Create a preconfigured state we can immediately add to our store
     const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
 

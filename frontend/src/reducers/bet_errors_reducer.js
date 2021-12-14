@@ -1,6 +1,6 @@
 import {
-    RECEIVE_SESSION_ERRORS,
-    RECEIVE_CURRENT_USER,
+    RECEIVE_BET_ERRORS,
+    RECEIVE_BET,
   } from '../actions/bet_actions';
   
   const _nullErrors = [];
@@ -8,10 +8,10 @@ import {
   const betErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch(action.type) {
-      case RECEIVE_SESSION_ERRORS:
+      case RECEIVE_BET_ERRORS:
         return action.errors;
-      case RECEIVE_CURRENT_USER:
-        return _nullErrors;
+      case RECEIVE_BET:
+          return _nullErrors;
       default:
         return state;
     }

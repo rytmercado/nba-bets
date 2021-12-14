@@ -6,7 +6,7 @@ import BetModal from './bet_modal';
 const mSTP = state => ({
     games: Object.values(state.games),
     session: state.session,
-    errors: state.errors.session,
+    errors: state.bet.errors,
 });
 
 const mDTP = dispatch => ({

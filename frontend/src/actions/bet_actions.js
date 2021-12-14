@@ -32,7 +32,7 @@ export const postBet = bet => dispatch => (
         })
 );
 
-export const getBets = userId => dispatch => (
-    BetApiUtil.getBets(userId)
-        .then( (bets) => dispatch(receiveUserBets(bets)))
-)
+// export const getBets = userId => dispatch => (
+//     BetApiUtil.getBets(userId)
+//         .then( (bets) => dispatch(receiveUserBets(bets)))
+// )

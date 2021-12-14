@@ -30,7 +30,7 @@ router.delete('/:betId', (req, res) => {
               if (bet.status === "Incomplete"){
                 user.currency += bet.amount
                 user.save()
-                return res.json(user)
+                return res.json(user, bet)
               } else {
                 return res.json({"msg": "Bet was already resolved. Bet deleted"})
               }

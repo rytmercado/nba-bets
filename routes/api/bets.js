@@ -23,7 +23,7 @@ router.get('/index/:userId', (req, res) => {
 router.delete('/:betId', (req, res) => {
   Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
     if (!!err){
-      return res.status(422).json({"msg": "Failded to delete bet"})
+      return res.status(422).json({"msg": "Failed to delete bet"})
     } else {
       User.findById(bet.user, (err, user) => {
         if (!!err){
@@ -40,6 +40,7 @@ router.delete('/:betId', (req, res) => {
                 return res.json({"msg": "Bet was already resolved"})
               }
             } else {
+              bet.save()
               return res.status(422).json({"msg": "Game is in progress or concluded."})
             }
           } else {

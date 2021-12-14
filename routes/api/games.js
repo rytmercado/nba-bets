@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Game = require('../../models/Game')
 
-
+//index, show
 
 router.get('/index', (req, res) => {
   Game.find().then(games => res.json(games))

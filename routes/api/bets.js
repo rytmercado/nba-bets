@@ -6,17 +6,42 @@ const e = require("express");
 const Bet = require("../../models/Bet");
 const mongoose = require("mongoose");
 
-// router.get('/index', (req, res) => {
-//   console.log(req.body)
-//   Bet.find({user: req.body.userId}, (err, bets) => {
-//     return res.json(bets)
-//   })
-// })
-
 router.get('/index/:userId', (req, res) => { 
   let userId = req.params.userId
   Bet.find({user: userId}, (err, bets) => {
     return res.json(bets)
+  })
+})
+
+router.delete('/:betId', (req, res) => {
+  Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
+    if (!!err){
+      return res.status(422).json({"msg": "Failed to delete bet"})
+    } else {
+      User.findById(bet.user, (err, user) => {
+        if (!!err){
+          return res.status(404).json({"msg": "Bet is pointing to a nonexistent user, Bet deleted"})
+        }
+        Game.findById(bet.game, (err, game) => {
+          if(!!game){
+            if(game.status === "Incomplete"){
+              if (bet.status === "Incomplete"){
+                user.currency += bet.amount
+                user.save()
+                return res.json({"currency": user.currency})
+              } else {
+                return res.json({"msg": "Bet was already resolved. Bet deleted"})
+              }
+            } else {
+              bet.save()
+              return res.status(422).json({"msg": "Game is in progress or concluded. Bet not deleted."})
+            }
+          } else {
+            return res.status(404).json({"msg": "Bet is refrencing a non-existent game. Bet deleted."})
+          }
+        })
+      })
+    }
   })
 })
 

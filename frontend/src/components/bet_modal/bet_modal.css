@@ -113,3 +113,10 @@
     border: 1px solid black;
     margin-top: 5px;
 }
+    
+.make-bet {
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+}

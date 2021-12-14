@@ -6,6 +6,8 @@ const e = require("express");
 const Bet = require("../../models/Bet");
 const mongoose = require("mongoose");
 
+//index, delete, create
+
 router.get('/index/:userId', (req, res) => { 
   let userId = req.params.userId
   Bet.find({user: userId}, (err, bets) => {
@@ -28,7 +30,7 @@ router.delete('/:betId', (req, res) => {
               if (bet.status === "Incomplete"){
                 user.currency += bet.amount
                 user.save()
-                return res.json({"currency": user.currency})
+                return res.json(user)
               } else {
                 return res.json({"msg": "Bet was already resolved. Bet deleted"})
               }

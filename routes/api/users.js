@@ -9,6 +9,8 @@ const validateLoginInput = require('../../config/validation/login')
 const mongoose = require('mongoose')
 const quickSort = require('../../util/sort')
 
+//index ordered by currency, add currency, show, login, sign up
+
 router.get('/leaderboard/:userCount', (req, res) => {
   User.find().then(users => {
     let orderedUsers = quickSort(users, 0, users.length - 1)

@@ -40,7 +40,7 @@ const sessionReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: !!action.user,
         isSignedIn: true,
-        user: action.user.data,
+        user: action.user,
       };
 
     default:

@@ -9,6 +9,8 @@ import { getGames } from './actions/game_actions';
 import { postBet } from './actions/bet_actions';
 import { getBets } from './util/bet_api_util';
 import {fetchUser} from './util/session_api_util'
+import {getGame} from './util/game_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getBets = getBets;
   window.store = store;
   window.fetchUser = fetchUser;
+  window.getGame = getGame;
 
   ReactDOM.render(<Root store={store} />, root);
 });

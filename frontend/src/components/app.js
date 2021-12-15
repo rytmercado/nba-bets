@@ -8,18 +8,16 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container'; 
 import SplashForm from './splash/splash_form'
-import ProfileContainer from './profile/profile_container'
-import BetModal from './bet_modal/bet_modal_container';
 
-// css
+
 import './reset.css'
 import './splash/splash.css'
 import './nav/navbar.css'
 import './session/login_form.css'
 import './session/signup_form.css'
 import '../components/games/game_index_item.css'
-import './profile/profile.css'
 import './bet_modal/bet_modal.css'
+
 
 
 const App = () => (

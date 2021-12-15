@@ -11,15 +11,12 @@ class BetModal extends React.Component {
             amount: 100,
         }
 
-        // this.renderErrors = this.renderErrors.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
 
     }
 
-    componentDidMount () {
-        // this.props.resetErrors();
-    }
 
     handleInput(type) {
         return e => {
@@ -49,17 +46,17 @@ class BetModal extends React.Component {
 
 
 
-    // renderErrors() {
-    //     return(
-    //       <ul>
-    //         {Object.keys(this.props.errors).map((error, i) => (
-    //           <li className="error" key={i}>
-    //             {this.state.errors[error]}
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     );
-    //   }
+    renderErrors() {
+        return(
+          <ul>
+            {Object.keys(this.props.errors).map((error, i) => (
+              <li className="error" key={i}>
+                {this.state.errors[error]}
+              </li>
+            ))}
+          </ul>
+        );
+      }
 
     
 
@@ -91,7 +88,7 @@ class BetModal extends React.Component {
                                 <label htmlFor="amount">Bet Amount:</label>
                                 <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
                                 <br/>
-                                {/* <div>{this.renderErrors()}</div> */}
+                                <div className="errors">{() => this.renderErrors()}</div>
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" type="submit">Place Bet</button>

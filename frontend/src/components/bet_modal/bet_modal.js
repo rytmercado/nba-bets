@@ -45,23 +45,23 @@ class BetModal extends React.Component {
     }
 
 
-
     renderErrors() {
         return(
-          <ul>
-            {Object.keys(this.props.errors).map((error, i) => (
-              <li className="error" key={i}>
-                {this.state.errors[error]}
-              </li>
+            <ul>
+            {Object.values(this.props.errors).map((error, i) => (
+                <li className="errors" key={i}>
+                    {error}
+                </li>
             ))}
-          </ul>
+            </ul>
         );
-      }
+    }
 
     
 
 
     render () {
+        console.log(this.props.errors)
         const todaysGames = this.props.games.filter(game => game.status !== 'Final')
         const gameOptions = todaysGames.map(game => { return(<option htmlFor="game" key={game.id} value={game._id}>{game.home_team}  vs.  {game.away_team}</option>)})
         if (this.props.modalOpen) {
@@ -88,7 +88,7 @@ class BetModal extends React.Component {
                                 <label htmlFor="amount">Bet Amount:</label>
                                 <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
                                 <br/>
-                                <div className="errors">{() => this.renderErrors()}</div>
+                                <div className="errors">{this.renderErrors()}</div>
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" type="submit">Place Bet</button>

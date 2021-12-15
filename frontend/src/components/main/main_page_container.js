@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getGames } from '../../actions/game_actions';
 import { logout, fetchUser } from '../../actions/session_actions';
-import { getBets } from '../../actions/bet_actions'
+import { receiveUserBets } from '../../actions/bet_actions'
 
 import MainPage from './main_page';
 
@@ -14,7 +14,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchAllGames: () => dispatch(getGames()),
     logout: () => dispatch(logout()),
-    getBets: (userId) => dispatch(getBets(userId)),
+    getBets: (userId) => dispatch(receiveUserBets(userId)),
     fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 

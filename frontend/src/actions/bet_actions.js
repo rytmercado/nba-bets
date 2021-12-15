@@ -15,8 +15,9 @@ const receiveUserBets = (bets) => ({
     bets
 })
 
-const clearBet = () => ({
-    type: CLEAR_BET
+const clearBet = (bet) => ({
+    type: CLEAR_BET,
+    bet
 })
 
 export const postBet = bet => dispatch => (
@@ -35,6 +36,9 @@ export const getBets = userId => dispatch => (
 
 export const deleteBet = betId => dispatch => (
     BetApiUtil.deleteBet(betId)
-        .then( () => dispatch(clearBet()),
-               () => dispatch(receiveUser()))
+        .then( (payload) => {
+            // debugger
+            dispatch(clearBet(payload.data.bet))
+            dispatch(receiveUser(payload.data.user))
+        })
 )

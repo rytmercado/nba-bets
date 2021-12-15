@@ -10,9 +10,15 @@ class Profile extends React.Component {
 
     componentDidMount() {
         this.props.getBets(this.props.currentUser.id)
+        
     }
 
     render() {
+        console.log(this.state)
+        if(!this.props.currentUser){
+            console.log(this.props)
+            return null
+        }
         return(
             <div className="profile-container">
                 <NavBarContainer />

@@ -9,6 +9,7 @@ export const getBets = (userId) => {
 }
 
 export const deleteBet = (betId) => {
+    console.log(betId)
     return axios.delete(`api/bets/${betId}`)
 }
 

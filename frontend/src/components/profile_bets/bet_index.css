@@ -1,0 +1,15 @@
+.bet-container{
+    /* display: flex;
+    justify-content: space-evenly; */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.bet-list{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.inline {
+    display: inline-block;
+}

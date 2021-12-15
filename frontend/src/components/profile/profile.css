@@ -8,7 +8,7 @@
 }
 
 .profile-body-container {
-    width: 920px;
+    /* width: 920px;
     height: 200px;
     padding-top: 20px;
     padding-right: 40px;
@@ -20,7 +20,7 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 5px;
+    border-radius: 5px; */
     /* display: flex;
     flex-direction: column; */
 }

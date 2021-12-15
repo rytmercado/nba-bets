@@ -1,6 +1,8 @@
 import { RECEIVE_CURRENT_USER, 
          RECEIVE_USER_LOGOUT, 
-         RECEIVE_USER_SIGN_IN } from '../actions/session_actions';
+         RECEIVE_USER_SIGN_IN,
+        RECEIVE_USER } from '../actions/session_actions';
+        
 
 const initialState = {
   isAuthenticated: false,
@@ -8,9 +10,9 @@ const initialState = {
 };
 
 const sessionReducer = (state = initialState, action) => {
+  Object.freeze(state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      console.log(action.currentUser)
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
@@ -33,6 +35,14 @@ const sessionReducer = (state = initialState, action) => {
           currency: action.currentUser.data.currency
         }
       }
+    case RECEIVE_USER:
+      return {
+        ...state,
+        isAuthenticated: !!action.user,
+        isSignedIn: true,
+        user: action.user.data,
+      };
+
     default:
       return state;
   }

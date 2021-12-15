@@ -15,9 +15,11 @@ class MainPage extends React.Component {
 
   }
 
-  componentDidMount(){
-    this.props.getBets(this.props.userId)
-  }
+  // componentDidMount(){
+  //   // this.props.getBets(this.props.userId)
+  //   // this.props.fetchUser(this.props.user.id)
+
+  // }
 
   render() {
     return (

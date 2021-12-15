@@ -18,6 +18,9 @@ router.get('/index/:userId', (req, res) => {
 router.delete('/:betId', (req, res) => {
   Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
     if (!!err){
+      // console.log(req)
+      // console.log(req.params)
+      // console.log(err)
       return res.status(422).json({"msg": "Failed to delete bet"})
     } else {
       User.findById(bet.user, (err, user) => {
@@ -30,7 +33,11 @@ router.delete('/:betId', (req, res) => {
               if (bet.status === "Incomplete"){
                 user.currency += bet.amount
                 user.save()
+<<<<<<< HEAD
                 return res.json(user, bet)
+=======
+                return res.json({user, bet})
+>>>>>>> 6a59115061742b6a6afb33e199f8766df1682ee4
               } else {
                 return res.json({"msg": "Bet was already resolved. Bet deleted"})
               }

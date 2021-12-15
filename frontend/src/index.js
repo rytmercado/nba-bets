@@ -21,9 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Decode the token to obtain the user's information
     const decodedUser = jwt_decode(localStorage.jwtToken);
-    window.fetchUser = fetchUser; 
+     
     // Create a preconfigured state we can immediately add to our store
-    const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+    const preloadedState = { session: { isAuthenticated: true, 
+      user: {
+        id: decodedUser.id,
+        handle: decodedUser.handle,
+        email: decodedUser.email  
+      }}};
 
     store = configureStore(preloadedState);
 
@@ -42,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
+  window.getBets = getBets;
+  window.store = store;
+  window.fetchUser = fetchUser;
 
   ReactDOM.render(<Root store={store} />, root);
 });

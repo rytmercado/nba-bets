@@ -10,8 +10,7 @@ class BetIndex extends React.Component {
 
     render(){
         if(!!this.props.bets){
-          console.log(this.props.bets)
-            let betsIndex = Object.values(this.props.bets).map( bet => {
+            let betsIndex = this.props.bets.map( bet => {
                 return(
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
                 )

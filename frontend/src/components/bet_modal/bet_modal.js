@@ -18,7 +18,7 @@ class BetModal extends React.Component {
     }
 
     componentDidMount () {
-        this.props.resetErrors();
+        // this.props.resetErrors();
     }
 
     handleInput(type) {

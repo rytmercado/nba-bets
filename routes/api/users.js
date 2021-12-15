@@ -7,6 +7,21 @@ const jwt = require('jsonwebtoken')
 const validateRegisterInput = require('../../config/validation/register')
 const validateLoginInput = require('../../config/validation/login')
 const mongoose = require('mongoose')
+const quickSort = require('../../util/sort')
+
+//index ordered by currency, add currency, show, login, sign up
+
+router.get('/leaderboard/:userCount', (req, res) => {
+  User.find().then(users => {
+    let orderedUsers = quickSort(users, 0, users.length - 1)
+    if (users.length - req.params.userCount < 0){
+      return res.status(400).json({"msg": `More users were requested than exist, request ${(users.length - req.params.userCount) * -1} less users`})
+    } else{
+      //potential TODO lighten payload
+      return res.json(orderedUsers.slice(orderedUsers.length -  req.params.userCount ).reverse())
+    }
+  })
+})
 
 router.post('/add', (req, res) => {
   User.findById(req.body.userId, (err, user) => {
@@ -20,23 +35,6 @@ router.post('/add', (req, res) => {
   })
 })
 
-// router.get('/leaderboard', (req, res) => {
-//   let count = req.params.
-// })
-
-// router.get('/show', (req, res) => {
-//   console.log(req.body)
-//   console.log(req.userId)
-//   User.findById(req.body.userId)
-//   .then( user => {
-//     if (!!user){
-//       return res.json(user)
-//     } else {
-//       return res.status(404).json({"msg": "User not found"})
-//     }
-//   })
-// } )
-
 router.get('/show/:userId', (req, res) => {
   User.findById(req.params.userId)
   .then( user => {
@@ -49,19 +47,18 @@ router.get('/show/:userId', (req, res) => {
 }) 
 
 
-router.get('/handshake', (req, res) => {
-  // console.log(req.body.userId)
-  User.findById(req.body.userId).then(user => {
-    if (user) {
-      if (parseInt(req.body.amount) !== user.currency){
-        return res.status(401).json({"msg": "User currency data is inconsistent"})
-      }
-      return res.json(user.currency)
-    } else {
-      return res.status(404).json({"msg": "User not found"})
-    }
-  })
-})
+// router.get('/handshake', (req, res) => {
+//   User.findById(req.body.userId).then(user => {
+//     if (user) {
+//       if (parseInt(req.body.amount) !== user.currency){
+//         return res.status(401).json({"msg": "User currency data is inconsistent"})
+//       }
+//       return res.json(user.currency)
+//     } else {
+//       return res.status(404).json({"msg": "User not found"})
+//     }
+//   })
+// })
 
 
 router.post('/register', (req, res) => {

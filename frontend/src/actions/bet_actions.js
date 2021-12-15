@@ -31,8 +31,3 @@ export const postBet = bet => dispatch => (
             dispatch(receiveErrors(err.response.data));
         })
 );
-
-// export const getBets = userId => dispatch => (
-//     BetApiUtil.getBets(userId)
-//         .then( (bets) => dispatch(receiveUserBets(bets)))
-// )

@@ -3,15 +3,15 @@ import React from 'react';
 class BetModal extends React.Component {
     constructor(props) {
         super(props)
-
+        console.log(this.props)
         this.state = {
             game: '',
-            userId: this.props.session.user.id,
+            userId: '',
             selection: '', 
             amount: 100,
         }
 
-        // this.renderErrors = this.renderErrors.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
 
@@ -65,6 +65,7 @@ class BetModal extends React.Component {
 
 
     render () {
+        console.log(this.props.games)
         const todaysGames = this.props.games.filter(game => game.status !== 'Final')
         const gameOptions = todaysGames.map(game => { return(<option htmlFor="game" key={game.id} value={game._id}>{game.home_team}  vs.  {game.away_team}</option>)})
         if (this.props.modalOpen) {

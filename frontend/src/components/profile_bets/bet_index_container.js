@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = dispatch => ({
-    deleteBet: (betId) => dispatch(deleteBet(betId))
+    // deleteBet: (betId) => dispatch(deleteBet(betId))
 })
 
 export default connect(mSTP, mDTP)(BetIndex)

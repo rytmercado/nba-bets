@@ -4,6 +4,7 @@ import { receiveCurrentUser, receiveUser } from '../actions/session_actions'
 export const RECEIVE_BET = 'RECEIVE_BET'
 export const RECEIVE_USER_BETS = 'RECEIVE_USER_BETS'
 export const CLEAR_BET = 'CLEAR_BET'
+export const RECEIVE_BET_ERRORS = 'RECEIVE_BET_ERRORS'
 
 const receiveBet = (bet) => ({
     type: RECEIVE_BET,
@@ -19,6 +20,13 @@ const clearBet = (bet) => ({
     type: CLEAR_BET,
     bet
 })
+
+export const receiveErrors = (errors) => ({
+    type: RECEIVE_BET_ERRORS,
+    errors
+})
+
+
 
 export const postBet = bet => dispatch => (
     BetApiUtil.postBet(bet)

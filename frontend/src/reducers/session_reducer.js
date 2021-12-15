@@ -36,11 +36,17 @@ const sessionReducer = (state = initialState, action) => {
         }
       }
     case RECEIVE_USER:
+      let userInfo
+      if(action.user.data === undefined) {
+        userInfo = action.user
+      } else {
+        userInfo = action.user.data
+      }
       return {
         ...state,
         isAuthenticated: !!action.user,
         isSignedIn: true,
-        user: action.user,
+        user: userInfo,
       };
 
     default:

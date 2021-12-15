@@ -66,9 +66,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    if(this.props.user.currency === 530){
-      // debugger
-    }
       return (
         <div>
             { this.getLinks() }

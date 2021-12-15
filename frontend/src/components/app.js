@@ -7,8 +7,8 @@ import MainPageContainer from './main/main_page_container';
 
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container'; 
-import SplashForm from './splash/splash_form'
-
+import SplashForm from './splash/splash_form';
+import ProfileContainer from './profile/profile_container';
 
 import './reset.css'
 import './splash/splash.css'

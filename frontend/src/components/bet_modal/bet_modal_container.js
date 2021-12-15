@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import BetModal from './bet_modal';
 import { getGames } from '../../actions/game_actions'
 import { postBet } from '../../actions/bet_actions'
-import { resetSessionErrors } from '../../actions/session_actions';
+
 
 
 const mSTP = state => ({
     games: Object.values(state.games),
     session: state.session,
-    errors: state.bet.errors,
+    errors: state.errors,
 });
 
 const mDTP = dispatch => ({

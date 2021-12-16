@@ -1,4 +1,4 @@
-import { RECEIVE_GAMES } from '../actions/game_actions';
+import { RECEIVE_GAMES, RECEIVE_GAME } from '../actions/game_actions';
 
 const gamesReducer = (state={}, action) => {
     Object.freeze(state);
@@ -7,6 +7,8 @@ const gamesReducer = (state={}, action) => {
     switch(action.type){
         case RECEIVE_GAMES:
             return action.games.data;
+        case RECEIVE_GAME:
+            return action.game.data;
         default:
             return state;
     }

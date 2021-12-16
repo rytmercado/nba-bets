@@ -10,6 +10,7 @@ class Profile extends React.Component {
 
     componentDidMount() {
         this.props.getBets(this.props.currentUser.id)
+        this.props.fetchUser(this.props.currentUser.id)
         
     }
 

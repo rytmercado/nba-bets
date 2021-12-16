@@ -118,7 +118,8 @@ router.post('/create', (req, res) => {
       })
     } else {
       //If it's not, respond with an error + message
-      return res.status(422).json({msg: `${user.handle} bet ${req.body.amount - user.currency} too much`})
+      // return res.status(422).json({msg:`${user.handle} bet ${req.body.amount - user.currency} too much`})
+    return res.status(422).json(`${user.handle} bet ${req.body.amount - user.currency} too much`)
     }
   })
 })

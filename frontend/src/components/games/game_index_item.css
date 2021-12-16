@@ -1,46 +1,206 @@
-.game-index-item-grid {
-    display: grid;
-    grid-template-columns: 200px 40px;
-    grid-template-rows: 25px 25px;
-    background-color: #000000;
-    width: 240px;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+/* -------------------------------------------------- */
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
 }
 
-.odds, .team {
-    color: white;
-    background-color: #000000;
-    border: 1px solid grey;
+:root {
+	--color-text-primary: #1c2a38;
+	--color-text-secondary: #8A8F98;
+	--color-text-alert: #d72641;
+	--color-text-icon: #dbdade;
+	--color-bg-primary: #fff;
+	--color-bg-secondary: #f3f5f9;
+	--color-bg-alert: #fdeaec;
+	--color-theme-primary: #623ce6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img{
+    display: block;
+}
+
+strong {
+    font-weight: 600;
+}
+
+.game-index-container {
+    font-family:'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+	/* background-color: var(--color-bg-secondary); */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.game{
+    background-color: #fff;
+    display: flex;
+	flex-direction: column;
+	min-width:600px;
+	border-radius: 10px;
+	box-shadow: 0 0 2px 0 #303030, 0 4px 4px 0 #303030
+}
+
+.game-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px 0px 16px;
+    /* border-bottom: 2px solid#303030; */
+}
+
+.game-status{
+    background-color: #fdeaec;
+    color: #d72641;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    /* margin-right: auto; */
+    margin-top: 5px;
+}
+
+.game-status:before{
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: currentcolor;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.nba-game-logo{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.nba-game-logo img {
+    width: 20px;
+    margin-right: 12px;
+    margin-left: 57px;
+}
+
+.game-content {
+    display:flex;
+    position: relative;
+}
+
+.column{
+    padding: 15px 32px 32px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: calc(100%/3); */
+    width: 200px;
 }
 
 .team {
-    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.outer-grid {
-    
-    display: grid;
-    grid-template-columns: 250px 250px 250px;
-
-
-}
-
-.all-games {
+.team-logo {
+    width: 100px;
+    height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.team-name {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.game-details {
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
 }
 
-.main h1 {
+.game-score {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.game-score-number {
     font-size: 40px;
-    margin: 10px;
-    font-weight: 800;
+    font-weight: 600;
+    line-height: 1;
 }
 
-.main footer {
-    justify-self: flex-end;
+/* .game-score-number--leading {
+    color: #623ce6
+} */
+
+.game-score-divider {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    color: #8A8F98;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
+.game-date {
+    color: #8A8F98;
+}
+
+.game-period {
+    color: #8A8F98;
+}
+
+.game-bet {
+    margin-left: 4px;
+	margin-right: 4px;
+	background-color: #F9F9F9;
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 4px 8px;
+}
+
+.game-bet-btn {
+    position: absolute;
+	bottom: -16px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: none;
+	background-color: var(--color-theme-primary);
+	border-radius: 6px;
+	padding: 10px 48px;
+	color: #fff;
+	font-size: 14px;
+	box-shadow: 0 4px 8px 0 #303030;
+}
+
+.game-log-btn{
+    /* margin-left: auto; */
+}
+
+.game-alert-btn{
+    /* margin-right: auto; */
+}
+
+.game-bet-odds {
+    cursor:default;
+}

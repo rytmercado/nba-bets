@@ -63,13 +63,6 @@ class GameIndexItem extends React.Component {
         } else {
             a_odds = game.away_odds;
         }
-
-        console.log(h_odds)
-
-        // let away_name = NBALogos.game.away_team;
-        // let home_name = NBALogos.game.home_team;
-        // console.log(away_name)
-        // console.log(home_name)
                 return (
                         // <div className="game-index-item-grid">
                         //     <div className="team">{game.away_team}</div>
@@ -88,7 +81,7 @@ class GameIndexItem extends React.Component {
                                         <img src={nba_logo}></img>
                                         National Basketball League
                                     </div>
-                                    <button className="game-log-btn">View Game Log</button>
+                                    <Link to={`/game/show/${game._id}`}><button className="game-log-btn">View Game Log</button></Link>
                                 </div>
                                 
                                 <div className="game-content">
@@ -106,7 +99,7 @@ class GameIndexItem extends React.Component {
                                     <div className="column">
                                         <div className="game-details">
                                             <div className="game-date">
-                                                25 Dec at <strong>7:30PM PST</strong>
+                                                25 Dec at <strong>{game.game_time}</strong>
                                             </div>
                                             {/* <div className="game-date">{game.start_time}</div> */}
                                             <div className="game-score">

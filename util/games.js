@@ -26,6 +26,8 @@ const getGameResults = () => {
       
       let homeScore = data[i].home_team_score 
       let awayScore = data[i].visitor_team_score 
+      
+      let gameTime = data[i].status
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
@@ -56,6 +58,7 @@ const getGameResults = () => {
           game.status = result;
           game.home_score = homeScore
           game.away_score = awayScore 
+          game.game_time = gameTime
   
           // console.log(game)
   

@@ -82,8 +82,7 @@ class GameIndex extends React.Component {
 
 
             <div className="outer-grid">
-            { games.map(game => <GameIndexItem game={game} key={game._id} />
-            )}
+                { games.map(game => <GameIndexItem game={game} key={game._id} />)}
             </div>
         )
 

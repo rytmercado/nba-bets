@@ -32,3 +32,17 @@ export const postBet = bet => dispatch => (
             dispatch(receiveErrors(err.res))
         })
 );
+
+export const getBets = userId => dispatch => (
+    BetApiUtil.getBets(userId)
+        .then( (bets) => dispatch(receiveUserBets(bets)))
+)
+
+export const deleteBet = betId => dispatch => (
+    BetApiUtil.deleteBet(betId)
+        .then( (payload) => {
+            // debugger
+            dispatch(clearBet(payload.data.bet))
+            dispatch(receiveUser(payload.data.user))
+        })
+)

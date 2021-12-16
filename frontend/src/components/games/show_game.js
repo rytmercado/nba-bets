@@ -1,4 +1,5 @@
 import React from 'react';
+import * as NBALogos from '../../../../assets/photos';
 
 
 class ShowGame extends React.Component {
@@ -13,15 +14,24 @@ class ShowGame extends React.Component {
     }
 
     render () {
-    
+        const g = this.props.game;
         if (this.props.game === undefined){
             return null
         } 
         return (
-            <ul>
-                <li>{this.props.game.home_team}</li>
-                <li>{this.props.game.away_team}</li>
-            </ul>
+            <div className="game-show">
+                <ul className="teams">
+                    <li>{g.home_team}</li>
+                    <img className="NBAlogo" src={`/../../../../assets/photos/${g.home_team}.JPG`} />
+                    <li>{g.away_team}</li>
+                    <img className="NBAlogo" src={`/../../../../assets/photos/${g.away_team}.JPG`} />
+                </ul>
+                <ul className="odds">
+                    <li>{g.home_odds}</li>
+                    <li>{g.away_odds}</li>
+                </ul>
+
+            </div>
         )
     }
 }

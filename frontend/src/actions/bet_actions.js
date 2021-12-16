@@ -23,6 +23,7 @@ export const receiveUserBets = (bets) => ({
 
 export const clearBet = (bet) => ({
     type: CLEAR_BET,
+    bet
 })
 
 export const postBet = bet => dispatch => (

@@ -51,6 +51,21 @@ class GameIndexItem extends React.Component {
             "Washington Wizards": <NBAIcons.WAS/>
         }
 
+        let h_odds;
+        let a_odds;
+        if(game.home_odds > 0){
+            h_odds = "+" + game.home_odds ;
+        } else {
+            h_odds = game.home_odds;
+        }
+        if(game.away_odds > 0){
+            a_odds = "+" + game.away_odds;
+        } else {
+            a_odds = game.away_odds;
+        }
+
+        console.log(h_odds)
+
         // let away_name = NBALogos.game.away_team;
         // let home_name = NBALogos.game.home_team;
         // console.log(away_name)
@@ -68,10 +83,12 @@ class GameIndexItem extends React.Component {
                             <div className="game">
 
                                 <div className="game-header">
+                                    <button className="game-alert-btn">Alert</button>
                                     <div className="nba-game-logo">
                                         <img src={nba_logo}></img>
                                         National Basketball League
                                     </div>
+                                    <button className="game-log-btn">View Game Log</button>
                                 </div>
                                 
                                 <div className="game-content">
@@ -82,7 +99,7 @@ class GameIndexItem extends React.Component {
                                                 {/* <img src={warriors_logo} alt="away-team"></img> */}
                                             </div>
                                             <h2 className="team-name">{game.away_team}</h2>
-                                            <button className="game-bet-odds">{game.away_odds}</button>
+                                            <button className="game-bet-odds">{a_odds}</button>
                                         </div>
                                     </div>
 
@@ -116,7 +133,7 @@ class GameIndexItem extends React.Component {
                                                 {/* <img src={lakers_logo} alt="home-team"></img> */}
                                             </div>
                                             <h2 className="team-name">{game.home_team}</h2>
-                                            <button className="game-bet-odds">{game.home_odds}</button>
+                                            <button className="game-bet-odds">{h_odds}</button>
                                         </div>
                                     </div>
                                 </div>

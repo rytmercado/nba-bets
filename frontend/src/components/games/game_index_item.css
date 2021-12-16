@@ -54,7 +54,7 @@ strong {
 
 .game-header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 16px 16px 0px 16px;
     /* border-bottom: 2px solid#303030; */
 }
@@ -91,6 +91,7 @@ strong {
 .nba-game-logo img {
     width: 20px;
     margin-right: 12px;
+    margin-left: 57px;
 }
 
 .game-content {
@@ -99,7 +100,7 @@ strong {
 }
 
 .column{
-    padding: 32px;
+    padding: 15px 32px 32px 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,9 +148,9 @@ strong {
     line-height: 1;
 }
 
-.game-score-number--leading {
+/* .game-score-number--leading {
     color: #623ce6
-}
+} */
 
 .game-score-divider {
     font-size: 28px;
@@ -190,4 +191,16 @@ strong {
 	color: #fff;
 	font-size: 14px;
 	box-shadow: 0 4px 8px 0 #303030;
+}
+
+.game-log-btn{
+    /* margin-left: auto; */
+}
+
+.game-alert-btn{
+    /* margin-right: auto; */
+}
+
+.game-bet-odds {
+    cursor:default;
 }

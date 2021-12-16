@@ -27,6 +27,10 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
+  game_time: {
+    type: String,
+    required: true
+  },
   home_score: {
     type: Number,
     required: true
@@ -35,7 +39,7 @@ const GameSchema = new Schema({
     type: Number, 
     required: true 
   }
- },
+  },
   {
     timestamps: true 
 }) 

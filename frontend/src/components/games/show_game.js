@@ -19,6 +19,7 @@ class ShowGame extends React.Component {
             return null
         } 
         return (
+            
             <h1>{this.props.game.home_team} vs. {this.props.game.away_team}</h1>
         )
     }

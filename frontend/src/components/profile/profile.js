@@ -24,7 +24,7 @@ class Profile extends React.Component {
             <div className="profile-container">
                 <NavBarContainer />
                 <div className="profile-body-container">
-                    <div className="profile-body-header">{this.props.currentUser.handle}</div>
+                    <div className="profile-body-header">My Bets</div>
                     <div className="profile-body">
                         <BetIndexContainer />
                     </div>

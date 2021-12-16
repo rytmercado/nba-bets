@@ -16,15 +16,8 @@ class BetIndex extends React.Component {
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
                 )
             })
-                // console.log(this.props.bets[0])
-                // console.log(this.props.bets[0].amount)
-                // console.log(this.props.bets[0].payout)
-                // console.log(this.props.bets[0].selection)
-                // console.log(this.props.bets[0].status)
-                // console.log(this.props.bets[0].createdAt)
-            // }
             return(
-                <div> {betsIndex}</div>
+                <div>{betsIndex}</div>
             )
         }
     }

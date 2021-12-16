@@ -20,8 +20,8 @@ class BetIndexItem extends React.Component{
                     <span className="inline">{this.props.bet.amount}</span>
                     <span className="inline">{this.props.bet.payout}</span>
                     <span className="inline">{this.props.bet.status}</span>
-                    <span className="inline">{this.props.bet.createdAt}</span>
-                    <button onClick={this.onDelete}>REMOVE BET</button>
+                    {/* <span className="inline">{this.props.bet.createdAt}</span> */}
+                    <button className="delete-bet-btn"onClick={this.onDelete}>REMOVE BET</button>
                 </div>
         )
     }

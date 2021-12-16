@@ -7,6 +7,7 @@ import warriors_logo from '../../images/warriors.png';
 
 import * as NBAIcons from 'react-nba-logos';
 
+
 class GameIndexItem extends React.Component {
     constructor(props) {
         super(props);
@@ -14,11 +15,46 @@ class GameIndexItem extends React.Component {
     }
 
     
- 
-
 
     render() {
         let game = this.props.game;
+        const NBALogos = {
+            "Atlanta Hawks": <NBAIcons.ATL/>,
+            "Boston Celtics": <NBAIcons.BOS/>,
+            "Brooklyn Nets": <NBAIcons.BKN/>,
+            "Charlotte Hornets": <NBAIcons.CHA/>,
+            "Chicago Bulls": <NBAIcons.CHI/>,
+            "Cleveland Cavaliers": <NBAIcons.CLE/>,
+            "Dallas Mavericks": <NBAIcons.DAL/>,
+            "Denver Nuggets": <NBAIcons.DEN/>,
+            "Detroit Pistons": <NBAIcons.DET/>,
+            "Golden State Warriors": <NBAIcons.GSW/>,
+            "Houston Rockets": <NBAIcons.HOU/>,
+            "Indiana Pacers": <NBAIcons.IND/>,
+            "Los Angeles Clippers": <NBAIcons.LAC/>,
+            "Los Angeles Lakers": <NBAIcons.LAL/>,
+            "Memphis Grizzlies": <NBAIcons.MEM/>,
+            "Miami Heat": <NBAIcons.MIA/>,
+            "Milwaukee Bucks": <NBAIcons.MIL/>,
+            "Minnesota Timberwolves": <NBAIcons.MIN/>,
+            "New Orleans Pelicans": <NBAIcons.NOP/>,
+            "New York Knicks": <NBAIcons.NYK/>,
+            "Oklahoma City Thunder": <NBAIcons.OKC/>,
+            "Orlando Magic": <NBAIcons.ORL/>,
+            "Philadelphia 76ers": <NBAIcons.PHI/>,
+            "Phoenix Suns": <NBAIcons.PHX/>,
+            "Portland Trail Blazers": <NBAIcons.POR/>,
+            "Sacramento Kings": <NBAIcons.SAC/>,
+            "San Antonio Spurs": <NBAIcons.SAS/>,
+            "Toronto Raptors": <NBAIcons.TOR/>,
+            "Utah Jazz": <NBAIcons.UTA/>,
+            "Washington Wizards": <NBAIcons.WAS/>
+        }
+
+        // let away_name = NBALogos.game.away_team;
+        // let home_name = NBALogos.game.home_team;
+        // console.log(away_name)
+        // console.log(home_name)
                 return (
                         // <div className="game-index-item-grid">
                         //     <div className="team">{game.away_team}</div>
@@ -42,7 +78,7 @@ class GameIndexItem extends React.Component {
                                     <div className="column">
                                         <div className="team team--away">
                                             <div className="team-logo">
-                                                <NBAIcons.GSW />
+                                                {NBALogos[game.away_team]}
                                                 {/* <img src={warriors_logo} alt="away-team"></img> */}
                                             </div>
                                             <h2 className="team-name">{game.away_team}</h2>
@@ -76,7 +112,7 @@ class GameIndexItem extends React.Component {
                                     <div className="column">
                                         <div className="team team--home">
                                             <div className="team-logo">
-                                            <NBAIcons.LAL />
+                                            {NBALogos[game.home_team]}
                                                 {/* <img src={lakers_logo} alt="home-team"></img> */}
                                             </div>
                                             <h2 className="team-name">{game.home_team}</h2>

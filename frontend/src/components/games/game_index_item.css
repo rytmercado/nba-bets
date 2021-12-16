@@ -103,7 +103,8 @@ strong {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100%/3);
+    /* width: calc(100%/3); */
+    width: 200px;
 }
 
 .team {

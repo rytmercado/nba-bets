@@ -7,26 +7,24 @@ class BetIndex extends React.Component {
         super(props)
     }
 
+    // componentDidMount(){
+    //     this.props.getBets(this.props.currentUser.id)
+    // }
 
     render(){
-        if(!!this.props.bets){
-            let betsIndex = this.props.bets.map( bet => {
-                return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
-                )
-            })
-                // console.log(this.props.bets[0])
-                // console.log(this.props.bets[0].amount)
-                // console.log(this.props.bets[0].payout)
-                // console.log(this.props.bets[0].selection)
-                // console.log(this.props.bets[0].status)
-                // console.log(this.props.bets[0].createdAt)
-            // }
-            return(
-                <div> {betsIndex}</div>
-            )
+        console.log(this.props)
+        if(!this.props.bets){
+            return null
         }
-    }
+        let betsIndex = this.props.bets.map( bet => {
+            return(
+                <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+            )
+        })
+        return(
+            <div> {betsIndex}</div>
+        )
+        }
 
 
 

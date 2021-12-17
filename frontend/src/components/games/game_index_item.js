@@ -108,7 +108,7 @@ class GameIndexItem extends React.Component {
                                                 <span className="game-score-number">{game.home_score}</span>
                                             </div>
                                             <div className="game-period">
-                                                Q2
+                                                Q{game.quarter}
                                             </div>
                                             <div className="game-status">Live</div> 
                                             <div className="game-bet">

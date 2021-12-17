@@ -12,8 +12,6 @@ class GameIndexItem extends React.Component {
 
     }
 
-    
-
     render() {
         let game = this.props.game;
         const NBALogos = {

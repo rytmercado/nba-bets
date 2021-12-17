@@ -70,7 +70,7 @@ strong {
     align-items: center;
     line-height: 1;
     /* margin-right: auto; */
-    margin-top: 5px;
+    margin-top: 12px;
 }
 
 .game-status:before{
@@ -162,9 +162,6 @@ strong {
     margin-right: 10px;
 }
 
-.game-date {
-    color: #8A8F98;
-}
 
 .game-period {
     color: #8A8F98;
@@ -204,4 +201,12 @@ strong {
 
 .game-bet-odds {
     cursor:default;
+}
+
+.main-header {
+    font-family:'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    text-align: center;
+    font-size: 35px;
+    font-style: italic;
 }

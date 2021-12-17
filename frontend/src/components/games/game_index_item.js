@@ -98,18 +98,18 @@ class GameIndexItem extends React.Component {
 
                                     <div className="column">
                                         <div className="game-details">
-                                            <div className="game-date">
-                                                25 Dec at <strong>{game.game_time}</strong>
+                                            <div className="game-period">
+                                                <strong>{game.game_time}</strong>
                                             </div>
-                                            {/* <div className="game-date">{game.start_time}</div> */}
+                                            <div className="game-period">{game.game_minute}</div>
                                             <div className="game-score">
                                                 <span className="game-score-number game-score-number--leading" >{game.away_score}</span>
                                                 <span className="game-score-divider">:</span>
                                                 <span className="game-score-number">{game.home_score}</span>
                                             </div>
-                                            <div className="game-period">
+                                            {/* <div className="game-period">
                                                 Q{game.quarter}
-                                            </div>
+                                            </div> */}
                                             <div className="game-status">Live</div> 
                                             <div className="game-bet">
                                                 <button className="game-bet-btn">Place Bet</button>

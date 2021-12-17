@@ -28,6 +28,8 @@ const getGameResults = () => {
       let awayScore = data[i].visitor_team_score 
       
       let gameTime = data[i].status
+      let q = data[i].period
+      let minute = data[i].time
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
@@ -43,8 +45,6 @@ const getGameResults = () => {
         console.log(game)
         console.log(fullHomeName)
         if(!!game) {
-          // debugger 
-
           if (result === 'Final'){
             if(homeScore > awayScore){
               winner = fullHomeName
@@ -59,6 +59,8 @@ const getGameResults = () => {
           game.home_score = homeScore
           game.away_score = awayScore 
           game.game_time = gameTime
+          game.quarter = q
+          game.game_minute = minute
   
           // console.log(game)
   

@@ -5,7 +5,8 @@ import { getBets } from '../../actions/bet_actions'
 import { fetchUser } from '../../actions/session_actions'
 
 const mSTP = (state) => ({
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    bets: state.bets
 })
 
 const mDTP = (dispatch) => ({

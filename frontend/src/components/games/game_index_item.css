@@ -60,6 +60,10 @@ strong {
     /* border-bottom: 2px solid#303030; */
 }
 
+.game-status-hidden{
+    visibility: hidden;
+}
+
 .game-status{
     background-color: #fdeaec;
     color: #d72641;

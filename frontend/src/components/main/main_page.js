@@ -25,7 +25,7 @@ class MainPage extends React.Component {
           <h1 className="main-header">Today's Games</h1>
           <button onClick={() => this.setState({modalOpen: true})} className="make-bet">Make Bet</button>
           <GameIndexContainer />
-          <footer>
+          <footer className="main-footer">
             Copyright &copy; 2021 NBA bets
           </footer>
         </div>

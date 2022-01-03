@@ -61,6 +61,10 @@ router.post('/create', (req, res) => {
   // console.log(req.body.user)
   // let userObjectId = mongoose.Types.ObjectId(req.body.userId)
   // console.log(userObjectId)
+  console.log(req.body.userId)
+  if (typeof req.body.userId === 'undefined' ){
+    return res.status(404).json({"msg":"userId is undefined"})
+  }
   User.findById(req.body.userId, (err, user) => {
     //TODO: Need to check that game is Incomplete
 

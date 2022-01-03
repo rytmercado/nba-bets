@@ -6,7 +6,7 @@ class BetModal extends React.Component {
 
         this.state = {
             game: '',
-            userId: this.props.session.user.id,
+            userId: this.props.session.user._id,
             selection: '', 
             amount: 100,
         }

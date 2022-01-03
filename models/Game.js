@@ -32,8 +32,7 @@ const GameSchema = new Schema({
     required: true
   },
   game_minute: {
-    type: String,
-    required: true
+    type: String
   },
   quarter: {
     type: String,

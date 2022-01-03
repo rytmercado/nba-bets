@@ -17,6 +17,7 @@ export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
 
-export const fetchUser = userId => (
-  axios.get(`/api/users/show/${userId}`)
-)
+export const fetchUser = userId => {
+  console.log(userId, "fetchUser")
+  return axios.get(`/api/users/show/${userId}`)
+}

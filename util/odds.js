@@ -38,6 +38,11 @@ const getGameOdds = () => {
         odds_obj.home_score = -1;
         odds_obj.away_score = -1;
 
+        odds_obj.game_time = ""
+        odds_obj.game_minute = ""
+        odds_obj.quarter = ""
+        odds
+
         //If status is false, update game 
         //home team, away team, status
         Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}]}).then(game => {
@@ -47,6 +52,7 @@ const getGameOdds = () => {
           if (game === null){
 
             let newGame = new Game(odds_obj)
+
             newGame.save()
 
           } else {

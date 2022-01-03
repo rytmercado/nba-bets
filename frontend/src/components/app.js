@@ -19,6 +19,7 @@ import './session/signup_form.css'
 import '../components/games/game_index_item.css'
 import './bet_modal/bet_modal.css'
 import './games/game_index_item.css'
+import './games/show_game.css'
 
 
 

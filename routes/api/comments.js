@@ -63,12 +63,28 @@ router.patch('/update', (req, res) => {
   })
 })
 
+//req.body.userId
 router.delete('/:gameId/delete/:commentId', (req, res) => {
-
+  Game.findById(req.params.gameId, (err, game) => {
+    if (err){
+      return res.status(422).json(err)
+    } else {
+      if (!!game){
+        for (let i = 0; i < game.comments.length; i++) {
+          if (game.comments[i]._id.toString() === req.params.commentId) {
+           if (game.comments[i].user.toString() === req.body.userId) {
+              game.comments.splice(i, 1)
+              game.save()
+              return res.json(game)
+           } else {
+              return res.status(422).json({"msg": "user may only delete their own comments"})
+            }
+          }
+        }
+      }
+    }
+  })
 })
 
-// router.update('/:gameId/update/:commentId', (req, res) => {
-
-// })
 
 module.exports = router; 

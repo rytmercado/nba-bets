@@ -5,10 +5,16 @@ import nba_logo from '../../images/nba.png';
 
 import * as NBAIcons from 'react-nba-logos';
 
+import BetModalContainer from '../bet_modal/bet_modal_container';
+
 
 class GameIndexItem extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            modalOpen: false,
+        }
 
     }
 
@@ -98,7 +104,7 @@ class GameIndexItem extends React.Component {
                                     </div>
                                     <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
                                     <div className="game-bet">
-                                        <button className="game-bet-btn">Place Bet</button>
+                                        <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
                                     </div>
                                 </div>
 
@@ -116,6 +122,7 @@ class GameIndexItem extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} />
                 </div>
         )
     }

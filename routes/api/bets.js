@@ -121,7 +121,7 @@ router.post('/create', (req, res) => {
         //respond with the the made bet and the updated user 
         let newBet = new Bet(bet)
         newBet.save()
-        return res.json({bet: newBet, user: user })
+        return res.json({bet: newBet, user: user,  "msg": "bet succesfully saved!"})
         
       })
     } else {

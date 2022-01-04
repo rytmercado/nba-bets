@@ -1,6 +1,6 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
-import { CommentContainer } from '../comments/comment_container'
+import  CommentContainer  from '../comments/comment_container'
 
 
 class ShowGame extends React.Component {

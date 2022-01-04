@@ -1,4 +1,4 @@
-import { postComment, fetchGameComments } from '../actions/comment_actions'
+import { postComment, fetchGameComments } from '../util/chat_api_util'
 
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 
 class Comment extends React.Component {
     constructor(props) {
         super(props)
         
-        state={
+        this.state={
             userId: this.props.currentUser,
-            gameId: this.props.params.match.game_id,
+            gameId: this.props.params.match.gameId,
             body: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +44,6 @@ class Comment extends React.Component {
         </div>
         <form>
             <div className="comment-form">
-            <div className="comment-row"> <img src={user} style={{width:80, height:80}}/>
             <div className="comment-row">
                 <div className="input-div"> 
                 <span className="input-name">{this.props.currentUser.username}</span>
@@ -54,19 +53,19 @@ class Comment extends React.Component {
                     type='text'
                     placeholder='Type your reply here.'
                     component='input'
-                    value={text}
-                    onChange={handleChange}></textarea>  
+                    
+                    onChange={this.handleChange}></textarea>  
             </div>
             </div> 
             </div>
+        </form>
         <div className="comment-btn-div">
             <button className="comment-post-btn" onClick={this.handleSubmit} type="submit">
                 Post
             </button>
         </div>
-        </div>
-      </form>
     </div>
+
    )
 }}
 

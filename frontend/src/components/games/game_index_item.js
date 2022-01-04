@@ -122,7 +122,7 @@ class GameIndexItem extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} />
+                    <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} h_team={game.home_team} a_team={game.away_team} h_odds={h_odds} a_odds={a_odds}/>
                 </div>
         )
     }

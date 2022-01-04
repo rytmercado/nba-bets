@@ -7,14 +7,14 @@ class Comment extends React.Component {
         
         this.state={
             userId: this.props.currentUser,
-            gameId: this.props.id,
+            gameId: this.props.g.id,
             body: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
   componentDidMount() {
-      this.getComments(this.props.id)
+      this.getComments(this.props.g.id)
   }
 
   handleChange() {
@@ -28,20 +28,18 @@ class Comment extends React.Component {
   }
 
   render() {
-        const game = Game.find(this.props.id)
+        const game = this.props.g
         let count = game.comments.length
-        let comments = this.props.game.comments
-        if (comments.length < 1) {
-            
-        }
+        let comments = game.comments
         return(
             <div className="comments-container">
                 <div className="current-comments">
                     <h3>{count} Comments</h3>
                     <ul>
-                        { comments.map(comment => {
+                        {   comments.map(comment => {
                             return <li>{comment}</li>
-                        }) }
+                            })
+                        } 
                     </ul>
                 </div>
                 <form>
@@ -57,7 +55,7 @@ class Comment extends React.Component {
                             component='input'
                             
                             onChange={this.handleChange}></textarea>  
-                    </div>
+                        </div>
                     </div> 
                     </div>
                 </form>

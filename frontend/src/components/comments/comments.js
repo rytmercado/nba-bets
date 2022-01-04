@@ -29,7 +29,7 @@ class Comment extends React.Component {
   }
 
   render() {
-    let comments = this.state.game.comments;
+    let comments = this.props.game.comments;
     let count = comments.length;
 
    return(
@@ -42,18 +42,30 @@ class Comment extends React.Component {
                 }) }
             </ul>
         </div>
-        <div className="post-comment">
-            <form>
-                <input value={body} onChange={this.handleChange}
-                />
-                <button
-                    onClick={this.handleSubmit}
-                    type='button'
-                >
-                    Post
-                </button>
-            </form>
-        </div>  
+        <form>
+            <div className="comment-form">
+            <div className="comment-row"> <img src={user} style={{width:80, height:80}}/>
+            <div className="comment-row">
+                <div className="input-div"> 
+                <span className="input-name">{this.props.currentUser.username}</span>
+                <textarea
+                    rows="2"
+                    className="input-box"
+                    type='text'
+                    placeholder='Type your reply here.'
+                    component='input'
+                    value={text}
+                    onChange={handleChange}></textarea>  
+            </div>
+            </div> 
+            </div>
+        <div className="comment-btn-div">
+            <button className="comment-post-btn" onClick={this.handleSubmit} type="submit">
+                Post
+            </button>
+        </div>
+        </div>
+      </form>
     </div>
    )
 }}

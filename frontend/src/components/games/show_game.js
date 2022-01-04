@@ -1,5 +1,6 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
+import { CommentContainer } from '../comments/comment_container'
 
 
 class ShowGame extends React.Component {
@@ -51,16 +52,19 @@ class ShowGame extends React.Component {
         } 
         return (
             <div className="game-show">
-                <ul className="home-team">
-                    <li className="team-name">{g.home_team}</li>
-                    {NBALogos[g.home_team]}
-                    <li>{g.home_odds}</li>
-                </ul>
-                <ul className="away-team">
-                    <li className="team-name">{g.away_team}</li>
-                    {NBALogos[g.away_team]}
-                    <li>{g.away_odds}</li>
-                </ul>
+                <div className="game-box">
+                    <ul className="home-team">
+                        <li className="team-name">{g.home_team}</li>
+                        {NBALogos[g.home_team]}
+                        <li>{g.home_odds}</li>
+                    </ul>
+                    <ul className="away-team">
+                        <li className="team-name">{g.away_team}</li>
+                        {NBALogos[g.away_team]}
+                        <li>{g.away_odds}</li>
+                    </ul>
+                </div>
+                    <CommentContainer />
             </div>
         )
     }

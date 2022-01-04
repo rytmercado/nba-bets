@@ -1,6 +1,27 @@
 .game-show {
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 40%;
+    border: 1px solid black;
+    position: absolute;
+    align-self: center;
+}
 
+.home-team {
+    border: 1px solid green;
+}
+
+.away-team {
+    border: 1px solid blue;
+}
+
+.team-name {
+    align-self: center;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: 'Lucida Grande', sans-serif
 }

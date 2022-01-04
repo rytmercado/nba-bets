@@ -64,7 +64,7 @@ class ShowGame extends React.Component {
                         <li>{g.away_odds}</li>
                     </ul>
                 </div>
-                    <CommentContainer />
+                    <CommentContainer id={g.id} />
             </div>
         )
     }

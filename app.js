@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose")
 const db = require('./config/keys_development').mongoURI
 const users = require("./routes/api/users")
+const comments = require('./routes/api/comments')
 const games = require("./routes/api/games")
 const User = require("./models/User")
 const bodyParser = require("body-parser")
@@ -35,6 +36,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/games", games)
 app.use("/api/bets", bets)
+app.use("/api/comments", comments)
 
 
 app.get("/", (req, res) => res.send("Hello World!!"));
@@ -51,6 +53,6 @@ app.listen(port, () => {
 })
 
 // tasks(); // odds and game results node cron tasks
-// // getGameOdds();
+// getGameOdds();
 // // // setTimeout(getGameResults, 50000)
 // getGameResults()

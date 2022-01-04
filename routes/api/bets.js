@@ -15,6 +15,13 @@ router.get('/index/:userId', (req, res) => {
   })
 })
 
+router.get('/games/index/:gameId', (req, res) => {
+  let gameId = req.params.gameId
+  Bet.find({game: gameId}, (err, bets) => {
+    return res.json(bets)
+  })
+})
+
 router.delete('/:betId', (req, res) => {
   console.log(req.params.betId)
   Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
@@ -23,9 +30,6 @@ router.delete('/:betId', (req, res) => {
       return res.status(404).json({"msg": "bet already deleted"})
     }
     if (!!err){
-      // console.log(req)
-      // console.log(req.params)
-      // console.log(err)
       return res.status(422).json({"msg": "Failed to delete bet"})
     } else {
       User.findById(bet.user, (err, user) => {

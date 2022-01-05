@@ -22,10 +22,7 @@ class BetIndex extends React.Component {
             return(
                 <div>{betsIndex}</div>
             )
-        })
-        return(
-            <div> {betsIndex}</div>
-        )
+        }
         }
 
 

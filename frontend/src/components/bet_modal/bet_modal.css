@@ -22,27 +22,11 @@
 
 
 
-.bet-button{
-    background-color: #53d337;
-    border: 1px solid #53d337;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 23px;
-    font-weight:bold;
-    margin-top: 10px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 83px;
-    padding-right: 80px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    color: black;
-
-}
 
 .modal-form {
+    font-family:'Lucida Sans', Arial, sans-serif;
     display: inline-flex;
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     background-color: #fff;
     /* width: 500px;
@@ -52,10 +36,9 @@
     margin-top: -175px;
     margin-right: 30px; */
     top: 250px;
-    left: 50%;
-    margin-left: -380px;
     width: 360px;
-    padding: 200px;
+    padding: 10px;
+    margin-left: -580px;
     background: #fff;
     z-index: 3;
     border-radius: 5px;
@@ -72,10 +55,22 @@
 .modal-footer {
     padding: 10px;
     display: flex;
-    justify-content: space-between;
-
-}
+    justify-content: space-evenly
     
+}
+
+.bet-button{
+    background-color: #53d337;
+    border: 1px solid #53d337;
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight:bold;
+    cursor: pointer;
+    color: black;
+}
+
 .modal-title {
     margin: 0;
     font-size: 30px;

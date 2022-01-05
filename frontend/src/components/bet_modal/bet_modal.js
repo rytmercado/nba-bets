@@ -5,7 +5,7 @@ class BetModal extends React.Component {
         super(props)
 
         this.state = {
-            game: '',
+            game: this.props.game_id,
             userId: this.props.session.user._id,
             selection: '', 
             amount: 100,
@@ -61,13 +61,7 @@ class BetModal extends React.Component {
 
 
     render () {
-        // console.log(this.props.errors)
-        // const todaysGames = this.props.games.filter(game => game.status !== 'Final')
-        // const gameOptions = todaysGames.map(game => { return(<option htmlFor="game" key={game.id} value={game._id}>{game.home_team}  vs.  {game.away_team}</option>)})
-        console.log(this.props.a_team)
         if (this.props.modalOpen) {
-            // { if (this.state.game !== 'Select a matchup' && this.state.game !== '') {
-            //     const game = this.props.games.find(game => game._id === this.state.game)
             return (
                 <div className="modal-open">
                     <form className="modal-form" onSubmit={this.handleSubmit}>
@@ -75,10 +69,6 @@ class BetModal extends React.Component {
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
                         <div className="modal-body">
-                                {/* <select onChange={this.handleInput("game")} name="home_team">
-                                    <option>Select a matchup</option>
-                                    { gameOptions }
-                                </select> */}
                                 <br/>
                                 <label htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
                                 <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
@@ -100,28 +90,8 @@ class BetModal extends React.Component {
         )} 
         else {
             return null;
-            // return (
-            //     <div className="modal-open">
-            //         <form className="modal-form">
-            //             <div className="modal-header">
-            //                 <h5 className="modal-title">Bet Slip</h5>
-            //             </div>
-            //             <div className="modal-body">
-            //                     <select onChange={this.handleInput("game")} name="home_team">
-            //                         <option>Select a matchup</option>
-            //                         {/* { gameOptions } */}
-            //                     </select>
-            //             </div>
-            //         </form>
-            //     </div>
-            // )
         }
-
         }         
     } 
-    // else {
-    // return null;
-    // }
-// }}
 
 export default BetModal;

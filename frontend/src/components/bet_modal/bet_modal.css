@@ -20,9 +20,6 @@
     color: red;
 }
 
-
-
-
 .modal-form {
     font-family:'Lucida Sans', Arial, sans-serif;
     display: inline-flex;
@@ -69,6 +66,10 @@
     font-weight:bold;
     cursor: pointer;
     color: black;
+}
+
+.bet-button:hover {
+    opacity: 90%;
 }
 
 .modal-title {
@@ -124,4 +125,8 @@
     color: white;
     border-radius: 4px;
     padding: 5px;
+}
+
+.bet-team-name{
+    font-size: 18px;
 }

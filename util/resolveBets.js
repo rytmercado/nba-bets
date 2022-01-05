@@ -10,11 +10,14 @@ const resolveBets = (gameId, winner) => {
         User.findById(bets[i].user).then(user => {
           user.currency += bets[i].payout 
           user.save()
+          bets[i].status = "Won"
           
-        })
-        bets[i].status = "Complete"
-        bets[i].save()
+        }) 
       }
+      else {
+        bets[i].status = "Lost"
+      }
+      bets[i].save()
     }
   })
 }

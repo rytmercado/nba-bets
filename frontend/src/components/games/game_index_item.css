@@ -195,6 +195,10 @@ strong {
 	box-shadow: 0 4px 8px 0 #303030;
 }
 
+.game-bet-btn:hover {
+
+}
+
 .game-log-btn{
     /* margin-left: auto; */
 }

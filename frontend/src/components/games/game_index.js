@@ -18,15 +18,14 @@ class GameIndex extends React.Component {
         this.props.fetchAllGames()                  
     }
 
+    isToday(someDate){
+      const today = new Date()
+      someDate = new Date(someDate)
+      return (someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear());
+    }
+
     render () {
-        //Need to adjust filter so as to display all of today's games, regardless of status
-        // let tommorrow = new Date();
-        // var dd = String(tommorrow.getDate() + 1).padStart(2, '0');
-        // var mm = String(tommorrow.getMonth() + 1).padStart(2, '0'); //January is 0!
-        // var yyyy = tommorrow.getFullYear();
-
-
-        const games = this.props.games.filter(game => game.status !== 'Final')
+        const games = this.props.games.filter(game => this.isToday(game.start_time))
         return (
             // <div className="game-index-container">
             //     <div className="game">

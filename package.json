@@ -22,6 +22,7 @@
     "node-cron": "^3.0.0",
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
+    "react-nba-logos": "^1.1.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
     "validator": "^13.7.0"

@@ -7,6 +7,9 @@ class BetIndex extends React.Component {
         super(props)
     }
 
+    // componentDidMount(){
+    //     this.props.getBets(this.props.currentUser.id)
+    // }
 
     render(){
         if(!!this.props.bets){
@@ -19,8 +22,11 @@ class BetIndex extends React.Component {
             return(
                 <div>{betsIndex}</div>
             )
+        })
+        return(
+            <div> {betsIndex}</div>
+        )
         }
-    }
 
 
 

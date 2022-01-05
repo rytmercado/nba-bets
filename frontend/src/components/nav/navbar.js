@@ -15,7 +15,12 @@ class NavBar extends React.Component {
 
   componentDidMount(){
     //if this.rpops.loggedin > fetchCurrentUser
-    this.props.fetchUser(this.props.user.id)
+    if(this.props.user){
+      if (this.props.user.id){
+        console.log(this.props.user.id, "frontend")
+        this.props.fetchUser(this.props.user.id)
+      }
+    }
   }
 
   logoutUser(e) {

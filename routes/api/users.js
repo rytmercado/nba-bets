@@ -36,6 +36,12 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/show/:userId', (req, res) => {
+  console.log("Backend")
+  console.log(req.params)
+  console.log(req.params.userId)
+  if (req.params.userId === 'undefined'){
+    return res.status(422).json({"msg": "userId is undefined"})
+  }
   User.findById(req.params.userId)
   .then( user => {
     if (!!user){

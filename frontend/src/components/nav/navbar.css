@@ -54,12 +54,12 @@ nav {
 .profile-btn {
     font-family:'Lucida Sans', Arial, sans-serif;
     /* background-color: #000000; */
-    margin-right: 30px;  
+    margin-right: 20px;  
     margin-top: 8px;
     padding: 5px 15px 5px 15px;
     /* border: 1px solid white; */
     border: 1px solid #000000;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .logout-btn {
@@ -70,7 +70,7 @@ nav {
     padding: 5px 15px 5px 15px;
     /* border: 1px solid white; */
     border: 1px solid #000000;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .demo-btn {
@@ -96,8 +96,7 @@ nav {
 .currency-amt {
     background-color: black;
     color: greenyellow;
-    margin-right: 20px;
-    margin-top: 8px;
+    margin-top: 10px;
     padding: 2px 20px 5px 0px;
     font-size: 17px;
 }
@@ -116,5 +115,5 @@ nav {
     padding: 5px 15px 5px 15px;
     /* border: 1px solid white; */
     border: 1px solid #52D337;
-    border-radius: 2px;
+    border-radius: 3px;
 }

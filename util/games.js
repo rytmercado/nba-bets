@@ -14,7 +14,7 @@ const getGameResults = () => {
 
   
   today = yyyy + '-' + mm + '-' + dd;
-  // console.log(today)
+
   axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2021&dates[]=${today}`)
   .then(res => {
     let data = res.data.data;
@@ -26,6 +26,12 @@ const getGameResults = () => {
       
       let homeScore = data[i].home_team_score 
       let awayScore = data[i].visitor_team_score 
+      
+      let gameTime = data[i].status
+      let q = data[i].period
+      let minute = data[i].time
+
+      console.log(minute)
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
@@ -41,8 +47,6 @@ const getGameResults = () => {
         console.log(game)
         console.log(fullHomeName)
         if(!!game) {
-          // debugger 
-
           if (result === 'Final'){
             if(homeScore > awayScore){
               winner = fullHomeName
@@ -56,6 +60,9 @@ const getGameResults = () => {
           game.status = result;
           game.home_score = homeScore
           game.away_score = awayScore 
+          game.game_time = gameTime
+          game.quarter = q
+          game.game_minute = minute
   
           // console.log(game)
   

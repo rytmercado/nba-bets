@@ -37,7 +37,7 @@ export const postBet = bet => dispatch => (
         })
         .catch(err => {
             // dispatch(receiveErrors(Object.values(err.response.data)));
-            dispatch(receiveErrors(err.response.data))
+            dispatch(receiveErrors(err.res))
         })
 );
 

@@ -15,12 +15,6 @@ class MainPage extends React.Component {
 
   }
 
-  // componentDidMount(){
-  //   // this.props.getBets(this.props.userId)
-  //   // this.props.fetchUser(this.props.user.id)
-
-  // }
-
   render() {
     return (
       <div className="main">
@@ -28,14 +22,14 @@ class MainPage extends React.Component {
           <NavBarContainer/>
         </div>
         <div className="all-games">
-          <h1>Today's Games</h1>
-          <button onClick={() => this.setState({modalOpen: true})} className="make-bet">Make Bet</button>
+          <h1 className="main-header">Today's Games</h1>
+          {/* <button onClick={() => this.setState({modalOpen: true})} className="make-bet">Make Bet</button> */}
           <GameIndexContainer />
-          <footer>
-            Copyright &copy; 2021 NBA bets
+          <footer className="main-footer">
+            Copyright &copy; 2021 NBAA bets
           </footer>
         </div>
-        <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} />
+        {/* <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} /> */}
       </div>
     );
   }

@@ -9,9 +9,13 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getBets(this.props.currentUser.id)
-        this.props.fetchUser(this.props.currentUser.id)
-        
+        if(this.props.currentUser.id){
+            this.props.getBets(this.props.currentUser.id)
+            this.props.fetchUser(this.props.currentUser.id)
+        } else {
+            this.props.getBets(this.props.currentUser._id)
+            this.props.fetchUser(this.props.currentUser._id)
+        }
     }
 
     render() {
@@ -26,7 +30,7 @@ class Profile extends React.Component {
                 <div className="profile-body-container">
                     <div className="profile-body-header">My Bets</div>
                     <div className="profile-body">
-                        <BetIndexContainer />
+                        <BetIndexContainer bets={this.props.bets}/>
                     </div>
 
 

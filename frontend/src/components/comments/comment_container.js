@@ -6,8 +6,8 @@ import { getAllComments, createComment } from '../../actions/comment_actions'
 
 const mSTP = state => ({
     user: state.session.user,
-    game: state.game,
-    comments: state.comments,
+    game: state.games,
+    comments: state.games.comments,
 });
 
 const mDTP = dispatch => ({

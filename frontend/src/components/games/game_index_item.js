@@ -66,6 +66,12 @@ class GameIndexItem extends React.Component {
             a_odds = game.away_odds;
         }
 
+        let betLocked
+        if (game.away_score > 0 || game.home_score > 0){
+            betLocked = <button className="game-bet-btn">Bets Locked!</button>
+        } else {
+            betLocked = <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
+        }
 
         return (
                 <div className="game-index-container">
@@ -104,10 +110,10 @@ class GameIndexItem extends React.Component {
                                     </div>
                                     <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
                                     <div className="game-bet">
-                                        <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
+                                        {/* <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button> */}
+                                        {betLocked}
                                     </div>
                                 </div>
-
                             </div>
 
 

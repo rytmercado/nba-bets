@@ -23,17 +23,18 @@ router.get('/leaderboard/:userCount', (req, res) => {
   })
 })
 
-router.post('/add', (req, res) => {
-  User.findById(req.body.userId, (err, user) => {
-    if (user === null){
-      return res.status(404).json({"msg": "user not found"})
-    }
-    console.log(user)
-    user.currency += parseInt(req.body.amount)
-    user.save()
-    return res.json(user.currency)
-  })
-})
+// router.post('/add', (req, res) => {
+//   User.findById(req.body.userId, (err, user) => {
+//     if (user === null){
+//       return res.status(404).json({"msg": "user not found"})
+//     }
+//     console.log(user)
+//     user.currency += parseInt(req.body.amount)
+
+//     user.save()
+//     return res.json(user.currency)
+//   })
+// })
 
 router.get('/show/:userId', (req, res) => {
   console.log("Backend")
@@ -85,7 +86,8 @@ router.post('/register', (req, res) => {
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
-          currency: 1000
+          currency: 1000,
+          history: [1000]
         })
 
         bcrypt.genSalt(10, (err, salt) => {

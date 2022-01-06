@@ -12,6 +12,10 @@ const CommentSchema = new Schema({
     type: ObjectId, 
     required: true 
   },
+  handle: {
+    type: String,
+    required: true 
+  }, 
   parent: {
     type: ObjectId, 
   }

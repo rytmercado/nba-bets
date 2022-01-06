@@ -9,6 +9,7 @@ const resolveBets = (gameId, winner) => {
       if(bets[i].selection === winner){
         User.findById(bets[i].user).then(user => {
           user.currency += bets[i].payout 
+          user.history.push(user.currency)
           user.save()
           bets[i].status = "Won"          
         }) 

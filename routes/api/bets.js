@@ -116,6 +116,10 @@ router.post('/create', (req, res) => {
 
         // deduct amount
         user.currency -= bet.amount
+
+        //update ledger 
+        user.history.push(user.currency)
+        
         user.save()
 
         //respond with the the made bet and the updated user 

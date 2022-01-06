@@ -21,7 +21,8 @@ const UserSchema = new Schema({
   currency: {
     type: Number,
     required: true 
-  }
+  },
+  history: []
 }, {
   timestamps: true
 })

@@ -68,7 +68,7 @@ class GameIndexItem extends React.Component {
 
         let betLocked
         if (game.away_score > 0 || game.home_score > 0){
-            betLocked = <button className="game-bet-btn">Bets Locked!</button>
+            betLocked = <button className="game-bet-btn-locked">Bets Locked!</button>
         } else {
             betLocked = <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
         }

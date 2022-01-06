@@ -199,6 +199,20 @@ strong {
 
 }
 
+.game-bet-btn-locked {
+    position: absolute;
+	bottom: -16px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: none;
+	background-color: var(--color-theme-primary);
+	border-radius: 6px;
+	padding: 10px 48px;
+	color: #fff;
+	font-size: 14px;
+	box-shadow: 0 4px 8px 0 #303030;
+}
+
 .game-log-btn{
     /* margin-left: auto; */
 }

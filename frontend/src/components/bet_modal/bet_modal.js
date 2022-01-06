@@ -121,7 +121,7 @@ class BetModal extends React.Component {
                                 <div className="errors">{this.renderErrors()}</div>
                         </div>
                         <div className="modal-footer">
-                            <button className="bet-button" type="submit">Place Bet</button>
+                            <button className="bet-button" onClick={this.props.onClose} type="submit">Place Bet</button>
                             <button className="bet-button" onClick={this.props.onClose}>Close</button>
                         </div>
                     </form>

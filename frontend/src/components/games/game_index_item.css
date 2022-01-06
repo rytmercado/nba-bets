@@ -205,9 +205,9 @@ strong {
 	left: 50%;
 	transform: translateX(-50%);
 	border: none;
-	background-color: var(--color-theme-primary);
+	background-color: red;
 	border-radius: 6px;
-	padding: 10px 48px;
+	padding: 10px 40px;
 	color: #fff;
 	font-size: 14px;
 	box-shadow: 0 4px 8px 0 #303030;

@@ -47,7 +47,7 @@ class ShowGame extends React.Component {
             "Washington Wizards": <NBAIcons.WAS size={400}/>
         }
         const g = this.props.game;
-        if (this.props.game === undefined){
+        if (g === undefined){
             return null
         } 
         return (

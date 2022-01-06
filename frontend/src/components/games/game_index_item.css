@@ -211,10 +211,12 @@ strong {
 	color: #fff;
 	font-size: 14px;
 	box-shadow: 0 4px 8px 0 #303030;
+    cursor: default;
 }
 
-.game-log-btn{
+.game-log-btn:hover{
     /* margin-left: auto; */
+    text-decoration: underline;
 }
 
 .game-alert-btn{
@@ -231,6 +233,7 @@ strong {
     text-align: center;
     font-size: 35px;
     font-style: italic;
+    margin-top: 90px;
 }
 
 .main-footer{

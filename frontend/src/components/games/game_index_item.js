@@ -113,6 +113,9 @@ class GameIndexItem extends React.Component {
                                         {/* <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button> */}
                                         {betLocked}
                                     </div>
+                                    <div>
+                                        
+                                    </div>
                                 </div>
                             </div>
 

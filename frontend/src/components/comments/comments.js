@@ -13,7 +13,7 @@ class Comment extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.renderComments = this.renderComments.bind(this);
+        // this.renderComments = this.renderComments.bind(this);
     }
 
 //   componentDidMount() {
@@ -27,39 +27,39 @@ class Comment extends React.Component {
   }
   
   handleSubmit() {
-        console.log(this.props.user.handle)
+        const comments = Object.values(this.props.comments)
+        console.log(comments)
         this.setState({ userId: this.props.user.id, gameId: this.props.g._id, handle: this.props.user.handle }, () => {
             this.props.postComment(this.state)
                 .then(comment => this.setState({comment}))
         })
   }
 
-  renderComments() {
-    let comments = this.props.comments
-    if (comments) {
-        return(
-            <ul>
-              { (comments).map((comment, i) => (
-                <li className="comment" key={i}>
-                  <i><b>{comment["body"]}</b></i> - {comment["handle"]}
-                </li>
-              ))}
-            </ul>
-          );
-        } else {
-            return null
-        }
-  }
+//   renderComments() {
+    // let comments = this.props.comments.data.comments
+//     if (comments) {
+//         return(
+//             <ul>
+//               { (comments).forEach((comment, i) => (
+//                 <li className="comment" key={i}>
+//                   {comment.body} - {comment.handle}
+//                 </li>
+//               ))}
+//             </ul>
+//           );
+//         } else {
+//             return null
+//         }
+//   }
 
   render() {
-        const game = this.props.g
-        if (game.comments) {
-            let count = game.comments.length
+        if (this.props.comments) {
+            let count = this.props.comments.length
             return(
                 <div className="comments-container">
                     <div className="current-comments">
                         <h3 className="count">{count} Comments</h3>
-                        {this.renderComments()} 
+                        {/* {this.renderComments()}  */}
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="comment-form">

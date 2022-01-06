@@ -9,8 +9,7 @@ const commentsReducer = (state = [], action) => {
             newState.push(action.comment);
             return newState; 
         case RECEIVE_COMMENTS:
-            return newState;
-    
+            return action.comments;
         default: 
             return state;
     }

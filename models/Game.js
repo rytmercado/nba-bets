@@ -45,17 +45,17 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
-  game_time: {
-    type: String,
-    required: true
-  },
-  game_minute: {
-    type: String
-  },
-  quarter: {
-    type: String,
-    required: true
-  },
+  // game_time: {
+  //   type: String,
+  //   required: true
+  // },
+  // game_minute: {
+  //   type: String
+  // },
+  // quarter: {
+  //   type: String,
+  //   required: true
+  // },
   home_score: {
     type: Number,
     required: true

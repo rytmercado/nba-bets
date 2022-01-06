@@ -5,6 +5,7 @@ const Game = require('../../models/Game')
 const mongoose = require("mongoose");
 var ObjectId = require('mongodb').ObjectID;
 
+//Probably not necessary, as comments are already embedded in games. 
 router.get('/:gameId/index', (req, res) => {
   let gameId = req.params.gameId
   Game.findById(gameId, (err, game) => {

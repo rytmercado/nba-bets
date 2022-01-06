@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const getGameResults = require('./games');
 const getGameOdds = require('./odds');
 
-
+getGameOdds();
 
 const tasks = () => {
     cron.schedule('*/2 * * * *', () => {

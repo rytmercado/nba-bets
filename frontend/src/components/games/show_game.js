@@ -1,7 +1,7 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
 import  CommentContainer  from '../comments/comment_container'
-
+import DoughnutContainer from '../graphs/doughnut_container'
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -11,6 +11,7 @@ class ShowGame extends React.Component {
 
     componentDidMount() {
         this.props.fetchGame(this.props.match.params.id)
+
     }
 
     render () {
@@ -65,6 +66,7 @@ class ShowGame extends React.Component {
                     </ul>
                 </div>
                     <CommentContainer g={g} />
+                    <DoughnutContainer g={g} />
             </div>
         )
     }

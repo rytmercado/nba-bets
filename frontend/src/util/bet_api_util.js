@@ -13,6 +13,10 @@ export const deleteBet = (betId) => {
     return axios.delete(`api/bets/${betId}`)
 }
 
+export const getGamesBets = (gameId) => {
+    return axios.get(`/games/index/${gameId}`)
+}
+
 
 
 //when games > "Final" status > we need to trigger actions in frontend and backend

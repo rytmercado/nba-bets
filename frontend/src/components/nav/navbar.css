@@ -9,9 +9,9 @@ nav {
     /* color: white; */
     color: black;
     padding: 10px 12px 15px 12px;
-    /* position: fixed; 
+    position: fixed; 
     top: 0; 
-    width: 100%;  */
+    width: 100%; 
     z-index: 4;
 }
 

@@ -38,9 +38,10 @@ const getGameOdds = () => {
         odds_obj.home_score = -1;
         odds_obj.away_score = -1;
 
-        odds_obj.game_time = "unknown"
-        odds_obj.game_minute = "unknown"
-        odds_obj.quarter = "unknown"
+        odds_obj.game_time = " "
+        odds_obj.game_minute = " "
+        odds_obj.quarter = " "
+
 
         //If status is false, update game 
         //home team, away team, status

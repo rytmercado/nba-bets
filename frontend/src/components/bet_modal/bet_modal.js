@@ -10,7 +10,7 @@ class BetModal extends React.Component {
             game: this.props.game_id,
             userId: this.props.session.user._id,
             selection: '', 
-            amount: 100,
+            amount: 1000,
         }
 
         this.renderErrors = this.renderErrors.bind(this);
@@ -110,8 +110,8 @@ class BetModal extends React.Component {
                                 {NBALogos[this.props.a_team]}
                                 <label className="bet-team-name" htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
                                 <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
-                                <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                                 <br/>
+                                <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                                 {NBALogos[this.props.h_team]}
                                 <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
                                 <br/>

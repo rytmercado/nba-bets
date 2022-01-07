@@ -31,26 +31,25 @@ class Comment extends React.Component {
         console.log(comments)
         this.setState({ userId: this.props.user.id, gameId: this.props.g._id, handle: this.props.user.handle }, () => {
             this.props.postComment(this.state)
-                .then(comment => this.setState({comment}))
         })
   }
 
-//   renderComments() {
-    // let comments = this.props.comments.data.comments
-//     if (comments) {
-//         return(
-//             <ul>
-//               { (comments).forEach((comment, i) => (
-//                 <li className="comment" key={i}>
-//                   {comment.body} - {comment.handle}
-//                 </li>
-//               ))}
-//             </ul>
-//           );
-//         } else {
-//             return null
-//         }
-//   }
+  renderComments() {
+    let comments = this.props.comments
+    if (comments) {
+        return(
+            <ul>
+              { (comments).map((comment, i) => (
+                <li className="comment" key={i}>
+                  <b><i>{comment.body} </i></b>- {comment.handle}
+                </li>
+              ))}
+            </ul>
+          );
+        } else {
+            return null
+        }
+  }
 
   render() {
         if (this.props.comments) {
@@ -59,7 +58,7 @@ class Comment extends React.Component {
                 <div className="comments-container">
                     <div className="current-comments">
                         <h3 className="count">{count} Comments</h3>
-                        {/* {this.renderComments()}  */}
+                        {this.renderComments()} 
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="comment-form">

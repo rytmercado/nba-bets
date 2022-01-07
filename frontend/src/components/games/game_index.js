@@ -18,14 +18,9 @@ class GameIndex extends React.Component {
         this.props.fetchAllGames()                  
     }
 
-    isToday(someDate){
-      const today = new Date()
-      someDate = new Date(someDate)
-      return (someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear());
-    }
-
     render () {
-        const games = this.props.games.filter(game => this.isToday(game.start_time))
+      //Games are filtered by date on the backend
+        const games = this.props.games
         return (
             // <div className="game-index-container">
             //     <div className="game">

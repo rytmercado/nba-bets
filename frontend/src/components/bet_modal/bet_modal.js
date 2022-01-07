@@ -2,6 +2,10 @@ import React from 'react';
 
 import * as NBAIcons from 'react-nba-logos';
 
+import Toast from '../toast/toast';
+
+import checkIcon from '../../images/check.svg'
+
 class BetModal extends React.Component {
     constructor(props) {
         super(props)
@@ -65,6 +69,16 @@ class BetModal extends React.Component {
     render () {
         // console.log(this.props.a_team)
         // console.log(this.props.h_team)
+        const testList = [
+                {
+                id: 1,
+                title: 'Success',
+                description: 'This is a success toast component',
+                backgroundColor: '#5cb85c',
+                icon: checkIcon
+                },
+            ];
+
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -101,6 +115,7 @@ class BetModal extends React.Component {
         if (this.props.modalOpen) {
             return (
                 <div className="modal-open">
+                    <Toast toastList={testList} position="top-right"/>
                     <form className="modal-form" onSubmit={this.handleSubmit}>
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>

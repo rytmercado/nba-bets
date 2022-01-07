@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Toast = () => {
+const Toast = (props) => {
+    const { toastList, position } = props;
+    const [list, setList] = useState(toastList);
+
+    useEffect(() => {
+        setList(toastList);
+    }, [toastList, list]);
+
     return(
-        <div className="notification-container">
-            <button>X</button>
-            <div className="notification-image">
-                <img src="" alt=""></img>
-            </div>
-            <div>
-                <p className="notification-title">Title</p>
-                <p className="notification-message">Message</p>
-            </div>
+        <>
+        <div className={`notification-container ${position}`}>
+            {
+                list.map((toast, i) =>     
+                    <div key={i} className={`notification toast ${position}`} style={{ backgroundColor: toast.backgroundColor }} >
+                        <button>
+                            X
+                        </button>
+                        <div className="notification-image">
+                            {/* <img src={toast.icon} alt="" /> */}
+                        </div>
+                        <div>
+                            <p className="notification-title">{toast.title}</p>
+                            <p className="notification-message">{toast.description}</p>
+                        </div>
+                    </div>
+                )
+            }
         </div>
+        </>
     )
 }
 

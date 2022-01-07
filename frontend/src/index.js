@@ -12,6 +12,7 @@ import {fetchUser} from './util/session_api_util'
 import {getGame} from './util/game_api_util';
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 

@@ -40,7 +40,12 @@ router.delete('/:betId', (req, res) => {
           if(!!game){
             if(game.status === "Incomplete"){
               if (bet.status === "Incomplete"){
+
                 user.currency += bet.amount
+
+                //Updating ledger 
+                user.history.push({x: new Date(Date.now()), y: user.currency})
+
                 user.save()
                 return res.json({user, bet})
               } else {
@@ -118,7 +123,7 @@ router.post('/create', (req, res) => {
         user.currency -= bet.amount
 
         //update ledger 
-        user.history.push(user.currency)
+        user.history.push({x: new Date(Date.now()), y: user.currency})
         
         user.save()
 

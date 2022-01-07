@@ -52,3 +52,14 @@
     padding: 0px 10px 0px 10px;
     color: red
 }
+
+#myChart{
+  height: 100%;
+  width: 100%;
+}
+
+.ChartContainer{
+  z-index: 3;
+  height: 400px;
+  width: 400px;
+}

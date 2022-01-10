@@ -6,39 +6,20 @@
     background-color: #000000;
 }
 
-.profile-body-container {
-    width: 920px;
-    height: 200px;
-    padding-top: 20px;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-bottom: 20px;
-    position: absolute;
-    background: black;
-    text-align: center;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    /* display: flex;
-    flex-direction: column; */
-}
 
 .profile-body-header {
     background-color: #242424;
     /* display: block; */
     font-style: italic;
-    width: 100%;
+    /* width: 100%; */
     padding: 25px 10px 5px 10px;
-    overflow:hidden;
-    border-radius: 2px;
-    margin-right: auto;
-    color: white;
+    /* overflow: hidden;
+    margin-right: auto; */
+    /* color: white; */
     font-size: 40px;
 }
 
 .profile-body {
-    background-color: white;
     width: 100%;
     padding: 29px 10px 5px 10px;
     overflow:hidden;
@@ -52,6 +33,46 @@
     padding: 0px 10px 0px 10px;
     color: red
 }
+
+.bets-nav-bar {
+    height: 200px;
+    background-color: #242424;
+    padding-top: 120px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    background: black;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.bets-btn{
+    background-color: #121212;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+.bets-btn:hover {
+    background-color: white;
+    border-radius: 3px;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+
 
 #myChart{
   height: 100%;

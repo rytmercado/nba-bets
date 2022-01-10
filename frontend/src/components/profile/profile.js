@@ -20,7 +20,6 @@ class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         if(!this.props.currentUser){
             console.log(this.props)
             return null
@@ -29,14 +28,10 @@ class Profile extends React.Component {
             <div className="profile-container">
               
                 <NavBarContainer />
-                <GraphContainer />
+                {/* <GraphContainer /> */}
                 <div className="profile-body-container">
-                    <div className="profile-body-header">My Bets</div>
-                    <div className="profile-body">
-                        <BetIndexContainer bets={this.props.bets}/>
-                    </div>
-
-
+                    {/* <div className="profile-body-header">My Bets</div> */}
+                    <BetIndexContainer bets={this.props.bets}/>
                 </div>
             </div>
         )

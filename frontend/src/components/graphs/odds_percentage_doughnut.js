@@ -76,14 +76,13 @@ class OddsPercentageDoughnut extends React.Component {
 
 
     render() { 
-        myBarchart.canvas.parentNode.style.height = '303px';
         return (
             <div className="chart-container">
                 <div className="chart-box">
                     <canvas id="myChart"></canvas>
                 </div>
                 <div className="chart-box">
-                    <canvas id="myBarChart"></canvas>
+                    <canvas id="myBarChart" style={{"height" : "303px"}}></canvas>
                 </div>      
             </div>
         )

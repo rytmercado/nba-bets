@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import BetIndexContainer from '../profile_bets/bet_index_container';
+import GraphContainer from '../profile_graph/graph_container';
 
 class Profile extends React.Component {
     constructor(props){
@@ -26,7 +27,9 @@ class Profile extends React.Component {
         }
         return(
             <div className="profile-container">
+              
                 <NavBarContainer />
+                <GraphContainer />
                 <div className="profile-body-container">
                     <div className="profile-body-header">My Bets</div>
                     <div className="profile-body">

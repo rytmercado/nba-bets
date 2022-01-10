@@ -199,8 +199,24 @@ strong {
 
 }
 
-.game-log-btn{
+.game-bet-btn-locked {
+    position: absolute;
+	bottom: -16px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: none;
+	background-color: red;
+	border-radius: 6px;
+	padding: 10px 40px;
+	color: #fff;
+	font-size: 14px;
+	box-shadow: 0 4px 8px 0 #303030;
+    cursor: default;
+}
+
+.game-log-btn:hover{
     /* margin-left: auto; */
+    text-decoration: underline;
 }
 
 .game-alert-btn{
@@ -217,6 +233,7 @@ strong {
     text-align: center;
     font-size: 35px;
     font-style: italic;
+    margin-top: 90px;
 }
 
 .main-footer{

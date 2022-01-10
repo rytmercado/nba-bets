@@ -8,8 +8,9 @@ const resolveBets = (gameId, winner) => {
     for(let i = 0; i < bets.length; i++){
       if(bets[i].selection === winner){
         User.findById(bets[i].user).then(user => {
+
           user.currency += bets[i].payout 
-          user.history.push(user.currency)
+          user.history.push({x: new Date(Date.now()), y: user.currency})
           user.save()
           bets[i].status = "Won"          
         }) 

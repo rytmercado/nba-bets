@@ -82,12 +82,14 @@ router.post('/register', (req, res) => {
         return res.status(400).json({email: "A user has already registered with this address"})
       } else {
         // Otherwise create a new user
+        var date = new Date(Date.now());
+
         const newUser = new User({
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
           currency: 1000,
-          history: [1000]
+          history: [{x: date, y: 1000}]
         })
 
         bcrypt.genSalt(10, (err, salt) => {

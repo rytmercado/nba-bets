@@ -4,11 +4,11 @@ import Doughnut from './doughnut';
 
 
 const mSTP = state => ({
-
+    game: state.games,
 });
 
 const mDTP = dispatch => ({
     fetchGameBets: (gameId) => dispatch(getGameBets(gameId)),
   });
 
-export default connect(null, mDTP)(Doughnut);
+export default connect(mSTP, mDTP)(Doughnut);

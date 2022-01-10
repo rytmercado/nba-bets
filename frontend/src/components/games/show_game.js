@@ -57,16 +57,16 @@ class ShowGame extends React.Component {
                     <ul className="home-team">
                         <li className="team-name">{g.home_team}</li>
                         {NBALogos[g.home_team]}
-                        <li>{g.home_odds}</li>
+                        <li className="odds">{g.home_odds}</li>
                     </ul>
                     <ul className="away-team">
                         <li className="team-name">{g.away_team}</li>
                         {NBALogos[g.away_team]}
-                        <li>{g.away_odds}</li>
+                        <li className="odds">{g.away_odds}</li>
                     </ul>
                 </div>
                     <CommentContainer g={g} />
-                    <DoughnutContainer g={g} />
+                    <DoughnutContainer />
             </div>
         )
     }

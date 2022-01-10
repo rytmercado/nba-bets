@@ -2,26 +2,27 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    top: 5%;
     left: 25%;
     width: 60%;
-    height: 90%;
+    height: 100%;
     border: 1px solid black;
     position: absolute;
     align-self: center;
-    background-color: transparent;
+    background-color: grey;
     z-index: 1;
 }
 
 .home-team {
     border: 1px solid green;
     z-index: 2;
+    background-color: grey;
     
 }
 
 .away-team {
     border: 1px solid blue;
     z-index: 2;
+    background-color: grey;
 }
 
 .team-name {
@@ -30,6 +31,7 @@
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
     z-index: 2;
+    background-color: grey;
 }
 
 .count {

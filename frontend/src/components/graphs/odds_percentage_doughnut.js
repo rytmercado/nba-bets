@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from 'chart.js/auto';
+import { getGames } from "../../util/game_api_util";
 
 
 class OddsPercentageDoughnut extends React.Component {
@@ -9,9 +10,6 @@ class OddsPercentageDoughnut extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchGameBets(this.props.game.id)
-        const home = 1 / ((this.props.game.home_odds / 100) * -1)
-        const away = 1 - (home)
         const data = {
             labels: ["Home Team Win %", 
             "Away Team Win %"
@@ -19,7 +17,7 @@ class OddsPercentageDoughnut extends React.Component {
             datasets: [{
               id: 1,
               label: 'Odds of Winning',
-              data: [.35, .65],
+              data: [1, 4],
               backgroundColor: ['rgb(0, 0, 0)',
               '#CBB26A'
             ],
@@ -30,7 +28,7 @@ class OddsPercentageDoughnut extends React.Component {
             labels: ["home", "away"],
             datasets: [{
                 id: 2,
-                label: 'Home Bets',
+                label: 'Bets per Team',
                 data: [1, 2],
                 backgroundColor: [
                     'rgb(0, 0, 0)',
@@ -75,7 +73,7 @@ class OddsPercentageDoughnut extends React.Component {
 
 
 
-    render() { 
+    render() {
         return (
             <div className="chart-container">
                 <div className="chart-box">

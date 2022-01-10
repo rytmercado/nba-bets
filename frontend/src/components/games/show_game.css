@@ -4,8 +4,7 @@
     flex-direction: column;
     left: 25%;
     width: 60%;
-    height: 100%;
-    border: 1px solid black;
+    height: 90%;
     position: absolute;
     align-self: center;
     z-index: 1;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getGameBets } from '../../actions/bet_actions';
-import Doughnut from './doughnut';
+import OddsPercentageDoughnut from './odds_percentage_doughnut';
 
 
 const mSTP = state => ({
@@ -11,4 +11,4 @@ const mDTP = dispatch => ({
     fetchGameBets: (gameId) => dispatch(getGameBets(gameId)),
   });
 
-export default connect(mSTP, mDTP)(Doughnut);
+export default connect(mSTP, mDTP)(OddsPercentageDoughnut);

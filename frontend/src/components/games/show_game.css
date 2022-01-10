@@ -8,21 +8,19 @@
     border: 1px solid black;
     position: absolute;
     align-self: center;
-    background-color: grey;
     z-index: 1;
 }
 
 .home-team {
-    border: 1px solid green;
     z-index: 2;
-    background-color: grey;
-    
+    margin-right: 100px;
+    padding: 50px;
 }
 
 .away-team {
-    border: 1px solid blue;
     z-index: 2;
-    background-color: grey;
+    margin-left: 100px;
+    padding: 50px;
 }
 
 .team-name {
@@ -31,11 +29,47 @@
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
     z-index: 2;
-    background-color: grey;
 }
 
 .count {
     border: 1px solid black;
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
+}
+
+.game-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats-box {
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.chart-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart-box {
+    width: 50%;
+    z-index: 2;
+    margin-left: 100px;
+    padding: 50px;
+}
+
+.odds {
+    font-size: 30px;
+    font-weight: 800;
+    margin-left: 150px;
+}
+
+.at {
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: 250px;
 }

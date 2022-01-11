@@ -6,11 +6,10 @@
     background-color: #000000;
 }
 
-
 .profile-body-header {
     background-color: black;
     /* display: block; */
-    font-style: italic;
+    /* font-style: italic; */
     color: white;
     /* width: 100%; */
     /* padding: 25px 10px 5px 10px; */
@@ -76,10 +75,10 @@
 
 .bets-btn{
     background-color: #121212;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
     color: white;
-    padding: 20px 32px;
+    padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -89,10 +88,10 @@
 
 .bets-btn-selected{
     background-color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
     color: black;
-    padding: 15px 32px;
+    padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -102,10 +101,10 @@
 
 .bets-btn:hover {
     background-color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
     color: black;
-    padding: 15px 32px;
+    padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -155,7 +154,7 @@
 }
 
 .ChartContainer{
-  z-index: 3;
-  height: 400px;
-  width: 400px;
+    z-index: 3;
+    height: 400px;
+    width: 400px;
 }

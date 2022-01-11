@@ -36,7 +36,7 @@ class OddsPercentageDoughnut extends React.Component {
                 ],
                 borderColor: [
                 'rgb(0, 0, 0)',
-                '#CBB26A',
+                '#53d337',
                 ],
                 borderWidth: 1
             }]

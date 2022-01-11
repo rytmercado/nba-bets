@@ -9,17 +9,32 @@ class OddsPercentageDoughnut extends React.Component {
         
     }
 
-    componentDidMount() {
+    componentWillReceiveProps() {
+        const bets = this.props.bets
+        const home = 0
+        const away = 0
+        const home_dollars = 0
+        const away_dollars = 0
+        bets.forEach(bet => {
+            if (bet.selection === this.props.game.home_team) {
+                home += 1
+                home_dollars += bet.amount
+            
+            } else {
+                away += 1
+                away_dollars = bet.amount
+            }
+        })
         const data = {
             labels: ["Home Team Win %", 
             "Away Team Win %"
             ],
             datasets: [{
               id: 1,
-              label: 'Odds of Winning',
-              data: [1, 4],
+              label: 'Currency Wagered',
+              data: [home_dollars, away_dollars],
               backgroundColor: ['rgb(0, 0, 0)',
-              '#CBB26A'
+              '#53d337'
             ],
             hoverOffset: 4
         }]
@@ -29,10 +44,10 @@ class OddsPercentageDoughnut extends React.Component {
             datasets: [{
                 id: 2,
                 label: 'Bets per Team',
-                data: [1, 2],
+                data: [home, away],
                 backgroundColor: [
                     'rgb(0, 0, 0)',
-                    '#CBB26A',
+                    '#53d337',
                 ],
                 borderColor: [
                 'rgb(0, 0, 0)',
@@ -77,10 +92,10 @@ class OddsPercentageDoughnut extends React.Component {
         return (
             <div className="chart-container">
                 <div className="chart-box">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                 </div>
                 <div className="chart-box">
-                    <canvas id="myBarChart" style={{"height" : "303px"}}></canvas>
+                    <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                 </div>      
             </div>
         )

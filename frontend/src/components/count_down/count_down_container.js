@@ -5,7 +5,7 @@ import CountDown from './count_down';
 
 
 const mSTP = state => ({
-    game: state.game,
+    start: state.games.start_time,
 });
 
 const mDTP = dispatch => ({

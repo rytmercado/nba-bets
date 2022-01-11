@@ -4,6 +4,7 @@ import OddsPercentageDoughnut from './odds_percentage_doughnut';
 
 
 const mSTP = state => ({
+    bets: state.bets,
     game: state.games,
 });
 

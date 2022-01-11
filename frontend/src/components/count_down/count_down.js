@@ -1,59 +1,68 @@
+import React from 'react';
+
 class CountDown extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { time: {}, seconds: 5 };
-      this.timer = 0;
-      this.startTimer = this.startTimer.bind(this);
-      this.countDown = this.countDown.bind(this);
+
+      this.state = {
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      }
+     
     }
-  
-    secondsToTime(secs){
-      let hours = Math.floor(secs / (60 * 60));
-  
-      let divisor_for_minutes = secs % (60 * 60);
-      let minutes = Math.floor(divisor_for_minutes / 60);
-  
-      let divisor_for_seconds = divisor_for_minutes % 60;
-      let seconds = Math.ceil(divisor_for_seconds);
-  
-      let obj = {
-        "h": hours,
-        "m": minutes,
-        "s": seconds
-      };
-      return obj;
+    
+    tick () {
+      this.setState(state => ({
+        seconds: state.seconds - 1 
+      }));
     }
-  
+
     componentDidMount() {
-      let timeLeft = this.secondsToTime(this.state.seconds);
-      this.setState({ time: timeLeft });
+      this.interval = setInterval(() => this.tick(), 1000);
     }
-  
-    startTimer() {
-      if (this.timer == 0 && this.state.seconds > 0) {
-        this.timer = setInterval(this.countDown, 1000);
-      }
-    }
-  
-    countDown() {
-      let seconds = this.state.seconds - 1;
-      this.setState({
-        time: this.secondsToTime(seconds),
-        seconds: seconds,
-      });
-      if (seconds == 0) { 
-        clearInterval(this.timer);
-      }
-    }
-  
+
     render() {
-      return(
-        <div>
-          <button onClick={this.startTimer}>Start</button>
-          m: {this.state.time.m} s: {this.state.time.s}
-        </div>
-      );
+        const start = this.props.start
+        console.log(typeof new Date().getHours())
+        if (start) {
+          const slicedTime = this.props.start.slice(11,19)
+          let hours = parseInt(slicedTime.slice(0, 2)) - 10 + 24 - (new Date().getHours())
+          let minutes = parseInt(slicedTime.slice(3,5)) - (new Date().getMinutes())
+          let seconds = parseInt(slicedTime.slice(6,8)) - (new Date().getSeconds())
+          console.log(seconds)
+          if (minutes < 0) {
+            minutes = 60 + minutes;
+            hours += 1
+          } else if (minutes >= 60 ) {
+            minutes = minutes - 60 
+            hours -= 1
+          }
+          if (seconds < 0) {
+            seconds = 60 + seconds;
+            minutes -= 1 
+          } else if (seconds >= 60) {
+            seconds = 60 - seconds
+            minutes += 1
+          }
+          let finalMinutes = minutes;
+          let finalSeconds = seconds;
+          if (finalMinutes < 10) {
+            finalMinutes = "0" + minutes.toString()
+          } else if (finalSeconds < 10) {
+            finalSeconds = "0" + seconds.toString()
+          }
+         
+        return(
+            <div>
+            <h1 className="countdown">BETS WILL LOCK IN {hours}:{finalMinutes}:{finalSeconds}</h1>
+            </div>
+        );
+        } else {
+          return null
+        }
     }
   }
   
  export default CountDown;
+

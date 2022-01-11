@@ -32,7 +32,7 @@ class BetIndexItem extends React.Component{
                         <td className="inline">{this.props.bet.status}</td>
                         {/* <td className="inline">{}</td> */}
                         {/* <span className="inline">{this.props.bet.createdAt}</span> */}
-                        <button className={(this.props.bet.status === "Incomplete" ? "delete-bet-btn" : "delete-bet-btn-hidden")} onClick={this.onDelete}>REMOVE BET</button>
+                        <button className={(this.props.bet.status === "Incomplete" ? "delete-bet-btn" : "delete-bet-btn-hidden")} onClick={this.onDelete}>REMOVE BET?</button>
                     </tr>
                 </>
             )

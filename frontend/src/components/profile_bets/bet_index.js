@@ -92,8 +92,8 @@ class BetIndex extends React.Component {
                         <button onClick={this.betsLost} className={(this.state.betSelection === "LOST" ? "bets-btn-selected" : "bets-btn")}>LOST</button>
                     </div>
 
-                    <table>
-                        <tr>
+                    <table className="table-container">
+                        <tr className="header-container">
                             <th className="inline-headers">Selection</th>
                             <th className="inline-headers">Amount Bet</th>
                             <th className="inline-headers">Potential Payout</th>

@@ -28,28 +28,6 @@
     overflow:hidden;
 }
 
-.bet-container{
-    /* display: flex;
-    justify-content: space-evenly; */
-    margin-top: 100px;
-    background-color: black;
-}
-
-.inline{
-    padding: 0px 100px 0px 50px;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    /* width: 100%; */
-}
-
-.inline-headers{
-    padding: 0px 100px 0px 50px;
-    color:white;
-    font-weight: 600;
-    font-size: 22px;
-}
-
 .delete-bet-btn{
     background-color: red;
     border-radius: 3px;
@@ -59,12 +37,13 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     margin-right: 7px;
+    margin-left: 7px;
 }
 
 .delete-bet-btn:hover{
-    opacity: 90%;
+    opacity: 80%;
     background-color: red;
     border-radius: 3px;
     border: none;
@@ -73,8 +52,9 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     margin-right: 7px;
+    margin-left: 7px;
     transition: all 0.3s ease 0s;
 }
 
@@ -133,6 +113,41 @@
     margin-right: 7px;
     transition: all 0.3s ease 0s;
 }
+
+.table-container{
+    background-color: #242424;
+    border: 1px solid black;
+    padding: 25px;
+    border-radius: 10px;
+    margin-left: 40px;
+    width: 1400px;
+}
+
+.header-container{
+    border: 1px solid black;
+}
+
+.bet-container{
+    /* display: flex;
+    justify-content: space-evenly; */
+}
+
+.inline{
+    padding: 5px 75px 0px 50px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    /* width: 100%; */
+}
+
+.inline-headers{
+    padding: 0px 75px 10px 50px;
+    color:white;
+    font-weight: 600;
+    font-size: 24px;
+    border-bottom: solid 1px white;
+}
+
 
 #myChart{
   height: 100%;

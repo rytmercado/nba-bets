@@ -30,7 +30,6 @@ class Profile extends React.Component {
                 <NavBarContainer />
                 {/* <GraphContainer /> */}
                 <div className="profile-body-container">
-                    {/* <div className="profile-body-header">My Bets</div> */}
                     <BetIndexContainer bets={this.props.bets}/>
                 </div>
             </div>

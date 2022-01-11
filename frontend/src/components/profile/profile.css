@@ -8,15 +8,18 @@
 
 
 .profile-body-header {
-    background-color: #242424;
+    background-color: black;
     /* display: block; */
     font-style: italic;
+    color: white;
     /* width: 100%; */
-    padding: 25px 10px 5px 10px;
+    /* padding: 25px 10px 5px 10px; */
     /* overflow: hidden;
     margin-right: auto; */
-    /* color: white; */
-    font-size: 40px;
+    padding-top: 100px;
+    padding-left: 40px;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .profile-body {
@@ -25,8 +28,13 @@
     overflow:hidden;
 }
 
+.bet-container{
+    /* display: flex;
+    justify-content: space-evenly; */
+}
+
 .inline{
-    padding: 0px 10px 0px 10px;
+    padding: 0px 15px 0px 15px;
 }
 
 .delete-bet-btn{
@@ -37,7 +45,7 @@
 .bets-nav-bar {
     height: 200px;
     background-color: #242424;
-    padding-top: 120px;
+    padding-top: 30px;
     padding-right: 40px;
     padding-left: 40px;
     padding-bottom: 20px;

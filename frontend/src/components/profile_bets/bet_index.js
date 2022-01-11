@@ -6,6 +6,7 @@ class BetIndex extends React.Component {
     constructor(props){
         super(props)
 
+
     }
 
     // componentDidMount(){
@@ -40,6 +41,7 @@ class BetIndex extends React.Component {
         // }
             return(
                 <div>
+                    <div className="profile-body-header">MY BETS</div>
                     <div className="bets-nav-bar">
                         <button className="bets-btn">ALL</button>
                         <button className="bets-btn">UNSETTLED</button>
@@ -48,11 +50,16 @@ class BetIndex extends React.Component {
                         <button className="bets-btn">LOST</button>
                     </div>
 
-                    <div>{betsIndex}</div>
-                    <br></br>
-                    <div>{betsLost}</div>
-                    <br></br>
-                    <div>{betsWon}</div>
+                    <table>
+                        <tr>
+                            <th>Selection</th>
+                            <th>Amount Bet</th>
+                            <th>Payout</th>
+                            <th>Status</th>
+                        </tr>
+                        {betsIndex}
+                    </table>
+ 
                 </div>
 
 

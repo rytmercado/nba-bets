@@ -23,14 +23,16 @@ class BetIndexItem extends React.Component{
     render(){
         if(this.state.status){
             return(
-                    <div className="bet-container">
-                        <span className="inline">{this.props.bet.selection}</span>
-                        <span className="inline">{this.props.bet.amount}</span>
-                        <span className="inline">{this.props.bet.payout}</span>
-                        <span className="inline">{this.props.bet.status}</span>
+                <>
+                    <tr className="bet-container">
+                        <td className="inline">{this.props.bet.selection}</td>
+                        <td className="inline">{this.props.bet.amount}</td>
+                        <td className="inline">{this.props.bet.payout}</td>
+                        <td className="inline">{this.props.bet.status}</td>
                         {/* <span className="inline">{this.props.bet.createdAt}</span> */}
                         <button className="delete-bet-btn" onClick={this.onDelete}>REMOVE BET</button>
-                    </div>
+                    </tr>
+                </>
             )
         } else {
             return (

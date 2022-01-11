@@ -18,10 +18,6 @@ class BetIndex extends React.Component {
 
     }
 
-    // componentDidMount(){
-    //     this.props.getBets(this.props.currentUser.id)
-    // }
-
     allBets(){
         this.setState({ betSelection: "ALL"})
     }
@@ -44,7 +40,6 @@ class BetIndex extends React.Component {
 
     render(){
         if(!!this.props.bets){
-        //   console.log(this.props.bets)
             let betsIndex;
 
             if(this.state.betSelection === "ALL"){
@@ -54,19 +49,36 @@ class BetIndex extends React.Component {
                 )
                 })
             } else if(this.state.betSelection === "LOST") {
-                let lost = Object.values(this.props.bets).filter( bet => bet.status === "Lost")
+                let lost = Object.values(this.props.bets).filter( bet => bet.status === "Lost");
                 betsIndex = lost.map( bet => {
                 return(
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if(this.state.betSelection === "WON"){
-                let won = Object.values(this.props.bets).filter( bet => bet.status === "Won")
+                let won = Object.values(this.props.bets).filter( bet => bet.status === "Won");
                 betsIndex = won.map( bet => {
                 return(
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
                 )
-            })
+                })
+            } else if(this.state.betSelection === "UNSETTLED"){
+                let unsettled = Object.values(this.props.bets).filter( bet => bet.status === "Incomplete");
+                betsIndex = unsettled.map( bet => {
+                return(
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                )
+                })
+            } else if(this.state.betSelection === "SETTLED"){
+                let settled = Object.values(this.props.bets).filter( bet => {
+                    return (bet.status === "Won" || bet.status === "Lost")
+                });
+                console.log(settled)
+                betsIndex = settled.map( bet => {
+                return(
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                )
+                })
             }
 
             return(
@@ -84,7 +96,7 @@ class BetIndex extends React.Component {
                         <tr>
                             <th className="inline-headers">Selection</th>
                             <th className="inline-headers">Amount Bet</th>
-                            <th className="inline-headers">Payout</th>
+                            <th className="inline-headers">Potential Payout</th>
                             <th className="inline-headers">Status</th>
                         </tr>
                         {betsIndex}

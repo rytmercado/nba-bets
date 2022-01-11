@@ -63,6 +63,21 @@
     margin-right: 7px;
 }
 
+.delete-bet-btn:hover{
+    opacity: 90%;
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 8px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 7px;
+    transition: all 0.3s ease 0s;
+}
+
 .delete-bet-btn-hidden{
     /* visibility: hidden; */
     display: none;
@@ -116,9 +131,8 @@
     display: inline-block;
     font-size: 18px;
     margin-right: 7px;
+    transition: all 0.3s ease 0s;
 }
-
-
 
 #myChart{
   height: 100%;

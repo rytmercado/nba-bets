@@ -1,7 +1,8 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
 import  CommentContainer  from '../comments/comment_container'
-
+import DoughnutContainer from '../graphs/doughnut_container'
+import BarGraphBetsContainer from '../graphs/bar_graph_bets_container'
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -10,10 +11,12 @@ class ShowGame extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchGame(this.props.match.params.id)
+        console.log(this.props.fetchGame(this.props.match.params.id))
+
     }
 
     render () {
+        console.log(this.props.game)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL size={400}/>,
             "Boston Celtics": <NBAIcons.BOS size={400}/>,
@@ -56,15 +59,21 @@ class ShowGame extends React.Component {
                     <ul className="home-team">
                         <li className="team-name">{g.home_team}</li>
                         {NBALogos[g.home_team]}
-                        <li>{g.home_odds}</li>
+                        <li className="odds">{g.home_odds}</li>
                     </ul>
+                    <h1 className="at">VS.</h1>
                     <ul className="away-team">
                         <li className="team-name">{g.away_team}</li>
                         {NBALogos[g.away_team]}
-                        <li>{g.away_odds}</li>
+                        <li className="odds">{g.away_odds}</li>
                     </ul>
                 </div>
+                <div className="stats-box">
+                    <DoughnutContainer g={g}/>
+                </div>
+                <div className="comments-box">
                     <CommentContainer g={g} />
+                </div>
             </div>
         )
     }

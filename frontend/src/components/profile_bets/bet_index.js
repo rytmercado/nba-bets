@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BetIndexItem from './bet_index_item';
 
 class BetIndex extends React.Component {
@@ -41,7 +40,6 @@ class BetIndex extends React.Component {
     render(){
         if(!!this.props.bets){
             let betsIndex;
-
             if(this.state.betSelection === "ALL"){
                 betsIndex = Object.values(this.props.bets).map( bet => {
                 return(
@@ -73,7 +71,6 @@ class BetIndex extends React.Component {
                 let settled = Object.values(this.props.bets).filter( bet => {
                     return (bet.status === "Won" || bet.status === "Lost")
                 });
-                console.log(settled)
                 betsIndex = settled.map( bet => {
                 return(
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
@@ -98,6 +95,7 @@ class BetIndex extends React.Component {
                             <th className="inline-headers">Amount Bet</th>
                             <th className="inline-headers">Potential Payout</th>
                             <th className="inline-headers">Status</th>
+                            <th className="inline-headers">Created At</th>
                         </tr>
                         {betsIndex}
                     </table>

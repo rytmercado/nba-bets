@@ -21,7 +21,6 @@ class BetIndexItem extends React.Component{
     }
     
     render(){
-        console.log(this.props.bet.createdAt)
         if(this.state.status){
             return(
                 <>
@@ -30,8 +29,7 @@ class BetIndexItem extends React.Component{
                         <td className="inline">{this.props.bet.amount}</td>
                         <td className="inline">{this.props.bet.payout}</td>
                         <td className="inline">{this.props.bet.status}</td>
-                        {/* <td className="inline">{}</td> */}
-                        {/* <span className="inline">{this.props.bet.createdAt}</span> */}
+                        <td className="inline">{this.props.bet.createdAt.slice(0,10)}</td>
                         <button className={(this.props.bet.status === "Incomplete" ? "delete-bet-btn" : "delete-bet-btn-hidden")} onClick={this.onDelete}>REMOVE BET?</button>
                     </tr>
                 </>

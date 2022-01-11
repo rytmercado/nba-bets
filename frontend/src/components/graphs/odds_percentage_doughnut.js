@@ -17,9 +17,9 @@ class OddsPercentageDoughnut extends React.Component {
             datasets: [{
               id: 1,
               label: 'Odds of Winning',
-              data: [1, 4],
+              data: [.2, .8],
               backgroundColor: ['rgb(0, 0, 0)',
-              '#CBB26A'
+              '#53d337'
             ],
             hoverOffset: 4
         }]
@@ -32,7 +32,7 @@ class OddsPercentageDoughnut extends React.Component {
                 data: [1, 2],
                 backgroundColor: [
                     'rgb(0, 0, 0)',
-                    '#CBB26A',
+                    '#53d337',
                 ],
                 borderColor: [
                 'rgb(0, 0, 0)',

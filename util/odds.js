@@ -45,7 +45,7 @@ const getGameOdds = () => {
 
         //If status is false, update game 
         //home team, away team, status
-        Game.findOne({$and: [{home_team: `${fullHomeName}`},{away_team: `${fullAwayName}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]}).then(game => {
+        Game.findOne({$and: [{home_team: `${odds_obj.home_team}`},{away_team: `${odds_obj.away_team}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]}).then(game => {
 
           console.log(game)
 

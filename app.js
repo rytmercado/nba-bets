@@ -53,3 +53,7 @@ app.listen(port, () => {
 })
 
 // tasks()
+
+// getGameOdds();
+
+// getGameResults();

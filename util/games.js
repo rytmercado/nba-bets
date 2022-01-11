@@ -23,6 +23,15 @@ const getGameResults = () => {
       let result = data[i].status;
       let fullHomeName = data[i].home_team.full_name 
       let fullAwayName = data[i].visitor_team.full_name 
+
+
+      //LA Clippers are the only known team to have a diffrent name
+      //across APIs 
+      if (fullHomeName === "LA Clippers"){
+        fullHomeName = "Los Angeles Clippers"
+      } else if (fullAwayName === "LA Clippers"){
+        fullAwayName = "Los Angeles Clippers"
+      }
       
       let homeScore = data[i].home_team_score 
       let awayScore = data[i].visitor_team_score 

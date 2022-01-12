@@ -31,7 +31,6 @@
 }
 
 .count {
-    border: 1px solid black;
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
 }
@@ -45,6 +44,7 @@
     display:flex;
     justify-content: space-between;
     flex-direction: row;
+    margin-left: 150px;
 }
 
 .chart-container {
@@ -68,15 +68,15 @@
 }
 
 .at {
-    font-size: 50px;
-    font-weight: 800;
-    margin-top: 250px;
+    font-size: 22px;
+    margin-top: 500px;
+    font-family: 'Allerta Stencil';
 }
 
 .countdown {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 600;
-    margin-left: 150px;
+    margin-left: 280px;
     font-family: 'Lucida Grande', sans-serif;
 
 }

@@ -10,7 +10,7 @@ class BetModal extends React.Component {
             game: this.props.game_id,
             userId: this.props.session.user._id,
             selection: '', 
-            amount: 1000,
+            amount: 0,
         }
 
         this.renderErrors = this.renderErrors.bind(this);
@@ -50,11 +50,9 @@ class BetModal extends React.Component {
     renderErrors() {
         return(
             <ul>
-            {Object.values(this.props.errors).map((error, i) => (
-                <li className="errors" key={i}>
-                    {error}
+                <li className="errors">
+                    {this.props.errors}
                 </li>
-            ))}
             </ul>
         );
     }
@@ -63,8 +61,6 @@ class BetModal extends React.Component {
 
 
     render () {
-        // console.log(this.props.a_team)
-        // console.log(this.props.h_team)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -99,6 +95,7 @@ class BetModal extends React.Component {
         }
 
         if (this.props.modalOpen) {
+            console.log(this.props.errors)
             return (
                 <div className="modal-open">
                     <form className="modal-form" onSubmit={this.handleSubmit}>
@@ -106,19 +103,17 @@ class BetModal extends React.Component {
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
                         <div className="modal-body">
-                                <br/>
-                                {NBALogos[this.props.a_team]}
+                                {/* {NBALogos[this.props.a_team]} */}
                                 <label className="bet-team-name" htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
-                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
-                                <br/>
+                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
-                                {NBALogos[this.props.h_team]}
-                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
-                                <br/>
-                                <label className="bet-team-name" htmlFor="amount">Bet Amount:</label>
+                                {/* {NBALogos[this.props.h_team]} */}
+                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required"/>
+                                <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
+                                    {this.renderErrors()}
+                                </div>
                                 <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                                <br/>
-                                <div className="errors">{this.renderErrors()}</div>
+                                <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" type="submit">Place Bet</button>

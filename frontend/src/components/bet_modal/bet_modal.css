@@ -16,10 +16,6 @@
     left: 38%;
 }
 
-.errors {
-    color: red;
-}
-
 .modal-form {
     font-family:'Lucida Sans', Arial, sans-serif;
     display: inline-flex;
@@ -117,16 +113,26 @@
 
 .amount {
     border: 1px solid black;
-    margin-top: 5px;
 }
     
 .make-bet {
     background-color: black;
     color: white;
     border-radius: 4px;
-    padding: 5px;
 }
 
 .bet-team-name{
     font-size: 18px;
+    padding: 5px;
+}
+
+.errors {
+    margin: 0 auto;
+    flex-grow: 1;
+    color: red;
+    padding-top: 5px;
+}
+
+.errors-hidden {
+    display: none;
 }

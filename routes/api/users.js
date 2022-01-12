@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const keys = require('../../config/keys_development')
 const jwt = require('jsonwebtoken')
-const validateRegisterInput = require('../../config/validation/register')
-const validateLoginInput = require('../../config/validation/login')
+const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 const mongoose = require('mongoose')
 const quickSort = require('../../util/sort')
 
@@ -142,7 +142,7 @@ router.post('/login', (req, res) => {
             }
           )
         } else {
-          return res.status(400).json({password: "incorrect password"})
+          return res.status(400).json({password: "Incorrect password"})
         }
       })
     }

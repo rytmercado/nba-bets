@@ -13,7 +13,7 @@ module.exports = function validateRegisterInput(data){
     errors.handle = "Length must be between 2 and 30 alphanumeric charactars"
   }
   if (Validator.isEmpty(data.handle)){
-    errors.handle = "Handle cannot be empty"
+    errors.handle = "Username cannot be empty"
   }
   if (Validator.isEmpty(data.email)){
     errors.email = "Email cannot be empty"

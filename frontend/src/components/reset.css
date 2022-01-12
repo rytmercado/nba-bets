@@ -13,7 +13,7 @@ span, article, footer, time, small {
   text-decoration:inherit;
   vertical-align:inherit;
   box-sizing:inherit;
-  background:white;
+  background-color:white;
   user-select: none;
 }
 
@@ -50,3 +50,4 @@ Clearfix
   display:block;
   clear:both;
 }
+

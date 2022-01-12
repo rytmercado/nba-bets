@@ -1,3 +1,7 @@
+html {
+    background-color: #fff;
+}
+
 .game-show {
     display: flex;
     justify-content: space-between;
@@ -8,6 +12,7 @@
     position: absolute;
     align-self: center;
     z-index: 1;
+    background-color: #fff;
 }
 
 .home-team {

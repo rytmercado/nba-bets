@@ -8,7 +8,7 @@ import { postBet } from '../../actions/bet_actions'
 const mSTP = state => ({
     games: Object.values(state.games),
     session: state.session,
-    errors: state.errors,
+    errors: state.errors.bet,
 });
 
 const mDTP = dispatch => ({

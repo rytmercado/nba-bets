@@ -17,4 +17,8 @@ import {
     }
   };
   
+<<<<<<< HEAD
   export default betErrorsReducer;
+=======
+export default betErrorsReducer;
+>>>>>>> 7f20137091ec020a675c0fd55a27205af96f8d5c

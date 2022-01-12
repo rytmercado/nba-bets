@@ -50,3 +50,15 @@
     border: 1px solid #000000;
     border-radius: 3px;
 }
+
+/* .signup-page-login-btn:hover {
+    font-family:'Lucida Sans', Arial, sans-serif;
+    background-color: black;
+    color:white;
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    transition: all 0.3s ease 0s;
+} */

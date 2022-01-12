@@ -27,6 +27,10 @@ class LoginForm extends React.Component {
   //   this.setState({errors: nextProps.errors})
   // }
 
+  componentWillMount(){
+    this.props.resetSessionErrors();
+  }
+
   // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
@@ -85,7 +89,7 @@ class LoginForm extends React.Component {
               <input className="submit-btn" type="submit" value="Log In" />
               <div className="login-container-message">
                 <div className="login-message">Don't have an account?</div>
-                <Link className="login-page-signup-btn" to={'/signup'}>Signup</Link>
+                <Link className="login-page-signup-btn" to={'/signup'}>Sign Up</Link>
               </div>
               <div className="line"></div>
               <div className="warning-text">

@@ -45,9 +45,9 @@ class NavBar extends React.Component {
           <div>
             <nav className="nav-bar-container">
                 <Link className="logo" to={'/main'}><img src={logo}></img></Link>
-                <div className="currency-header" onClick={this.updateCurrency}>Balance: </div>
+                <div className="currency-header" onClick={this.updateCurrency}>Your Balance: </div>
                 <div className="currency-amt">{this.props.user.currency}</div>
-                <button className="currency-deposit">Deposit</button>
+                {/* <button className="currency-deposit">Deposit</button> */}
                 <button className="profile-btn"><Link to={'/profile'}>{this.props.user.handle}</Link></button>
                 <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
             </nav>

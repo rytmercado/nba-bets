@@ -69,7 +69,7 @@ class Comment extends React.Component {
                                 rows="2"
                                 className="body"
                                 type='text'
-                                placeholder='Type your reply here.'
+                                placeholder='Start talking some smack!'
                                 component='input'
                                 
                                 onChange={this.handleChange("body")}></textarea>  
@@ -96,7 +96,7 @@ class Comment extends React.Component {
                         rows="2"
                         className="input-box"
                         type='text'
-                        placeholder='Type your reply here.'
+                        placeholder='Start talking some smack!'
                         component='input'
                         
                         onChange={this.handleChange}></textarea>  

@@ -1,18 +1,20 @@
+html {
+    background-color: #fff;
+}
+
 .game-show {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    left: 25%;
-    width: 50%;
+    margin-top: 50px;
+    width: 80%;
     height: 80%;
-    position: absolute;
-    align-self: center;
+    position: fixed;
     z-index: 1;
 }
 
 .home-team {
     z-index: 2;
-    margin-right: 100px;
     padding: 50px;
 }
 
@@ -31,20 +33,27 @@
 }
 
 .count {
-    border: 1px solid black;
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
 }
 
 .game-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .stats-box {
     display:flex;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: -200px;
+}
+
+.comments-box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chart-container {
@@ -67,16 +76,19 @@
     margin-left: 150px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 .at {
     font-size: 50px;
-    font-weight: 800;
     margin-top: 250px;
+    font-family:'Montserrat';
+    font-weight: 900;
 }
 
 .countdown {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 600;
-    margin-left: 150px;
+    margin-left: 280px;
     font-family: 'Lucida Grande', sans-serif;
 
 }
+

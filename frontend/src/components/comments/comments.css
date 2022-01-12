@@ -1,6 +1,11 @@
-.comment-row{
+.comment-form {
     display: flex;
     width:100%;
+}
+
+.comment-row {
+    display:flex;
+    width: 100%;
 }
 .comment-form {
     display: flex;

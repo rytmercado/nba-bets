@@ -1,8 +1,9 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
-import  CommentContainer  from '../comments/comment_container'
-import DoughnutContainer from '../graphs/doughnut_container'
-import CountDownContainer from '../count_down/count_down_container'
+import  CommentContainer  from '../comments/comment_container';
+import DoughnutContainer from '../graphs/doughnut_container';
+import CountDownContainer from '../count_down/count_down_container';
+import NavBarContainer from '../nav/navbar_container';
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -55,13 +56,16 @@ class ShowGame extends React.Component {
         } 
         return (
             <div className="game-show">
+                <div className="main-nav">
+                    <NavBarContainer/>
+                </div>
                 <div className="game-box">
                     <ul className="home-team">
                         <li className="team-name">{g.home_team}</li>
                         {NBALogos[g.home_team]}
                         <li className="odds">{g.home_odds}</li>
                     </ul>
-                    <h1 className="at">VS.</h1>
+                    <i className="at">VS</i>
                     <ul className="away-team">
                         <li className="team-name">{g.away_team}</li>
                         {NBALogos[g.away_team]}

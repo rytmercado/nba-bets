@@ -41,6 +41,8 @@ strong {
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+    /* background-color: #242424; */
+    border-radius: 15px;
 }
 
 .game{
@@ -234,8 +236,14 @@ strong {
     font-size: 35px;
     font-style: italic;
     margin-top: 90px;
+    /* background-color: #242424; */
+    /* color: white; */
 }
 
 .main-footer{
     text-align: center;
+}
+
+.outer-grid{
+    /* background-color: #242424; */
 }

@@ -97,7 +97,7 @@ class SignupForm extends React.Component {
               <input className="submit-btn" type="submit" value="Sign Up" />
               <div className="signup-container-message">
                 <div className="signup-message">Already have an account?</div>
-                <Link className="signup-page-login-btn" to={'/login'}>Login</Link>
+                <Link className="signup-page-login-btn" to={'/login'}>Log In</Link>
               </div>
               <div className="line"></div>
               <div className="warning-text">

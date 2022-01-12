@@ -57,7 +57,7 @@ class Comment extends React.Component {
             return(
                 <div className="comments-container">
                     <div className="current-comments">
-                        <h3 className="count">{count} Comments</h3>
+                        <h3 className="count">{count} comments</h3>
                         {this.renderComments()} 
                     </div>
                     <form onSubmit={this.handleSubmit}>

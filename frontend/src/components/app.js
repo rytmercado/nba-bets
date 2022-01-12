@@ -35,7 +35,9 @@ const App = () => (
         <ProtectedRoute exact path="/game/show/:id" component={ShowGameContainer} />
         <ProtectedRoute exact path="/profile" component={ProfileContainer} />
         <ProtectedRoute exact path="/main" component={MainPageContainer} />
-        
+    
+
+
         <Route path="/" component={SplashForm} />
         
         

@@ -29,7 +29,7 @@ class Profile extends React.Component {
               
                 <NavBarContainer />
                 <BetIndexContainer bets={this.props.bets}/>
-                {/* <GraphContainer /> */}
+                <GraphContainer user={this.props.currentUser}/>
 
             </div>
         )

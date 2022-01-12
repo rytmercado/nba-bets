@@ -13,11 +13,9 @@ class Graph extends React.Component{
   componentDidMount(){
 
     if (this.props.currentUser.id){
-
-      this.props.fetchUser(this.props.currentUser.id).then(res => {
-
-        let user = res.user;
-        let userData = user.history; 
+      if (this.props.currentUser.history){
+        let user = this.props.currentUser;
+        let userData = this.props.currentUser.history; 
 
         const ctx = document.getElementById('myChart');
 
@@ -50,7 +48,45 @@ class Graph extends React.Component{
             maintainAspectRatio: false
           }
         });
-      })
+      } else {
+        this.props.fetchUser(this.props.currentUser.id).then(res => {
+
+          let user = res.user;
+          let userData = user.history; 
+
+          const ctx = document.getElementById('myChart');
+
+          const labels = []; 
+          const yData = []; 
+
+          for (let i = 0; i < userData.length; i++){
+            const currentBet = userData[i]
+            labels.push(currentBet.x)
+            yData.push(currentBet.y)
+          }
+        
+
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: `${user.handle}'s Account Balance`,
+              data: yData,
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          };
+          
+          const myChart = new Chart(ctx, {
+            type: 'line',
+            data: data, 
+            options: {
+              responsive: true,
+              maintainAspectRatio: false
+            }
+          });
+        })
+      }
     }
   }
 

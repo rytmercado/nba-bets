@@ -74,7 +74,9 @@
 }
 
 .countdown {
-    font-size: 50px;
-    font-weight: 800;
+    font-size: 35px;
+    font-weight: 600;
     margin-left: 150px;
+    font-family: 'Lucida Grande', sans-serif;
+
 }

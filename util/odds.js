@@ -9,7 +9,7 @@ let offset = 28800000;
 
 const getGameOdds = () => {
 
-  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=3e679ba131b42bca66da0fe3dcef7ca5')
+  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=d7770c121912fe2ebeb20f2aa99a1a3b')
   .then( res => {
     for(let i = 0; i < res.data.length; i++){
       let odds_obj = {}; 
@@ -45,7 +45,7 @@ const getGameOdds = () => {
 
         //If status is false, update game 
         //home team, away team, status
-        Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}]}).then(game => {
+        Game.findOne({$and: [{home_team: `${odds_obj.home_team}`},{away_team: `${odds_obj.away_team}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]}).then(game => {
 
           console.log(game)
 

@@ -27,6 +27,10 @@ class LoginForm extends React.Component {
   //   this.setState({errors: nextProps.errors})
   // }
 
+  componentWillMount(){
+    this.props.resetSessionErrors();
+  }
+
   // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({

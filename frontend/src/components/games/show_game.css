@@ -1,18 +1,22 @@
+html {
+    background-color: #fff;
+}
+
+
 .game-show {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    left: 25%;
-    width: 50%;
+    margin-top: 50px;
+    width: 80%;
     height: 80%;
-    position: absolute;
-    align-self: center;
+    position: fixed;
     z-index: 1;
+
 }
 
 .home-team {
     z-index: 2;
-    margin-right: 100px;
     padding: 50px;
 }
 
@@ -37,14 +41,21 @@
 
 .game-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .stats-box {
     display:flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-left: 150px;
+    justify-content: center;
+    align-items: center;
+    margin-left: -200px;
+}
+
+.comments-box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chart-container {
@@ -67,10 +78,12 @@
     margin-left: 150px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 .at {
-    font-size: 22px;
-    margin-top: 500px;
-    font-family: 'Allerta Stencil';
+    font-size: 50px;
+    margin-top: 350px;
+    font-family:'Montserrat';
+    font-weight: 900;
 }
 
 .countdown {
@@ -80,3 +93,4 @@
     font-family: 'Lucida Grande', sans-serif;
 
 }
+

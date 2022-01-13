@@ -53,4 +53,4 @@ app.listen(port, () => {
 
 // getGameOdds()
 
-getGameResults()
+// getGameResults()

@@ -42,6 +42,8 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
+        // console.log("BETS")
+        // console.log(this.props.session.user)
         this.props.postBet(this.state);
         this.props.onClose();
     }

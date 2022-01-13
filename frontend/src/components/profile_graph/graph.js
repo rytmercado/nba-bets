@@ -34,7 +34,7 @@ class Graph extends React.Component{
             label: `${user.handle}'s Account Balance`,
             data: yData,
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(33, 188, 56)',
             tension: 0.1
           }]
         };

@@ -46,12 +46,6 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-<<<<<<< HEAD
-        // console.log("BETS")
-        // console.log(this.props.session.user)
-        this.props.postBet(this.state);
-        this.props.onClose();
-=======
         this.props.postBet(this.state)
         // console.log(this.props.errors)
         // if(this.props.errors.length < 0){
@@ -69,7 +63,6 @@ class BetModal extends React.Component {
             return res
         });
         // this.props.onClose();
->>>>>>> c76f3bb8176d61f62fbd26cb0089938123a1c6e5
     }
 
 

@@ -42,6 +42,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .stats-box {
@@ -55,7 +57,11 @@ html {
     display:flex;
     justify-content: center;
     align-items: center;
+}
 
+.comments-container {
+    width: 50%;
+    margin: 0 auto;
 }
 
 .chart-container {

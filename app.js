@@ -11,7 +11,6 @@ const passport = require("passport");
 const getGameOdds = require('./util/odds')
 const getGameResults = require('./util/games')
 const Game = require('./models/Game')
-const tasks = require('./util/cron')
 const bets = require('./routes/api/bets')
 const resolveBets = require('./util/resolveBets')
 
@@ -52,8 +51,6 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 
-// tasks()
+// getGameOdds()
 
-// getGameOdds();
-
-// getGameResults();
+getGameResults()

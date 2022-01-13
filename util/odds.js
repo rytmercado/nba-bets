@@ -9,7 +9,7 @@ let offset = 28800000;
 
 const getGameOdds = () => {
 
-  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=d7770c121912fe2ebeb20f2aa99a1a3b')
+  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=2999e8a684821a9089324fdbe9f05f9a')
   .then( res => {
     for(let i = 0; i < res.data.length; i++){
       let odds_obj = {}; 

@@ -47,21 +47,21 @@ class BetModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         this.props.postBet(this.state)
-        console.log(this.props.errors)
-        if(this.props.errors.length < 0){
-            this.props.onClose();
-        }
-        // .then(res => {
-        //     console.log(res)
-        //     if(typeof res !== "undefined"){
-        //         console.log(res)
-        //         if(typeof res.bet !== "undefined"){
-        //             console.log("close modal")
-        //             this.props.onClose();
-        //         }
-        //     }
-        //     return res
-        // });
+        // console.log(this.props.errors)
+        // if(this.props.errors.length < 0){
+        //     this.props.onClose();
+        // }
+        .then(res => {
+            console.log(res)
+            if(typeof res !== "undefined"){
+                console.log(res)
+                if(typeof res.bet !== "undefined"){
+                    console.log("close modal")
+                    this.props.onClose();
+                }
+            }
+            return res
+        });
         // this.props.onClose();
     }
 

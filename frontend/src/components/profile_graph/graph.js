@@ -11,7 +11,7 @@ class Graph extends React.Component{
   }
 
   componentDidMount(){
-
+    console.log(this.props.currentUser)
     if (this.props.currentUser.id){
       if (this.props.currentUser.history){
         let user = this.props.currentUser;

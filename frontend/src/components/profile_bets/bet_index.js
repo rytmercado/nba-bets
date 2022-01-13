@@ -46,6 +46,9 @@ class BetIndex extends React.Component {
     render(){
         if(!!this.props.bets){
             let betsIndex;
+            let graphIndex;
+            let table; 
+            let renderTable = true; 
             if(this.state.betSelection === "ALL"){
                 betsIndex = Object.values(this.props.bets).map( bet => {
                 return(
@@ -83,10 +86,24 @@ class BetIndex extends React.Component {
                 )
                 })
             } else if (this.state.betSelection === "GRAPH"){
-              return (
+              graphIndex = 
                 <GraphContainer className="bet-list" />
-              )
+              renderTable = false; 
             }
+            if (renderTable){
+             table = 
+              <table className="table-container">
+              <tr className="header-container">
+                  <th className="inline-headers">Selection</th>
+                  <th className="inline-headers">Amount Bet</th>
+                  <th className="inline-headers">Potential Payout</th>
+                  <th className="inline-headers">Status</th>
+                  <th className="inline-headers">Created At</th>
+              </tr>
+              {betsIndex}
+          </table>
+            }
+
 
             return(
                 <>
@@ -100,16 +117,9 @@ class BetIndex extends React.Component {
                         <button onClick={this.renderGraph} className={(this.state.betSelection === "GRAPH" ? "bets-btn-selected" : "bets-btn")}>GRAPH</button>
                     </div>
 
-                    <table className="table-container">
-                        <tr className="header-container">
-                            <th className="inline-headers">Selection</th>
-                            <th className="inline-headers">Amount Bet</th>
-                            <th className="inline-headers">Potential Payout</th>
-                            <th className="inline-headers">Status</th>
-                            <th className="inline-headers">Created At</th>
-                        </tr>
-                        {betsIndex}
-                    </table>
+                    {table}
+
+                    {graphIndex}
  
                 </>
 

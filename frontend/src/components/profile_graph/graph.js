@@ -11,8 +11,7 @@ class Graph extends React.Component{
   }
 
   componentDidMount(){
-    console.log(this.props.currentUser)
-    if (this.props.currentUser.id){
+    if (this.props.currentUser._id){
       if (this.props.currentUser.history){
         let user = this.props.currentUser;
         let userData = this.props.currentUser.history; 
@@ -49,7 +48,7 @@ class Graph extends React.Component{
           }
         });
       } else {
-        this.props.fetchUser(this.props.currentUser.id).then(res => {
+        this.props.fetchUser(this.props.currentUser._id).then(res => {
 
           let user = res.user;
           let userData = user.history; 

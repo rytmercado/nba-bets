@@ -160,6 +160,8 @@ html{
 
 .ChartContainer{
     z-index: 3;
-    height: 400px;
-    width: 400px;
+    height: 80%;
+    width: 80%;
+    margin: 90px;
+    margin-left: 140px;
 }

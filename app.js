@@ -50,3 +50,11 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
+<<<<<<< HEAD
+=======
+
+tasks()
+// getGameOdds()
+
+// getGameResults()
+>>>>>>> c76f3bb8176d61f62fbd26cb0089938123a1c6e5

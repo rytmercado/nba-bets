@@ -42,7 +42,7 @@ export const postBet = bet => dispatch => (
             dispatch(receiveCurrentUser(payload.data.user))
         })
         .catch(err => {
-            console.log(err.response.data.msg)
+            // console.log(err.response.data.msg)
             // dispatch(receiveErrors(Object.values(err.response.data)));
             dispatch(receiveErrors(err.response.data.msg))
         })

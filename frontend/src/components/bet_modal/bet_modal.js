@@ -19,6 +19,10 @@ class BetModal extends React.Component {
 
     }
 
+    componentDidMount(){
+        this.props.fetchUser(this.props.userId)
+    }
+
 
     handleInput(type) {
         return e => {
@@ -42,10 +46,30 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
+<<<<<<< HEAD
         // console.log("BETS")
         // console.log(this.props.session.user)
         this.props.postBet(this.state);
         this.props.onClose();
+=======
+        this.props.postBet(this.state)
+        // console.log(this.props.errors)
+        // if(this.props.errors.length < 0){
+        //     this.props.onClose();
+        // }
+        .then(res => {
+            console.log(res)
+            if(typeof res !== "undefined"){
+                console.log(res)
+                if(typeof res.bet !== "undefined"){
+                    console.log("close modal")
+                    this.props.onClose();
+                }
+            }
+            return res
+        });
+        // this.props.onClose();
+>>>>>>> c76f3bb8176d61f62fbd26cb0089938123a1c6e5
     }
 
 
@@ -81,7 +105,7 @@ class BetModal extends React.Component {
             "Memphis Grizzlies": <NBAIcons.MEM/>,
             "Miami Heat": <NBAIcons.MIA/>,
             "Milwaukee Bucks": <NBAIcons.MIL/>,
-            "Minnesota Timberwolves": <NBAIcons.MIN size={30}/>,
+            "Minnesota Timberwolves": <NBAIcons.MIN/>,
             "New Orleans Pelicans": <NBAIcons.NOP/>,
             "New York Knicks": <NBAIcons.NYK size={1000}/>,
             "Oklahoma City Thunder": <NBAIcons.OKC/>,
@@ -97,7 +121,7 @@ class BetModal extends React.Component {
         }
 
         if (this.props.modalOpen) {
-            console.log(this.props.errors)
+            // console.log(this.props.errors)
             return (
                 <div className="modal-open">
                     <form className="modal-form" onSubmit={this.handleSubmit}>
@@ -105,12 +129,16 @@ class BetModal extends React.Component {
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
                         <div className="modal-body">
+                            {NBALogos[this.props.h_team]}
+                            <div>
+                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required"/>
                                 <label className="bet-team-name" htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
-                                {NBALogos[this.props.h_team]}
-                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label"/>
+                            </div>
+                            {NBALogos[this.props.a_team]}
+                            <div>
+                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
-                                {NBALogos[this.props.a_team]}
-                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required"/>
+                            </div>
                                 <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
                                     {this.renderErrors()}
                                 </div>

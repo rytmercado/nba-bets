@@ -95,7 +95,7 @@ class BetIndex extends React.Component {
                             <th className="inline-headers">Amount Bet</th>
                             <th className="inline-headers">Potential Payout</th>
                             <th className="inline-headers">Status</th>
-                            <th className="inline-headers">Created At</th>
+                            <th className="inline-headers">Created On</th>
                         </tr>
                         {betsIndex}
                     </table>

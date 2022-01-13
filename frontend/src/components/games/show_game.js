@@ -13,7 +13,6 @@ class ShowGame extends React.Component {
 
     componentDidMount() {
         console.log(this.props.fetchGame(this.props.match.params.id))
-
     }
 
     render () {

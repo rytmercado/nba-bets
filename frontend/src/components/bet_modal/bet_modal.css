@@ -58,7 +58,7 @@
     border-radius: 4px;
     padding: 5px 10px 5px 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight:bold;
     cursor: pointer;
     color: black;
@@ -112,6 +112,7 @@
 }
 
 .amount {
+    margin-top: 8px;
     border: 1px solid black;
 }
     
@@ -135,4 +136,8 @@
 
 .errors-hidden {
     display: none;
+}
+
+.bet-team-container{
+    display: inline;
 }

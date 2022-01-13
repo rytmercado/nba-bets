@@ -16,6 +16,11 @@ class MainPage extends React.Component {
   }
 
   render() {
+    var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm.slice(1) + '/' + dd + '/' + yyyy;
     return (
       <div className="main">
         <div className="main-nav">
@@ -23,6 +28,7 @@ class MainPage extends React.Component {
         </div>
         <div className="all-games">
           <h1 className="main-header">Today's Games</h1>
+          <div className="main-header-date">{today}</div>
           {/* <button onClick={() => this.setState({modalOpen: true})} className="make-bet">Make Bet</button> */}
           <GameIndexContainer />
           <footer className="main-footer">

@@ -42,8 +42,8 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        console.log(this.state)
-        this.props.postBet(this.state)
+        this.props.postBet(this.state);
+        this.props.onClose();
     }
 
 
@@ -68,7 +68,7 @@ class BetModal extends React.Component {
             "Charlotte Hornets": <NBAIcons.CHA/>,
             "Chicago Bulls": <NBAIcons.CHI/>,
             "Cleveland Cavaliers": <NBAIcons.CLE/>,
-            "Dallas Mavericks": <NBAIcons.DAL/>,
+            "Dallas Mavericks": <NBAIcons.DAL size={1000}/>,
             "Denver Nuggets": <NBAIcons.DEN/>,
             "Detroit Pistons": <NBAIcons.DET/>,
             "Golden State Warriors": <NBAIcons.GSW/>,
@@ -81,7 +81,7 @@ class BetModal extends React.Component {
             "Milwaukee Bucks": <NBAIcons.MIL/>,
             "Minnesota Timberwolves": <NBAIcons.MIN size={30}/>,
             "New Orleans Pelicans": <NBAIcons.NOP/>,
-            "New York Knicks": <NBAIcons.NYK/>,
+            "New York Knicks": <NBAIcons.NYK size={1000}/>,
             "Oklahoma City Thunder": <NBAIcons.OKC/>,
             "Orlando Magic": <NBAIcons.ORL/>,
             "Philadelphia 76ers": <NBAIcons.PHI/>,
@@ -103,11 +103,11 @@ class BetModal extends React.Component {
                             <h5 className="modal-title">Bet Slip</h5>
                         </div>
                         <div className="modal-body">
-                                {/* {NBALogos[this.props.a_team]} */}
                                 <label className="bet-team-name" htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
+                                {NBALogos[this.props.h_team]}
                                 <input id="home-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
-                                {/* {NBALogos[this.props.h_team]} */}
+                                {NBALogos[this.props.a_team]}
                                 <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required"/>
                                 <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
                                     {this.renderErrors()}

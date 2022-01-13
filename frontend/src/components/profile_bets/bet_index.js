@@ -1,5 +1,6 @@
 import React from 'react';
 import BetIndexItem from './bet_index_item';
+import GraphContainer from '../profile_graph/graph_container';
 
 class BetIndex extends React.Component {
     constructor(props){
@@ -14,7 +15,12 @@ class BetIndex extends React.Component {
         this.settledBets = this.settledBets.bind(this)
         this.betsWon = this.betsWon.bind(this)
         this.betsLost = this.betsLost.bind(this)
+        this.renderGraph = this.renderGraph.bind(this)
 
+    }
+
+    renderGraph(){
+      this.setState({betSelection: "GRAPH"})
     }
 
     allBets(){
@@ -76,6 +82,10 @@ class BetIndex extends React.Component {
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
                 )
                 })
+            } else if (this.state.betSelection === "GRAPH"){
+              return (
+                <GraphContainer className="bet-list" />
+              )
             }
 
             return(
@@ -87,6 +97,7 @@ class BetIndex extends React.Component {
                         <button onClick={this.settledBets} className={(this.state.betSelection === "SETTLED" ? "bets-btn-selected" : "bets-btn")}>SETTLED</button>
                         <button onClick={this.betsWon} className={(this.state.betSelection === "WON" ? "bets-btn-selected" : "bets-btn")}>WON</button>
                         <button onClick={this.betsLost} className={(this.state.betSelection === "LOST" ? "bets-btn-selected" : "bets-btn")}>LOST</button>
+                        <button onClick={this.renderGraph} className={(this.state.betSelection === "GRAPH" ? "bets-btn-selected" : "bets-btn")}>GRAPH</button>
                     </div>
 
                     <table className="table-container">

@@ -28,8 +28,7 @@ class Profile extends React.Component {
             <div className="profile-container">
               
                 <NavBarContainer />
-                <BetIndexContainer bets={this.props.bets}/>
-                {/* <GraphContainer /> */}
+                <BetIndexContainer bets={this.props.bets} user={this.props.currentUser}/>
 
             </div>
         )

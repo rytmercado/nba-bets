@@ -41,17 +41,9 @@ class OddsPercentageDoughnut extends React.Component {
        
     render() {
         return (
-            <div className="chart-container">
                 <div className="chart-box">
                     <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                 </div>
-                <div className="chart-box">
-                    <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                </div>
-                <div className="chart-box">
-                    <canvas id="currencyBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>   
-                </div>      
-            </div>
         )
 
     }

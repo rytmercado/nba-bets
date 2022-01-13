@@ -75,11 +75,9 @@ class CurrencyBar extends React.Component {
            
             
         return (
-            <div className="chart-container">
                 <div className="chart-box">
                     <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                 </div>     
-            </div>
         )
 
     }

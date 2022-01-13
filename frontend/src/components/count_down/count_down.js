@@ -51,8 +51,8 @@ class CountDown extends React.Component {
               finalSeconds = "0" + seconds.toString()
             }      
         return(
-            <div>
-              <h1 className="countdown">Bets will lock in {hours}:{finalMinutes}:{finalSeconds}</h1>
+            <div className="countdown">
+              <h1>Bets will lock in {hours}:{finalMinutes}:{finalSeconds}</h1>
             </div>
         );
         } else {

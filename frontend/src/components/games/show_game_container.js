@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { getGame } from '../../actions/game_actions';
 import ShowGame from './show_game';
-import { getGameBets } from '../../actions/bet_actions';
+
+
 
 const mSTP = state => ({
     game: state.games,

@@ -5,22 +5,20 @@ import CountDownContainer from '../count_down/count_down_container';
 import NavBarContainer from '../nav/navbar_container';
 import DoughnutContainer from '../graphs/doughnut_container';
 import CurrencyBarContainer from '../graphs/currency_container'
+import GameListContainer from '../games/games_list_container';
 
 class ShowGame extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            bets: undefined,
-        }
-
     }
 
     componentDidMount() {
             this.props.fetchGame(this.props.match.params.id)
-            this.props.fetchGameBets(this.props.match.params.id).then(res => {
-                this.setState({bets: res.bets.data})
-        })
+    }
+
+    renderGames() {
+        this.props.fetchGames().then()
     }
 
 
@@ -67,6 +65,10 @@ class ShowGame extends React.Component {
                     <div className="main-nav">
                         <NavBarContainer/>
                     </div>
+                    <div className="stats-box">
+                        <DoughnutContainer g={g} />
+                        <CurrencyBarContainer g={g} />
+                    </div>
                     <div className="game-box">
                         <ul className="home-team">
                             <li className="team-name">{g.home_team}</li>
@@ -80,12 +82,9 @@ class ShowGame extends React.Component {
                             <li className="odds">{g.away_odds}</li>
                         </ul>
                     </div>
-                    <div className="countdown">
-                        <CountDownContainer g={g} />
-                    </div>
-                    <div className="stats-box">
-                        <DoughnutContainer g={g} graphData={this.state.bets}/>
-                        <CurrencyBarContainer g={g} graphData={this.state.bets} />
+                    <CountDownContainer g={g} />
+                    <div className="gamelist-box">
+                        <GameListContainer id={g._id}/>
                     </div>
                     <div className="comments-box">
                         <CommentContainer g={g} />
@@ -97,6 +96,10 @@ class ShowGame extends React.Component {
                 <div className="game-show">
                     <div className="main-nav">
                         <NavBarContainer/>
+                    </div>
+                    <div className="stats-box">
+                        <DoughnutContainer g={g} />
+                        <CurrencyBarContainer g={g} />
                     </div>
                     <div className="game-box">
                         <ul className="home-team">
@@ -114,9 +117,8 @@ class ShowGame extends React.Component {
                     <button className="game-bet-btn-locked">
                         Bets Locked!
                     </button>
-                    <div className="stats-box">
-                        <DoughnutContainer g={g} graphData={this.state.bets}/>
-                        <CurrencyBarContainer g={g} graphData={this.state.bets} />
+                    <div className="gamelist-box">
+                        <GameListContainer id={g._id}/>
                     </div>
                     <div className="comments-box">
                         <CommentContainer g={g} />

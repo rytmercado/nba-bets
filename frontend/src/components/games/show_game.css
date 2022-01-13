@@ -89,8 +89,8 @@ html {
 .countdown {
     font-size: 25px;
     font-weight: 600;
-    margin-left: 280px;
+    flex-grow: 1;
     font-family: 'Lucida Grande', sans-serif;
-
+    margin-left: 425px;
 }
 

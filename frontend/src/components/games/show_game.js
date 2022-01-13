@@ -1,20 +1,28 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
 import  CommentContainer  from '../comments/comment_container';
-import DoughnutContainer from '../graphs/doughnut_container';
 import CountDownContainer from '../count_down/count_down_container';
 import NavBarContainer from '../nav/navbar_container';
+import DoughnutContainer from '../graphs/doughnut_container';
+import CurrencyBarContainer from '../graphs/currency_container'
 
 class ShowGame extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            bets: undefined,
+        }
+
     }
 
     componentDidMount() {
-        console.log(this.props.fetchGame(this.props.match.params.id))
-
+            this.props.fetchGame(this.props.match.params.id)
+            this.props.fetchGameBets(this.props.match.params.id).then(res => {
+                this.setState({bets: res.bets.data})
+        })
     }
+
 
     render () {
         console.log(this.props.game)
@@ -53,36 +61,69 @@ class ShowGame extends React.Component {
         const g = this.props.game;
         if (g === undefined){
             return null
-        } 
-        return (
-            <div className="game-show">
-                <div className="main-nav">
-                    <NavBarContainer/>
+        } else if (g.status === 'Incomplete') {
+            return (
+                <div className="game-show">
+                    <div className="main-nav">
+                        <NavBarContainer/>
+                    </div>
+                    <div className="game-box">
+                        <ul className="home-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.away_team}</li>
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
+                        </ul>
+                    </div>
+                    <div className="countdown">
+                        <CountDownContainer g={g} />
+                    </div>
+                    <div className="stats-box">
+                        <DoughnutContainer g={g} graphData={this.state.bets}/>
+                        <CurrencyBarContainer g={g} graphData={this.state.bets} />
+                    </div>
+                    <div className="comments-box">
+                        <CommentContainer g={g} />
+                    </div>
                 </div>
-                <div className="game-box">
-                    <ul className="home-team">
-                        <li className="team-name">{g.home_team}</li>
-                        {NBALogos[g.home_team]}
-                        <li className="odds">{g.home_odds}</li>
-                    </ul>
-                    <i className="at">VS</i>
-                    <ul className="away-team">
-                        <li className="team-name">{g.away_team}</li>
-                        {NBALogos[g.away_team]}
-                        <li className="odds">{g.away_odds}</li>
-                    </ul>
+            )
+        } else {
+            return (
+                <div className="game-show">
+                    <div className="main-nav">
+                        <NavBarContainer/>
+                    </div>
+                    <div className="game-box">
+                        <ul className="home-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.away_team}</li>
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
+                        </ul>
+                    </div>
+                    <button className="game-bet-btn-locked">
+                        Bets Locked!
+                    </button>
+                    <div className="stats-box">
+                        <DoughnutContainer g={g} graphData={this.state.bets}/>
+                        <CurrencyBarContainer g={g} graphData={this.state.bets} />
+                    </div>
+                    <div className="comments-box">
+                        <CommentContainer g={g} />
+                    </div>
                 </div>
-                <div className="countdown">
-                    <CountDownContainer g={g} />
-                </div>
-                <div className="stats-box">
-                    <DoughnutContainer g={g}/>
-                </div>
-                <div className="comments-box">
-                    <CommentContainer g={g} />
-                </div>
-            </div>
-        )
+            )
+        }
     }
 }
 

@@ -3,13 +3,13 @@ import { getGameBets } from '../../actions/bet_actions';
 import OddsPercentageDoughnut from './odds_percentage_doughnut';
 
 
-const mSTP = state => ({
-    bets: state.bets,
+const mSTP = (state, ownProps) => ({
+    data: ownProps.graphData,
     game: state.games,
 });
 
 const mDTP = dispatch => ({
-    fetchGameBets: (gameId) => dispatch(getGameBets(gameId)),
-  });
+  
+});
 
-export default connect(mSTP, mDTP)(OddsPercentageDoughnut);
+export default connect(mSTP, null)(OddsPercentageDoughnut);

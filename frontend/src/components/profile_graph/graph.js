@@ -23,7 +23,7 @@ class Graph extends React.Component{
 
         for (let i = 0; i < userData.length; i++){
           const currentBet = userData[i]
-          labels.push(currentBet.x)
+          labels.push(currentBet.x.slice(0,10))
           yData.push(currentBet.y)
         }
        
@@ -60,7 +60,7 @@ class Graph extends React.Component{
 
           for (let i = 0; i < userData.length; i++){
             const currentBet = userData[i]
-            labels.push(currentBet.x)
+            labels.push(currentBet.x.slice(0,10))
             yData.push(currentBet.y)
           }
         

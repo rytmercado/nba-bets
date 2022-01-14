@@ -46,23 +46,23 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        // this.setState({userId: this.props.session.user._id}, () => {
+        this.setState({userId: this.props.session.user._id}, () => {
         // debugger  
-        console.log(this.state)
-        this.props.postBet(this.state)
-          .then(res => {
-            //   console.log(res)
-              if(typeof res !== "undefined"){
+            console.log(this.state)
+            this.props.postBet(this.state)
+            .then(res => {
                 //   console.log(res)
-                  if(typeof res.bet !== "undefined"){
-                    //   console.log("close modal")
-                      this.props.fetchUser(this.props.userId)
-                      this.props.onClose();
-                  }
-              }
-          });
+                if(typeof res !== "undefined"){
+                    //   console.log(res)
+                    if(typeof res.bet !== "undefined"){
+                        //   console.log("close modal")
+                        this.props.fetchUser(this.props.userId)
+                        this.props.onClose();
+                    }
+                }
+            });
         //   this.props.onClose();
-        // })
+        })
         
     }
 
@@ -88,20 +88,20 @@ class BetModal extends React.Component {
             "Charlotte Hornets": <NBAIcons.CHA/>,
             "Chicago Bulls": <NBAIcons.CHI/>,
             "Cleveland Cavaliers": <NBAIcons.CLE/>,
-            "Dallas Mavericks": <NBAIcons.DAL size={1000}/>,
+            "Dallas Mavericks": <NBAIcons.DAL/>,
             "Denver Nuggets": <NBAIcons.DEN/>,
             "Detroit Pistons": <NBAIcons.DET/>,
             "Golden State Warriors": <NBAIcons.GSW/>,
             "Houston Rockets": <NBAIcons.HOU/>,
             "Indiana Pacers": <NBAIcons.IND/>,
-            "Los Angeles Clippers": <NBAIcons.LAC size={30}/>,
-            "Los Angeles Lakers": <NBAIcons.LAL size={30}/>,
-            "Memphis Grizzlies": <NBAIcons.MEM/>,
+            "Los Angeles Clippers": <NBAIcons.LAC />,
+            "Los Angeles Lakers": <NBAIcons.LAL />,
+            "Memphis Grizzlies": <NBAIcons.MEM />,
             "Miami Heat": <NBAIcons.MIA/>,
             "Milwaukee Bucks": <NBAIcons.MIL/>,
             "Minnesota Timberwolves": <NBAIcons.MIN/>,
             "New Orleans Pelicans": <NBAIcons.NOP/>,
-            "New York Knicks": <NBAIcons.NYK size={1000}/>,
+            "New York Knicks": <NBAIcons.NYK />,
             "Oklahoma City Thunder": <NBAIcons.OKC/>,
             "Orlando Magic": <NBAIcons.ORL/>,
             "Philadelphia 76ers": <NBAIcons.PHI/>,

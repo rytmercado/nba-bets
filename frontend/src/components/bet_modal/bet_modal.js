@@ -46,12 +46,9 @@ class BetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        this.setState({userId: this.props.session.user._id}, () => {
-          this.props.postBet(this.state)
-          // console.log(this.props.errors)
-          // if(this.props.errors.length < 0){
-          //     this.props.onClose();
-          // }
+        // this.setState({userId: this.props.session.user._id}, () => {
+        debugger  
+        this.props.postBet(this.state)
           .then(res => {
               console.log(res)
               if(typeof res !== "undefined"){
@@ -64,7 +61,7 @@ class BetModal extends React.Component {
               return res
           });
           // this.props.onClose();
-        })
+        // })
         
     }
 

@@ -53,8 +53,6 @@ const getGameResults = () => {
       
       Game.findOne({$and: [{home_team: `${fullHomeName}`},{away_team: `${fullAwayName}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
-        console.log(game)
-        console.log(fullHomeName)
         if(!!game) {
           if (result === 'Final'){
             if(homeScore > awayScore){
@@ -73,8 +71,7 @@ const getGameResults = () => {
           game.quarter = q
           game.game_minute = minute
   
-          // console.log(game)
-  
+          console.log(game)
           game.save();
         } else {
           // //Doesn't work yet 

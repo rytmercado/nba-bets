@@ -1,4 +1,4 @@
-getGameResults = require('../util/odds');
+getGameResults = require('../util/games');
 const mongoose = require("mongoose")
 const db = require('../config/keys').mongoURI
 

@@ -3,8 +3,9 @@ import { getGames } from '../../actions/game_actions';
 import GameList from './games_list_item'
 
 
-const mSTP = state => ({
-    games: state.games,
+const mSTP = (state, ownProps) => ({
+    user: state.session.user,
+    games: ownProps.games,
 });
 
 const mDTP = dispatch => ({

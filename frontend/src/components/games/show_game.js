@@ -5,7 +5,8 @@ import CountDownContainer from '../count_down/count_down_container';
 import NavBarContainer from '../nav/navbar_container';
 import DoughnutContainer from '../graphs/doughnut_container';
 import CurrencyBarContainer from '../graphs/currency_container'
-import GameListContainer from '../games/games_list_container';
+import GamesListContainer from '../games/games_list_container';
+
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -14,16 +15,12 @@ class ShowGame extends React.Component {
     }
 
     componentDidMount() {
-            this.props.fetchGame(this.props.match.params.id)
+            this.props.fetchAllGames();
     }
-
-    renderGames() {
-        this.props.fetchGames().then()
-    }
-
 
     render () {
-        console.log(this.props.game)
+        const games = this.props.games;
+        console.log(games)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL size={400}/>,
             "Boston Celtics": <NBAIcons.BOS size={400}/>,
@@ -56,8 +53,8 @@ class ShowGame extends React.Component {
             "Utah Jazz": <NBAIcons.UTA size={400}/>,
             "Washington Wizards": <NBAIcons.WAS size={400}/>
         }
-        const g = this.props.game;
-        if (g === undefined){
+        const g = this.props.games.find(game => game._id === this.props.match.params.id);
+        if (g === undefined || games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {
             return (
@@ -84,7 +81,7 @@ class ShowGame extends React.Component {
                     </div>
                     <CountDownContainer g={g} />
                     <div className="gamelist-box">
-                        <GameListContainer id={g._id}/>
+                        <GamesListContainer games={games}/>
                     </div>
                     <div className="comments-box">
                         <CommentContainer g={g} />
@@ -118,7 +115,7 @@ class ShowGame extends React.Component {
                         Bets Locked!
                     </button>
                     <div className="gamelist-box">
-                        <GameListContainer id={g._id}/>
+                        <GamesListContainer games={games} />
                     </div>
                     <div className="comments-box">
                         <CommentContainer g={g} />

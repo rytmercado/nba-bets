@@ -1,26 +1,26 @@
+import GamesListItemContainer from './games_list_item_container';
+import React from 'react';
+
 class GamesList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            allGames: undefined,
-        }
 
     }
 
     componentDidMount () {
-        this.props.fetchAllGames().then(res => 
-            this.setState({allGames: res.data}))                  
+        this.props.fetchAllGames()   
     }
 
     render () {
-        const games = this.state.allGames
-        console.log(games)
-        return (
-            <div className="outer-grid">
-            { games.map(game => <GamesListItem game={game} key={game._id} />)}
-        </div>
-    )
+        const games = this.props.games
+        console.log(this.props.games)
 
+            return (
+                <div className="outer-grid">
+                    {games.map(game => <GamesListItemContainer game={game} key={game._id} id={game._id} />)}
+                </div>
+        )
+        
 }
 }
 export default GamesList; 

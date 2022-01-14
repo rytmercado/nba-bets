@@ -9,9 +9,9 @@ class GameListItem extends React.Component {
 
     }
 
-
     render() {
-        let game = this.props.game;
+        const game = this.props.game;
+        console.log(this.props.game)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -126,7 +126,9 @@ class GameListItem extends React.Component {
                     </div>
             )
         } else {
-            return null
+            return (
+                <div>GAMESLISTITEM</div>
+            )
         }
 }
 }

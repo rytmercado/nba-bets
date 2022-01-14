@@ -26,8 +26,13 @@ const getGameOdds = () => {
         let away_oddsSum = 0; 
 
         for (let j = 0; j < odds[i].bookmakers.length; j++){
-          home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
-          away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+          if (odds[i].bookmakers[j].markets[0].outcomes[0].name === odds_obj.home_team){
+            home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
+            away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+          } else {
+            home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+            away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
+          }
         }
 
         odds_obj.home_odds = Math.floor(home_oddsSum / odds[i].bookmakers.length)

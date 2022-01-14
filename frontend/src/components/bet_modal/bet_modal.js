@@ -124,12 +124,12 @@ class BetModal extends React.Component {
                         <div className="modal-body">
                             {NBALogos[this.props.h_team]}
                             <div>
-                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required"/>
+                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" name="label" required="required" value="true"/>
                                 <label className="bet-team-name" htmlFor="home-team">{this.props.h_team} {this.printOdds(this.props.h_odds)}</label>
                             </div>
                             {NBALogos[this.props.a_team]}
                             <div>
-                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label"/>
+                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label" value="false"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                             </div>
                                 <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>

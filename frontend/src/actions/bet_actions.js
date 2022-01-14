@@ -36,11 +36,12 @@ export const receiveErrors = (errors) => ({
 
 export const postBet = bet => dispatch => (
     BetApiUtil.postBet(bet)
-        .then( (payload) => (
+        .then( (payload) => {
             // debugger
-            dispatch(receiveBet(payload.data.bet)),
-            dispatch(receiveCurrentUser(payload.data.user))
-        ))
+            console.log(payload)
+            return dispatch(receiveBet(payload.data.bet))
+            // dispatch(receiveCurrentUser(payload.data.user))
+        })
         .catch(err => {
             // console.log(err.response.data.msg)
             // dispatch(receiveErrors(Object.values(err.response.data)));

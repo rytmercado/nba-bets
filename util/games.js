@@ -40,7 +40,7 @@ const getGameResults = () => {
       let q = data[i].period
       let minute = data[i].time
 
-      console.log(minute)
+      // console.log(minute)
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
@@ -71,7 +71,7 @@ const getGameResults = () => {
           game.quarter = q
           game.game_minute = minute
   
-          console.log(game)
+          // console.log(game)
           game.save();
         } else {
           // //Doesn't work yet 

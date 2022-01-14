@@ -16,10 +16,6 @@
     left: 38%;
 }
 
-.errors {
-    color: red;
-}
-
 .modal-form {
     font-family:'Lucida Sans', Arial, sans-serif;
     display: inline-flex;
@@ -62,15 +58,15 @@
     border-radius: 4px;
     padding: 5px 10px 5px 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight:bold;
     cursor: pointer;
     color: black;
 }
 
-.bet-button:hover {
+/* .bet-button:hover {
     opacity: 90%;
-}
+} */
 
 .modal-title {
     margin: 0;
@@ -116,17 +112,32 @@
 }
 
 .amount {
+    margin-top: 8px;
     border: 1px solid black;
-    margin-top: 5px;
 }
     
 .make-bet {
     background-color: black;
     color: white;
     border-radius: 4px;
-    padding: 5px;
 }
 
 .bet-team-name{
     font-size: 18px;
+    padding: 5px;
+}
+
+.errors {
+    margin: 0 auto;
+    flex-grow: 1;
+    color: red;
+    padding-top: 5px;
+}
+
+.errors-hidden {
+    display: none;
+}
+
+.bet-team-container{
+    display: inline;
 }

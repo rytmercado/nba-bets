@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import BetIndexContainer from '../profile_bets/bet_index_container';
+import GraphContainer from '../profile_graph/graph_container';
 
 class Profile extends React.Component {
     constructor(props){
@@ -19,22 +20,16 @@ class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         if(!this.props.currentUser){
             console.log(this.props)
             return null
         }
         return(
             <div className="profile-container">
+              
                 <NavBarContainer />
-                <div className="profile-body-container">
-                    <div className="profile-body-header">My Bets</div>
-                    <div className="profile-body">
-                        <BetIndexContainer bets={this.props.bets}/>
-                    </div>
+                <BetIndexContainer bets={this.props.bets} user={this.props.currentUser}/>
 
-
-                </div>
             </div>
         )
     }

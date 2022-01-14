@@ -24,6 +24,9 @@ import './games/show_game.css'
 import './comments/comments.css'
 
 
+import { fetchUser } from '../util/session_api_util';
+
+
 
 const App = () => (
   <div>
@@ -33,7 +36,9 @@ const App = () => (
         <ProtectedRoute exact path="/game/show/:id" component={ShowGameContainer} />
         <ProtectedRoute exact path="/profile" component={ProfileContainer} />
         <ProtectedRoute exact path="/main" component={MainPageContainer} />
-        
+    
+
+
         <Route path="/" component={SplashForm} />
         
         

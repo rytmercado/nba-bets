@@ -1,27 +1,105 @@
+html {
+    background-color: white;
+}
+
 .game-show {
-    display: inline-flex;
-    justify-content: space-between;
-    flex-direction: row;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 40%;
-    border: 1px solid black;
-    position: absolute;
-    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+
 }
 
 .home-team {
-    border: 1px solid green;
+    z-index: 2;
+    padding: 50px;
 }
 
 .away-team {
-    border: 1px solid blue;
+    z-index: 2;
+    margin-left: 100px;
+    padding: 50px;
 }
 
 .team-name {
     align-self: center;
     font-size: 30px;
     font-weight: 800;
-    font-family: 'Lucida Grande', sans-serif
+    font-family: 'Lucida Grande', sans-serif;
+    z-index: 2;
 }
+
+.count {
+    font-weight: 800;
+    font-family: 'Lucida Grande', sans-serif;
+}
+
+.game-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.stats-box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100px;
+}
+
+.comments-box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comments-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.chart-container {
+    height: 25%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart-box {
+    width: 50%;
+    z-index: 2;
+    margin-left: 100px;
+    padding: 50px;
+}
+
+.odds {
+    font-size: 30px;
+    font-weight: 800;
+    margin-left: 150px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+.at {
+    font-size: 50px;
+    margin-top: 250px;
+    font-family:'Montserrat';
+    font-weight: 900;
+    
+}
+
+.countdown {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 280px;
+    font-family: 'Lucida Grande', sans-serif;
+    
+}
+
+
+

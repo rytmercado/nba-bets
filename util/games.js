@@ -23,6 +23,15 @@ const getGameResults = () => {
       let result = data[i].status;
       let fullHomeName = data[i].home_team.full_name 
       let fullAwayName = data[i].visitor_team.full_name 
+
+
+      //LA Clippers are the only known team to have a diffrent name
+      //across APIs 
+      if (fullHomeName === "LA Clippers"){
+        fullHomeName = "Los Angeles Clippers"
+      } else if (fullAwayName === "LA Clippers"){
+        fullAwayName = "Los Angeles Clippers"
+      }
       
       let homeScore = data[i].home_team_score 
       let awayScore = data[i].visitor_team_score 
@@ -31,7 +40,7 @@ const getGameResults = () => {
       let q = data[i].period
       let minute = data[i].time
 
-      console.log(minute)
+      // console.log(minute)
 
       // homeScore = 100;
       if (data[i].status === 'Final'){
@@ -42,10 +51,8 @@ const getGameResults = () => {
         result = "Incomplete"
       }
       
-      Game.findOne({$and: [{home_team: `${fullHomeName}`},{$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
+      Game.findOne({$and: [{home_team: `${fullHomeName}`},{away_team: `${fullAwayName}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]})
       .then(game => {
-        console.log(game)
-        console.log(fullHomeName)
         if(!!game) {
           if (result === 'Final'){
             if(homeScore > awayScore){
@@ -65,7 +72,6 @@ const getGameResults = () => {
           game.game_minute = minute
   
           // console.log(game)
-  
           game.save();
         } else {
           // //Doesn't work yet 

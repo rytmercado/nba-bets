@@ -75,6 +75,9 @@ export const resetSessionErrors = () => dispatch => {
 };
 
 export const fetchUser = (userId) => dispatch => {
-    APIUtil.fetchUser(userId)
-        .then((user) => dispatch(receiveUser(user)))
+    return APIUtil.fetchUser(userId)
+        .then((user) => { 
+          console.log({"fetchUser": user})
+          return dispatch(receiveUser(user.data))
+        })
 }

@@ -4,7 +4,8 @@ import ShowGame from './show_game';
 
 
 const mSTP = state => ({
-    game: state.games
+    game: state.games,
+    id: state.games._id
 });
 
 const mDTP = dispatch => ({

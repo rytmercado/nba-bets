@@ -40,7 +40,12 @@ router.delete('/:betId', (req, res) => {
           if(!!game){
             if(game.status === "Incomplete"){
               if (bet.status === "Incomplete"){
+
                 user.currency += bet.amount
+
+                //Updating ledger 
+                user.history.push({x: new Date(Date.now()), y: user.currency})
+
                 user.save()
                 return res.json({user, bet})
               } else {
@@ -116,18 +121,22 @@ router.post('/create', (req, res) => {
 
         // deduct amount
         user.currency -= bet.amount
+
+        //update ledger 
+        user.history.push({x: new Date(Date.now()), y: user.currency})
+        
         user.save()
 
         //respond with the the made bet and the updated user 
         let newBet = new Bet(bet)
         newBet.save()
-        return res.json({bet: newBet, user: user,  "msg": "bet succesfully saved!"})
+        return res.json({bet: newBet, user: user,  "msg": "Bet was succesfully saved!"})
         
       })
     } else {
       //If it's not, respond with an error + message
       // return res.status(422).json({msg:`${user.handle} bet ${req.body.amount - user.currency} too much`})
-    return res.status(422).json(`${user.handle} bet ${req.body.amount - user.currency} too much`)
+    return res.status(422).json({"msg": "Not enough funds." })
     }
   })
 })

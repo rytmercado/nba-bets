@@ -5,6 +5,7 @@ const Game = require('../../models/Game')
 const mongoose = require("mongoose");
 var ObjectId = require('mongodb').ObjectID;
 
+//Probably not necessary, as comments are already embedded in games. 
 router.get('/:gameId/index', (req, res) => {
   let gameId = req.params.gameId
   Game.findById(gameId, (err, game) => {
@@ -13,6 +14,7 @@ router.get('/:gameId/index', (req, res) => {
 })
 
 //req.body.userId
+//req.body.handle 
 //req.body.gameId
 //req.body.body
 //req.body.parentComment
@@ -21,7 +23,9 @@ router.post('/create', (req, res) => {
   console.log(req.body.gameId)
   Game.findById(gameId, (err, game) => {
     if (!!game){
-      game.comments.push({body: req.body.body, user: req.body.userId, parent: req.body.parentComment})
+      game.comments.push({body: req.body.body, user: req.body.userId, 
+        handle: req.body.handle, 
+        parent: req.body.parentComment})
       game.save()
       return res.json(game)
     } else {

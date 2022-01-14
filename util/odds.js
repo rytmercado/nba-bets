@@ -9,7 +9,7 @@ let offset = 28800000;
 
 const getGameOdds = () => {
 
-  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=a7d3e326ce38f60819fdd9bf02d954eb')
+  axios.get('https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?regions=us&oddsFormat=american&markets=h2h&apiKey=2999e8a684821a9089324fdbe9f05f9a')
   .then( res => {
     for(let i = 0; i < res.data.length; i++){
       let odds_obj = {}; 
@@ -26,8 +26,13 @@ const getGameOdds = () => {
         let away_oddsSum = 0; 
 
         for (let j = 0; j < odds[i].bookmakers.length; j++){
-          home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
-          away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+          if (odds[i].bookmakers[j].markets[0].outcomes[0].name === odds_obj.home_team){
+            home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
+            away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+          } else {
+            home_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[1].price
+            away_oddsSum += odds[i].bookmakers[j].markets[0].outcomes[0].price
+          }
         }
 
         odds_obj.home_odds = Math.floor(home_oddsSum / odds[i].bookmakers.length)
@@ -45,14 +50,12 @@ const getGameOdds = () => {
 
         //If status is false, update game 
         //home team, away team, status
-        Game.findOne({$and:[{home_team:`${odds[i].home_team}`}, {away_team: `${odds[i].away_team}`}]}).then(game => {
-
-          console.log(game)
+        Game.findOne({$and: [{home_team: `${odds_obj.home_team}`},{away_team: `${odds_obj.away_team}`}, {$or: [{status: "In Progress"}, {status: "Incomplete"}]}]}).then(game => {
 
           if (game === null){
 
             let newGame = new Game(odds_obj)
-
+            console.log(newGame)
             newGame.save()
 
           } else {
@@ -60,7 +63,7 @@ const getGameOdds = () => {
 
               game.home_odds = odds_obj.home_odds
               game.away_odds = odds_obj.away_odds
-
+              console.log(game)
               game.save()
             }
           }

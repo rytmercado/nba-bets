@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     games: gamesReducer,
     session: sessionReducer,
     errors: errorsReducer,
-    bets: betsReducer
+    bets: betsReducer,
 
 });
 

@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const keys = require('../../config/keys_development')
 const jwt = require('jsonwebtoken')
-const validateRegisterInput = require('../../config/validation/register')
-const validateLoginInput = require('../../config/validation/login')
+const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 const mongoose = require('mongoose')
 const quickSort = require('../../util/sort')
 
@@ -23,17 +23,18 @@ router.get('/leaderboard/:userCount', (req, res) => {
   })
 })
 
-router.post('/add', (req, res) => {
-  User.findById(req.body.userId, (err, user) => {
-    if (user === null){
-      return res.status(404).json({"msg": "user not found"})
-    }
-    console.log(user)
-    user.currency += parseInt(req.body.amount)
-    user.save()
-    return res.json(user.currency)
-  })
-})
+// router.post('/add', (req, res) => {
+//   User.findById(req.body.userId, (err, user) => {
+//     if (user === null){
+//       return res.status(404).json({"msg": "user not found"})
+//     }
+//     console.log(user)
+//     user.currency += parseInt(req.body.amount)
+
+//     user.save()
+//     return res.json(user.currency)
+//   })
+// })
 
 router.get('/show/:userId', (req, res) => {
   console.log("Backend")
@@ -81,11 +82,14 @@ router.post('/register', (req, res) => {
         return res.status(400).json({email: "A user has already registered with this address"})
       } else {
         // Otherwise create a new user
+        var date = new Date(Date.now());
+
         const newUser = new User({
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
-          currency: 1000
+          currency: 1000,
+          history: [{x: date, y: 1000}]
         })
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -138,7 +142,7 @@ router.post('/login', (req, res) => {
             }
           )
         } else {
-          return res.status(400).json({password: "incorrect password"})
+          return res.status(400).json({password: "Incorrect password"})
         }
       })
     }

@@ -14,7 +14,7 @@
 	--color-bg-primary: #fff;
 	--color-bg-secondary: #f3f5f9;
 	--color-bg-alert: #fdeaec;
-	--color-theme-primary: #623ce6;
+	--color-theme-primary: #45c432;
 }
 
 button,
@@ -41,6 +41,8 @@ strong {
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+    /* background-color: #242424; */
+    border-radius: 15px;
 }
 
 .game{
@@ -128,7 +130,7 @@ strong {
     border-radius: 50%;
 }
 
-.team-name {
+.game-team-name {
     text-align: center;
     margin-top: 15px;
     font-size: 20px;
@@ -196,7 +198,10 @@ strong {
 }
 
 .game-bet-btn:hover {
-
+    color: var(--color-theme-primary);
+    border: var(--color-theme-primary) solid 1px;
+    background:#fff;
+    transition: all 0.3s ease 0s;
 }
 
 .game-bet-btn-locked {
@@ -229,13 +234,27 @@ strong {
 
 .main-header {
     font-family:'Lucida Sans', Arial, sans-serif;
-    padding: 15px;
+    padding: 15px 15px 0px 15px;
     text-align: center;
     font-size: 35px;
     font-style: italic;
     margin-top: 90px;
+    /* background-color: #242424; */
+    /* color: white; */
+}
+
+.main-header-date{
+    font-family:'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
 }
 
 .main-footer{
     text-align: center;
+}
+
+.outer-grid{
+    /* background-color: #242424; */
 }

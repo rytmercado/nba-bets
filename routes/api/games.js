@@ -4,8 +4,18 @@ const Game = require('../../models/Game')
 
 //index, show
 
+const isToday = (someDate) => {
+  const today = new Date()
+  someDate = new Date(someDate)
+  return (someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear());
+}
+
 router.get('/index', (req, res) => {
-  Game.find().then(games => res.json(games))
+  Game.find().then(games => {
+    const todaysGames = games.filter(game => isToday(game.start_time))
+    console.log(todaysGames)
+    return res.json(todaysGames)
+  })
 })
 
 router.get('/:gameId', (req, res) => {

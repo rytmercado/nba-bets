@@ -5,10 +5,16 @@ export const RECEIVE_BET = 'RECEIVE_BET'
 export const RECEIVE_USER_BETS = 'RECEIVE_USER_BETS'
 export const CLEAR_BET = 'CLEAR_BET'
 export const RECEIVE_BET_ERRORS = 'RECEIVE_BET_ERRORS'
+export const RECEIVE_GAME_BETS = 'RECEIVE_GAME_BETS'
 
 const receiveBet = (bet) => ({
     type: RECEIVE_BET,
     bet
+})
+
+const receiveGameBets = (bets) => ({
+    type: RECEIVE_GAME_BETS,
+    bets
 })
 
 const receiveUserBets = (bets) => ({
@@ -32,12 +38,14 @@ export const postBet = bet => dispatch => (
     BetApiUtil.postBet(bet)
         .then( (payload) => {
             // debugger
-            dispatch(receiveBet(payload.data.bet))
-            dispatch(receiveCurrentUser(payload.data.user))
+            console.log(payload)
+            return dispatch(receiveBet(payload.data.bet))
+            // dispatch(receiveCurrentUser(payload.data.user))
         })
         .catch(err => {
+            // console.log(err.response.data.msg)
             // dispatch(receiveErrors(Object.values(err.response.data)));
-            dispatch(receiveErrors(err.res))
+            dispatch(receiveErrors(err.response.data.msg))
         })
 );
 
@@ -53,4 +61,9 @@ export const deleteBet = betId => dispatch => (
             dispatch(clearBet(payload.data.bet))
             dispatch(receiveUser(payload.data.user))
         })
+)
+
+export const getGameBets = gameId => dispatch => (
+    BetApiUtil.getGamesBets(gameId)
+        .then(bets => dispatch(receiveGameBets(bets)))
 )

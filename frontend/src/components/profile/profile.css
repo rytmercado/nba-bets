@@ -46,7 +46,7 @@ html{
     margin-left: 7px;
 }
 
-.delete-bet-btn:hover{
+/* .delete-bet-btn:hover{
     opacity: 80%;
     background-color: red;
     border-radius: 3px;
@@ -60,7 +60,7 @@ html{
     margin-right: 7px;
     margin-left: 7px;
     transition: all 0.3s ease 0s;
-}
+} */
 
 .delete-bet-btn-hidden{
     /* visibility: hidden; */

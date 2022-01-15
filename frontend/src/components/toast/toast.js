@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import checkIcon from '../../images/check.svg'
+// import checkIcon from '../../images/checked.png'
 
 const Toast = (props) => {
     const { toastList, position } = props;
@@ -18,12 +20,11 @@ const Toast = (props) => {
                             X
                         </button>
                         <div className="notification-image">
-                            {/* <img src={toast.icon} alt="" /> */}
+                            {/* <img className="notification-img" src={toast.icon} alt="" /> */}
+                            <img className="notification-img" src={checkIcon} alt="" />
                         </div>
-                        <div>
                             <p className="notification-title">{toast.title}</p>
                             <p className="notification-message">{toast.description}</p>
-                        </div>
                     </div>
                 )
             }

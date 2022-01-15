@@ -4,7 +4,8 @@ import * as NBAIcons from 'react-nba-logos';
 
 import Toast from '../toast/toast';
 
-import checkIcon from '../../images/check.svg'
+// import checkIcon from '../../images/check.svg'
+import checkIcon from '../../images/success.png'
 
 class BetModal extends React.Component {
     constructor(props) {
@@ -90,8 +91,8 @@ class BetModal extends React.Component {
         const testList = [
                 {
                 id: 1,
-                title: 'Success',
-                description: 'This is a success toast component',
+                title: 'Success!',
+                description: 'Please see your profile page for your bet.',
                 backgroundColor: '#5cb85c',
                 icon: checkIcon
                 },

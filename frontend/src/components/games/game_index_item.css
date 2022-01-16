@@ -63,7 +63,7 @@ strong {
 }
 
 .game-status-hidden{
-    visibility: hidden;
+    display: none;
 }
 
 .game-status{
@@ -264,5 +264,5 @@ strong {
 }
 
 .game-status-final-hidden{
-
+    display: none;
 }

@@ -258,3 +258,11 @@ strong {
 .outer-grid{
     /* background-color: #242424; */
 }
+
+.game-status-final{
+    color: #8A8F98;
+}
+
+.game-status-final-hidden{
+
+}

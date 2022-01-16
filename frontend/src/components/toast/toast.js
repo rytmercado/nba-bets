@@ -17,7 +17,7 @@ const Toast = (props) => {
                 list.map((toast, i) =>     
                     <div key={i} className={`notification toast ${position}`} style={{ backgroundColor: toast.backgroundColor }} >
                         <button>
-                            X
+                            x
                         </button>
                         <div className="notification-image">
                             {/* <img className="notification-img" src={toast.icon} alt="" /> */}

@@ -92,7 +92,7 @@ class BetModal extends React.Component {
                 {
                 id: 1,
                 title: 'Success!',
-                description: 'Please see your profile page for your bet.',
+                description: 'Navigate to your profile page to view your bet.',
                 backgroundColor: '#5cb85c',
                 icon: checkIcon
                 },

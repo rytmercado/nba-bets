@@ -67,7 +67,7 @@ class BetModal extends React.Component {
                         this.props.fetchUser(this.props.userId)
                         console.log(this.state)
                         // this.props.onClose();
-                        setTimeout(this.setState({isSubmitted: false}), 300000000000000)
+                        // setTimeout(this.setState({isSubmitted: false}), 300000000000000)
                     }
                 }
                 console.log(this.state)

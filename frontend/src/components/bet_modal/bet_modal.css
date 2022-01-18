@@ -11,7 +11,7 @@
     border: 1px solid grey;
     position: absolute;
     width: 600px;
-    height:400px;
+    height: 1000px;
     top: 30%;
     left: 38%;
 }
@@ -75,7 +75,7 @@
 }
  
 .modal-body {
-    padding: 10px;
+    padding: 25px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     display: flex;
@@ -135,9 +135,20 @@
 }
 
 .errors-hidden {
-    display: none;
+    /* display: none; */
+    visibility: hidden;
 }
 
 .bet-team-container{
     display: inline;
+}
+
+.modal-screen{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }

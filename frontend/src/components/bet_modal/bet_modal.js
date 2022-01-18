@@ -177,6 +177,7 @@ class BetModal extends React.Component {
                             <button className="bet-button" onClick={this.props.onClose}>Close</button>
                         </div>
                     </form>
+                    <div className="modal-screen"></div>
                 </div>
         )} 
         else {

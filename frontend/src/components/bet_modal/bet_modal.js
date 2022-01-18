@@ -27,8 +27,12 @@ class BetModal extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId)
+        this.props.fetchUser(this.props.userId);
     }
+
+    
+
+
 
 
     handleInput(type) {
@@ -72,7 +76,6 @@ class BetModal extends React.Component {
                             this.setState({isSubmitted: false})}, 5000);
                         }
                 }
-                console.log(this.state)
             });
         })
         

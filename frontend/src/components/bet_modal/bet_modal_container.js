@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import BetModal from './bet_modal';
 import { getGames } from '../../actions/game_actions';
-import { postBet } from '../../actions/bet_actions';
+import { postBet, clearBetErrors } from '../../actions/bet_actions';
 import { fetchUser } from '../../actions/session_actions';
 
 
@@ -16,7 +16,8 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchAllGames: () => dispatch(getGames()),
     postBet: (bet) => dispatch(postBet(bet)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    clearBetErrors: () => dispatch(clearBetErrors())
 });
 
 export default connect(mSTP, mDTP)(BetModal)

@@ -5,6 +5,7 @@ export const RECEIVE_BET = 'RECEIVE_BET'
 export const RECEIVE_USER_BETS = 'RECEIVE_USER_BETS'
 export const CLEAR_BET = 'CLEAR_BET'
 export const RECEIVE_BET_ERRORS = 'RECEIVE_BET_ERRORS'
+export const CLEAR_BET_ERRORS = 'CLEAR_BET_ERRORS'
 export const RECEIVE_GAME_BETS = 'RECEIVE_GAME_BETS'
 
 const receiveBet = (bet) => ({
@@ -27,11 +28,18 @@ const clearBet = (bet) => ({
     bet
 })
 
+const clearErrors = () =>({
+    type: CLEAR_BET_ERRORS
+})
+
 export const receiveErrors = (errors) => ({
     type: RECEIVE_BET_ERRORS,
     errors
 })
 
+export const clearBetErrors = () => dispatch => {
+    dispatch(clearErrors());
+}
 
 
 export const postBet = bet => dispatch => (

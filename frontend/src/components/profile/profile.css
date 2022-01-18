@@ -141,7 +141,16 @@ html{
     color: white;
     font-size: 20px;
     text-align: center;
+    background-color: #242424;
     /* width: 100%; */
+}
+
+.game-log{
+    font-size: 15px;
+}
+
+.game-log:hover{
+    text-decoration: underline;
 }
 
 .status{

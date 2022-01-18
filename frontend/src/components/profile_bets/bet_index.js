@@ -114,7 +114,7 @@ class BetIndex extends React.Component {
                         <button onClick={this.settledBets} className={(this.state.betSelection === "SETTLED" ? "bets-btn-selected" : "bets-btn")}>SETTLED</button>
                         <button onClick={this.betsWon} className={(this.state.betSelection === "WON" ? "bets-btn-selected" : "bets-btn")}>WON</button>
                         <button onClick={this.betsLost} className={(this.state.betSelection === "LOST" ? "bets-btn-selected" : "bets-btn")}>LOST</button>
-                        <button onClick={this.renderGraph} className={(this.state.betSelection === "GRAPH" ? "bets-btn-selected" : "bets-btn")}>MONEY TREND GRAPH</button>
+                        <button onClick={this.renderGraph} className={(this.state.betSelection === "GRAPH" ? "bets-btn-selected" : "bets-btn")}>MONEY GRAPH</button>
                     </div>
 
                     {table}

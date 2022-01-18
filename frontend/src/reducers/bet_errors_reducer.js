@@ -1,6 +1,7 @@
 import {
     RECEIVE_BET_ERRORS,
     RECEIVE_BET,
+    CLEAR_BET_ERRORS
   } from '../actions/bet_actions';
   
   const _nullErrors = [];
@@ -12,6 +13,8 @@ import {
         return action.errors;
       case RECEIVE_BET:
         return _nullErrors;
+      case CLEAR_BET_ERRORS:
+        return [];
       default:
         return state;
     }

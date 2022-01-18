@@ -141,7 +141,37 @@ html{
     color: white;
     font-size: 20px;
     text-align: center;
+    background-color: #242424;
     /* width: 100%; */
+}
+
+.game-log{
+    font-size: 15px;
+}
+
+.game-log:hover{
+    text-decoration: underline;
+}
+
+.status{
+    padding: 5px 50px 0px 50px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.status-lost{
+    padding: 5px 50px 0px 50px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+.status-won{
+    padding: 5px 50px 0px 50px;
+    color: lightgreen;
+    font-size: 20px;
+    text-align: center;
 }
 
 .inline-headers{

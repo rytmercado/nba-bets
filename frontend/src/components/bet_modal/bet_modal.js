@@ -2,6 +2,11 @@ import React from 'react';
 
 import * as NBAIcons from 'react-nba-logos';
 
+import Toast from '../toast/toast';
+
+// import checkIcon from '../../images/check.svg'
+import checkIcon from '../../images/success.png'
+
 class BetModal extends React.Component {
     constructor(props) {
         super(props)
@@ -11,17 +16,23 @@ class BetModal extends React.Component {
             userId: this.props.session.user._id,
             selection: '', 
             amount: 0,
+            isSubmitted: false
         }
 
         this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
 
+
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId)
+        this.props.fetchUser(this.props.userId);
     }
+
+    
+
+
 
 
     handleInput(type) {
@@ -48,23 +59,28 @@ class BetModal extends React.Component {
         e.preventDefault(); 
         this.setState({userId: this.props.session.user._id}, () => {
         // debugger  
-            console.log(this.state)
+            // console.log(this.state)
             this.props.postBet(this.state)
             .then(res => {
                 //   console.log(res)
                 if(typeof res !== "undefined"){
                     //   console.log(res)
                     if(typeof res.bet !== "undefined"){
-                        //   console.log("close modal")
+                        console.log(this.state)
+                        this.setState({isSubmitted: true})
                         this.props.fetchUser(this.props.userId)
-                        this.props.onClose();
-                    }
+                        console.log(this.state)
+                        // this.props.onClose();
+                        // setTimeout(this.setState({isSubmitted: false}), 300000000000000)
+                        setTimeout(() => {
+                            this.setState({isSubmitted: false})}, 5000);
+                        }
                 }
             });
-        //   this.props.onClose();
         })
         
     }
+
 
 
     renderErrors() {
@@ -81,6 +97,18 @@ class BetModal extends React.Component {
 
 
     render () {
+        // console.log(this.props.a_team)
+        // console.log(this.props.h_team)
+        const testList = [
+                {
+                id: 1,
+                title: 'Success!',
+                description: 'Navigate to your profile page to view your bet.',
+                backgroundColor: '#5cb85c',
+                icon: checkIcon
+                },
+            ];
+
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -114,10 +142,18 @@ class BetModal extends React.Component {
             "Washington Wizards": <NBAIcons.WAS/>
         }
 
+        let toast;
+        if(this.state.isSubmitted){
+            toast = <Toast toastList={testList} position="top-right"/>
+        }
+
         if (this.props.modalOpen) {
             // console.log(this.props.errors)
             return (
                 <div className="modal-open">
+                    {/* <Toast toastList={testList} position="top-right"/> */}
+                    {toast}
+                    {/* {this.state.isSubmitted && <Toast toastList={testList} position="top-right"/>} */}
                     <form className="modal-form" onSubmit={this.handleSubmit}>
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>
@@ -133,17 +169,18 @@ class BetModal extends React.Component {
                                 <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label" value="false"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                             </div>
-                                <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
-                                    {this.renderErrors()}
-                                </div>
-                                <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                                <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
+                            <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                            <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
+                        </div>
+                        <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
+                                {this.renderErrors()}
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" type="submit">Place Bet</button>
                             <button className="bet-button" onClick={this.props.onClose}>Close</button>
                         </div>
                     </form>
+                    <div className="modal-screen"></div>
                 </div>
         )} 
         else {

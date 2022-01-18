@@ -18,6 +18,13 @@ class GameIndexItem extends React.Component {
             helpModalOpen: false, 
         }
 
+        this.handleClose = this.handleClose.bind(this);
+    }
+
+    handleClose(e){
+        e.preventDefault();
+        this.setState({modalOpen: false});
+        this.props.clearBetErrors();
     }
 
 
@@ -76,6 +83,13 @@ class GameIndexItem extends React.Component {
             betLocked = <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
         }
 
+        let status = ""
+        if(game.status === "Final"){
+            status = "Final"
+        } else {
+            status = "Live"
+        }
+
         return (
                 <div className="game-index-container">
                     <div className="game">
@@ -111,7 +125,9 @@ class GameIndexItem extends React.Component {
                                         <span className="game-score-divider">:</span>
                                         <span className="game-score-number">{game.home_score}</span>
                                     </div>
-                                    <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
+                                    {/* <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div>  */}
+                                    <div className={(game.status != "Final" && (game.away_score > 0 || game.home_score > 0) ? "game-status": "game-status-hidden")}>{status}</div> 
+                                    {/* <div className={(game.status === "Final") ? "game-status-final": "game-status-final-hidden"}>Final</div>  */}
                                     <div className="game-bet">
                                         {/* <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button> */}
                                         {betLocked}
@@ -134,8 +150,9 @@ class GameIndexItem extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} h_team={game.home_team} a_team={game.away_team} h_odds={h_odds} a_odds={a_odds} game_id={game._id}/>
+                    {/* <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} h_team={game.home_team} a_team={game.away_team} h_odds={h_odds} a_odds={a_odds} game_id={game._id}/> */}
                     <TutorialContainer onClose={() => this.setState({helpModalOpen: false})} modalOpen={this.state.helpModalOpen} home_team={game.home_team} away_team={game.away_team} home_odds={h_odds} away_odds={a_odds}/>
+                    <BetModalContainer onClose={this.handleClose} modalOpen={this.state.modalOpen} h_team={game.home_team} a_team={game.away_team} h_odds={h_odds} a_odds={a_odds} game_id={game._id}/>
                 </div>
         )
     }

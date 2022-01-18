@@ -29,6 +29,7 @@ class LoginForm extends React.Component {
 
   componentWillMount(){
     this.props.resetSessionErrors();
+    this.props.clearBetErrors();
   }
 
   // Handle field updates (called in the render method)

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import NavBarContainer from '../nav/navbar_container';
 import GameIndexContainer from '../games/game_index_container';
 import BetModalContainer from '../bet_modal/bet_modal_container';
+import Toast from '../toast/toast';
+// import checkIcon from '../../images/check.svg'
+import checkIcon from '../../images/success.png'
 
 
 

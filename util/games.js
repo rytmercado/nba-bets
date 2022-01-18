@@ -13,7 +13,7 @@ const getGameResults = () => {
 
 
   
-  today = yyyy + '-' + mm + '-' + dd;
+  today = yyyy + '-' + mm + '-' + '17';
 
   axios.get(`https://balldontlie.io/api/v1/games?seasons[]=2021&dates[]=${today}`)
   .then(res => {

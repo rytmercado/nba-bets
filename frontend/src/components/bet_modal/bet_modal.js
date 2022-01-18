@@ -166,11 +166,11 @@ class BetModal extends React.Component {
                                 <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label" value="false"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                             </div>
-                                <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
-                                    {this.renderErrors()}
-                                </div>
-                                <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                                <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
+                            <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                            <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
+                        </div>
+                        <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>
+                                {this.renderErrors()}
                         </div>
                         <div className="modal-footer">
                             <button className="bet-button" type="submit">Place Bet</button>

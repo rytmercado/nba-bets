@@ -6,6 +6,7 @@ import nba_logo from '../../images/nba.png';
 import * as NBAIcons from 'react-nba-logos';
 
 import BetModalContainer from '../bet_modal/bet_modal_container';
+import TutorialContainer from '../tutorial/tutorial_container';
 
 
 class GameIndexItem extends React.Component {
@@ -14,9 +15,11 @@ class GameIndexItem extends React.Component {
 
         this.state = {
             modalOpen: false,
+            helpModalOpen: false, 
         }
 
     }
+
 
     render() {
         let game = this.props.game;
@@ -85,7 +88,7 @@ class GameIndexItem extends React.Component {
                     <div className="game">
 
                         <div className="game-header">
-                            <button className="game-alert-btn">Alert</button>
+                            <button className="game-alert-bt" onClick={() => this.setState({helpModalOpen: true})}>Help</button>
                             <div className="nba-game-logo">
                                 <img src={nba_logo}></img>
                                 National Basketball League
@@ -141,6 +144,7 @@ class GameIndexItem extends React.Component {
                         </div>
                     </div>
                     <BetModalContainer onClose={() => this.setState({modalOpen: false})} modalOpen={this.state.modalOpen} h_team={game.home_team} a_team={game.away_team} h_odds={h_odds} a_odds={a_odds} game_id={game._id}/>
+                    <TutorialContainer onClose={() => this.setState({helpModalOpen: false})} modalOpen={this.state.helpModalOpen} home_team={game.home_team} away_team={game.away_team} home_odds={h_odds} away_odds={a_odds}/>
                 </div>
         )
     }

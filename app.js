@@ -51,7 +51,11 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 
+<<<<<<< HEAD
 // tasks(); // odds and game results node cron tasks
 // getGameOdds();
 // // // setTimeout(getGameResults, 50000)
+=======
+
+>>>>>>> tutorial
 // getGameResults()

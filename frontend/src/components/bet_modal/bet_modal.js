@@ -68,7 +68,9 @@ class BetModal extends React.Component {
                         console.log(this.state)
                         // this.props.onClose();
                         // setTimeout(this.setState({isSubmitted: false}), 300000000000000)
-                    }
+                        setTimeout(() => {
+                            this.setState({isSubmitted: false})}, 5000);
+                        }
                 }
                 console.log(this.state)
             });

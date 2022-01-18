@@ -226,6 +226,7 @@ strong {
 
 .game-alert-btn{
     /* margin-right: auto; */
+    visibility: hidden;
 }
 
 .game-bet-odds {

@@ -38,9 +38,9 @@ class MainPage extends React.Component {
             <div class="dropup">
               <button class="dropbtn">LinkedIn</button>
               <div class="dropup-content">
-                <a href="https://www.linkedin.com/in/cheungwesley/">Wesley</a>
-                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/">Owen</a>
-                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/">Tyler</a>
+                <a href="https://www.linkedin.com/in/cheungwesley/">Wesley Cheung</a>
+                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/">Owen Winzeler</a>
+                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/">Tyler Harper</a>
               </div>
             </div>
             <a class="dropbtn" href="https://github.com/rytmercado/nba-bets">GitHub</a>

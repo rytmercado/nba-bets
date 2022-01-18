@@ -139,12 +139,12 @@
     margin-top: 8px;
     border: 1px solid black;
     /* border: none; */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     border-radius: 4px;
 }
     
 input:focus {
-  border: 2px solid lightblue;
+  border: 2px solid green;
 }
 
 .make-bet {

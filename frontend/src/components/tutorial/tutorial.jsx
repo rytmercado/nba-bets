@@ -39,13 +39,11 @@ class Tutorial extends React.Component {
     if (this.props.away_odds < this.props.home_odds){
       //the away team is favored
 
-      body = `The ${this.props.away_team} are favored on the road. Use the place bet button to pick your team! Our odds are pulled from nearly a dozen bookeepers and updated hourly.
-      `
+      body = `The ${this.props.away_team} are favored on the road. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookeepers and updated hourly.`
     } else {
       //the home team is favored 
 
-      body = `The ${this.props.home_team} are favored at home. Use the place bet button to pick your team! Our odds are pulled from nearly a dozen bookeepers and updated hourly.
-      `
+      body = `The ${this.props.home_team} are favored at home. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookeepers and updated hourly.`
     }
 
     if (this.props.modalOpen){

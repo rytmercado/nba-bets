@@ -142,7 +142,15 @@
     /* border-bottom: 1px solid black; */
     border-radius: 4px;
 }
-    
+
+/* input[type=number] {
+  background-color: white;
+  background-image: url('/Users/wes/Desktop/nba-bets/frontend/src/images/dollar.png');
+  background-position: 100px 100px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+} */
+
 input:focus {
   border: 2px solid lightseagreen;
 }

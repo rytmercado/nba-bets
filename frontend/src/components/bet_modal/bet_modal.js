@@ -30,11 +30,6 @@ class BetModal extends React.Component {
         this.props.fetchUser(this.props.userId);
     }
 
-    
-
-
-
-
     handleInput(type) {
         return e => {
             this.setState({[type]: e.currentTarget.value})
@@ -169,7 +164,7 @@ class BetModal extends React.Component {
                                 <input id="away-team" onChange={this.handleInput("selection")} type="radio" required="required" name="label" value="false"/>
                                 <label className="bet-team-name" htmlFor="away-team">{this.props.a_team} {this.printOdds(this.props.a_odds)}</label>
                             </div>
-                            <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                            <input className="amount" type="number" onChange={this.handleAmount("amount")} value={this.state.amount}/>
                             <label className="bet-team-name" htmlFor="amount">Bet Amount</label>
                         </div>
                         <div className={(this.props.errors.length > 0 ? "errors": "errors-hidden")}>

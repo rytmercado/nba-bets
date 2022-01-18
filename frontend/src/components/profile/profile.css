@@ -144,6 +144,27 @@ html{
     /* width: 100%; */
 }
 
+.status{
+    padding: 5px 50px 0px 50px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.status-lost{
+    padding: 5px 50px 0px 50px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+.status-won{
+    padding: 5px 50px 0px 50px;
+    color: lightgreen;
+    font-size: 20px;
+    text-align: center;
+}
+
 .inline-headers{
     padding: 0px 50px 10px 50px;
     color:white;

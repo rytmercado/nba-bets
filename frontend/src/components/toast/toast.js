@@ -15,7 +15,6 @@ const Toast = (props) => {
         const index = list.findIndex(e => e.id === id);
         list.splice(index, 1);
         setList([...list]);
-        console.log(this.state)
     }
 
     return(

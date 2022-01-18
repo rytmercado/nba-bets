@@ -6,7 +6,6 @@
   margin-left: -580px;
   background: #fff;
   border-radius: 5px;
-  border: 1px solid #000;
   background-color: white;
   display: flex;
   align-items: center;
@@ -17,7 +16,18 @@
   z-index: 3;
 }
 
-.tutorial-modal-open {
+.help-modal-text {
+  padding: 12px;
+  padding-top: 24px;
+
+}
+
+table, th, td {
+  border: 1px solid  rgb(0, 0, 0);
+}
+
+td, th {
+  padding: 4px; 
 }
 
 .tutorial-modal-form {
@@ -31,8 +41,8 @@
   margin-left: -700px;
   background: #fff;
   z-index: 3;
-  border-radius: 5px;
-  border: 1px solid #000;
+  border-radius: 8px;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 

@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import nba_logo from '../../images/nba.png';
 import * as NBAIcons from 'react-nba-logos';
 
-class GameListItem extends React.Component {
+class GamesListItem extends React.Component {
     constructor(props) {
         super(props);
 
     }
 
     render() {
-        const game = this.props.game;
-        console.log(this.props.game)
+        const game = this.props.games.find(game => game._id === this.props.id);
+        console.log(game)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -133,4 +133,4 @@ class GameListItem extends React.Component {
 }
 }
 
-export default GameListItem;
+export default GamesListItem;

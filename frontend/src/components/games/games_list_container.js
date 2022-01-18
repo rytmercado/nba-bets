@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = dispatch => ({
-    fetchAllGames: () => dispatch(getGames()),
+
   });
 
-export default connect(mSTP, mDTP)(GameList);
+export default connect(mSTP, null)(GameList);

@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import { getGame } from '../../actions/game_actions';
-import GameListItem from './games_list_item'
+import GamesListItem from './games_list_item'
 
 
 const mSTP = (state, ownProps) => ({
     user: state.session.user,
-    game: ownProps.game,
+    games: state.games,
     id: ownProps.id,
 });
 
 const mDTP = dispatch => ({
-    fetchGame: (gameId) => dispatch(getGame(gameId)),
+    
   });
 
-export default connect(mSTP, mDTP)(GameListItem);
+export default connect(mSTP, null)(GamesListItem);

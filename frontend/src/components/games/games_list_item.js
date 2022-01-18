@@ -10,8 +10,7 @@ class GamesListItem extends React.Component {
     }
 
     render() {
-        const game = this.props.games.find(game => game._id === this.props.id);
-        console.log(game)
+        const game = this.props.game
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL/>,
             "Boston Celtics": <NBAIcons.BOS/>,
@@ -59,24 +58,17 @@ class GamesListItem extends React.Component {
                 a_odds = game.away_odds;
             }
     
-            let betLocked
-            if (game.away_score > 0 || game.home_score > 0){
-                betLocked = <button className="game-bet-btn-locked">Bets Locked!</button>
-            } else {
-                betLocked = <button className="game-bet-btn" onClick={() => this.setState({modalOpen: true})}>Place Bet</button>
-            }
-    
+            const betLocked = <Link className="game-bet-btn" to={`/game/show/${game._id}`}>View Game</Link>
             return (
-                    <div className="game-index-container">
-                        <div className="game">
+                    <div className="game-index-container2">
+                        <div className="game2">
     
                             <div className="game-header">
-                                <button className="game-alert-btn">Alert</button>
                                 <div className="nba-game-logo">
                                     <img src={nba_logo}></img>
                                     National Basketball League
                                 </div>
-                                <Link to={`/game/show/${game._id}`}><button className="game-log-btn">View Game Log</button></Link>
+
                             </div>
                             
                             <div className="game-content">

@@ -197,10 +197,6 @@ strong {
 	box-shadow: 0 4px 8px 0 #303030;
 }
 
-.game-bet-btn:hover {
-
-}
-
 .game-bet-btn-locked {
     position: absolute;
 	bottom: -16px;

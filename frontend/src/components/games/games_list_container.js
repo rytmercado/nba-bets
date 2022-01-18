@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getGames } from '../../actions/game_actions';
-import GameList from './games_list_item'
+import GameList from './games_list'
 
 
 const mSTP = (state, ownProps) => ({
@@ -12,4 +12,4 @@ const mDTP = dispatch => ({
 
   });
 
-export default connect(mSTP, null)(GameList);
+export default connect(mSTP, mDTP)(GameList);

@@ -5,12 +5,12 @@ import GamesListItem from './games_list_item'
 
 const mSTP = (state, ownProps) => ({
     user: state.session.user,
-    games: state.games,
+    game: ownProps.game,
     id: ownProps.id,
 });
 
 const mDTP = dispatch => ({
-    
+    fetchGame: gameId => dispatch(getGame(gameId))
   });
 
-export default connect(mSTP, null)(GamesListItem);
+export default connect(mSTP, mDTP)(GamesListItem);

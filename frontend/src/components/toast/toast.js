@@ -10,13 +10,21 @@ const Toast = (props) => {
         setList(toastList);
     }, [toastList, list]);
 
+
+    const deleteToast = id => {
+        const index = list.findIndex(e => e.id === id);
+        list.splice(index, 1);
+        setList([...list]);
+        console.log(this.state)
+    }
+
     return(
         <>
         <div className={`notification-container ${position}`}>
             {
                 list.map((toast, i) =>     
                     <div key={i} className={`notification toast ${position}`} style={{ backgroundColor: toast.backgroundColor }} >
-                        <button>
+                        <button onClick={() => deleteToast(toast.id)}>
                             x
                         </button>
                         <div className="notification-image">

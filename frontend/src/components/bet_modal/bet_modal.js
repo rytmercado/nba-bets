@@ -16,10 +16,12 @@ class BetModal extends React.Component {
             userId: this.props.session.user._id,
             selection: '', 
             amount: 0,
+            isSubmitted: false
         }
 
         this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
 
 
     }
@@ -53,23 +55,27 @@ class BetModal extends React.Component {
         e.preventDefault(); 
         this.setState({userId: this.props.session.user._id}, () => {
         // debugger  
-            console.log(this.state)
+            // console.log(this.state)
             this.props.postBet(this.state)
             .then(res => {
                 //   console.log(res)
                 if(typeof res !== "undefined"){
                     //   console.log(res)
                     if(typeof res.bet !== "undefined"){
-                        //   console.log("close modal")
+                        console.log(this.state)
+                        this.setState({isSubmitted: true})
                         this.props.fetchUser(this.props.userId)
-                        this.props.onClose();
+                        console.log(this.state)
+                        // this.props.onClose();
+                        setTimeout(this.setState({isSubmitted: false}), 300000000000000)
                     }
                 }
+                console.log(this.state)
             });
-        //   this.props.onClose();
         })
         
     }
+
 
 
     renderErrors() {
@@ -131,11 +137,18 @@ class BetModal extends React.Component {
             "Washington Wizards": <NBAIcons.WAS/>
         }
 
+        let toast;
+        if(this.state.isSubmitted){
+            toast = <Toast toastList={testList} position="top-right"/>
+        }
+
         if (this.props.modalOpen) {
             // console.log(this.props.errors)
             return (
                 <div className="modal-open">
-                    <Toast toastList={testList} position="top-right"/>
+                    {/* <Toast toastList={testList} position="top-right"/> */}
+                    {toast}
+                    {/* {this.state.isSubmitted && <Toast toastList={testList} position="top-right"/>} */}
                     <form className="modal-form" onSubmit={this.handleSubmit}>
                         <div className="modal-header">
                             <h5 className="modal-title">Bet Slip</h5>

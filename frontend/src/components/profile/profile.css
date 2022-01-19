@@ -190,6 +190,13 @@ td a {
     text-align: center;
 }
 
+.status-in-progress{
+    padding: 5px 50px 0px 50px;
+    color: yellow;
+    font-size: 20px;
+    text-align: center;
+}
+
 .inline-headers{
     padding: 0px 50px 10px 50px;
     color:white;

@@ -70,7 +70,9 @@ class BetIndex extends React.Component {
                 )
                 })
             } else if(this.state.betSelection === "UNSETTLED"){
-                let unsettled = Object.values(this.props.bets).reverse().filter( bet => bet.status === "Incomplete");
+                let unsettled = Object.values(this.props.bets).reverse().filter( bet => {
+                    return (bet.status === "Incomplete" || bet.status === "Game In Progress")
+                });
                 betsIndex = unsettled.map( bet => {
                 return(
                     <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>

@@ -14,64 +14,62 @@ class CurrencyBar extends React.Component {
     }
 
     componentDidMount() {
-            this.props.fetchGameBets(this.props.id);
-            const bets = this.props.bets;
-            const game = this.props.game;
-            if (bets && game) {
-                let home = 0
-                let away = 0
-                for (let i = 0; i < bets.length; i++) {
+            this.props.fetchGameBets(this.props.id).then(res => {
+                const bets = this.props.bets;
+                const game = this.props.game;
+                let home = []
+                let away = []
+                if (bets.length > 0 && game) {
+                    for (let i = 0; i < bets.length; i++) {
                         if (bets[i].selection === game.home_team) {
-                            home += bets[i].amount;
-                            
+                            home.push(bets[i].amount) 
                         } else {
-                            away += bets[i].amount;
+                            away.push(bets[i].amount) 
                         }
                     }
-                const homeData = home;
-                const awayData = away;
-                    const datatwo = {
-                        labels: ["home", "away"],
-                        datasets: [{
-                            id: 2,
-                            label: 'Bets per Team',
-                            data: [homeData, awayData],
-                            backgroundColor: [
-                                'rgb(0, 0, 0)',
-                                '#53d337',
-                            ],
-                            borderColor: [
+                }
+                const reducer = (previousValue, currentValue) => previousValue + currentValue;
+                const homeData = home.reduce(reducer)
+                const awayData = away.reduce(reducer)
+                const datatwo = {
+                labels: ["home", "away"],
+                datasets: [{
+                    id: 2,
+                    label: '$ bet per team',
+                    data: [homeData, awayData],
+                        backgroundColor: [
                             'rgb(0, 0, 0)',
                             '#53d337',
-                            ],
-                            borderWidth: 5
-                        }]
-                    }
-            
-                    
-            
-                    const configtwo = {
-                        type: 'bar',
-                        data: datatwo,
-                        options: {
-                        scales: {
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)',
+                        '#53d337',
+                        ],
+                        borderWidth: 5
+                    }]
+                }
+                const configtwo = {
+                    type: 'bar',
+                    data: datatwo,
+                    options: {
+                    scales: {
                             y: {
                             beginAtZero: true
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
                                 }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                        }
+                                    }
+                                },
                             }
-                        },
-                    }
-                    const myBarChart = new Chart(
-                        document.getElementById('myBarChart'),
-                        configtwo,
-                    )
-            }
-    }
+                            const myBarChart = new Chart(
+                                document.getElementById('myBarChart'),
+                                configtwo,
+                            )
+            });
+        }
     
     
     render() {
@@ -94,8 +92,8 @@ class CurrencyBar extends React.Component {
                         <div className="chart-box">
                             <div className="chart">
                                 <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                                <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>
-                            </div>     
+                            </div>
+                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>     
                         </div>
                 )
     }

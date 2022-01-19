@@ -21,6 +21,10 @@ const BetSchema = new Schema({
     //1st arg is a function that returns a truthy/falsly value, second is an error message 
     // validate: [validateAmount, "error to be rendered"]
   },
+  date: {
+    type: String,
+    required: true 
+  },
   //Incomplete, won, and lost 
   status: {
     type: String,

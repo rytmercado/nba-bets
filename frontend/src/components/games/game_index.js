@@ -1,11 +1,6 @@
 import React from 'react';
 import GameIndexItem from './game_index_item'
 
-import nba_logo from '../../images/nba.png';
-import lakers_logo from '../../images/lakers.png';
-import warriors_logo from '../../images/warriors.png';
-
-import * as NBAIcons from 'react-nba-logos';
 
 
 class GameIndex extends React.Component {
@@ -19,7 +14,6 @@ class GameIndex extends React.Component {
     }
 
     render () {
-      //Games are filtered by date on the backend
         const games = this.props.games
         const sortedGames = games.sort(function(a, b) {
             let keyA = new Date(a.start_time)
@@ -36,7 +30,6 @@ class GameIndex extends React.Component {
                 { games.map(game => <GameIndexItem clearBetErrors={this.props.clearBetErrors} game={game} key={game._id} />)}
             </div>
         )
-
     }
 }
 

@@ -1,4 +1,4 @@
-import { RECEIVE_BET, RECEIVE_USER_BETS, CLEAR_BET } from '../actions/bet_actions';
+import { RECEIVE_BET, RECEIVE_USER_BETS, CLEAR_BET, RECEIVE_GAME_BETS } from '../actions/bet_actions';
 
 const betsReducer = (state = [], action) => {
     Object.freeze(state);
@@ -14,6 +14,8 @@ const betsReducer = (state = [], action) => {
             // return action.bet.data
         case RECEIVE_USER_BETS:
             // debugger
+            return action.bets.data
+        case RECEIVE_GAME_BETS:
             return action.bets.data
         // case CLEAR_BET:
         //     // debugger

@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 
 //index, delete, create
 
+//Incomplete, started, won, lost
+
 router.get('/index/:userId', (req, res) => { 
   let userId = req.params.userId
   Bet.find({user: userId}, (err, bets) => {
@@ -66,16 +68,10 @@ router.delete('/:betId', (req, res) => {
 
 
 router.post('/create', (req, res) => {
-  //From fronted: selection, amount, game, user 
-  // console.log(req.body.user)
-  // let userObjectId = mongoose.Types.ObjectId(req.body.userId)
-  // console.log(userObjectId)
-  console.log(req.body.userId)
   if (typeof req.body.userId === 'undefined' ){
     return res.status(404).json({"msg":"userId is undefined"})
   }
   User.findById(req.body.userId, (err, user) => {
-    //TODO: Need to check that game is Incomplete
 
     if (req.body.amount <= 0){
       return res.status(422).json({"msg": "User must bet at least 1 unit of currency"})
@@ -85,6 +81,8 @@ router.post('/create', (req, res) => {
       let bet = {}
       bet.user = user;
 
+      
+
       Game.findById(req.body.game, (err, game) => {
         if (game.status === 'Final' || game.status === 'In Progress'){
           return res.status(422).json({"msg": `game ${game.status}`})
@@ -93,6 +91,17 @@ router.post('/create', (req, res) => {
         bet.game = req.body.game; 
         bet.status = 'Incomplete'
         bet.amount = parseInt(req.body.amount);
+
+        //set bet.date equal to today 
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+      
+      
+        
+        bet.date = yyyy + '-' + mm + '-' + dd;
+      
 
         // set status 
         if (req.body.selection === "true"){

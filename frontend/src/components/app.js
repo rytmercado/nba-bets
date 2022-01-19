@@ -27,7 +27,7 @@ import './main/main.css'
 
 
 import { fetchUser } from '../util/session_api_util';
-
+import './tutorial/tutorial.css'
 
 
 const App = () => (

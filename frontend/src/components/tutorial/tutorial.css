@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  top: 250px;
+  width: 360px;
+  padding: 10px;
+  margin-left: -580px;
+  background: #fff;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  border: 1px solid grey;
+  position: absolute;
+  top: 30%;
+  z-index: 3;
+}
+
+.help-modal-text {
+  padding: 12px;
+  padding-top: 24px;
+
+}
+
+.table, .sub-table {
+  border: 1px solid  rgb(0, 0, 0);
+}
+
+.sub-table {
+  padding: 4px; 
+}
+/* .sub-table{
+  padding: 4px;
+} */
+.tutorial-modal-form {
+  font-family:'Lucida Sans', Arial, sans-serif;
+  display: inline-flex;
+  position: fixed;
+  flex-direction: column;
+  background-color: #fff;
+  top: 250px;
+  padding: 10px;
+  margin-left: -700px;
+  background: #fff;
+  z-index: 3;
+  border-radius: 8px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+
+.tutorial-modal-header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-modal-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly
+}
+
+.tutorial-modal-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.tutorial-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  width: 600px;
+  z-index: 9;
+}

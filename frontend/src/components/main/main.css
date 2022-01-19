@@ -6,10 +6,20 @@
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  margin-right: 5px;
+  margin-right: 75px;
   margin-bottom: 10px;
 }
 
+.dropbtn-github {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
 
 
 /* The container <div> - needed to position the dropup content */
@@ -56,4 +66,8 @@
     font-family:'Lucida Sans', Arial, sans-serif;
     display: flex;
     justify-content: center;
+}
+
+.main-footer{
+    padding-bottom: 10px;
 }

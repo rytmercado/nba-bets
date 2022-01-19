@@ -77,7 +77,7 @@ router.post('/create', (req, res) => {
       return res.status(422).json({"msg": "User must bet at least 1 unit of currency"})
     }
 
-    if (user.currency - req.body.amount > 0){
+    if (user.currency - req.body.amount >= 0){
       let bet = {}
       bet.user = user;
 

@@ -30,8 +30,8 @@ class BetIndexItem extends React.Component{
                             <td className="inline">${this.props.bet.amount}</td>
                             <td className="inline">${this.props.bet.payout}</td>
                             <td className={(this.props.bet.status === "Incomplete") ? "status" : (this.props.bet.status === "Game In Progress") ? "status-in-progress" : (this.props.bet.status === "Won" ? "status-won" : "status-lost")}>{this.props.bet.status}</td>
-                            <td className="inline">{this.props.bet.createdAt.slice(0,10)}</td>
-                            <td className="inline game-log"><Link to={`/game/show/${this.props.bet.game}`}>Game Log</Link>
+                            <td className="inline-created-at">{this.props.bet.createdAt.slice(0,10)}</td>
+                            <td className="game-log"><Link to={`/game/show/${this.props.bet.game}`}>Game Log</Link>
                             </td>
                             <button className={(this.props.bet.status === "Incomplete" ? "delete-bet-btn" : "delete-bet-btn-hidden")} onClick={this.onDelete}>REMOVE BET?</button>
                         </tr>

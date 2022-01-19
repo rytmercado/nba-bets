@@ -41,9 +41,20 @@ class MainPage extends React.Component {
                 <a href="https://www.linkedin.com/in/cheungwesley/">Wesley Cheung</a>
                 <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/">Owen Winzeler</a>
                 <a href="https://www.linkedin.com/in/tyler-harper-43a61677/">Tyler Harper</a>
+                <a href="">Ry Mercado</a>
               </div>
             </div>
-            <a class="dropbtn" href="https://github.com/rytmercado/nba-bets">GitHub</a>
+
+            <div class="dropup">
+              <button class="dropbtn-github">GitHub</button>
+              <div class="dropup-content">
+                <a href="https://github.com/wesleycheungg">Wesley Cheung</a>
+                <a href="https://github.com/woahwinzeler">Owen Winzeler</a>
+                <a href="https://github.com/tharpercp">Tyler Harper</a>
+                <a href="https://github.com/rytmercado">Ry Mercado</a>
+                <a href="https://github.com/rytmercado/nba-bets">GitHub Project</a>
+              </div>
+            </div>
           </div>
           
           <footer className="main-footer">

@@ -124,7 +124,7 @@ html{
     padding: 25px;
     border-radius: 10px;
     margin-left: 40px;
-    width: 1500px;
+    width: 95%;
 }
 
 .header-container{
@@ -146,27 +146,41 @@ html{
     text-decoration: none;
     border: none;
 }
-
-td a {
-    /* padding: 5px 50px 0px 0px; */
+.inline-created-at{
     color: white;
     font-size: 20px;
-    /* text-align: center; */
+    text-align: center;
     background-color: #242424;
     /* width: 100%; */
     text-decoration: none;
     border: none;
 }
 
-.game-log{
-    font-size: 20px;
-    background-color: #242424;
+td a {
+    /* padding: 5px 50px 0px 0px; */
+    color: white;
+    font-size: 15px;
+    /* text-align: center; */
+    background-color: #53d337;
+    /* width: 100%; */
+    text-decoration: none;
     border: none;
+}
+
+.game-log{
+    font-size: 15px;
+    /* border: none; */
+    background-color: #53d337;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 8px 13px;
+    text-align: center;
     text-decoration: none;
 }
 
 .game-log:hover{
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .status{

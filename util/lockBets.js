@@ -7,11 +7,11 @@ const lockBets = (gameId) => {
      for(let i = 0; i < bets.length; i++){
        bets[i].status = "Game In Progress"
        bets[i].save()
-       return 1
      }
    } else {
     return 0
    }
+   return 1
  })
 }
 

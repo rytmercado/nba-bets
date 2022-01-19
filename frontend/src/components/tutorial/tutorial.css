@@ -29,7 +29,9 @@ table, th, td {
 td, th {
   padding: 4px; 
 }
-
+/* .sub-table{
+  padding: 4px;
+} */
 .tutorial-modal-form {
   font-family:'Lucida Sans', Arial, sans-serif;
   display: inline-flex;

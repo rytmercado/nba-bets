@@ -7,13 +7,6 @@ class Tutorial extends React.Component {
 
   }
 
-  // tutorial should render as you open your first bet modal, then optionally render if
-  //you press a help button
-  //It should explain the odds and by extension calculate payout.
-  //
-
-  
-
   render(){
     let body; 
     let away_payout;
@@ -39,11 +32,11 @@ class Tutorial extends React.Component {
     if (this.props.away_odds < this.props.home_odds){
       //the away team is favored
 
-      body = `The ${this.props.away_team} are favored on the road. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookeepers and updated hourly.`
+      body = `The ${this.props.away_team} are favored on the road. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookkeepers and updated hourly.`
     } else {
       //the home team is favored 
 
-      body = `The ${this.props.home_team} are favored at home. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookeepers and updated hourly.`
+      body = `The ${this.props.home_team} are favored at home. Use the place bet button to pick your team, wager an amount, and place a bet. Our odds are pulled from nearly a dozen bookkeepers and updated hourly.`
     }
 
     if (this.props.modalOpen){
@@ -54,21 +47,21 @@ class Tutorial extends React.Component {
             <h5 className="tutorial-modal-title">Help Page</h5>
           </div>
           <div className ="tutorial-modal-body">
-            <table>
+            <table className="table">
               <tr>
-                <th>Team</th>
-                <th>Odds</th>
-                <th>Payout</th>
+                <th className="sub-table">Team</th>
+                <th className="sub-table">Odds</th>
+                <th className="sub-table">Payout</th>
               </tr>
               <tr>
-                <td> {this.props.home_team} </td>
-                <td>{this.props.home_odds}</td>
-                <td>{home_payout}</td>
+                <td className="sub-table">  {this.props.home_team} </td>
+                <td className="sub-table">{this.props.home_odds}</td>
+                <td className="sub-table">{home_payout}</td>
               </tr>
               <tr>
-                <td> {this.props.away_team} </td>
-                <td>{this.props.away_odds}</td>
-                <td>{away_payout}</td>
+                <td className="sub-table"> {this.props.away_team} </td>
+                <td className="sub-table">{this.props.away_odds}</td>
+                <td className="sub-table">{away_payout}</td>
               </tr>
             </table>
             <p className="help-modal-text">

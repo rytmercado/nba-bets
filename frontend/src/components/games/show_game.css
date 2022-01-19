@@ -1,36 +1,22 @@
 html {
-    background-color: white;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
 }
 
 .game-show {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     margin-top: 50px;
     width: 100%;
     height: 100%;
-    position: fixed;
-    z-index: 1;
-
 }
 
-.home-team {
-    z-index: 2;
-    padding: 50px;
-}
-
-.away-team {
-    z-index: 2;
-    margin-left: 100px;
-    padding: 50px;
-}
 
 .team-name {
     align-self: center;
     font-size: 30px;
     font-weight: 800;
     font-family: 'Lucida Grande', sans-serif;
-    z-index: 2;
 }
 
 .count {
@@ -42,21 +28,41 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin: 0 auto;
+    width: 50%;
+    height: 100%;
 }
 
 .stats-box {
     display:flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -100px;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    float: left;
+    margin-left: 100px;
+    
+}
+
+.gamelist-box {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-right: 50px;
+    margin-top: -500px;
+}
+
+.gamelist {
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .comments-box {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 1000px;
+    flex-direction: column;
+    position: absolute;
 }
 
 .comments-container {
@@ -65,17 +71,17 @@ html {
 }
 
 .chart-container {
-    height: 25%;
-    width: 50%;
+    height: 33%;
+    width: 25%;
     display: flex;
     flex-direction: row;
+    margin: 0 auto;
 }
 
 .chart-box {
-    width: 50%;
-    z-index: 2;
-    margin-left: 100px;
-    padding: 50px;
+    width: 30%;
+    padding: 30px;
+    margin-left: 200px;
 }
 
 .odds {
@@ -88,18 +94,114 @@ html {
 .at {
     font-size: 50px;
     margin-top: 250px;
-    font-family:'Montserrat';
+    font-family:'Montserrat', italic;
     font-weight: 900;
+    font-style: italic;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+.countdown {
+    display: flex;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Lucida Grande', sans-serif;
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+    margin-top: 5px;
+    float: left;
+}
+
+.game2 {
+    background-color: #fff;
+    display: flex;
+	flex-direction: column;
+    max-width: 500px;
+	box-shadow: 2px 2px 2px 2px #303030, 2px 2px 2px 2px #303030;
+    margin-top: 10px;
+}
+
+.game-index-container2 {
+    font-family:'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: -60px;
     
 }
 
-.countdown {
-    font-size: 25px;
-    font-weight: 600;
-    margin-left: 280px;
-    font-family: 'Lucida Grande', sans-serif;
-    
+.nba-game-logo2 {
+    display: flex;
+    align-items: center;
+    width: 22.5px;
+    height: 50px;
+    margin: 0 auto;
 }
+
+.game-list-at {
+        font-size: 30px;
+        font-family:'Montserrat';
+        font-weight: 900;
+        font-style: italic;
+}
+
+.team-name2 {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.gameslist-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 30px;
+    background-color: #53d337;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.stats-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 30px;
+    background-color: #53d337;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.gameslist-header, .stats-header > h1 {
+    display: flex;
+    margin: 0 auto;
+}
+
+
+.game-show-btn {
+    position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid black;
+	background-color: rgb(32, 16, 128);
+	border-radius: 6px;
+	padding: 10px 48px;
+	color: #fff;
+	font-size: 14px;
+}
+
+#chart-text {
+    padding-top: 25px;
+    display: inline-block;
+    font-size: 12px;
+}
+
 
 
 

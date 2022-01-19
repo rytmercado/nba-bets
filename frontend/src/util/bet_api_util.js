@@ -14,7 +14,7 @@ export const deleteBet = (betId) => {
 }
 
 export const getGamesBets = (gameId) => {
-    return axios.get(`/games/index/${gameId}`)
+    return axios.get(`api/bets/games/index/${gameId}`)
 }
 
 

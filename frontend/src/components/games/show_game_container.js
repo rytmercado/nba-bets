@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { getGame } from '../../actions/game_actions';
+import { getGame, getGames  } from '../../actions/game_actions';
 import ShowGame from './show_game';
 
 
+
 const mSTP = state => ({
-    game: state.games,
-    id: state.games._id
+    games: Object.values(state.games),
 });
 
 const mDTP = dispatch => ({
-    fetchGame: (gameId) => dispatch(getGame(gameId)),
+    fetchAllGames: () => dispatch(getGames()),
   });
 
 export default connect(mSTP, mDTP)(ShowGame);

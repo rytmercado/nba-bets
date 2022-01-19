@@ -1,9 +1,13 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
 import  CommentContainer  from '../comments/comment_container';
-import DoughnutContainer from '../graphs/doughnut_container';
 import CountDownContainer from '../count_down/count_down_container';
 import NavBarContainer from '../nav/navbar_container';
+import DoughnutContainer from '../graphs/doughnut_container';
+import CurrencyBarContainer from '../graphs/currency_container'
+import GamesListContainer from '../games/games_list_container';
+import BetsBarContainer from '../graphs/bets_bar_container'
+
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -12,11 +16,12 @@ class ShowGame extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.fetchGame(this.props.match.params.id))
+            this.props.fetchAllGames();
     }
 
     render () {
-        console.log(this.props.game)
+        const games = this.props.games;
+        console.log(games)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL size={400}/>,
             "Boston Celtics": <NBAIcons.BOS size={400}/>,
@@ -49,40 +54,82 @@ class ShowGame extends React.Component {
             "Utah Jazz": <NBAIcons.UTA size={400}/>,
             "Washington Wizards": <NBAIcons.WAS size={400}/>
         }
-        const g = this.props.game;
-        if (g === undefined){
+        const g = this.props.games.find(game => game._id === this.props.match.params.id);
+        if (g === undefined || games.length === 0){
             return null
-        } 
-        return (
-            <div className="game-show">
-                <div className="main-nav">
-                    <NavBarContainer/>
+        } else if (g.status === 'Incomplete') {
+            return (
+                <div className="game-show">
+                    <div className="main-nav">
+                        <NavBarContainer/>
+                    </div>
+                    <div className="stats-box">
+                        <h1 className="stats-header">Game Stats</h1>
+                        <DoughnutContainer g={g} />
+                        <CurrencyBarContainer g={g} />
+                        <BetsBarContainer g={g} />
+                    </div>
+                    <div className="game-box">
+                        <ul className="home-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.away_team}</li>
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
+                        </ul>
+                        <div className="comments-box">
+                            <CommentContainer g={g} />
+                        </div>
+                    </div>
+                    <div className="gamelist-box">
+                        <h1 className="gameslist-header">Today's Games</h1>
+                        <GamesListContainer games={games}/>
+                    </div>
                 </div>
-                <div className="game-box">
-                    <ul className="home-team">
-                        <li className="team-name">{g.home_team}</li>
-                        {NBALogos[g.home_team]}
-                        <li className="odds">{g.home_odds}</li>
-                    </ul>
-                    <i className="at">VS</i>
-                    <ul className="away-team">
-                        <li className="team-name">{g.away_team}</li>
-                        {NBALogos[g.away_team]}
-                        <li className="odds">{g.away_odds}</li>
-                    </ul>
+            )
+        } else {
+            return (
+                <div className="game-show">
+                    <div className="main-nav">
+                        <NavBarContainer/>
+                    </div>
+                    <div className="stats-box">
+                        <DoughnutContainer g={g} />
+                        <CurrencyBarContainer g={g} />
+                        <BetsBarContainer g={g} />
+                    </div>
+                    <div className="game-box">
+                        <ul className="home-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.away_team}</li>
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
+                        </ul>
+                        <div className="comments-box">
+                        <CommentContainer g={g} />
+                    </div>
+                    </div>
+                    <button className="game-bet-btn-locked">
+                        Bets Locked!
+                    </button>
+                    <div className="gamelist-box">
+                        <GamesListContainer games={games} />
+                    </div>
                 </div>
-                <div className="countdown">
-                    <CountDownContainer g={g} />
-                </div>
-                <div className="stats-box">
-                    <DoughnutContainer g={g}/>
-                </div>
-                <div className="comments-box">
-                    <CommentContainer g={g} />
-                </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
 export default ShowGame;
+
+

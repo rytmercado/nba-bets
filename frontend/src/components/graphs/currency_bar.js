@@ -13,6 +13,15 @@ class CurrencyBar extends React.Component {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    arrSummer(array) {
+        if (array.length < 1) {
+            return 0
+        } else {
+            const reducer = (previousValue, currentValue) => previousValue + currentValue;
+            return array.reduce(reducer)
+        }           
+    }
+
     componentDidMount() {
             this.props.fetchGameBets(this.props.id).then(res => {
                 const bets = this.props.bets;
@@ -28,9 +37,8 @@ class CurrencyBar extends React.Component {
                         }
                     }
                 }
-                const reducer = (previousValue, currentValue) => previousValue + currentValue;
-                const homeData = home.reduce(reducer)
-                const awayData = away.reduce(reducer)
+                const homeData = this.arrSummer(home)
+                const awayData = this.arrSummer(away)
                 const datatwo = {
                 labels: ["home", "away"],
                 datasets: [{

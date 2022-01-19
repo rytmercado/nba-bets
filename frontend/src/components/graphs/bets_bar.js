@@ -18,15 +18,14 @@ class BetsBar extends React.Component {
             if (bets.length > 0 && game) {
                 for (let i = 0; i < bets.length; i++) {
                     if (bets[i].selection === game.home_team) {
-                        home.push(1) 
+                        home.push('X') 
                     } else {
-                        away.push(1) 
+                        away.push('X') 
                     }
                 }
             }
-            const reducer = (previousValue, currentValue) => previousValue + currentValue;
-            const homeData = home.reduce(reducer)
-            const awayData = away.reduce(reducer)
+            const homeData = home.length
+            const awayData = away.length
             const datatwo = {
             labels: ["home", "away"],
             datasets: [{

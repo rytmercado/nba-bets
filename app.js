@@ -55,4 +55,4 @@ app.listen(port, () => {
 // getGameOdds();
 // // // setTimeout(getGameResults, 50000)
 
-// getGameResults()
+getGameResults()

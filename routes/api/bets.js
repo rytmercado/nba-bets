@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 
 //index, delete, create
 
+//Incomplete, started, won, lost
+
 router.get('/index/:userId', (req, res) => { 
   let userId = req.params.userId
   Bet.find({user: userId}, (err, bets) => {

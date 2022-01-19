@@ -13,6 +13,7 @@ const getGameResults = require('./util/games')
 const Game = require('./models/Game')
 const bets = require('./routes/api/bets')
 const resolveBets = require('./util/resolveBets')
+const lockBets = require('./util/lockBets')
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -50,4 +51,3 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
-

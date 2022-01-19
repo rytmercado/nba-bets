@@ -40,9 +40,6 @@ const getGameResults = () => {
       let q = data[i].period
       let minute = data[i].time
 
-      // console.log(minute)
-
-      // homeScore = 100;
       if (data[i].status === 'Final'){
         result = 'Final'
       } else if (homeScore > 0) {
@@ -61,6 +58,8 @@ const getGameResults = () => {
               winner = fullAwayName
             }
             resolveBets(game._doc._id, winner)
+          } else if (homeScore + awayScore > 0) {
+            lockBets(game._doc._id); 
           }
 
 

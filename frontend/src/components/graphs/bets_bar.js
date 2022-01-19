@@ -43,9 +43,6 @@ class BetsBar extends React.Component {
                             borderWidth: 1
                         }]
                     }
-            
-                    
-            
                     const configtwo = {
                         type: 'bar',
                         data: datatwo,
@@ -54,7 +51,12 @@ class BetsBar extends React.Component {
                             y: {
                             beginAtZero: true
                             }
-                        }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                                }
+                            }
                         },
                     };
                     const myBarChart = new Chart(
@@ -87,9 +89,9 @@ class BetsBar extends React.Component {
                     }
                 }
                 return (
-                        <div className="chart-box">
+                        <div className="chart-box2">
                             <canvas id="myBetsBar" style={{"width": "150px", "height" : "150px"}}></canvas>
-                            <strong id="chart-text">{home} users bet on {game.home_team}, while {away} users have been bet on {game.away_team}</strong>
+                            <strong id="chart-text">{home} user(s) bet on {game.home_team}, while {away} user(s) have bet on {game.away_team}</strong>
                         </div>     
                 )
     }

@@ -70,16 +70,16 @@ class ShowGame extends React.Component {
                         <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
-                        <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
-                        </ul>
-                        <i className="at">VS</i>
-                        <ul className="away-team">
+                    <ul className="home-team">
                             <li className="team-name">{g.away_team}</li>
                             {NBALogos[g.away_team]}
                             <li className="odds">{g.away_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
                         </ul>
                         <div className="comments-box">
                             <CommentContainer g={g} />
@@ -104,15 +104,15 @@ class ShowGame extends React.Component {
                     </div>
                     <div className="game-box">
                         <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
-                        </ul>
-                        <i className="at">VS</i>
-                        <ul className="away-team">
                             <li className="team-name">{g.away_team}</li>
                             {NBALogos[g.away_team]}
                             <li className="odds">{g.away_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            <li className="team-name">{g.home_team}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
                         </ul>
                         <div className="comments-box">
                         <CommentContainer g={g} />

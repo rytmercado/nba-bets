@@ -40,6 +40,10 @@ html {
     height: 100%;
     float: left;
     margin-left: 100px;
+    margin-top: 50px;
+    border: 5px solid black;
+    background-color: #303030;
+    border-radius: 10px;
     
 }
 
@@ -68,16 +72,31 @@ html {
 
 .chart-container {
     height: 33%;
-    width: 25%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin: 0 auto;
 }
 
 .chart-box {
-    width: 30%;
+    width: 80%;
     padding: 30px;
-    margin-left: 200px;
+    margin: 0 auto;
+    background-color: #303030;
+    border-bottom: 5px solid black;
+}
+
+.chart-box2 {
+    width: 80%;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #303030;
+}
+
+.chart {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #303030;
 }
 
 .odds {
@@ -157,7 +176,7 @@ html {
     font-weight: 800;
     padding: 30px;
     background-color: #53d337;
-    border: 1px solid black;
+    border: 5px solid black;
     border-radius: 5px;
 }
 
@@ -167,11 +186,13 @@ html {
     font-weight: 800;
     padding: 30px;
     background-color: #53d337;
-    border: 1px solid black;
+    border: 5px solid black;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    z-index: 2;
+    margin-top: -50px;
 }
 
 .gameslist-header, .stats-header > h1 {
@@ -193,9 +214,16 @@ html {
 }
 
 #chart-text {
-    padding-top: 25px;
-    display: inline-block;
-    font-size: 12px;
+    display: flex;
+    font-size: 13px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 5px 10px 10px 5px;
+    border: 1px solid white;
+    margin-top: 20px;
+    text-align: center;
 }
 
 

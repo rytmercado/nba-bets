@@ -44,7 +44,7 @@ class CurrencyBar extends React.Component {
                             'rgb(0, 0, 0)',
                             '#53d337',
                             ],
-                            borderWidth: 1
+                            borderWidth: 5
                         }]
                     }
             
@@ -58,9 +58,14 @@ class CurrencyBar extends React.Component {
                             y: {
                             beginAtZero: true
                             }
-                        }
                         },
-                    };
+                        plugins: {
+                            legend: {
+                                display: false
+                                }
+                            }
+                        },
+                    }
                     const myBarChart = new Chart(
                         document.getElementById('myBarChart'),
                         configtwo,
@@ -87,9 +92,11 @@ class CurrencyBar extends React.Component {
                 const realAway = this.numberWithCommas(away)
                 return (
                         <div className="chart-box">
-                            <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>
-                        </div>     
+                            <div className="chart">
+                                <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
+                                <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>
+                            </div>     
+                        </div>
                 )
     }
 }

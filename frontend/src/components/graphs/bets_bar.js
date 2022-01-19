@@ -1,16 +1,12 @@
 import React from "react";
 import Chart from 'chart.js/auto';
-import { getGames } from "../../util/game_api_util";
 
 
-class CurrencyBar extends React.Component {
+
+class BetsBar extends React.Component {
     constructor(props){
         super(props)
         
-    }
-
-    numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
     componentDidMount() {
@@ -22,10 +18,10 @@ class CurrencyBar extends React.Component {
                 let away = 0
                 for (let i = 0; i < bets.length; i++) {
                         if (bets[i].selection === game.home_team) {
-                            home += bets[i].amount;
+                            home += 1
                             
                         } else {
-                            away += bets[i].amount;
+                            away += 1
                         }
                     }
                 const homeData = home;
@@ -62,13 +58,20 @@ class CurrencyBar extends React.Component {
                         },
                     };
                     const myBarChart = new Chart(
-                        document.getElementById('myBarChart'),
+                        document.getElementById('myBetsBar'),
                         configtwo,
                     )
             }
     }
+
     
+       
     
+
+
+
+
+
     render() {
         const bets = this.props.bets
         const game = this.props.game
@@ -77,22 +80,20 @@ class CurrencyBar extends React.Component {
         if (bets && game) {
             for (let i = 0; i < bets.length; i++) {
                     if (bets[i].selection === game.home_team) {
-                        home += bets[i].amount
+                        home += 1
                         
                     } else {
-                        away += bets[i].amount
+                        away += 1
                     }
                 }
-                const realHome = this.numberWithCommas(home)
-                const realAway = this.numberWithCommas(away)
                 return (
                         <div className="chart-box">
-                            <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>
+                            <canvas id="myBetsBar" style={{"width": "150px", "height" : "150px"}}></canvas>
+                            <strong id="chart-text">{home} users bet on {game.home_team}, while {away} users have been bet on {game.away_team}</strong>
                         </div>     
                 )
     }
 }
 }
 
-export default CurrencyBar;
+export default BetsBar;

@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
+import BetsBar from './bets_bar';
 import { getGameBets } from '../../actions/bet_actions';
-import OddsPercentageDoughnut from './odds_percentage_doughnut';
-
 
 const mSTP = (state, ownProps) => ({
+    bets: state.bets,
+    id: ownProps.g._id,
     game: ownProps.g,
-    games: state.games,
 });
 
 const mDTP = dispatch => ({
-  
+    fetchGameBets: (gameId) => dispatch(getGameBets(gameId)),
 });
 
-export default connect(mSTP, null)(OddsPercentageDoughnut);
+export default connect(mSTP, mDTP)(BetsBar);

@@ -37,40 +37,47 @@ html {
     display:flex;
     flex-direction: column;
     width: 25%;
-    height: 40%;
+    height: 100%;
     float: left;
-    margin-top: 100px;
+    margin-left: 100px;
+    
 }
 
 .gamelist-box {
     width: 25%;
     height: 100%;
-    float: right;
     display: flex;
-    z-index: 2;
     flex-direction: column;
-    margin-top: 100px;
+    float: right;
+    margin-right: 50px;
+    margin-top: -500px;
+}
+
+.gamelist {
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .comments-box {
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
-    margin-top: 50px;
-
+    margin-top: 1000px;
+    flex-direction: column;
+    position: absolute;
 }
 
 .chart-container {
-    height: 25%;
+    height: 33%;
     width: 25%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .chart-box {
     width: 30%;
-    padding: 50px;
+    padding: 30px;
+    margin-left: 200px;
 }
 
 .odds {
@@ -83,9 +90,11 @@ html {
 .at {
     font-size: 50px;
     margin-top: 250px;
-    font-family:'Montserrat';
+    font-family:'Montserrat', italic;
     font-weight: 900;
+    font-style: italic;
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
 .countdown {
     display: flex;
@@ -96,7 +105,6 @@ html {
     width: 50%;
     justify-content: center;
     margin-top: 5px;
-    border: 1px solid black;
     float: left;
 }
 
@@ -104,20 +112,92 @@ html {
     background-color: #fff;
     display: flex;
 	flex-direction: column;
-	min-width:600px;
-	box-shadow: 0 0 2px 0 #303030, 0 4px 4px 0 #303030
+    max-width: 500px;
+	box-shadow: 2px 2px 2px 2px #303030, 2px 2px 2px 2px #303030;
+    margin-top: 10px;
 }
 
 .game-index-container2 {
     font-family:'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
-    width: 25%;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
     margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: -60px;
     
 }
+
+.nba-game-logo2 {
+    display: flex;
+    align-items: center;
+    width: 22.5px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.game-list-at {
+        font-size: 30px;
+        font-family:'Montserrat';
+        font-weight: 900;
+        font-style: italic;
+}
+
+.team-name2 {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.gameslist-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 30px;
+    background-color: #53d337;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.stats-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 30px;
+    background-color: #53d337;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.gameslist-header, .stats-header > h1 {
+    display: flex;
+    margin: 0 auto;
+}
+
+
+.game-show-btn {
+    position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid black;
+	background-color: rgb(32, 16, 128);
+	border-radius: 6px;
+	padding: 10px 48px;
+	color: #fff;
+	font-size: 14px;
+}
+
+#chart-text {
+    padding-top: 25px;
+    display: inline-block;
+    font-size: 12px;
+}
+
 
 
 

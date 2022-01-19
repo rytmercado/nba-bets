@@ -6,6 +6,7 @@ import NavBarContainer from '../nav/navbar_container';
 import DoughnutContainer from '../graphs/doughnut_container';
 import CurrencyBarContainer from '../graphs/currency_container'
 import GamesListContainer from '../games/games_list_container';
+import BetsBarContainer from '../graphs/bets_bar_container'
 
 
 class ShowGame extends React.Component {
@@ -63,8 +64,10 @@ class ShowGame extends React.Component {
                         <NavBarContainer/>
                     </div>
                     <div className="stats-box">
+                        <h1 className="stats-header">Game Stats</h1>
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
+                        <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
                         <ul className="home-team">
@@ -78,13 +81,13 @@ class ShowGame extends React.Component {
                             {NBALogos[g.away_team]}
                             <li className="odds">{g.away_odds}</li>
                         </ul>
+                        <div className="comments-box">
+                            <CommentContainer g={g} />
+                        </div>
                     </div>
-                    <CountDownContainer g={g} />
                     <div className="gamelist-box">
+                        <h1 className="gameslist-header">Today's Games</h1>
                         <GamesListContainer games={games}/>
-                    </div>
-                    <div className="comments-box">
-                        <CommentContainer g={g} />
                     </div>
                 </div>
             )
@@ -97,6 +100,7 @@ class ShowGame extends React.Component {
                     <div className="stats-box">
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
+                        <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
                         <ul className="home-team">
@@ -110,15 +114,15 @@ class ShowGame extends React.Component {
                             {NBALogos[g.away_team]}
                             <li className="odds">{g.away_odds}</li>
                         </ul>
+                        <div className="comments-box">
+                        <CommentContainer g={g} />
+                    </div>
                     </div>
                     <button className="game-bet-btn-locked">
                         Bets Locked!
                     </button>
                     <div className="gamelist-box">
                         <GamesListContainer games={games} />
-                    </div>
-                    <div className="comments-box">
-                        <CommentContainer g={g} />
                     </div>
                 </div>
             )
@@ -127,3 +131,5 @@ class ShowGame extends React.Component {
 }
 
 export default ShowGame;
+
+

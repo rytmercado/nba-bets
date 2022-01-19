@@ -44,7 +44,6 @@ class GamesListItem extends React.Component {
             "Washington Wizards": <NBAIcons.WAS/>
         }
         if (game) {
-
             let h_odds;
             let a_odds;
             if(game.home_odds > 0){
@@ -57,16 +56,73 @@ class GamesListItem extends React.Component {
             } else {
                 a_odds = game.away_odds;
             }
+            { if (game.status === 'Incomplete') {
+                const betLocked = <Link className="game-show-btn" to={`/game/show/${game._id}`}>View Game</Link>
+                return (
+                        <div className="game-index-container2">
+                            <div className="game2">
+        
+                                <div className="game-header">
+                                    <div className="nba-game-logo2">
+                                        <img src={nba_logo}></img>
+                                    </div>
     
-            const betLocked = <Link className="game-bet-btn" to={`/game/show/${game._id}`}>View Game</Link>
+                                </div>
+                                
+                                <div className="game-content">
+                                    <div className="column">
+                                        <div className="team team--away">
+                                            <div className="team-logo">
+                                                {NBALogos[game.away_team]}
+                                            </div>
+                                            <h2 className="team-name2">{game.away_team}</h2>
+                                            <button className="game-bet-odds">{a_odds}</button>
+                                        </div>
+                                    </div>
+        
+                                    <div className="column">
+                                        <div className="game-details">
+                                            <div className="game-period">
+                                                <strong>{game.game_time}</strong>
+                                            </div>
+                                            <div className="game-period">{game.game_minute}</div>
+                                            <span className="game-list-at">
+                                                VS
+                                            </span>
+                                            <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
+                                            <div className="game-bet">
+                                                {betLocked}
+                                            </div>
+                                            <div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
+                                    <div className="column">
+                                        <div className="team team--home">
+                                            <div className="team-logo">
+                                            {NBALogos[game.home_team]}
+                                            </div>
+                                            <h2 className="team-name2">{game.home_team}</h2>
+                                            <button className="game-bet-odds">{h_odds}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                )
+                
+            } else {
+                const betLocked = <Link className="game-show-btn" to={`/game/show/${game._id}`}>View Game</Link>
             return (
                     <div className="game-index-container2">
                         <div className="game2">
     
                             <div className="game-header">
-                                <div className="nba-game-logo">
+                                <div className="nba-game-logo2">
                                     <img src={nba_logo}></img>
-                                    National Basketball League
                                 </div>
 
                             </div>
@@ -77,7 +133,7 @@ class GamesListItem extends React.Component {
                                         <div className="team-logo">
                                             {NBALogos[game.away_team]}
                                         </div>
-                                        <h2 className="team-name">{game.away_team}</h2>
+                                        <h2 className="team-name2">{game.away_team}</h2>
                                         <button className="game-bet-odds">{a_odds}</button>
                                     </div>
                                 </div>
@@ -88,11 +144,9 @@ class GamesListItem extends React.Component {
                                             <strong>{game.game_time}</strong>
                                         </div>
                                         <div className="game-period">{game.game_minute}</div>
-                                        <div className="game-score">
-                                            <span className="game-score-number game-score-number--leading" >{game.away_score}</span>
-                                            <span className="game-score-divider">:</span>
-                                            <span className="game-score-number">{game.home_score}</span>
-                                        </div>
+                                        <span className="game-list-at">
+                                            VS
+                                        </span>
                                         <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
                                         <div className="game-bet">
                                             {betLocked}
@@ -109,7 +163,7 @@ class GamesListItem extends React.Component {
                                         <div className="team-logo">
                                         {NBALogos[game.home_team]}
                                         </div>
-                                        <h2 className="team-name">{game.home_team}</h2>
+                                        <h2 className="team-name2">{game.home_team}</h2>
                                         <button className="game-bet-odds">{h_odds}</button>
                                     </div>
                                 </div>
@@ -117,6 +171,7 @@ class GamesListItem extends React.Component {
                         </div>
                     </div>
             )
+            }}
         } else {
             return (
                 <div>GAMESLISTITEM</div>

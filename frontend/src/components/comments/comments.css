@@ -12,6 +12,12 @@
     flex-direction: column;
     margin-top: 10px;
 }
+
+.current-comments {
+  
+}
+
+
 .body{
   background: #d4e7ff;
   border: none;

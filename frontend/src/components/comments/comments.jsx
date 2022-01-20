@@ -13,7 +13,6 @@ class Comment extends React.Component {
             body: "",
             parentComment: null, 
           },
-          commentsToRender: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -21,7 +20,6 @@ class Comment extends React.Component {
 
 
   componentDidMount(){
-    console.log(this.props)
     if (this.props.user){
       if (this.props.user.id){
         if (this.props.g){
@@ -33,6 +31,10 @@ class Comment extends React.Component {
     }
   }
 
+  updateComment(){
+    
+  }
+
   handleChange(field) {
     return e => {
         this.setState({comment: {...this.state.comment, [field]: e.currentTarget.value}})
@@ -41,15 +43,9 @@ class Comment extends React.Component {
   
   handleSubmit() {
 
-      console.log(this.state.comment)
-
       this.props.postComment(this.state.comment)
 
-      let newCommment = this.state.comment; 
-
       this.setState(state => {
-        const commentsToRender = [...state.commentsToRender, newCommment];
-
         return {
           comment: {
             userId: state.comment.userId,
@@ -58,7 +54,6 @@ class Comment extends React.Component {
             body: "",
             parentComment: null 
           },
-          commentsToRender
         };
 
       })
@@ -66,7 +61,15 @@ class Comment extends React.Component {
 
   renderComments(commentsArray){
     let comments = commentsArray; 
-    comments = commentsArray.map(commentObject => <div className="comment">
+    comments = commentsArray.map(commentObject => {
+      let updatedAt;
+      if (!!commentObject.updatedAt){
+        updatedAt = commentObject.updatedAt;
+      } else {
+        updatedAt = "Just Now"
+      }
+      return (
+        <div className="comment">
           <div className="comment-object">
             <div className="comment-handle">
               {commentObject.handle}
@@ -75,10 +78,12 @@ class Comment extends React.Component {
               {commentObject.body}
             </div>
             <div className="comment-timestamps">
-              {commentObject.updatedAt}
+              {updatedAt}
             </div>
           </div>
-        </div> )
+        </div>
+      )
+    })
 
       return comments; 
   }
@@ -87,18 +92,14 @@ class Comment extends React.Component {
     let comments;
     if (!!this.props.g){
       if (!!this.props.g.comments){
-        comments = this.renderComments(this.props.g.comments.concat(this.state.commentsToRender))
-        console.log(comments)
+        comments = this.renderComments(this.props.g.comments)
       }
     }
-    console.log(comments)
-
     
     
             return(
                 <div className="comments-container">
                     <div className="current-comments">
-                        {/* <h3 className="count">{count} comments</h3> */}
                         {comments}
                         
                     </div>
@@ -109,7 +110,7 @@ class Comment extends React.Component {
                             <span className="input-name"></span>
                             <textarea
                                 rows="2"
-                                value={this.props.body}
+                                value={this.state.comment.body}
                                 type='text'
                                 placeholder='Start talking some smack!'
                                 component='input'

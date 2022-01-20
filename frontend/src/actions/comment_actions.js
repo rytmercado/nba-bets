@@ -1,4 +1,4 @@
-import { postComment, fetchGameComments } from '../util/chat_api_util'
+import { postComment, deleteComment, fetchGameComments, updateComment } from '../util/chat_api_util'
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 
@@ -19,4 +19,16 @@ export const createComment = (comment) => dispatch => (
         .then(game => {
             dispatch(receiveComments(game))
         })
+)
+
+export const patchComment = comment => dispatch => (
+  updateComment(comment).then(
+    game =>  dispatch(receiveComments(game))
+  )
+)
+
+export const removeComment = commentData => dispatch => (
+  deleteComment(commentData).then(game => 
+   dispatch(receiveComments(game)) 
+    )
 )

@@ -11,6 +11,7 @@ const gamesReducer = (state={}, action) => {
         case RECEIVE_GAME:
           return action.game.data;
         case RECEIVE_COMMENTS:
+          //finds game and replaces it with updated comments
           const index = arrayState.findIndex(post => post._id === action.comments.data._id)
           arrayState[index] = action.comments.data; 
           return Object.assign({}, arrayState) 

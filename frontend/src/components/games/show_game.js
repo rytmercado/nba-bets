@@ -115,9 +115,9 @@ class ShowGame extends React.Component {
                             <li className="odds">{g.away_odds}</li>
                         </ul>
                         <div className="comments-box">
-                        <CommentContainer game={g} />
                     </div>
                     </div>
+                    <CommentContainer game={g} />
                     <button className="game-bet-btn-locked">
                         Bets Locked!
                     </button>

@@ -16,7 +16,7 @@ class ShowGame extends React.Component {
     }
 
     componentDidMount() {
-            this.props.fetchAllGames();
+        this.props.fetchAllGames();
     }
 
     render () {
@@ -113,7 +113,7 @@ class ShowGame extends React.Component {
                             <li className="odds">{g.home_odds}</li>
                         </ul>
                         <div className="comments-box">
-                        <CommentContainer g={g} />
+                        <CommentContainer game={g} />
                     </div>
                     </div>
                     <button className="game-bet-btn-locked">

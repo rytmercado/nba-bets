@@ -10,28 +10,44 @@ class Comment extends React.Component {
                 handle: "",
                 gameId: "",
                 body: "",
+                parentComment: null, 
         }
+        console.log(this.props)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        // this.renderComments = this.renderComments.bind(this);
     }
 
-//   componentDidMount() {
-//       this.props.getComments(this.props.g.id)
-//   }
+  //comments are embedded in the game, we just need to save then get the current game
+  // componentDidMount() {
+  //   if (this.props.g){
+  //     if (this.props.g.id){
+        
+  //     } else 
+  //   } 
+  // }
+
+  componentDidMount(){
+    if (this.props.user){
+      if (this.props.user.id){
+        this.setState({userId: this.props.user.id, handle: this.props.user.handle})
+      }
+    }
+    if (this.props.g){
+          if (this.props.g._id){
+            this.setState({gameId: this.props.g._id})
+          } 
+        }
+  }
 
   handleChange(field) {
     return e => {
+        console.log(e.currentTarget.value)
         this.setState({ [field]: e.currentTarget.value })
     }
   }
   
   handleSubmit() {
-        const comments = Object.values(this.props.comments)
-        console.log(comments)
-        this.setState({ userId: this.props.user.id, gameId: this.props.g._id, handle: this.props.user.handle }, () => {
-            this.props.postComment(this.state)
-        })
+      this.props.postComment(this.state)
   }
 
   renderComments() {
@@ -52,12 +68,10 @@ class Comment extends React.Component {
   }
 
   render() {
-        if (this.props.comments) {
-            let count = this.props.comments.length
             return(
                 <div className="comments-container">
                     <div className="current-comments">
-                        <h3 className="count">{count} comments</h3>
+                        {/* <h3 className="count">{count} comments</h3> */}
                         {this.renderComments()} 
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -67,12 +81,12 @@ class Comment extends React.Component {
                             <span className="input-name"></span>
                             <textarea
                                 rows="2"
-                                className="body"
+                                value="body"
                                 type='text'
                                 placeholder='Start talking some smack!'
                                 component='input'
                                 
-                                onChange={this.handleChange("body")}></textarea>  
+                                onChange={() => this.handleChange("body")}></textarea>  
                             </div>
                         </div> 
                         </div>
@@ -84,35 +98,8 @@ class Comment extends React.Component {
                     </form>
                 </div>
 
-            )} else {
-            return (
-                <div className="comments-container">
-                <form>
-                <div className="comment-form">
-                <div className="comment-row">
-                    <div className="input-div"> 
-                    <span className="input-name"></span>
-                    <textarea
-                        rows="2"
-                        className="input-box"
-                        type='text'
-                        placeholder='Start talking some smack!'
-                        component='input'
-                        
-                        onChange={this.handleChange}></textarea>  
-                    </div>
-                </div> 
-                </div>
-            </form>
-            <div className="comment-btn-div">
-                <button className="comment-post-btn" onClick={this.handleSubmit} type="submit">
-                    Post
-                </button>
-            </div>
-
-                </div>
-            )}
-        } 
+            )
+      } 
 }
 
 export default Comment;

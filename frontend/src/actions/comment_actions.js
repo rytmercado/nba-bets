@@ -16,7 +16,7 @@ export const getAllComments = gameId => dispatch => (
 
 export const createComment = (comment) => dispatch => (
     postComment(comment)
-        .then(comment => {
-            dispatch(receiveComments(comment))
+        .then(game => {
+            dispatch(receiveComments(game))
         })
 )

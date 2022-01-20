@@ -3,17 +3,18 @@ import { RECEIVE_COMMENTS } from '../actions/comment_actions'
 
 const gamesReducer = (state={}, action) => {
     Object.freeze(state);
-    const newState = Object.assign({}, state);
+    const oldState = Object.assign({}, state);
 
     switch(action.type){
         case RECEIVE_GAMES:
-            return action.games.data;
+          return action.games.data;
         case RECEIVE_GAME:
-            return action.game.data;
+          return action.game.data;
         case RECEIVE_COMMENTS:
-            return action.comments.data;
+          // is just recieving a singular game 
+          return Object.assign({},action.comments.data ,oldState)
         default:
-            return state;
+          return state;
     }
 }
 

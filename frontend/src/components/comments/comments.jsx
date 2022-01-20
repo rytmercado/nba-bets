@@ -17,14 +17,6 @@ class Comment extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-  //comments are embedded in the game, we just need to save then get the current game
-  // componentDidMount() {
-  //   if (this.props.g){
-  //     if (this.props.g.id){
-        
-  //     } else 
-  //   } 
-  // }
 
   componentDidMount(){
     if (this.props.user){
@@ -32,16 +24,15 @@ class Comment extends React.Component {
         this.setState({userId: this.props.user.id, handle: this.props.user.handle})
       }
     }
-    if (this.props.g){
-          if (this.props.g._id){
-            this.setState({gameId: this.props.g._id})
+    if (this.props.game){
+          if (this.props.game._id){
+            this.setState({gameId: this.props.game._id})
           } 
         }
   }
 
   handleChange(field) {
     return e => {
-        console.log(e.currentTarget.value)
         this.setState({ [field]: e.currentTarget.value })
     }
   }
@@ -50,29 +41,48 @@ class Comment extends React.Component {
       this.props.postComment(this.state)
   }
 
-  renderComments() {
-    let comments = this.props.comments
-    if (comments) {
-        return(
-            <ul>
-              { (comments).map((comment, i) => (
-                <li className="comment" key={i}>
-                  <b><i>{comment.body} </i></b>- {comment.handle}
-                </li>
-              ))}
-            </ul>
-          );
-        } else {
-            return null
-        }
-  }
+  // renderComments() {
+  //   let comments = this.props.comments
+  //   if (comments) {
+  //       return(
+  //           <ul>
+  //             { (comments).map((comment, i) => (
+  //               <li className="comment" key={i}>
+  //                 <b><i>{comment.body} </i></b>- {comment.handle}
+  //               </li>
+  //             ))}
+  //           </ul>
+  //         );
+  //       } else {
+  //           return null
+  //       }
+  // }
 
   render() {
+    let comments = [];
+    if (!!this.props.game.comments){
+      comments = this.props.game.comments.map(commentObject => <div className="comment">
+        <div className="comment-object">
+          <div className="comment-handle">
+            {commentObject.handle}
+          </div>
+          <div className="comment-body">
+            {commentObject.body}
+          </div>
+          <div className="comment-timestamps">
+            {commentObject.updatedAt}
+          </div>
+        </div>
+      </div> )
+    }
+    
+    
             return(
                 <div className="comments-container">
                     <div className="current-comments">
                         {/* <h3 className="count">{count} comments</h3> */}
-                        {this.renderComments()} 
+                        {comments}
+                        
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="comment-form">
@@ -81,12 +91,12 @@ class Comment extends React.Component {
                             <span className="input-name"></span>
                             <textarea
                                 rows="2"
-                                value="body"
+                                value={this.props.body}
                                 type='text'
                                 placeholder='Start talking some smack!'
                                 component='input'
                                 
-                                onChange={() => this.handleChange("body")}></textarea>  
+                                onChange={this.handleChange("body")}></textarea>  
                             </div>
                         </div> 
                         </div>

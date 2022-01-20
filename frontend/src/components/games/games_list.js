@@ -8,8 +8,7 @@ class GamesList extends React.Component {
     }
 
     render () {
-        console.log(this.props.games)
-        const games = this.props.games
+        const games = this.props.games;
         return (
             <div>
                 {games.map(game => <GamesListItemContainer key={game._id} game={game} />)}

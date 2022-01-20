@@ -23,38 +23,38 @@ class ShowGame extends React.Component {
         const games = this.props.games;
         console.log(games)
         const NBALogos = {
-            "Atlanta Hawks": <NBAIcons.ATL size={400}/>,
-            "Boston Celtics": <NBAIcons.BOS size={400}/>,
-            "Brooklyn Nets": <NBAIcons.BKN size={400}/>,
-            "Charlotte Hornets": <NBAIcons.CHA size={400}/>,
-            "Chicago Bulls": <NBAIcons.CHI size={400}/>,
-            "Cleveland Cavaliers": <NBAIcons.CLE size={400}/>,
-            "Dallas Mavericks": <NBAIcons.DAL size={400}/>,
-            "Denver Nuggets": <NBAIcons.DEN size={400}/>,
-            "Detroit Pistons": <NBAIcons.DET size={400}/>,
-            "Golden State Warriors": <NBAIcons.GSW size={400}/>,
-            "Houston Rockets": <NBAIcons.HOU size={400}/>,
-            "Indiana Pacers": <NBAIcons.IND size={400}/>,
-            "Los Angeles Clippers": <NBAIcons.LAC size={400}/>,
-            "Los Angeles Lakers": <NBAIcons.LAL size={400}/>,
-            "Memphis Grizzlies": <NBAIcons.MEM size={400}/>,
-            "Miami Heat": <NBAIcons.MIA size={400}/>,
-            "Milwaukee Bucks": <NBAIcons.MIL size={400}/>,
-            "Minnesota Timberwolves": <NBAIcons.MIN size={400}/>,
-            "New Orleans Pelicans": <NBAIcons.NOP size={400}/>,
-            "New York Knicks": <NBAIcons.NYK size={400}/>,
-            "Oklahoma City Thunder": <NBAIcons.OKC size={400}/>,
-            "Orlando Magic": <NBAIcons.ORL size={400}/>,
-            "Philadelphia 76ers": <NBAIcons.PHI size={400}/>,
-            "Phoenix Suns": <NBAIcons.PHX size={400}/>,
-            "Portland Trail Blazers": <NBAIcons.POR size={400}/>,
-            "Sacramento Kings": <NBAIcons.SAC size={400}/>,
-            "San Antonio Spurs": <NBAIcons.SAS size={400}/>,
-            "Toronto Raptors": <NBAIcons.TOR size={400}/>,
-            "Utah Jazz": <NBAIcons.UTA size={400}/>,
-            "Washington Wizards": <NBAIcons.WAS size={400}/>
+            "Atlanta Hawks": <NBAIcons.ATL size={'100%'}/>,
+            "Boston Celtics": <NBAIcons.BOS size={'100%'}/>,
+            "Brooklyn Nets": <NBAIcons.BKN size={'100%'}/>,
+            "Charlotte Hornets": <NBAIcons.CHA size={'100%'}/>,
+            "Chicago Bulls": <NBAIcons.CHI size={'100%'}/>,
+            "Cleveland Cavaliers": <NBAIcons.CLE size={'100%'}/>,
+            "Dallas Mavericks": <NBAIcons.DAL size={'100%'}/>,
+            "Denver Nuggets": <NBAIcons.DEN size={'100%'}/>,
+            "Detroit Pistons": <NBAIcons.DET size={'100%'}/>,
+            "Golden State Warriors": <NBAIcons.GSW size={'100%'}/>,
+            "Houston Rockets": <NBAIcons.HOU size={'100%'}/>,
+            "Indiana Pacers": <NBAIcons.IND size={'100%'}/>,
+            "Los Angeles Clippers": <NBAIcons.LAC size={'100%'}/>,
+            "Los Angeles Lakers": <NBAIcons.LAL size={'100%'}/>,
+            "Memphis Grizzlies": <NBAIcons.MEM size={'100%'}/>,
+            "Miami Heat": <NBAIcons.MIA size={'100%'}/>,
+            "Milwaukee Bucks": <NBAIcons.MIL size={'100%'}/>,
+            "Minnesota Timberwolves": <NBAIcons.MIN size={'100%'}/>,
+            "New Orleans Pelicans": <NBAIcons.NOP size={'100%'}/>,
+            "New York Knicks": <NBAIcons.NYK size={'100%'}/>,
+            "Oklahoma City Thunder": <NBAIcons.OKC size={'100%'}/>,
+            "Orlando Magic": <NBAIcons.ORL size={'100%'}/>,
+            "Philadelphia 76ers": <NBAIcons.PHI size={'100%'}/>,
+            "Phoenix Suns": <NBAIcons.PHX size={'100%'}/>,
+            "Portland Trail Blazers": <NBAIcons.POR size={'100%'}/>,
+            "Sacramento Kings": <NBAIcons.SAC size={'100%'}/>,
+            "San Antonio Spurs": <NBAIcons.SAS size={'100%'}/>,
+            "Toronto Raptors": <NBAIcons.TOR size={'100%'}/>,
+            "Utah Jazz": <NBAIcons.UTA size={'100%'}/>,
+            "Washington Wizards": <NBAIcons.WAS size={'100%'}/>
         }
-        const g = this.props.games.find(game => game._id === this.props.match.params.id);
+        const g = games.find(game => game._id === this.props.match.params.id);
         if (g === undefined || games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {
@@ -70,16 +70,14 @@ class ShowGame extends React.Component {
                         <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
-                        <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
+                    <ul className="home-team">
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
                         </ul>
                         <i className="at">VS</i>
                         <ul className="away-team">
-                            <li className="team-name">{g.away_team}</li>
-                            {NBALogos[g.away_team]}
-                            <li className="odds">{g.away_odds}</li>
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
                         </ul>
                         <div className="comments-box">
                             <CommentContainer g={g} />
@@ -104,15 +102,15 @@ class ShowGame extends React.Component {
                     </div>
                     <div className="game-box">
                         <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
+                            {/* <li className="team-name">{g.away_team}</li> */}
+                            <li>{NBALogos[g.away_team]}</li>
+                            <li className="odds">{g.away_odds}</li>
                         </ul>
                         <i className="at">VS</i>
                         <ul className="away-team">
-                            <li className="team-name">{g.away_team}</li>
-                            {NBALogos[g.away_team]}
-                            <li className="odds">{g.away_odds}</li>
+                            {/* <li className="team-name">{g.home_team}</li> */}
+                            <li>{NBALogos[g.home_team]}</li>
+                            <li className="odds">{g.home_odds}</li>
                         </ul>
                         <div className="comments-box">
                     </div>

@@ -54,7 +54,7 @@ class ShowGame extends React.Component {
             "Utah Jazz": <NBAIcons.UTA size={'100%'}/>,
             "Washington Wizards": <NBAIcons.WAS size={'100%'}/>
         }
-        const g = this.props.games.find(game => game._id === this.props.match.params.id);
+        const g = games.find(game => game._id === this.props.match.params.id);
         if (g === undefined || games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {

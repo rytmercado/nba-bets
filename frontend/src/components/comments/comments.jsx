@@ -85,9 +85,10 @@ class Comment extends React.Component {
 
   render() {
     let comments;
-    if (!!this.props.game){
-      if (!!this.props.game.comments){
-        comments = this.renderComments(this.props.game.comments.concat(this.state.commentsToRender))
+    if (!!this.props.g){
+      if (!!this.props.g.comments){
+        comments = this.renderComments(this.props.g.comments.concat(this.state.commentsToRender))
+        console.log(comments)
       }
     }
     console.log(comments)

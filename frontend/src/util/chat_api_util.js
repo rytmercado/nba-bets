@@ -18,5 +18,6 @@ export const updateComment = (commentData) => {
 
 //gameId, commentId, userId
 export const deleteComment = (commentData) => {
-  return axios.delete(`/api/commments/${commentData.gameId}/delete/${commentData.commentId}`, commentData.userId)
+  // debugger 
+  return axios.delete(`api/comments/${commentData.gameId}/delete/${commentData.commentId}/${commentData.userId}`)
 }

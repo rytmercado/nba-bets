@@ -63,7 +63,7 @@ const getGameOdds = () => {
 
               game.home_odds = odds_obj.home_odds
               game.away_odds = odds_obj.away_odds
-              console.log(game)
+              // console.log(game)
               game.save()
             }
           }

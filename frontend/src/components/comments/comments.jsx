@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class Comment extends React.Component {
     constructor(props) {
         super(props)
@@ -16,6 +15,7 @@ class Comment extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.deleteComment = this.deleteComment.bind(this)
     }
 
 
@@ -33,6 +33,19 @@ class Comment extends React.Component {
 
   updateComment(){
     
+  }
+
+  deleteComment(e){
+    // how do we get comment id?
+    console.log(e.currentTarget.name)
+    let commentData = {
+      gameId: this.props.g._id,
+      userId: this.props.user._id,
+      commentId: e.currentTarget.name, 
+    }
+    // console.log(this.props)
+    // console.log(commentData)
+    this.props.deleteComment(commentData)
   }
 
   handleChange(field) {
@@ -64,23 +77,27 @@ class Comment extends React.Component {
     comments = commentsArray.map(commentObject => {
       let updatedAt;
       if (!!commentObject.updatedAt){
+        //TODO: parse datetime 
         updatedAt = commentObject.updatedAt;
       } else {
         updatedAt = "Just Now"
       }
       return (
         <div className="comment">
-          <div className="comment-object">
-            <div className="comment-handle">
-              {commentObject.handle}
+          <div className="comment-handles">
+              <div className="comment-handle">
+                {commentObject.handle}
+              </div>
+              <div className="comment-timestamps">
+                {updatedAt}
+              </div>
             </div>
+            <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>
+              Remove 
+            </button>
             <div className="comment-body">
               {commentObject.body}
             </div>
-            <div className="comment-timestamps">
-              {updatedAt}
-            </div>
-          </div>
         </div>
       )
     })
@@ -99,10 +116,6 @@ class Comment extends React.Component {
     
             return(
                 <div className="comments-container">
-                    <div className="current-comments">
-                        {comments}
-                        
-                    </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="comment-form">
                         <div className="comment-row">
@@ -125,6 +138,10 @@ class Comment extends React.Component {
                             </button>
                         </div>
                     </form>
+                    <div className="current-comments">
+                        {comments}
+                        
+                    </div>
                 </div>
 
             )

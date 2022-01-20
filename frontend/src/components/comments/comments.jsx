@@ -5,76 +5,93 @@ class Comment extends React.Component {
     constructor(props) {
         super(props)
         
-        this.state= {
-                userId: "",
-                handle: "",
-                gameId: "",
-                body: "",
-                parentComment: null, 
+        this.state = {
+          comment: {
+            userId: "",
+            handle: "",
+            gameId: "",
+            body: "",
+            parentComment: null, 
+          },
+          commentsToRender: []
         }
-        console.log(this.props)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
 
   componentDidMount(){
+    console.log(this.props)
     if (this.props.user){
       if (this.props.user.id){
-        this.setState({userId: this.props.user.id, handle: this.props.user.handle})
+        if (this.props.g){
+          if (this.props.g._id){
+            this.setState({comment: {...this.state.comment, userId: this.props.user.id, handle: this.props.user.handle,  gameId: this.props.g._id}})
+          }
+        }
       }
     }
-    if (this.props.game){
-          if (this.props.game._id){
-            this.setState({gameId: this.props.game._id})
-          } 
-        }
   }
 
   handleChange(field) {
     return e => {
-        this.setState({ [field]: e.currentTarget.value })
+        this.setState({comment: {...this.state.comment, [field]: e.currentTarget.value}})
     }
   }
   
   handleSubmit() {
-      this.props.postComment(this.state)
+
+      console.log(this.state.comment)
+
+      this.props.postComment(this.state.comment)
+
+      let newCommment = this.state.comment; 
+
+      this.setState(state => {
+        const commentsToRender = [...state.commentsToRender, newCommment];
+
+        return {
+          comment: {
+            userId: state.comment.userId,
+            handle: state.comment.handle,
+            gameId: state.comment.gameId,
+            body: "",
+            parentComment: null 
+          },
+          commentsToRender
+        };
+
+      })
   }
 
-  // renderComments() {
-  //   let comments = this.props.comments
-  //   if (comments) {
-  //       return(
-  //           <ul>
-  //             { (comments).map((comment, i) => (
-  //               <li className="comment" key={i}>
-  //                 <b><i>{comment.body} </i></b>- {comment.handle}
-  //               </li>
-  //             ))}
-  //           </ul>
-  //         );
-  //       } else {
-  //           return null
-  //       }
-  // }
+  renderComments(commentsArray){
+    let comments = commentsArray; 
+    comments = commentsArray.map(commentObject => <div className="comment">
+          <div className="comment-object">
+            <div className="comment-handle">
+              {commentObject.handle}
+            </div>
+            <div className="comment-body">
+              {commentObject.body}
+            </div>
+            <div className="comment-timestamps">
+              {commentObject.updatedAt}
+            </div>
+          </div>
+        </div> )
+
+      return comments; 
+  }
 
   render() {
-    let comments = [];
-    if (!!this.props.game.comments){
-      comments = this.props.game.comments.map(commentObject => <div className="comment">
-        <div className="comment-object">
-          <div className="comment-handle">
-            {commentObject.handle}
-          </div>
-          <div className="comment-body">
-            {commentObject.body}
-          </div>
-          <div className="comment-timestamps">
-            {commentObject.updatedAt}
-          </div>
-        </div>
-      </div> )
+    let comments;
+    if (!!this.props.game){
+      if (!!this.props.game.comments){
+        comments = this.renderComments(this.props.game.comments.concat(this.state.commentsToRender))
+      }
     }
+    console.log(comments)
+
     
     
             return(

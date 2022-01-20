@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require('../../models/User')
 const Game = require('../../models/Game')
+const Comment = require('../../models/Comment')
 const mongoose = require("mongoose");
 var ObjectId = require('mongodb').ObjectID;
 
@@ -20,13 +21,22 @@ router.get('/:gameId/index', (req, res) => {
 //req.body.parentComment
 router.post('/create', (req, res) => {
   let gameId = req.body.gameId
-  console.log(req.body.gameId)
+
   Game.findById(gameId, (err, game) => {
     if (!!game){
+
+      if (req.body.body.length < 1){
+        return res.status(422).json({"msg": "Body cannot be empty"})
+      } else if (req.body.handle.length < 1){
+        return res.status(422).json({"msg": "Handle cannot be empty"})
+      } 
+      
       game.comments.push({body: req.body.body, user: req.body.userId, 
         handle: req.body.handle, 
         parent: req.body.parentComment})
+      
       game.save()
+
       return res.json(game)
     } else {
       return res.status(404).json({"msg": "Game not found"})

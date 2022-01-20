@@ -3,7 +3,7 @@ import { RECEIVE_COMMENTS } from '../actions/comment_actions'
 
 const gamesReducer = (state={}, action) => {
     Object.freeze(state);
-    const oldState = Object.assign({}, state);
+    const arrayState = Array.from(state);
 
     switch(action.type){
         case RECEIVE_GAMES:
@@ -11,8 +11,9 @@ const gamesReducer = (state={}, action) => {
         case RECEIVE_GAME:
           return action.game.data;
         case RECEIVE_COMMENTS:
-          // is just recieving a singular game 
-          return Object.assign({},action.comments.data ,oldState)
+          const index = arrayState.findIndex(post => post._id === action.comments.data._id)
+          arrayState[index] = action.comments.data; 
+          return Object.assign({}, arrayState) 
         default:
           return state;
     }

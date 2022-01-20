@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const Bet = require('../models/Bet')
 const Game = require('../models/Game')
 const resolveBets = require('./resolveBets')
+const lockBets = require('./lockBets')
 
 const getGameResults = () => {
   //GMT? 

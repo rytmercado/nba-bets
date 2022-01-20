@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import Comment from './comments';
-import { getAllComments, createComment } from '../../actions/comment_actions'
+import { createComment } from '../../actions/comment_actions'
+import {getGame} from '../../actions/game_actions'
 
 
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     user: state.session.user,
-    game: state.games,
-    comments: state.games.comments,
 });
 
 const mDTP = dispatch => ({
-    getComments: (gameId) => dispatch(getAllComments(gameId)),
+    getGame: (gameId) => dispatch(getGame(gameId)),
     postComment: (comment) => dispatch(createComment(comment)),
 });
 

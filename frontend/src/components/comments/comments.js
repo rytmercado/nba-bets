@@ -41,7 +41,6 @@ class Comment extends React.Component {
 
   handleChange(field) {
     return e => {
-        console.log(e.currentTarget.value)
         this.setState({ [field]: e.currentTarget.value })
     }
   }

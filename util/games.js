@@ -71,7 +71,6 @@ const getGameResults = () => {
           game.quarter = q
           game.game_minute = minute
   
-          console.log(game)
           game.save();
         } else {
           // //Doesn't work yet 

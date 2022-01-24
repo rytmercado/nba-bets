@@ -1,4 +1,5 @@
 import React from 'react';
+import EditCommentModal from './edit_comment_modal';
 
 class Comment extends React.Component {
     constructor(props) {
@@ -12,11 +13,12 @@ class Comment extends React.Component {
             body: "",
             parentComment: null, 
           },
+          editModalOpen: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.deleteComment = this.deleteComment.bind(this)
-        this.updateComment = this.updateComment.bind(this); 
+        this.editComment = this.editComment.bind(this);
     }
 
 
@@ -32,10 +34,13 @@ class Comment extends React.Component {
     }
   }
 
-  updateComment(){
-
+  editComment(e){
+    let body = e.currentTarget.innerHTML; 
+    this.setState({editCommentForm: true})
     
   }
+
+
 
   deleteComment(e){
 
@@ -91,10 +96,7 @@ class Comment extends React.Component {
                         <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>
                           Remove 
                         </button>
-                        <button className="comment-update" onClick={this.updateComment} name={commentObject._id}>
-                          Edit 
-                          </button>
-                        </div>
+                      </div>
       } else {
         userButtons = null 
       }
@@ -110,9 +112,10 @@ class Comment extends React.Component {
               </div>
             </div>
             {userButtons}
-            <div className="comment-body">
+            <div className="comment-body" onDoubleClick={() => this.setState({editModalOpen: true})}>
               {commentObject.body}
             </div>
+            <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId}userId={this.props.user._id} updateComment={this.props.updateComment}/> 
         </div>
       )
     })

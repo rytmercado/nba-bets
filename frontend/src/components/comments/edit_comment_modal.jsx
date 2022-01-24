@@ -25,7 +25,6 @@ class EditCommentModal extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state, this.props.comment._id)
     this.setState({comment: {
       ...this.state.comment, 
       userId: this.props.comment.user,
@@ -57,7 +56,7 @@ class EditCommentModal extends React.Component {
   }
 
   render(){
-    if (this.props.userId === this.props.comment.user){
+    if (this.props.userId === this.props.comment.user && this.props.comment._id === this.props.commentId){
       if (this.props.modalOpen){
         return (
           <div className="comment-modal">

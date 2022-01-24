@@ -13,7 +13,8 @@ class Comment extends React.Component {
             body: "",
             parentComment: null, 
           },
-          editModalOpen: false
+          editModalOpen: false,
+          editCommentId: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -112,10 +113,10 @@ class Comment extends React.Component {
               </div>
             </div>
             {userButtons}
-            <div className="comment-body" onDoubleClick={() => this.setState({editModalOpen: true})}>
+            <div className="comment-body" onDoubleClick={(e) => this.setState({editModalOpen: true, editCommentId: commentObject._id })}>
               {commentObject.body}
             </div>
-            <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId}userId={this.props.user._id} updateComment={this.props.updateComment}/> 
+            <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} commentId={this.state.editCommentId} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId} userId={this.props.user._id} updateComment={this.props.updateComment}/> 
         </div>
       )
     })

@@ -16,8 +16,6 @@ export const updateComment = (commentData) => {
   return axios.patch('api/comments/update', commentData)
 }
 
-//gameId, commentId, userId
 export const deleteComment = (commentData) => {
-  // debugger 
   return axios.delete(`api/comments/${commentData.gameId}/delete/${commentData.commentId}/${commentData.userId}`)
 }

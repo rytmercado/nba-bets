@@ -13,7 +13,6 @@ const isToday = (someDate) => {
 router.get('/index', (req, res) => {
   Game.find().then(games => {
     const todaysGames = games.filter(game => isToday(game.start_time))
-    console.log(todaysGames)
     return res.json(todaysGames)
   })
 })

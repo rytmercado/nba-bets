@@ -16,6 +16,7 @@ class Comment extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.deleteComment = this.deleteComment.bind(this)
+        this.updateComment = this.updateComment.bind(this); 
     }
 
 
@@ -32,19 +33,18 @@ class Comment extends React.Component {
   }
 
   updateComment(){
+
     
   }
 
   deleteComment(e){
-    // how do we get comment id?
-    console.log(e.currentTarget.name)
+
     let commentData = {
       gameId: this.props.g._id,
       userId: this.props.user._id,
       commentId: e.currentTarget.name, 
     }
-    // console.log(this.props)
-    // console.log(commentData)
+
     this.props.deleteComment(commentData)
   }
 
@@ -55,9 +55,9 @@ class Comment extends React.Component {
   }
   
   handleSubmit() {
-
-      this.props.postComment(this.state.comment)
-
+      if (this.state.comment.userId.length > 1 && this.state.comment.gameId.length > 1 && this.state.comment.handle.length > 1){
+        this.props.postComment(this.state.comment)
+      }
       this.setState(state => {
         return {
           comment: {
@@ -75,6 +75,7 @@ class Comment extends React.Component {
   renderComments(commentsArray){
     let comments = commentsArray; 
     comments = commentsArray.map(commentObject => {
+
       let updatedAt;
       if (!!commentObject.updatedAt){
         //TODO: parse datetime 
@@ -82,6 +83,22 @@ class Comment extends React.Component {
       } else {
         updatedAt = "Just Now"
       }
+
+      //conditionally render remove, edit buttons 
+      let userButtons;
+      if (this.props.user.id === commentObject.user || this.props.user._id === commentObject.user){
+        userButtons = <div className="comment-buttons">
+                        <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>
+                          Remove 
+                        </button>
+                        <button className="comment-update" onClick={this.updateComment} name={commentObject._id}>
+                          Edit 
+                          </button>
+                        </div>
+      } else {
+        userButtons = null 
+      }
+
       return (
         <div className="comment">
           <div className="comment-handles">
@@ -92,9 +109,7 @@ class Comment extends React.Component {
                 {updatedAt}
               </div>
             </div>
-            <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>
-              Remove 
-            </button>
+            {userButtons}
             <div className="comment-body">
               {commentObject.body}
             </div>
@@ -109,11 +124,12 @@ class Comment extends React.Component {
     let comments;
     if (!!this.props.g){
       if (!!this.props.g.comments){
-        comments = this.renderComments(this.props.g.comments)
+        comments = this.renderComments(this.props.g.comments).reverse()
       }
     }
     
-    
+    //need to only render the delete and remove buttons
+    //if its the user's own comments 
             return(
                 <div className="comments-container">
                     <form onSubmit={this.handleSubmit}>

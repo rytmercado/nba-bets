@@ -46,7 +46,6 @@ export const postBet = bet => dispatch => (
     BetApiUtil.postBet(bet)
         .then( (payload) => {
             // debugger
-            console.log(payload)
             return dispatch(receiveBet(payload.data.bet))
             // dispatch(receiveCurrentUser(payload.data.user))
         })

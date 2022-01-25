@@ -1,0 +1,58 @@
+.game-block {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: white;
+    flex-direction: column;
+}
+
+.game-block:hover{
+    background-color: lightblue;
+}
+
+.away-team {
+    float: right;
+    font-family: Monsterrat;
+    font-weight: 800;
+    width: 10%;
+}
+
+.game-time-lock {
+    float: right;
+    font-family: Monsterrat;
+    font-weight: 800;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+}
+
+.game-block-teams {
+    width: 90%;
+    display: flex;
+    border: 1px solid grey;
+}
+
+.game-block-row {
+    display: flex;
+    border: 1px solid blue;
+    flex-direction: row;
+}
+
+.game-block-logo {
+    width: 40%;
+    border: 1px solid black;
+}
+
+
+.game-row-city {
+    width: 30%;
+}
+
+.game-row-name {
+    width: 30%;
+    position: absolute;
+}

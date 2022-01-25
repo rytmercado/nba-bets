@@ -44,6 +44,12 @@ class GamesListItem extends React.Component {
         if (game) {
             let h_odds;
             let a_odds;
+            const away = game.away_team.split(" ")
+            const home = game.home_team.split(" ")
+            let awayCity;
+            let awayTeam;
+            let homeCity;
+            let homeTeam;
             if(game.home_odds > 0){
                 h_odds = "+" + game.home_odds ;
             } else {
@@ -54,79 +60,85 @@ class GamesListItem extends React.Component {
             } else {
                 a_odds = game.away_odds;
             }
-            { if (game.status === 'Incomplete') {
+            if (away.length > 2) {
+                awayCity = away.slice(0, 2).join(" ")
+                awayTeam = away.slice(2, 3).join(" ")
+            } else if (away.length === 2) {
+                awayCity = away.slice(0, 1).join(" ")
+                awayTeam = away.slice(1, 2).join(" ")
+            } else if (home.length > 2) {
+                homeCity = home.slice(0, 1).join(" ")
+                homeTeam = home.slice(1, 2).join(" ")
+            } else if (home.length === 2) {
+                homeCity = home.slice(0, 1).join(" ")
+                homeTeam = home.slice(1, 2).join(" ")
+            }
+            if (game.status === 'Incomplete') {
                 const gameTime = game.game_time;
-                return (
-                        <div className="game-list">
-                            <div className="game-list-time">
-                                    <span>{gameTime}</span>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div className="game-list-item">
-                                            <div className="game-list-row">
-                                                <div className="game-list-logo">
-                                                    {NBALogos[game.away_team]}
-                                                </div>
-                                                <h2 className="game-list-name">{game.away_team}</h2>
-                                                <strong className="game-list-odds">{a_odds}</strong>
+                    return (
+                            <div className="game-block">
+                                <div className="game-time">
+                                        <span>{gameTime}</span>
+                                </div>
+                                <ul className="game-block-teams">
+                                    <li className="game-block-row">
+                                            <div className="game-block-logo">
+                                                {NBALogos[game.away_team]}
                                             </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div className="game-list-item">
-                                        <div className="game-list-row">
+                                            <h2 className="game-row-city">{awayCity}</h2>
+                                            <p className="game-row-name">{awayTeam}</p>
+                                            <strong className="game-list-odds">{a_odds}</strong>
+                                    </li> 
+                                    <li>
+                                    <div className="game-block-row">
                                             <div className="game-list-logo">
                                                 {NBALogos[game.home_team]}
                                             </div>
-                                            <h2 className="game-list-name">{game.home_team}</h2>
+                                            <h2 className="game-row-city">{homeCity}</h2>
+                                            <p className="game-row-name">{homeTeam}</p>
                                             <strong className="game-list-odds">{h_odds}</strong>
                                         </div>
-                                    </div>
-                                </li> 
-                            </ul>
-                        </div>
-                )
-                
-            } else {
-                const gameTime = "Bets Locked"
-                return (
-                    <div className="game-list">
-                        <div className="game-list-lock">
-                                <span>{gameTime}</span>
-                        </div>
-                        <ul>
-                            <li>
-                                <div className="game-list-item">
-                                        <div className="game-list-row">
+                                    </li> 
+                                </ul>
+                            </div>
+                    )
+                    } else {
+                        const gameTime = "Bets Locked"
+                        return (
+                            <div className="game-block">
+                                <div className="game-time">
+                                        <span>{gameTime}</span>
+                                </div>
+                                <ul className="game-block-teams">
+                                    <li>
+                                        <div className="game-block-row">
                                             <div className="game-list-logo">
                                                 {NBALogos[game.away_team]}
                                             </div>
-                                            <h2 className="game-list-name">{game.away_team}</h2>
+                                            <h2 className="game-row-city">{awayCity}</h2>
+                                            <p className="game-row-name">{awayTeam}</p>
                                             <strong className="game-list-odds">{a_odds}</strong>
                                         </div>
-                                </div>
-                            </li> 
-                            <li>
-                                <div className="game-list-item">
-                                    <div className="game-list-row">
-                                        <div className="game-list-logo">
-                                            {NBALogos[game.home_team]}
+                                    </li> 
+                                    <li>
+                                    <div className="game-block-row">
+                                            <div className="game-list-logo">
+                                                {NBALogos[game.home_team]}
+                                            </div>
+                                            <h2 className="game-row-city">{homeCity}</h2>
+                                            <p className="game-row-name">{homeTeam}</p>
+                                            <strong className="game-list-odds">{h_odds}</strong>
                                         </div>
-                                        <h2 className="game-list-name">{game.home_team}</h2>
-                                        <strong className="game-list-odds">{h_odds}</strong>
-                                    </div>
-                                </div>
-                            </li> 
-                        </ul>
-                    </div>
-            )
-            }}
-        } else {
-            return (
-                <div>GAMESLISTITEM</div>
-            )
-        }
+                                    </li> 
+                                </ul>
+                            </div>
+                    )
+                    }
+                } else {
+                    return (
+                        <div>GAMESLISTITEM</div>
+                    )
+                }
 }
 }
 

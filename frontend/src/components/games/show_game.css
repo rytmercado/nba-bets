@@ -11,7 +11,8 @@ html {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -49,19 +50,15 @@ html {
     
 }
 
-.gamelist-box {
-    width: 25%;
-    height: 100%;
+.gamelist, .gamelist-box {
     display: flex;
-    flex-direction: column;
-    float: right;
-    margin-right: 50px;
-}
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: 120px;
+    margin: 0 auto;
+    justify-content: center;
 
-.gamelist {
-    overflow:hidden; 
-    overflow-y:scroll;
-    overflow-x:scroll;
 }
 
 .comments-box {
@@ -131,54 +128,11 @@ html {
     float: left;
 }
 
-.game2 {
-    background-color: #fff;
-    display: flex;
-	flex-direction: column;
-    max-width: 100%;
-	box-shadow: 2px 2px 2px 2px #303030, 2px 2px 2px 2px #303030;
-    margin-top: 10px;
-}
-
-.game-index-container2 {
-    font-family:'Lucida Sans', Arial, sans-serif;
-    line-height: 1.5;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    
-}
-
-.nba-game-logo2 {
-    display: flex;
-    align-items: center;
-    width: 22.5px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-.game-list-at {
-        font-size: 30px;
-        font-family:'Montserrat';
-        font-weight: 900;
-        font-style: italic;
-}
-
 .team-name2 {
     text-align: center;
     margin-top: 15px;
     font-size: 18px;
     font-weight: 600;
-}
-
-.gameslist-header {
-    font-family:'Montserrat';
-    font-size: 20px;
-    font-weight: 800;
-    padding: 30px;
-    background-color: #53d337;
-    border: 5px solid black;
-    border-radius: 5px;
 }
 
 .stats-header {
@@ -195,13 +149,6 @@ html {
     z-index: 2;
     margin-top: -50px;
 }
-
-.gameslist-header, .stats-header > h1 {
-    display: flex;
-    margin: 0 auto;
-}
-
-
 .game-show-btn {
     position: absolute;
 	left: 50%;
@@ -228,12 +175,7 @@ html {
     text-align: center;
 }
 
-.gamebox ul li {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-}
+
 
 
 

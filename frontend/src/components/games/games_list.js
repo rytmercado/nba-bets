@@ -11,7 +11,7 @@ class GamesList extends React.Component {
         console.log(this.props.games)
         const games = this.props.games
         return (
-            <div>
+            <div className="gameslist">
                 {games.map(game => <GamesListItemContainer key={game._id} game={game} />)}
             </div>
         )

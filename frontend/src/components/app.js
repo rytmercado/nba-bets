@@ -22,7 +22,7 @@ import './profile/profile.css'
 import './games/game_index_item.css'
 import './games/show_game.css'
 import './comments/comments.css'
-
+import './games/games_list.css'
 
 import { fetchUser } from '../util/session_api_util';
 

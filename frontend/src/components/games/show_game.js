@@ -66,7 +66,7 @@ class ShowGame extends React.Component {
                     <div className="gamelist-box">
                         <GamesListContainer games={games}/>
                     </div>
-                    {/* <div className="stats-box">
+                    <div className="stats-box">
                         <h1 className="stats-header">Game Stats</h1>
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
@@ -85,7 +85,7 @@ class ShowGame extends React.Component {
                         <div className="comments-box">
                             <CommentContainer g={g} />
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             )
         } else {
@@ -96,6 +96,26 @@ class ShowGame extends React.Component {
                     </div>
                     <div className="gamelist-box">
                         <GamesListContainer games={games}/>
+                    </div>
+                    <div className="stats-box">
+                        <h1 className="stats-header">Game Stats</h1>
+                        <DoughnutContainer g={g} />
+                        <CurrencyBarContainer g={g} />
+                        <BetsBarContainer g={g} />
+                    </div>
+                    <div className="game-box">
+                    <ul className="home-team">
+                            {NBALogos[g.away_team]}
+                            <li className="odds">{g.away_odds}</li>
+                        </ul>
+                        <i className="at">VS</i>
+                        <ul className="away-team">
+                            {NBALogos[g.home_team]}
+                            <li className="odds">{g.home_odds}</li>
+                        </ul>
+                        <div className="comments-box">
+                            <CommentContainer g={g} />
+                        </div>
                     </div>
                 </div>
             )

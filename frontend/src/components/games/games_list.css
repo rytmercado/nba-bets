@@ -1,0 +1,101 @@
+.game-block {
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    
+
+}
+
+
+
+.game-block:hover {
+    background-color: lightblue;
+}
+
+.game-block-row {
+    background-color: inherit;
+    height: 30px;
+}
+
+.game-list-odds {
+    padding: 10px;
+    background-color: inherit;
+    
+}
+
+.game-row-city {
+    padding: 10px;
+    background-color: inherit;
+    align-self: center;
+}
+
+.gametime {
+    background-color: inherit;
+    margin: 0 auto;
+}
+
+.game-block-logo {
+    background-color: inherit;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+}
+
+.gl-odds {
+    background-color: inherit;
+    margin-left: -10px;
+}
+
+.gl-odds2 {
+    background-color: inherit;
+    margin-left: 80px;
+}
+
+.gl-at {
+    background-color: inherit;
+    font-family: 'Montserrat', italic;
+    font-weight: 800;
+    font-size: 20px;
+    align-self: center;
+    
+}
+
+.away-team {
+    float: right;
+    font-family: Monsterrat;
+    font-weight: 800;
+    width: 10%;
+}
+
+.game-time-lock {
+    float: right;
+    font-family: Monsterrat;
+    font-weight: 800;
+    border-radius: 5px;
+    background-color: red;
+    color: black;
+}
+
+.game-block-logo {
+    left: 0;
+    top: 50%;
+}
+
+.game-block-row {
+    display: flex;
+}
+
+.big-modal-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+

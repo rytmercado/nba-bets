@@ -25,6 +25,7 @@ import './comments/comments.css'
 import './toast/toast.css'
 import './main/main.css'
 
+import './games/games_list.css'
 
 import { fetchUser } from '../util/session_api_util';
 import './tutorial/tutorial.css'

@@ -1,5 +1,8 @@
 import GamesListItemContainer from './games_list_item_container';
 import React from 'react';
+import Link from 'react';
+
+
 
 class GamesList extends React.Component {
     constructor(props) {
@@ -10,7 +13,7 @@ class GamesList extends React.Component {
     render () {
         const games = this.props.games;
         return (
-            <div>
+            <div className="gameslist">
                 {games.map(game => <GamesListItemContainer key={game._id} game={game} />)}
             </div>
         )

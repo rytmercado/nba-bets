@@ -173,6 +173,20 @@ html {
     justify-content: center;
     margin: 0 auto;
     z-index: 2;
+    margin-top: -110px;
+}
+.chat-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 30px;
+    background-color: #53d337;
+    border: 5px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 2;
     margin-top: -75px;
 }
 .game-show-btn {

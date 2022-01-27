@@ -59,12 +59,19 @@ class EditCommentModal extends React.Component {
     if (this.props.userId === this.props.comment.user && this.props.comment._id === this.props.commentId){
       if (this.props.modalOpen){
         return (
-          <div className="comment-modal">
-            <textarea name="" id="" cols="10" rows="10"
+          <div>
+              <div className="comment-modal">
+                <h3 className="comment-modal-title"> Edit </h3>
+            <textarea className="comment-text-area" cols="30" rows="10"
             onChange={this.handleChange("body")}
             >{this.props.comment.body}</textarea>
-            <button onClick={this.handleSubmit}> Post </button>
+            {/* <div className="comment-button-container"> */}
+              <button onClick={this.handleSubmit} className="comment-button"> Post </button>
+            {/* </div> */}
+            </div>
+            <div className="modal-screen"></div>
           </div>
+
         )
       }
     } 

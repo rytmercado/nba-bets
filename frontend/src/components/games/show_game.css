@@ -6,11 +6,12 @@ html {
 }
 
 .game-show {
-    margin-top: 50px;
+    margin-top: 150px;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -28,53 +29,68 @@ html {
 
 .game-box {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 50%;
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 40%;
-    height: 100%;
-    float: left;
-    margin-left: 100px;
-    margin-top: 50px;
+    width: 25%;
+    height: 65%;
+    float: right;
     border: 5px solid black;
-    background-color: #303030;
+    background-color: #fff;
     border-radius: 10px;
+    padding: 25px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 20%;
+    left: 5%;
     
 }
 
-.gamelist-box {
-    width: 25%;
-    height: 100%;
+.gamelist, .gamelist-box {
     display: flex;
-    flex-direction: column;
-    float: right;
-    margin-right: 50px;
-}
-
-.gamelist {
-    overflow:hidden; 
-    overflow-y:scroll;
-    overflow-x:scroll;
+    flex-direction: row;
+    overflow-y: hidden;
+    max-height: 120px;
+    justify-content: center;
+    width: 80%;
+    padding-top: 50px;
+    margin: 0 auto;
 }
 
 .comments-box {
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 1000px;
+    display:flex;
     flex-direction: column;
-    position: absolute;
+    width: 25%;
+    height: 65%;
+    float: right;
+    border: 5px solid black;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 20%;
+    left: 70%;
+
+}
+.comments-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 700px;
+    justify-content: center;
+
 }
 
-.comments-container {
-    width: 50%;
-    margin: 0 auto;
-}
 
 .chart-container {
     height: 33%;
@@ -88,7 +104,7 @@ html {
     width: 80%;
     padding: 30px;
     margin: 0 auto;
-    background-color: #303030;
+    background-color: #fff;
     border-bottom: 5px solid black;
 }
 
@@ -96,13 +112,13 @@ html {
     width: 80%;
     padding: 30px;
     margin: 0 auto;
-    background-color: #303030;
+    background-color: #fff;
 }
 
 .chart {
     width: 30%;
     margin: 0 auto;
-    background-color: #303030;
+    background-color: #fff;
 }
 
 .odds {
@@ -135,54 +151,11 @@ html {
     float: left;
 }
 
-.game2 {
-    background-color: #fff;
-    display: flex;
-	flex-direction: column;
-    max-width: 100%;
-	box-shadow: 2px 2px 2px 2px #303030, 2px 2px 2px 2px #303030;
-    margin-top: 10px;
-}
-
-.game-index-container2 {
-    font-family:'Lucida Sans', Arial, sans-serif;
-    line-height: 1.5;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    
-}
-
-.nba-game-logo2 {
-    display: flex;
-    align-items: center;
-    width: 22.5px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-.game-list-at {
-        font-size: 30px;
-        font-family:'Montserrat';
-        font-weight: 900;
-        font-style: italic;
-}
-
 .team-name2 {
     text-align: center;
     margin-top: 15px;
     font-size: 18px;
     font-weight: 600;
-}
-
-.gameslist-header {
-    font-family:'Montserrat';
-    font-size: 20px;
-    font-weight: 800;
-    padding: 30px;
-    background-color: #53d337;
-    border: 5px solid black;
-    border-radius: 5px;
 }
 
 .stats-header {
@@ -197,15 +170,8 @@ html {
     justify-content: center;
     margin: 0 auto;
     z-index: 2;
-    margin-top: -50px;
+    margin-top: -75px;
 }
-
-.gameslist-header, .stats-header > h1 {
-    display: flex;
-    margin: 0 auto;
-}
-
-
 .game-show-btn {
     position: absolute;
 	left: 50%;
@@ -230,8 +196,8 @@ html {
     border: 1px solid white;
     margin-top: 20px;
     text-align: center;
-}
 
+<<<<<<< HEAD
 
 
 
@@ -240,7 +206,14 @@ html {
     text-align: center;
     margin: 0 auto;
     display: flex;
+=======
+>>>>>>> tyler2
 }
+
+
+
+
+
 
 
 

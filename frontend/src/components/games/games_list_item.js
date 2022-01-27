@@ -60,7 +60,7 @@ class GamesListItem extends React.Component {
             "Houston Rockets": <NBAIcons.HOU/>,
             "Indiana Pacers": <NBAIcons.IND/>,
             "Los Angeles Clippers": <NBAIcons.LAC/>,
-            "Los Angeles Lakers": <NBAIcons.LAL/>,
+            "Los Angeles Lakers": <NBAIcons.LAL />,
             "Memphis Grizzlies": <NBAIcons.MEM/>,
             "Miami Heat": <NBAIcons.MIA/>,
             "Milwaukee Bucks": <NBAIcons.MIL/>,

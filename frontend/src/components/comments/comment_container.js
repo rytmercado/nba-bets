@@ -7,6 +7,7 @@ import {getGame} from '../../actions/game_actions'
 
 const mSTP = (state, ownProps) => ({
     user: state.session.user,
+    game: ownProps.g,
 });
 
 const mDTP = dispatch => ({

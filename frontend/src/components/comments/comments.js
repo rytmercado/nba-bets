@@ -17,27 +17,6 @@ class Comment extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-  //comments are embedded in the game, we just need to save then get the current game
-  // componentDidMount() {
-  //   if (this.props.g){
-  //     if (this.props.g.id){
-        
-  //     } else 
-  //   } 
-  // }
-
-  componentDidMount(){
-    if (this.props.user){
-      if (this.props.user.id){
-        this.setState({userId: this.props.user.id, handle: this.props.user.handle})
-      }
-    }
-    if (this.props.g){
-          if (this.props.g._id){
-            this.setState({gameId: this.props.g._id})
-          } 
-        }
-  }
 
   handleChange(field) {
     return e => {
@@ -46,11 +25,14 @@ class Comment extends React.Component {
   }
   
   handleSubmit() {
-      this.props.postComment(this.state)
+        const comments = Object.values(this.props.game.comments)
+        this.setState({ userId: this.props.user.id, gameId: this.props.game._id, handle: this.props.user.handle }, () => {
+            this.props.postComment(this.state)
+        })
   }
 
   renderComments() {
-    let comments = this.props.comments
+    let comments = this.props.game.comments
     if (comments) {
         return(
             <ul>
@@ -67,10 +49,11 @@ class Comment extends React.Component {
   }
 
   render() {
+        if (this.props.game.comments) {
+            let count = this.props.game.comments.length
             return(
                 <div className="comments-container">
                     <div className="current-comments">
-                        {/* <h3 className="count">{count} comments</h3> */}
                         {this.renderComments()} 
                     </div>
                     <form onSubmit={this.handleSubmit}>

@@ -73,9 +73,9 @@ class Comment extends React.Component {
             body: "",
             parentComment: null 
           },
-        };
+        }
 
-      })
+      }, () => (this.props.postComment(this.state.comment)))
   }
 
   renderComments(commentsArray){
@@ -85,7 +85,7 @@ class Comment extends React.Component {
       let updatedAt;
       if (!!commentObject.updatedAt){
         //TODO: parse datetime 
-        updatedAt = commentObject.updatedAt;
+        updatedAt = commentObject.updatedAt.slice(0,10);
       } else {
         updatedAt = "Just Now"
       }

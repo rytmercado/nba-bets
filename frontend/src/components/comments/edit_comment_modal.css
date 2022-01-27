@@ -1,0 +1,35 @@
+.comment-modal{
+  border: 10px solid black;
+  margin-bottom: 400px;
+  background-color: rgb(12, 143, 16);
+  z-index: 4;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.comment-text-area{
+  margin: 70px; 
+}
+
+.comment-modal-title{
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(12, 143, 16);
+  font-size: xx-large;
+
+}
+
+.comment-button-container{
+  /* text-align: center; */
+  display: center;
+}
+
+.comment-button{
+  text-align: center;
+  padding-left: 46%;
+  padding-right: 46%;
+  background-color: rgb(12, 143, 16);
+}

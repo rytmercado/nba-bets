@@ -1,5 +1,6 @@
 import React from 'react';
 import * as NBAIcons from 'react-nba-logos';
+import { Link } from 'react-router-dom';
 
 class GamesListItem extends React.Component {
     constructor(props) {
@@ -100,7 +101,7 @@ class GamesListItem extends React.Component {
                         time = gameTime;
                     }
                     return (
-                            <div className="game-block">
+                        <Link to={`/game/show/${game._id}`}><div className="game-block">
                                 <div className="game-block-row">
                                     <strong className="gametime">{time}</strong>
                                 </div>
@@ -122,12 +123,13 @@ class GamesListItem extends React.Component {
                                                 <span className="gl-odds2">{h_odds}</span>
                                             </div>
                                 </div>
-                            </div>
-                    )
+                            </div></Link>
+                    )       
                     } else {
                         const gameTime = "Bets Locked"
                         return (
-                            <div className="game-block">
+                            <Link to={`/game/show/${game._id}`}>
+                                <div className="game-block">
                                 <div className="game-block-row">
                                     <strong className="gametime">Bets Locked</strong>
                                 </div>
@@ -149,7 +151,7 @@ class GamesListItem extends React.Component {
                                                 <span className="gl-odds2">{h_odds}</span>
                                             </div>
                                 </div>
-                            </div>
+                            </div></Link>
                     )
                     }
                 } else {

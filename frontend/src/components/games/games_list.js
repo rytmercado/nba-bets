@@ -1,5 +1,8 @@
 import GamesListItemContainer from './games_list_item_container';
 import React from 'react';
+import Link from 'react';
+
+
 
 class GamesList extends React.Component {
     constructor(props) {

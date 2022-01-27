@@ -88,6 +88,12 @@
     display: flex;
 }
 
+.big-modal-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 
 
 

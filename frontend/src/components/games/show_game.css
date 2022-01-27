@@ -9,7 +9,7 @@ html {
 .game-show {
     margin-top: 150px;
     width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,19 +30,20 @@ html {
 
 .game-box {
     display: flex;
-    width: 50%;
+    width: 60%;
     height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    padding: 10px;
 }
 
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 25%;
+    width: 20%;
     height: 65%;
     float: right;
     border: 5px solid black;
@@ -53,6 +54,7 @@ html {
     position: fixed;
     top: 20%;
     left: 5%;
+    justify-content: space-evenly;
     
 }
 
@@ -70,7 +72,7 @@ html {
 .comments-box {
     display:flex;
     flex-direction: column;
-    width: 25%;
+    width: 20%;
     height: 65%;
     float: right;
     border: 5px solid black;
@@ -81,13 +83,13 @@ html {
     box-sizing: border-box;
     position: fixed;
     top: 20%;
-    left: 70%;
+    left: 75%;
 
 }
 .comments-container {
     display: flex;
     flex-direction: row;
-    margin-top: 700px;
+    margin-top: 600px;
     justify-content: center;
 
 }
@@ -188,7 +190,7 @@ html {
 
 #chart-text {
     display: flex;
-    font-size: 13px;
+    font-size: 10px;
     background-color: black;
     border-radius: 5px;
     color: white;
@@ -198,6 +200,18 @@ html {
     margin-top: 20px;
     text-align: center;
 
+}
+
+.big-bet-button {
+    background-color: #53d337;
+    border: 1px solid #53d337;
+    border-radius: 4px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight:bold;
+    cursor: pointer;
+    color: black;
 }
 
 

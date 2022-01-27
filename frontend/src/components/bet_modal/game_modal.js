@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as NBAIcons from 'react-nba-logos';
 
-class BigBetModal extends React.Component {
+class GameModal extends React.Component {
     constructor(props) {
         super(props)
 
@@ -107,19 +107,14 @@ class BigBetModal extends React.Component {
                         </div>
                         <div className="modal-body">
                                 <br/>
-                                <label className="bet-team-name" htmlFor="home-team">{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</label>
-                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
+                                <span className="bet-team-score">{this.props.game.away_score}</span>
                                 <br/>
-                                <label className="bet-team-name" htmlFor="away-team">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</label>
-                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
-                                <br/>
-                                <label className="bet-team-name" htmlFor="amount">Bet Amount:</label>
-                                <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                                <span className="bet-team-score">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</span>
                                 <br/>
                                 <div className="errors">{this.renderErrors()}</div>
                         </div>
                         <div className="modal-footer">
-                            <button className="big-bet-button" type="submit">Place Bet</button>
+                            <button className="big-lock-button" type="submit">Bets Locked</button>
                         </div>
                     </form>
                 </div>
@@ -127,4 +122,4 @@ class BigBetModal extends React.Component {
         }         
     } 
 
-export default BigBetModal;
+export default GameModal;

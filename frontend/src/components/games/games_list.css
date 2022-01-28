@@ -98,10 +98,16 @@
     box-shadow: 4px 4px 4px 4px #303030;
 }
 
-.big-modal-logos {
+.big-modal-nba-logos {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.big-modal-logo {
+    height: 50%;
+    width: 50%;
+    padding: 10px;
 }
 
 .big-modal-title {

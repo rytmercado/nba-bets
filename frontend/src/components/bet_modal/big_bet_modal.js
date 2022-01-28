@@ -97,7 +97,7 @@ class BigBetModal extends React.Component {
         }
         return (
                 <div className="big-modal">
-                    <div className="big-modal-logos">
+                    <div className="big-modal-nba-logos">
                         {NBALogos[this.props.game.away_team]}
                         <i className="at">VS</i>
                         {NBALogos[this.props.game.home_team]}

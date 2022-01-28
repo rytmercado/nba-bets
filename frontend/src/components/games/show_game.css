@@ -49,7 +49,7 @@ html {
     border-radius: 10px;
     padding: 25px;
     position: fixed;
-    top: 20%;
+    top: 25%;
     left: 5%;
     justify-content: space-evenly;
     
@@ -79,7 +79,7 @@ html {
     margin-right: 50px;
     box-sizing: border-box;
     position: fixed;
-    top: 20%;
+    top: 25%;
     left: 75%;
 
 }

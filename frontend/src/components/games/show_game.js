@@ -69,7 +69,7 @@ class ShowGame extends React.Component {
                 </div>
                 <div className="game-show">
                     <div className="stats-box">
-                        <h1 className="stats-header">Game Stats</h1>
+                        <h1 className="stats-header">Stats</h1>
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
                         <BetsBarContainer g={g} />
@@ -78,7 +78,7 @@ class ShowGame extends React.Component {
                         <BigBetModalContainer g={g}/>
                     </div>
                     <div className="comments-box">
-                        <h1 className="chat-header">Game Chat</h1>
+                        <h1 className="chat-header">Chat</h1>
                         <CommentContainer g={g} />
                     </div>
                 </div>

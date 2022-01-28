@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from '../../images/smallest-logo.JPG'
 import * as NBAIcons from 'react-nba-logos';
 
 class BigBetModal extends React.Component {
@@ -104,23 +104,25 @@ class BigBetModal extends React.Component {
                     </div>
                     <form className="big-modal-form" onSubmit={this.handleSubmit}>
                         <div className="big-modal-header">
-                            <h5 className="modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
+                            <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
                         </div>
-                        <div className="modal-body">
-                                <br/>
-                                <label className="bet-team-name" htmlFor="home-team">{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</label>
-                                <input id="home-team" onChange={this.handleInput("selection")} type="radio" value="true" name="label"/>
-                                <br/>
-                                <label className="bet-team-name" htmlFor="away-team">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</label>
-                                <input id="away-team" onChange={this.handleInput("selection")} type="radio" name="label"value="false"/>
-                                <br/>
-                                <label className="bet-team-name" htmlFor="amount">Bet Amount:</label>
+                        <div className="big-modal-body">
+                                <div className="big-modal-logo">
+                                    <img src={logo}></img>
+                                </div>
+                                <div className="lines">
+                                    <label className="big-bet-team-name" htmlFor="home-team">{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</label>
+                                    <label className="big-bet-team-name" htmlFor="away-team">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</label>
+                                    
+                                </div>
+                                <div className="ready">
+                                    <span className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</span>
+                                </div>
                                 <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                                <br/>
+                                <div className="big-modal-footer">
+                                    <button className="big-bet-button" type="submit">Place Bet</button>
+                                </div>
                                 <div className="errors">{this.renderErrors()}</div>
-                        </div>
-                        <div className="modal-footer">
-                            <button className="big-bet-button" type="submit">Place Bet</button>
                         </div>
                     </form>
                 </div>

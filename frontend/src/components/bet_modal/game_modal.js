@@ -107,12 +107,8 @@ class GameModal extends React.Component {
                             <h5 className="modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
                         </div>
                         <div className="modal-body">
-                                <br/>
                                 <span className="bet-team-score">{this.props.game.away_score}</span>
-                                <br/>
-                                <span className="bet-team-score">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</span>
-                                <br/>
-                                <div className="errors">{this.renderErrors()}</div>
+                                <span className="bet-team-score">{this.props.game.home_score}</span>
                         </div>
                         <div className="modal-footer">
                             <button className="big-lock-button" type="submit">Bets Locked</button>

@@ -47,13 +47,11 @@ class CurrencyBar extends React.Component {
                     data: [homeData, awayData],
                         backgroundColor: [
                             'rgb(0, 0, 0)',
-                            '#53d337',
                         ],
                         borderColor: [
                         'rgb(0, 0, 0)',
-                        '#53d337',
                         ],
-                        borderWidth: 5
+                        borderWidth: .5
                     }]
                 }
                 const configtwo = {
@@ -101,7 +99,9 @@ class CurrencyBar extends React.Component {
                             <div className="chart">
                                 <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                             </div>
-                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>     
+                            <div>
+                                <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>     
+                            </div>
                         </div>
                 )
     }

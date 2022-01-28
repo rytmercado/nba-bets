@@ -75,7 +75,7 @@ class ShowGame extends React.Component {
                         <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
-                        <GameModalContainer g={g}/>
+                        <BigBetModalContainer g={g}/>
                     </div>
                     <div className="comments-box">
                         <h1 className="chat-header">Game Chat</h1>

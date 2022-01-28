@@ -10,7 +10,7 @@ html {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 
@@ -28,7 +28,7 @@ html {
 
 .game-box {
     display: flex;
-    width: 60%;
+    width: 50%;
     height: 100%;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,7 @@ html {
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 20%;
+    width: 15%;
     height: 65%;
     float: right;
     /* border: 5px solid black; */
@@ -56,14 +56,14 @@ html {
 }
 
 .gamelist, .gamelist-box {
-    display: flex;
-    flex-direction: row;
+    overflow-x: scroll;
     overflow-y: hidden;
+    white-space: nowrap;
     max-height: 120px;
-    justify-content: center;
     width: 80%;
     padding-top: 50px;
     margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comments-box {
@@ -132,7 +132,7 @@ html {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 .at {
     font-size: 50px;
-    margin-top: 150px;
+    margin-top: 200px;
     font-family:'Montserrat', italic;
     font-weight: 900;
     font-style: italic;

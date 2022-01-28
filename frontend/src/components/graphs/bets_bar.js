@@ -34,9 +34,11 @@ class BetsBar extends React.Component {
                 data: [homeData, awayData],
                     backgroundColor: [
                         'rgb(0, 0, 0)',
-                        '#53d337',
                     ],
-                    borderWidth: 5
+                    borderColor: [
+                        'rgb(0, 0, 0)',
+                    ],
+                    borderWidth: .5
                 }]
             }
             const configtwo = {

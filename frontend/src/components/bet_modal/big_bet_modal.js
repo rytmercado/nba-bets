@@ -99,6 +99,7 @@ class BigBetModal extends React.Component {
                 <div className="big-modal">
                     <div className="big-modal-logos">
                         {NBALogos[this.props.game.away_team]}
+                        <i className="at">VS</i>
                         {NBALogos[this.props.game.home_team]}
                     </div>
                     <form className="big-modal-form" onSubmit={this.handleSubmit}>

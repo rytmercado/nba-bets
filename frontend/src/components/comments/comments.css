@@ -14,10 +14,14 @@
 }
 
 .comments-container{
-  margin-top: 100px;
-  position: absolute;
+  margin-top: 10px;
   top: 100px;
-  width: 60%;
+  width: 100%;
+  left: -90px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  
 }
 
 .current-comments {

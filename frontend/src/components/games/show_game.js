@@ -74,13 +74,13 @@ class ShowGame extends React.Component {
                         <CurrencyBarContainer g={g} />
                         <BetsBarContainer g={g} />
                     </div>
+                    <div className="game-box">
+                        <GameModalContainer g={g}/>
+                    </div>
                     <div className="comments-box">
                         <h1 className="chat-header">Game Chat</h1>
                         <CommentContainer g={g} />
                     </div>
-                </div>
-                <div className="game-box">
-                    <BigBetModalContainer g={g}/>
                 </div>
             </div>
             )
@@ -100,14 +100,15 @@ class ShowGame extends React.Component {
                             <CurrencyBarContainer g={g} />
                             <BetsBarContainer g={g} />
                         </div>
+                        <div className="game-box">
+                            <GameModalContainer g={g}/>
+                        </div>
                         <div className="comments-box">
                             <h1 className="chat-header">Game Chat</h1>
                             <CommentContainer g={g} />
                         </div>
                     </div>
-                    <div className="game-box">
-                        <GameModalContainer g={g}/>
-                    </div>
+                    
                 </div>
             )
         }

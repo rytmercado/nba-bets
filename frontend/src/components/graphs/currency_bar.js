@@ -13,60 +13,69 @@ class CurrencyBar extends React.Component {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    arrSummer(array) {
+        if (array.length < 1) {
+            return 0
+        } else {
+            const reducer = (previousValue, currentValue) => previousValue + currentValue;
+            return array.reduce(reducer)
+        }           
+    }
+
     componentDidMount() {
-            this.props.fetchGameBets(this.props.id);
-            const bets = this.props.bets;
-            const game = this.props.game;
-            if (bets && game) {
-                let home = 0
-                let away = 0
-                for (let i = 0; i < bets.length; i++) {
+            this.props.fetchGameBets(this.props.id).then(res => {
+                const bets = this.props.bets;
+                const game = this.props.game;
+                let home = []
+                let away = []
+                if (bets.length > 0 && game) {
+                    for (let i = 0; i < bets.length; i++) {
                         if (bets[i].selection === game.home_team) {
-                            home += bets[i].amount;
-                            
+                            home.push(bets[i].amount) 
                         } else {
-                            away += bets[i].amount;
+                            away.push(bets[i].amount) 
                         }
                     }
-                const homeData = home;
-                const awayData = away;
-                    const datatwo = {
-                        labels: ["home", "away"],
-                        datasets: [{
-                            id: 2,
-                            label: 'Bets per Team',
-                            data: [homeData, awayData],
-                            backgroundColor: [
-                                'rgb(0, 0, 0)',
-                                '#53d337',
-                            ],
-                            borderColor: [
+                }
+                const homeData = this.arrSummer(home)
+                const awayData = this.arrSummer(away)
+                const datatwo = {
+                labels: ["home", "away"],
+                datasets: [{
+                    id: 2,
+                    label: '$ bet per team',
+                    data: [homeData, awayData],
+                        backgroundColor: [
                             'rgb(0, 0, 0)',
-                            '#53d337',
-                            ],
-                            borderWidth: 1
-                        }]
-                    }
-            
-                    
-            
-                    const configtwo = {
-                        type: 'bar',
-                        data: datatwo,
-                        options: {
-                        scales: {
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)',
+                        ],
+                        borderWidth: .5
+                    }]
+                }
+                const configtwo = {
+                    type: 'bar',
+                    data: datatwo,
+                    options: {
+                    scales: {
                             y: {
                             beginAtZero: true
+                                }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                        }
+                                    }
+                                },
                             }
-                        }
-                        },
-                    };
-                    const myBarChart = new Chart(
-                        document.getElementById('myBarChart'),
-                        configtwo,
-                    )
-            }
-    }
+                            const myBarChart = new Chart(
+                                document.getElementById('myBarChart'),
+                                configtwo,
+                            )
+            });
+        }
     
     
     render() {
@@ -74,7 +83,7 @@ class CurrencyBar extends React.Component {
         const game = this.props.game
         let home = 0
         let away = 0
-        if (bets && game) {
+        if (bets.length > 0 && game) {
             for (let i = 0; i < bets.length; i++) {
                     if (bets[i].selection === game.home_team) {
                         home += bets[i].amount
@@ -87,10 +96,22 @@ class CurrencyBar extends React.Component {
                 const realAway = this.numberWithCommas(away)
                 return (
                         <div className="chart-box">
-                            <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>
-                        </div>     
+                            <div className="chart">
+                                <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
+                            </div>
+                            <div>
+                                <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>     
+                            </div>
+                        </div>
                 )
+    } else if (bets.length === 0 && game) {
+        return (
+            <div className="chart-box2">
+                <strong id="no-chart-text">No bets on this game yet! Make a bet to see some data.</strong>
+            </div>
+        )
+    } else {
+        return null
     }
 }
 }

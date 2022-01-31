@@ -1,12 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import nba_logo from '../../images/nba.png';
 import * as NBAIcons from 'react-nba-logos';
+import { Link } from 'react-router-dom';
 
 class GamesListItem extends React.Component {
     constructor(props) {
         super(props);
 
+    }
+
+
+    nameshortener (name) {
+        const NBA = {
+            "Atlanta Hawks": "ATL",
+            "Boston Celtics": "BOS",
+            "Brooklyn Nets": "BKN",
+            "Charlotte Hornets": "CHA",
+            "Chicago Bulls": "CHI",
+            "Cleveland Cavaliers": "CLE",
+            "Dallas Mavericks": "DAL",
+            "Denver Nuggets": "DEN",
+            "Detroit Pistons": "DET",
+            "Golden State Warriors": "GSW",
+            "Houston Rockets": "HOU",
+            "Indiana Pacers": "IND",
+            "Los Angeles Clippers": "LAC",
+            "Los Angeles Lakers": "LAL",
+            "Memphis Grizzlies": "MEM",
+            "Miami Heat": "MIA",
+            "Milwaukee Bucks": "MIL",
+            "Minnesota Timberwolves": "MIN",
+            "New Orleans Pelicans": "NOP",
+            "New York Knicks": "NYK",
+            "Oklahoma City Thunder": "OKC",
+            "Orlando Magic": "ORL",
+            "Philadelphia 76ers": "PHI",
+            "Phoenix Suns": "PHX",
+            "Portland Trail Blazers": "POR",
+            "Sacramento Kings": "SAC",
+            "San Antonio Spurs": "SAS",
+            "Toronto Raptors": "TOR",
+            "Utah Jazz": "UTA",
+            "Washington Wizards": "WAS"
+        }
+        return NBA[name];
     }
 
     render() {
@@ -25,7 +61,7 @@ class GamesListItem extends React.Component {
             "Houston Rockets": <NBAIcons.HOU/>,
             "Indiana Pacers": <NBAIcons.IND/>,
             "Los Angeles Clippers": <NBAIcons.LAC/>,
-            "Los Angeles Lakers": <NBAIcons.LAL/>,
+            "Los Angeles Lakers": <NBAIcons.LAL />,
             "Memphis Grizzlies": <NBAIcons.MEM/>,
             "Miami Heat": <NBAIcons.MIA/>,
             "Milwaukee Bucks": <NBAIcons.MIL/>,
@@ -56,127 +92,73 @@ class GamesListItem extends React.Component {
             } else {
                 a_odds = game.away_odds;
             }
-            { if (game.status === 'Incomplete') {
-                const betLocked = <Link className="game-show-btn" to={`/game/show/${game._id}`}>View Game</Link>
-                return (
-                        <div className="game-index-container2">
-                            <div className="game2">
-        
-                                <div className="game-header">
-                                    <div className="nba-game-logo2">
-                                        <img src={nba_logo}></img>
-                                    </div>
-    
+            if (game.status === 'Incomplete') {
+                const gameTime = game.game_time;
+                let time;
+                    if (gameTime.length < 2) {
+                        time = "Bets Locked"
+                    } else {
+                        time = gameTime;
+                    }
+                    return (
+                        <Link to={`/game/show/${game._id}`}><div className="game-block">
+                                <div className="game-block-row">
+                                    <strong className="gametime">{time}</strong>
                                 </div>
-                                
-                                <div className="game-content">
-                                    <div className="column">
-                                        <div className="team team--away">
-                                            <div className="team-logo">
+                                <div className="game-block-row">
+                                            <div className="game-block-logo">
                                                 {NBALogos[game.away_team]}
                                             </div>
-                                            <h2 className="team-name2">{game.away_team}</h2>
-                                            <button className="game-bet-odds">{a_odds}</button>
-                                        </div>
-                                    </div>
-        
-                                    <div className="column">
-                                        <div className="game-details">
-                                            <div className="game-period">
-                                                <strong>{game.game_time}</strong>
+                                            <div className="game-row-city">
+                                                <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
+                                                <span className="gl-odds2">{a_odds}</span>
                                             </div>
-                                            <div className="game-period">{game.game_minute}</div>
-                                            <span className="game-list-at">
-                                                VS
-                                            </span>
-                                            <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
-                                            <div className="game-bet">
-                                                {betLocked}
+                                </div>
+                                <div className="game-block-row">
+                                            <div className="game-block-logo">
+                                                {NBALogos[game.home_team]}
                                             </div>
-                                            <div>
-                                                
+                                            <div className="game-row-city">
+                                                <strong className="gl-odds">{this.nameshortener(game.home_team)}</strong>
+                                                <span className="gl-odds2">{h_odds}</span>
                                             </div>
-                                        </div>
-                                    </div>
-        
-        
-                                    <div className="column">
-                                        <div className="team team--home">
-                                            <div className="team-logo">
-                                            {NBALogos[game.home_team]}
+                                </div>
+                            </div></Link>
+                    )       
+                    } else {
+                        const gameTime = "Bets Locked"
+                        return (
+                            <Link to={`/game/show/${game._id}`}>
+                                <div className="game-block">
+                                <div className="game-block-row">
+                                    <strong className="gametime">Bets Locked</strong>
+                                </div>
+                                <div className="game-block-row">
+                                            <div className="game-block-logo">
+                                                {NBALogos[game.away_team]}
                                             </div>
-                                            <h2 className="team-name2">{game.home_team}</h2>
-                                            <button className="game-bet-odds">{h_odds}</button>
-                                        </div>
-                                    </div>
+                                            <div className="game-row-city">
+                                                <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
+                                                <span className="gl-odds2">{a_odds}</span>
+                                            </div>
                                 </div>
-                            </div>
-                        </div>
-                )
-                
-            } else {
-                const betLocked = <Link className="game-show-btn" to={`/game/show/${game._id}`}>View Game</Link>
-            return (
-                    <div className="game-index-container2">
-                        <div className="game2">
-    
-                            <div className="game-header">
-                                <div className="nba-game-logo2">
-                                    <img src={nba_logo}></img>
+                                <div className="game-block-row">
+                                <div className="game-block-logo">
+                                                {NBALogos[game.home_team]}
+                                            </div>
+                                            <div className="game-row-city">
+                                                <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
+                                                <span className="gl-odds2">{h_odds}</span>
+                                            </div>
                                 </div>
-
-                            </div>
-                            
-                            <div className="game-content">
-                                <div className="column">
-                                    <div className="team team--away">
-                                        <div className="team-logo">
-                                            {NBALogos[game.away_team]}
-                                        </div>
-                                        <h2 className="team-name2">{game.away_team}</h2>
-                                        <button className="game-bet-odds">{a_odds}</button>
-                                    </div>
-                                </div>
-    
-                                <div className="column">
-                                    <div className="game-details">
-                                        <div className="game-period">
-                                            <strong>{game.game_time}</strong>
-                                        </div>
-                                        <div className="game-period">{game.game_minute}</div>
-                                        <span className="game-list-at">
-                                            VS
-                                        </span>
-                                        <div className={(game.away_score > 0 || game.home_score > 0 ? "game-status": "game-status-hidden")}>Live</div> 
-                                        <div className="game-bet">
-                                            {betLocked}
-                                        </div>
-                                        <div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-    
-    
-                                <div className="column">
-                                    <div className="team team--home">
-                                        <div className="team-logo">
-                                        {NBALogos[game.home_team]}
-                                        </div>
-                                        <h2 className="team-name2">{game.home_team}</h2>
-                                        <button className="game-bet-odds">{h_odds}</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            )
-            }}
-        } else {
-            return (
-                <div>GAMESLISTITEM</div>
-            )
-        }
+                            </div></Link>
+                    )
+                    }
+                } else {
+                    return (
+                        <div>GAMESLISTITEM</div>
+                    )
+                }
 }
 }
 

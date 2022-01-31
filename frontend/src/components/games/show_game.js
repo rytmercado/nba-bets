@@ -7,7 +7,8 @@ import DoughnutContainer from '../graphs/doughnut_container';
 import CurrencyBarContainer from '../graphs/currency_container'
 import GamesListContainer from '../games/games_list_container';
 import BetsBarContainer from '../graphs/bets_bar_container'
-
+import BigBetModalContainer from '../bet_modal/big_bet_modal_container'
+import GameModalContainer from '../bet_modal/game_modal_container'
 
 class ShowGame extends React.Component {
     constructor(props) {
@@ -16,114 +17,96 @@ class ShowGame extends React.Component {
     }
 
     componentDidMount() {
-            this.props.fetchAllGames();
+        this.props.fetchAllGames();
     }
 
     render () {
         const games = this.props.games;
         console.log(games)
         const NBALogos = {
-            "Atlanta Hawks": <NBAIcons.ATL size={400}/>,
-            "Boston Celtics": <NBAIcons.BOS size={400}/>,
-            "Brooklyn Nets": <NBAIcons.BKN size={400}/>,
-            "Charlotte Hornets": <NBAIcons.CHA size={400}/>,
-            "Chicago Bulls": <NBAIcons.CHI size={400}/>,
-            "Cleveland Cavaliers": <NBAIcons.CLE size={400}/>,
-            "Dallas Mavericks": <NBAIcons.DAL size={400}/>,
-            "Denver Nuggets": <NBAIcons.DEN size={400}/>,
-            "Detroit Pistons": <NBAIcons.DET size={400}/>,
-            "Golden State Warriors": <NBAIcons.GSW size={400}/>,
-            "Houston Rockets": <NBAIcons.HOU size={400}/>,
-            "Indiana Pacers": <NBAIcons.IND size={400}/>,
-            "Los Angeles Clippers": <NBAIcons.LAC size={400}/>,
-            "Los Angeles Lakers": <NBAIcons.LAL size={400}/>,
-            "Memphis Grizzlies": <NBAIcons.MEM size={400}/>,
-            "Miami Heat": <NBAIcons.MIA size={400}/>,
-            "Milwaukee Bucks": <NBAIcons.MIL size={400}/>,
-            "Minnesota Timberwolves": <NBAIcons.MIN size={400}/>,
-            "New Orleans Pelicans": <NBAIcons.NOP size={400}/>,
-            "New York Knicks": <NBAIcons.NYK size={400}/>,
-            "Oklahoma City Thunder": <NBAIcons.OKC size={400}/>,
-            "Orlando Magic": <NBAIcons.ORL size={400}/>,
-            "Philadelphia 76ers": <NBAIcons.PHI size={400}/>,
-            "Phoenix Suns": <NBAIcons.PHX size={400}/>,
-            "Portland Trail Blazers": <NBAIcons.POR size={400}/>,
-            "Sacramento Kings": <NBAIcons.SAC size={400}/>,
-            "San Antonio Spurs": <NBAIcons.SAS size={400}/>,
-            "Toronto Raptors": <NBAIcons.TOR size={400}/>,
-            "Utah Jazz": <NBAIcons.UTA size={400}/>,
-            "Washington Wizards": <NBAIcons.WAS size={400}/>
+            "Atlanta Hawks": <NBAIcons.ATL />,
+            "Boston Celtics": <NBAIcons.BOS />,
+            "Brooklyn Nets": <NBAIcons.BKN />,
+            "Charlotte Hornets": <NBAIcons.CHA />,
+            "Chicago Bulls": <NBAIcons.CHI />,
+            "Cleveland Cavaliers": <NBAIcons.CLE />,
+            "Dallas Mavericks": <NBAIcons.DAL />,
+            "Denver Nuggets": <NBAIcons.DEN />,
+            "Detroit Pistons": <NBAIcons.DET />,
+            "Golden State Warriors": <NBAIcons.GSW />,
+            "Houston Rockets": <NBAIcons.HOU />,
+            "Indiana Pacers": <NBAIcons.IND />,
+            "Los Angeles Clippers": <NBAIcons.LAC />,
+            "Los Angeles Lakers": <NBAIcons.LAL />,
+            "Memphis Grizzlies": <NBAIcons.MEM />,
+            "Miami Heat": <NBAIcons.MIA />,
+            "Milwaukee Bucks": <NBAIcons.MIL />,
+            "Minnesota Timberwolves": <NBAIcons.MIN />,
+            "New Orleans Pelicans": <NBAIcons.NOP />,
+            "New York Knicks": <NBAIcons.NYK />,
+            "Oklahoma City Thunder": <NBAIcons.OKC />,
+            "Orlando Magic": <NBAIcons.ORL />,
+            "Philadelphia 76ers": <NBAIcons.PHI/>,
+            "Phoenix Suns": <NBAIcons.PHX />,
+            "Portland Trail Blazers": <NBAIcons.POR />,
+            "Sacramento Kings": <NBAIcons.SAC />,
+            "San Antonio Spurs": <NBAIcons.SAS />,
+            "Toronto Raptors": <NBAIcons.TOR />,
+            "Utah Jazz": <NBAIcons.UTA />,
+            "Washington Wizards": <NBAIcons.WAS />
         }
-        const g = this.props.games.find(game => game._id === this.props.match.params.id);
+        const g = games.find(game => game._id === this.props.match.params.id);
         if (g === undefined || games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {
             return (
+                <div>
+                <div className="main-nav">
+                    <NavBarContainer/>
+                </div>
+                <div className="gamelist-box">
+                    <GamesListContainer games={games}/>
+                </div>
                 <div className="game-show">
-                    <div className="main-nav">
-                        <NavBarContainer/>
-                    </div>
                     <div className="stats-box">
-                        <h1 className="stats-header">Game Stats</h1>
+                        <h1 className="stats-header">Stats</h1>
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
-                        <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
-                        <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
-                        </ul>
-                        <i className="at">VS</i>
-                        <ul className="away-team">
-                            <li className="team-name">{g.away_team}</li>
-                            {NBALogos[g.away_team]}
-                            <li className="odds">{g.away_odds}</li>
-                        </ul>
-                        <div className="comments-box">
-                            <CommentContainer g={g} />
-                        </div>
+                        <BigBetModalContainer g={g}/>
                     </div>
-                    <div className="gamelist-box">
-                        <h1 className="gameslist-header">Today's Games</h1>
-                        <GamesListContainer games={games}/>
+                    <div className="comments-box">
+                        <h1 className="chat-header">Chat</h1>
+                        <CommentContainer g={g} />
                     </div>
                 </div>
+            </div>
             )
         } else {
             return (
-                <div className="game-show">
+                <div>
                     <div className="main-nav">
                         <NavBarContainer/>
                     </div>
-                    <div className="stats-box">
-                        <DoughnutContainer g={g} />
-                        <CurrencyBarContainer g={g} />
-                        <BetsBarContainer g={g} />
-                    </div>
-                    <div className="game-box">
-                        <ul className="home-team">
-                            <li className="team-name">{g.home_team}</li>
-                            {NBALogos[g.home_team]}
-                            <li className="odds">{g.home_odds}</li>
-                        </ul>
-                        <i className="at">VS</i>
-                        <ul className="away-team">
-                            <li className="team-name">{g.away_team}</li>
-                            {NBALogos[g.away_team]}
-                            <li className="odds">{g.away_odds}</li>
-                        </ul>
-                        <div className="comments-box">
-                        <CommentContainer g={g} />
-                    </div>
-                    </div>
-                    <button className="game-bet-btn-locked">
-                        Bets Locked!
-                    </button>
                     <div className="gamelist-box">
-                        <GamesListContainer games={games} />
+                        <GamesListContainer games={games}/>
                     </div>
+                    <div className="game-show">
+                        <div className="stats-box">
+                            <h1 className="stats-header">Game Stats</h1>
+                            <DoughnutContainer g={g} />
+                            <CurrencyBarContainer g={g} />
+                        </div>
+                        <div className="game-box">
+                            <GameModalContainer g={g}/>
+                        </div>
+                        <div className="comments-box">
+                            <h1 className="chat-header">Game Chat</h1>
+                            <CommentContainer g={g} />
+                        </div>
+                    </div>
+                    
                 </div>
             )
         }

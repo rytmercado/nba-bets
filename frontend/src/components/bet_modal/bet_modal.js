@@ -53,20 +53,15 @@ class BetModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         this.setState({userId: this.props.session.user._id}, () => {
-        // debugger  
-            // console.log(this.state)
+        
             this.props.postBet(this.state)
             .then(res => {
-                //   console.log(res)
                 if(typeof res !== "undefined"){
-                    //   console.log(res)
                     if(typeof res.bet !== "undefined"){
                         console.log(this.state)
                         this.setState({isSubmitted: true})
                         this.props.fetchUser(this.props.userId)
                         console.log(this.state)
-                        // this.props.onClose();
-                        // setTimeout(this.setState({isSubmitted: false}), 300000000000000)
                         setTimeout(() => {
                             this.setState({isSubmitted: false})}, 5000);
                         }

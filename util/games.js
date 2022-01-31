@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const Bet = require('../models/Bet')
 const Game = require('../models/Game')
 const resolveBets = require('./resolveBets')
+const lockBets = require('./lockBets')
 
 const getGameResults = () => {
   //GMT? 
@@ -70,7 +71,6 @@ const getGameResults = () => {
           game.quarter = q
           game.game_minute = minute
   
-          console.log(game)
           game.save();
         } else {
           // //Doesn't work yet 

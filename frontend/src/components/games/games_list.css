@@ -1,0 +1,167 @@
+.game-block {
+    display: inline-block;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+
+}
+
+
+
+.game-block:hover {
+    background-color: lightblue;
+}
+
+.game-block-row {
+    background-color: inherit;
+    height: 30px;
+}
+
+.game-list-odds {
+    padding: 10px;
+    background-color: inherit;
+    
+}
+
+.game-row-city {
+    padding: 10px;
+    background-color: inherit;
+    align-self: center;
+}
+
+.gametime {
+    background-color: inherit;
+    margin: 0 auto;
+}
+
+.game-block-logo {
+    background-color: inherit;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+}
+
+.gl-odds {
+    background-color: inherit;
+    margin-left: -10px;
+}
+
+.gl-odds2 {
+    background-color: inherit;
+    margin-left: 80px;
+}
+
+.gl-at {
+    background-color: inherit;
+    font-family: 'Montserrat', italic;
+    font-weight: 800;
+    font-size: 20px;
+    align-self: center;
+    
+}
+
+.away-team {
+    float: right;
+    font-family: "Monsterrat";
+    font-weight: 800;
+    width: 10%;
+}
+
+.game-time-lock {
+    float: right;
+    font-family: Monsterrat;
+    font-weight: 800;
+    border-radius: 5px;
+    background-color: red;
+    color: black;
+}
+
+.game-block-logo {
+    left: 0;
+    top: 50%;
+}
+
+.game-block-row {
+    display: flex;
+}
+
+.big-modal-body {
+    border: 5px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    background-color: black;
+    border-radius: 5px;
+    gap: 20px;
+    box-shadow: 4px 4px 4px 4px #303030;
+}
+
+.big-modal-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.big-modal-title {
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: 'Montserrat';
+    padding: 5px;
+}
+.big-modal-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    
+}
+
+.big-bet-team-name {
+    padding: 20px 50px 20px 50px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    color: white;
+    background-color: darkslategray;
+    border: 2px solid #53d337;
+}
+
+.big-bet-amount {
+    background: black;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+#home-team, #away-team {
+    margin-top: 10px;
+    display: flex;
+}
+
+.lines {
+    display: flex;
+}
+
+.lines:focus {
+    background-color: #53d337;
+    color: black;
+    border: 1px solid black;
+}
+
+.amount {
+    border: 1px solid white;
+}
+
+.ready {
+    padding: 10px;
+    background-color: black;
+}
+
+.ready-to-wager {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat';
+}
+

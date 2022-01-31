@@ -6,9 +6,11 @@ html {
 }
 
 .game-show {
-    margin-top: 50px;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 
@@ -26,77 +28,117 @@ html {
 
 .game-box {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 50%;
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    z-index: 5;
 }
 
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 25%;
-    height: 100%;
-    float: left;
-    margin-left: 100px;
+    width: 10%;
+    height: 65%;
+    float: right;
+    /* border: 5px solid black; */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    position: fixed;
+    top: 25%;
+    left: 5%;
+    justify-content: space-evenly;
+    z-index: 4;
     
 }
 
-.gamelist-box {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    margin-right: 50px;
-    margin-top: -500px;
-}
-
-.gamelist {
-    overflow:hidden; 
-    overflow-y:scroll;
+.gamelist, .gamelist-box {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-height: 120px;
+    width: 80%;
+    padding-top: 50px;
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comments-box {
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 1000px;
+    display:flex;
     flex-direction: column;
-    position: absolute;
+    width: 25%;
+    height: 65%;
+    float: right;
+    /* border: 5px solid black; */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 25%;
+    left: 75%;
+    z-index: 4;
+
+}
+.comments-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 600px;
+    justify-content: center;
+
 }
 
-.comments-container {
-    width: 50%;
-    margin: 0 auto;
-}
 
 .chart-container {
     height: 33%;
-    width: 25%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin: 0 auto;
 }
 
 .chart-box {
-    width: 30%;
+    width: 80%;
     padding: 30px;
-    margin-left: 200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-bottom: 5px solid black;
+}
+
+.chart-box2 {
+    width: 80%;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.chart {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #fff;
 }
 
 .odds {
+    display: flex;
     font-size: 30px;
     font-weight: 800;
-    margin-left: 150px;
+    justify-content: center;
+    align-items: center;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 .at {
     font-size: 50px;
-    margin-top: 250px;
     font-family:'Montserrat', italic;
     font-weight: 900;
     font-style: italic;
+    margin-top: 200px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
@@ -112,42 +154,6 @@ html {
     float: left;
 }
 
-.game2 {
-    background-color: #fff;
-    display: flex;
-	flex-direction: column;
-    max-width: 500px;
-	box-shadow: 2px 2px 2px 2px #303030, 2px 2px 2px 2px #303030;
-    margin-top: 10px;
-}
-
-.game-index-container2 {
-    font-family:'Lucida Sans', Arial, sans-serif;
-    line-height: 1.5;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    margin-left: -60px;
-    
-}
-
-.nba-game-logo2 {
-    display: flex;
-    align-items: center;
-    width: 22.5px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-.game-list-at {
-        font-size: 30px;
-        font-family:'Montserrat';
-        font-weight: 900;
-        font-style: italic;
-}
-
 .team-name2 {
     text-align: center;
     margin-top: 15px;
@@ -155,38 +161,37 @@ html {
     font-weight: 600;
 }
 
-.gameslist-header {
-    font-family:'Montserrat';
-    font-size: 20px;
-    font-weight: 800;
-    padding: 30px;
-    background-color: #53d337;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
 .stats-header {
     font-family:'Montserrat';
     font-size: 20px;
     font-weight: 800;
-    padding: 30px;
+    padding: 20px 40px 20px 40px;
     background-color: #53d337;
-    border: 1px solid black;
+    border: 5px solid black;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    z-index: 2;
+    margin-top: -35px;
 }
-
-.gameslist-header, .stats-header > h1 {
+.chat-header {
+    font-family:'Montserrat';
+    font-size: 20px;
+    font-weight: 800;
+    padding: 20px 40px 20px 40px;
+    background-color: #53d337;
+    border: 5px solid black;
+    border-radius: 5px;
     display: flex;
+    justify-content: center;
     margin: 0 auto;
+    z-index: 2;
 }
-
-
 .game-show-btn {
     position: absolute;
 	left: 50%;
+    top: 60%;
 	transform: translateX(-50%);
 	border: 1px solid black;
 	background-color: rgb(32, 16, 128);
@@ -197,10 +202,43 @@ html {
 }
 
 #chart-text {
-    padding-top: 25px;
-    display: inline-block;
-    font-size: 12px;
+    display: flex;
+    font-size: 10px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 5px 10px 10px 5px;
+    border: 1px solid white;
+    margin-top: 20px;
+    text-align: center;
 }
+
+.big-bet-button {
+    background-color: #53d337;
+    border: 1px solid #53d337;
+    border-radius: 4px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    font-family: 'Montserrat';
+    border: 1px solid black;
+}
+
+.chart-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
 
 
 

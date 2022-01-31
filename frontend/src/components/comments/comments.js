@@ -10,15 +10,13 @@ class Comment extends React.Component {
                 handle: "",
                 gameId: "",
                 body: "",
+                parentComment: null, 
         }
+        console.log(this.props)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        // this.renderComments = this.renderComments.bind(this);
     }
 
-//   componentDidMount() {
-//       this.props.getComments(this.props.g.id)
-//   }
 
   handleChange(field) {
     return e => {
@@ -27,15 +25,14 @@ class Comment extends React.Component {
   }
   
   handleSubmit() {
-        const comments = Object.values(this.props.comments)
-        console.log(comments)
-        this.setState({ userId: this.props.user.id, gameId: this.props.g._id, handle: this.props.user.handle }, () => {
+        const comments = Object.values(this.props.game.comments)
+        this.setState({ userId: this.props.user.id, gameId: this.props.game._id, handle: this.props.user.handle }, () => {
             this.props.postComment(this.state)
         })
   }
 
   renderComments() {
-    let comments = this.props.comments
+    let comments = this.props.game.comments
     if (comments) {
         return(
             <ul>
@@ -52,12 +49,11 @@ class Comment extends React.Component {
   }
 
   render() {
-        if (this.props.comments) {
-            let count = this.props.comments.length
+        if (this.props.game.comments) {
+            let count = this.props.game.comments.length
             return(
                 <div className="comments-container">
                     <div className="current-comments">
-                        <h3 className="count">{count} comments</h3>
                         {this.renderComments()} 
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -67,12 +63,12 @@ class Comment extends React.Component {
                             <span className="input-name"></span>
                             <textarea
                                 rows="2"
-                                className="body"
+                                value="body"
                                 type='text'
                                 placeholder='Start talking some smack!'
                                 component='input'
                                 
-                                onChange={this.handleChange("body")}></textarea>  
+                                onChange={() => this.handleChange("body")}></textarea>  
                             </div>
                         </div> 
                         </div>
@@ -84,35 +80,9 @@ class Comment extends React.Component {
                     </form>
                 </div>
 
-            )} else {
-            return (
-                <div className="comments-container">
-                <form>
-                <div className="comment-form">
-                <div className="comment-row">
-                    <div className="input-div"> 
-                    <span className="input-name"></span>
-                    <textarea
-                        rows="2"
-                        className="input-box"
-                        type='text'
-                        placeholder='Start talking some smack!'
-                        component='input'
-                        
-                        onChange={this.handleChange}></textarea>  
-                    </div>
-                </div> 
-                </div>
-            </form>
-            <div className="comment-btn-div">
-                <button className="comment-post-btn" onClick={this.handleSubmit} type="submit">
-                    Post
-                </button>
-            </div>
-
-                </div>
-            )}
-        } 
+            )
+      } 
+}
 }
 
 export default Comment;

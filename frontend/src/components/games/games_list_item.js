@@ -92,7 +92,7 @@ class GamesListItem extends React.Component {
             } else {
                 a_odds = game.away_odds;
             }
-            if (game.status === 'Incomplete') {
+            if (game.status === "Incomplete") {
                 const gameTime = game.game_time;
                 let time;
                     if (gameTime.length < 2) {
@@ -126,7 +126,6 @@ class GamesListItem extends React.Component {
                             </div></Link>
                     )       
                     } else {
-                        const gameTime = "Bets Locked"
                         return (
                             <Link to={`/game/show/${game._id}`}>
                                 <div className="game-block">
@@ -139,7 +138,7 @@ class GamesListItem extends React.Component {
                                             </div>
                                             <div className="game-row-city">
                                                 <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
-                                                <span className="gl-odds2">{a_odds}</span>
+                                                <span className="gl-odds2">{game.away_score}?</span>
                                             </div>
                                 </div>
                                 <div className="game-block-row">
@@ -148,7 +147,7 @@ class GamesListItem extends React.Component {
                                             </div>
                                             <div className="game-row-city">
                                                 <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
-                                                <span className="gl-odds2">{h_odds}</span>
+                                                <span className="gl-odds2">{game.home_score}?</span>
                                             </div>
                                 </div>
                             </div></Link>

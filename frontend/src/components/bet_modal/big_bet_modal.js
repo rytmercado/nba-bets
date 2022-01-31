@@ -8,7 +8,7 @@ class BigBetModal extends React.Component {
 
         this.state = {
             game: this.props.game._id,
-            userId: this.props.session.user.id,
+            userId: this.props.session.user._id,
             selection: '', 
             amount: 1000,
             leftcolor: "darkslategray",

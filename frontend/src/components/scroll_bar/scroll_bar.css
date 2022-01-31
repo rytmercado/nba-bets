@@ -1,0 +1,20 @@
+.scroll-wrapper{
+    max-height: 120px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto; 
+}
+
+.scroll-wrapper .scroll-item {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+.scroll-bar-container {
+    position: fixed;
+    margin-top: -170px;
+    z-index: 3;
+}

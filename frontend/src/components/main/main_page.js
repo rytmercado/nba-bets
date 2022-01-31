@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBarContainer from '../nav/navbar_container';
 import GameIndexContainer from '../games/game_index_container';
 import BetModalContainer from '../bet_modal/bet_modal_container';
+import ScrollBarContainer from '../scroll_bar/scroll_bar_container';
 import Toast from '../toast/toast';
 // import checkIcon from '../../images/check.svg'
 import checkIcon from '../../images/success.png'
@@ -29,6 +30,12 @@ class MainPage extends React.Component {
         <div className="main-nav">
           <NavBarContainer/>
         </div>
+        {/* <div className="scroll-bar-container">
+          <ScrollBarContainer />
+        </div> */}
+        
+
+
         <div className="all-games">
           <h1 className="main-header">Today's Games</h1>
           <div className="main-header-date">{today}</div>

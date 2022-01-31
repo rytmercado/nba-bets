@@ -24,6 +24,7 @@ import './games/show_game.css'
 import './comments/comments.css'
 import './toast/toast.css'
 import './main/main.css'
+import './scroll_bar/scroll_bar.css'
 
 
 import { fetchUser } from '../util/session_api_util';

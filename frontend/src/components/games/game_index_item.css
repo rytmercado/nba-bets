@@ -50,7 +50,7 @@ strong {
     background-color: #F4F6F9;
     display: flex;
 	flex-direction: column;
-	min-width:600px;
+	min-width: 750px;
 	border-radius: 10px;
 	box-shadow: 0 0 1px 0 #303030, 0 3px 3px 0 #303030
 }
@@ -240,7 +240,7 @@ strong {
     text-align: center;
     font-size: 35px;
     font-style: italic;
-    margin-top: 65px;
+    margin-top: 70px;
     /* background-color: #242424; */
     /* color: white; */
 }
@@ -267,4 +267,8 @@ strong {
 
 .game-status-final-hidden{
     display: none;
+}
+
+.all-games{
+    margin-top: 100px;
 }

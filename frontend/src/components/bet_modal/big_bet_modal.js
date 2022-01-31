@@ -139,7 +139,7 @@ class BigBetModal extends React.Component {
                                     <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>
                                 </div>
                                 <label className="big-bet-amount" htmlFor="amount">Bet Amount:</label>
-                                <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                                <input className="big-modal-amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
                                 <div className="big-modal-footer">
                                     <button className="big-bet-button" type="submit">Place Bet</button>
                                 </div>

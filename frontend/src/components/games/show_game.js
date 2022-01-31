@@ -72,7 +72,6 @@ class ShowGame extends React.Component {
                         <h1 className="stats-header">Stats</h1>
                         <DoughnutContainer g={g} />
                         <CurrencyBarContainer g={g} />
-                        <BetsBarContainer g={g} />
                     </div>
                     <div className="game-box">
                         <BigBetModalContainer g={g}/>
@@ -98,7 +97,6 @@ class ShowGame extends React.Component {
                             <h1 className="stats-header">Game Stats</h1>
                             <DoughnutContainer g={g} />
                             <CurrencyBarContainer g={g} />
-                            <BetsBarContainer g={g} />
                         </div>
                         <div className="game-box">
                             <GameModalContainer g={g}/>

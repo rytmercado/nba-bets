@@ -83,7 +83,7 @@ class CurrencyBar extends React.Component {
         const game = this.props.game
         let home = 0
         let away = 0
-        if (bets && game) {
+        if (bets.length > 0 && game) {
             for (let i = 0; i < bets.length; i++) {
                     if (bets[i].selection === game.home_team) {
                         home += bets[i].amount
@@ -104,6 +104,14 @@ class CurrencyBar extends React.Component {
                             </div>
                         </div>
                 )
+    } else if (bets.length === 0 && game) {
+        return (
+            <div className="chart-box2">
+                <strong id="no-chart-text">No bets on this game yet! Make a bet to see some data.</strong>
+            </div>
+        )
+    } else {
+        return null
     }
 }
 }

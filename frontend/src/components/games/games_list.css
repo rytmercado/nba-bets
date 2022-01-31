@@ -89,16 +89,17 @@
 .big-modal-body {
     border: 5px solid black;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    height: 300px;
+    height: 400px;
     background-color: black;
     border-radius: 5px;
+    gap: 20px;
     box-shadow: 4px 4px 4px 4px #303030;
 }
 
-.big-modal-nba-logos {
+.big-modal-logos {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -108,7 +109,8 @@
     margin: 0 auto;
     font-size: 30px;
     font-weight: 800;
-    font-family: 'Montserrat'
+    font-family: 'Montserrat';
+    padding: 5px;
 }
 .big-modal-footer {
     padding: 10px;
@@ -123,16 +125,8 @@
     font-weight: 600;
     font-family: 'Montserrat';
     color: white;
-    background-color: rgb(55, 55, 55);
+    background-color: darkslategray;
     border: 2px solid #53d337;
-}
-
-.big-bet-team-name:visited {
-    background-color: #53d337;
-    color: black;
-    font-family: 'Montserrat';
-    padding: 20px 50px 20px 50px;
-    font-weight: 600;
 }
 
 .big-bet-amount {
@@ -150,6 +144,12 @@
     display: flex;
 }
 
+.lines:focus {
+    background-color: #53d337;
+    color: black;
+    border: 1px solid black;
+}
+
 .amount {
     border: 1px solid white;
 }
@@ -162,7 +162,6 @@
 .ready-to-wager {
     background-color: black;
     color: white;
-    font-family: 'Montserrat', 'italic';
-    font-size-adjust: auto;
+    font-family: 'Montserrat';
 }
 

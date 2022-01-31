@@ -8,13 +8,16 @@ class BigBetModal extends React.Component {
 
         this.state = {
             game: this.props.game._id,
-            userId: this.props.session.user._id,
+            userId: this.props.session.user.id,
             selection: '', 
             amount: 1000,
+            leftcolor: "darkslategray",
+            rightcolor: "darkslategray",
         }
 
         this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.selectLine = this.selectLine.bind(this);
 
 
     }
@@ -32,9 +35,22 @@ class BigBetModal extends React.Component {
         }
     }
 
+    selectLine(line) {
+        if (line === "away") {
+            this.setState({leftcolor: '#53d337',
+            rightcolor: 'darkslategray',
+            selection: false})
+        
+        } else {
+            this.setState({rightcolor: '#53d337',
+            leftcolor: 'darkslategray', 
+            selection: true })
+        }
+    }
+
     printOdds (odds) {
         if (odds > 0) {
-            return `${odds}`
+            return `+${odds}`
         } else {
             return odds.toString()
         }
@@ -42,8 +58,13 @@ class BigBetModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        console.log(this.state)
-        this.props.postBet(this.state)
+        const object = {
+            game: this.state.game,
+            userId: this.state.userId,
+            selection: this.state.selection, 
+            amount: this.state.amount,
+        }
+        this.props.postBet(object)
     }
 
 
@@ -97,9 +118,9 @@ class BigBetModal extends React.Component {
         }
         return (
                 <div className="big-modal">
-                    <div className="big-modal-nba-logos">
+                    <div className="big-modal-logos">
                         {NBALogos[this.props.game.away_team]}
-                        <i className="at">VS</i>
+                        <p className="at">VS</p>
                         {NBALogos[this.props.game.home_team]}
                     </div>
                     <form className="big-modal-form" onSubmit={this.handleSubmit}>
@@ -111,13 +132,14 @@ class BigBetModal extends React.Component {
                                     <img src={logo}></img>
                                 </div>
                                 <div className="lines">
-                                    <label className="big-bet-team-name" htmlFor="home-team">{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</label>
-                                    <label className="big-bet-team-name" htmlFor="away-team">{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</label>
+                                    <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</button>
+                                    <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</button>
                                     
                                 </div>
-                                <div className="ready">
-                                    <span className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</span>
+                                <div className="wager?">
+                                    <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>
                                 </div>
+                                <label className="big-bet-amount" htmlFor="amount">Bet Amount:</label>
                                 <input className="amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
                                 <div className="big-modal-footer">
                                     <button className="big-bet-button" type="submit">Place Bet</button>

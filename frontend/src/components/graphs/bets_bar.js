@@ -69,7 +69,7 @@ class BetsBar extends React.Component {
         const game = this.props.game
         let home = 0
         let away = 0
-        if (bets && game) {
+        if (bets.length > 0 && game) {
             for (let i = 0; i < bets.length; i++) {
                     if (bets[i].selection === game.home_team) {
                         home += 1
@@ -86,6 +86,13 @@ class BetsBar extends React.Component {
                             <strong id="chart-text">{home} user(s) bet on {game.home_team}, while {away} user(s) have bet on {game.away_team}</strong>
                         </div>     
                 )
+    } else if (bets.length === 0 && game) {
+        return (
+            <div className="chart-box2">
+                <strong id="no-chart-text">No bets on this game yet! Make a bet to see some data.</strong>
+            </div>
+
+        )
     }
 }
 }

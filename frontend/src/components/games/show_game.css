@@ -43,16 +43,16 @@ html {
     display:flex;
     flex-direction: column;
     width: 20%;
-    height: 50vh;
+    height: 65vh;
     float: left;
     /* border: 5px solid black; */
-    background-color: #fff;
     z-index: 4;
     margin: 0 auto;
     gap: 50px;
-    background-color: darkslategray;
+    background-color: black;
     border: 5px solid black;
     border-radius: 5px;
+    box-shadow: 4px 4px 4px 4px #303030;
 }
 
 .gamelist, .gamelist-box {
@@ -70,27 +70,20 @@ html {
     display: flex;
     flex-direction: column;
     width: 20%;
-    height: 50vh;
-    background-color: darkslategray;
+    height: 65vh;
+    background-color: black;
     border: 5px solid black;
     border-radius: 5px;
     margin: 0 auto;
-}
-
-.chart-container {
-    height: 33%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
+    box-shadow: 4px 4px 4px 4px #303030;
 }
 
 .chart-box {
-    width: 80%;
+    width: 60%;
     padding: 30px;
     margin: 0 auto;
-    background-color: darkslategray;
-    border-bottom: 5px solid black;
+    background-color: black;
+    border-bottom: 5px solid white;
 
 }
 
@@ -98,13 +91,15 @@ html {
     width: 80%;
     padding: 30px;
     margin: 0 auto;
-    background-color: darkslategray;
+    background-color: black;
 }
 
 .chart {
     width: 30%;
     margin: 0 auto;
-    background-color: darkslategray;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
 }
 
 .odds {
@@ -195,8 +190,8 @@ html {
     font-family: 'Montserrat';
     padding: 5px 10px 10px 5px;
     border: 1px solid white;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 10px;
 }
 
 #no-chart-text {

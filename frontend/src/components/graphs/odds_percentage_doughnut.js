@@ -67,7 +67,7 @@ class OddsPercentageDoughnut extends React.Component {
                         <div className="chart">
                             <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                         </div>
-                        <strong id="chart-text">{game.home_team} are {odds}% to win based on the line</strong>
+                        <strong id="chart-text">{game.away_team} are {odds}% to win based on the line</strong>
                     </div>
             )
         } else {
@@ -76,7 +76,7 @@ class OddsPercentageDoughnut extends React.Component {
                     <div className="chart">
                         <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                     </div>
-                    <strong id="chart-text" >{game.away_team} are {odds}% to win based on the line</strong>
+                    <strong id="chart-text" >{game.home_team} are {odds}% to win based on the line</strong>
                 </div>
             )
         }

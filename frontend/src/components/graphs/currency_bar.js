@@ -99,9 +99,7 @@ class CurrencyBar extends React.Component {
                             <div className="chart">
                                 <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                             </div>
-                            <div>
-                                <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong>     
-                            </div>
+                            <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong> 
                         </div>
                 )
     } else if (bets.length === 0 && game) {

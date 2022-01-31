@@ -8,7 +8,7 @@ class BigBetModal extends React.Component {
 
         this.state = {
             game: this.props.game._id,
-            userId: this.props.session.user._id,
+            userId: '',
             selection: '', 
             amount: 1000,
             leftcolor: "darkslategray",
@@ -36,15 +36,17 @@ class BigBetModal extends React.Component {
     }
 
     selectLine(line) {
+        const awayTeam = this.props.game.away_team;
+        const homeTeam = this.props.game.home_team;
         if (line === "away") {
             this.setState({leftcolor: '#53d337',
             rightcolor: 'darkslategray',
-            selection: false})
+            selection: `${awayTeam}`})
         
         } else {
             this.setState({rightcolor: '#53d337',
             leftcolor: 'darkslategray', 
-            selection: true })
+            selection: `${homeTeam}` })
         }
     }
 
@@ -60,7 +62,7 @@ class BigBetModal extends React.Component {
         e.preventDefault(); 
         const object = {
             game: this.state.game,
-            userId: this.state.userId,
+            userId: this.props.session.user._id,
             selection: this.state.selection, 
             amount: this.state.amount,
         }

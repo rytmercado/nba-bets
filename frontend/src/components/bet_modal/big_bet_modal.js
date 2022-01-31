@@ -130,9 +130,6 @@ class BigBetModal extends React.Component {
                             <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
                         </div>
                         <div className="big-modal-body">
-                                <div className="big-modal-logo">
-                                    <img src={logo}></img>
-                                </div>
                                 <div className="lines">
                                     <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.home_odds)}</button>
                                     <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.away_odds)}</button>

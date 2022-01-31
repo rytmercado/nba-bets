@@ -11,6 +11,7 @@ html {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
+    z-index: 2;
 
 }
 
@@ -36,7 +37,7 @@ html {
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    z-index: 5;
+    z-index: 2;
 }
 
 .stats-box {
@@ -46,13 +47,14 @@ html {
     height: 65vh;
     float: left;
     /* border: 5px solid black; */
-    z-index: 4;
+    z-index: 2;
     margin: 0 auto;
     gap: 50px;
     background-color: black;
     border: 5px solid black;
     border-radius: 5px;
     box-shadow: 4px 4px 4px 4px #303030;
+    margin-top: 50px;
 }
 
 .gamelist, .gamelist-box {
@@ -60,10 +62,11 @@ html {
     overflow-y: hidden;
     white-space: nowrap;
     max-height: 120px;
-    width: 80%;
-    padding-top: 50px;
+    max-width: 100vh;
     margin: 0 auto;
+    z-index: 5;
     -webkit-overflow-scrolling: touch;
+    padding-top: 15px;
 }
 
 .comments {
@@ -75,7 +78,10 @@ html {
     border: 5px solid black;
     border-radius: 5px;
     margin: 0 auto;
+    gap: 50px;
     box-shadow: 4px 4px 4px 4px #303030;
+    margin-top: 50px;
+    z-index: 2;
 }
 
 .chart-box {

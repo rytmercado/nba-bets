@@ -64,6 +64,7 @@ class ShowGame extends React.Component {
                 <div className="main-nav">
                     <NavBarContainer/>
                 </div>
+                <br/>
                 <div className="gamelist-box">
                     <GamesListContainer games={games}/>
                 </div>

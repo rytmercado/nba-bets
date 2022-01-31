@@ -76,6 +76,7 @@ class ShowGame extends React.Component {
                     </div>
                     <div className="game-box">
                         <BigBetModalContainer g={g}/>
+                        <CountDownContainer g={g} />
                     </div>
                     <div className="comments">
                         <h1 className="chat-header">Chat</h1>

@@ -43,7 +43,7 @@ html {
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 20vh;
+    width: 25vh;
     height: 70vh;
     float: left;
     /* border: 5px solid black; */
@@ -71,7 +71,7 @@ html {
 .comments {
     display: flex;
     flex-direction: column;
-    width: 20vh;
+    width: 25vh;
     height: 70vh;
     background-color: black;
     border-radius: 5px;
@@ -123,12 +123,10 @@ html {
     display: flex;
     font-size: 25px;
     font-weight: 600;
-    font-family: 'Lucida Grande', sans-serif;
+    font-family: 'Montserrat';
     margin: 0 auto;
-    width: 50%;
     justify-content: center;
-    margin-top: 5px;
-    float: left;
+    margin-top: 50px;
 }
 
 .team-name2 {

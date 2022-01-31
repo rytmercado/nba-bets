@@ -23,9 +23,9 @@ class CountDown extends React.Component {
     }
 
     render() {
-        const start = this.props.start
+        const start = this.props.game.start_time
         if (start) {
-          const slicedTime = this.props.start.slice(11,19)
+          const slicedTime = start.slice(11,19)
           let hours = parseInt(slicedTime.slice(0, 2)) - 10 + 24 - (new Date().getHours())
           let minutes = parseInt(slicedTime.slice(3,5)) - (new Date().getMinutes())
           let seconds = parseInt(slicedTime.slice(6,8)) - (new Date().getSeconds())

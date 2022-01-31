@@ -44,7 +44,11 @@ class Comment extends React.Component {
             </ul>
           );
         } else {
-            return null
+            return <ul className="comments-list">
+                        <li>
+                            <p className="no-comments">No comments on this game yet!</p>
+                        </li>
+                    </ul>
         }
   }
 

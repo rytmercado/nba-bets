@@ -4,13 +4,13 @@ import CountDown from './count_down';
 
 
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     start: state.games.start_time,
-    game: state.games,
+    game: ownProps.g,
 });
 
 const mDTP = dispatch => ({
     
 });
 
-export default connect(mSTP, null)(CountDown)
+export default connect(mSTP, mDTP)(CountDown)

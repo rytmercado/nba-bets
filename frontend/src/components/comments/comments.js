@@ -60,8 +60,7 @@ class Comment extends React.Component {
                     <div className="comments-box">
                         {this.renderComments()} 
                     </div>
-                    {/* <form onSubmit={this.handleSubmit}>
-                        <div className="comment-form">
+                    <form onSubmit={this.handleSubmit} className="comment-form">
                         <div className="comment-row">
                             <div className="input-div"> 
                             <span className="input-name"></span>
@@ -73,7 +72,6 @@ class Comment extends React.Component {
                                 component='input'
                                 
                                 onChange={() => this.handleChange("body")}></textarea>  
-                            </div>
                         </div> 
                         </div>
                         <div className="comment-btn-div">
@@ -81,7 +79,7 @@ class Comment extends React.Component {
                                 Post
                             </button>
                         </div>
-                    </form> */}
+                    </form>
                 </div>
 
             )

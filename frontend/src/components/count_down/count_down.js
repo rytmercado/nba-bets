@@ -43,8 +43,8 @@ class CountDown extends React.Component {
             seconds = 60 - seconds
             minutes += 1
           }
-            let finalMinutes = minutes;
-            let finalSeconds = seconds;
+            let finalMinutes = minutes.toString();
+            let finalSeconds = seconds.toString();
             if (finalMinutes < 10) {
               finalMinutes = "0" + minutes.toString()
             } else if (finalSeconds < 10) {

@@ -44,12 +44,11 @@ html {
     display:flex;
     flex-direction: column;
     width: 20%;
-    height: 65vh;
+    height: 70vh;
     float: left;
     /* border: 5px solid black; */
     z-index: 2;
     margin: 0 auto;
-    gap: 50px;
     background-color: black;
     border: 5px solid black;
     border-radius: 5px;
@@ -73,9 +72,8 @@ html {
     display: flex;
     flex-direction: column;
     width: 20%;
-    height: 65vh;
+    height: 70vh;
     background-color: black;
-    border: 5px solid black;
     border-radius: 5px;
     margin: 0 auto;
     gap: 50px;
@@ -85,7 +83,8 @@ html {
 }
 
 .chart-box {
-    width: 60%;
+    width: 50%;
+    height: 50%;
     padding: 30px;
     margin: 0 auto;
     background-color: black;
@@ -94,18 +93,12 @@ html {
 }
 
 .chart-box2 {
-    width: 80%;
+    width: 50%;
+    height: 50%;
     padding: 30px;
     margin: 0 auto;
     background-color: black;
-}
 
-.chart {
-    width: 30%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 5px;
 }
 
 .odds {

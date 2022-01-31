@@ -46,10 +46,10 @@ class CurrencyBar extends React.Component {
                     label: '$ bet per team',
                     data: [homeData, awayData],
                         backgroundColor: [
-                            'rgb(0, 0, 0)',
+                            '#53d337',
                         ],
                         borderColor: [
-                        'rgb(0, 0, 0)',
+                        'white',
                         ],
                         borderWidth: .5
                     }]
@@ -95,10 +95,8 @@ class CurrencyBar extends React.Component {
                 const realHome = this.numberWithCommas(home)
                 const realAway = this.numberWithCommas(away)
                 return (
-                        <div className="chart-box">
-                            <div className="chart">
-                                <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                            </div>
+                        <div className="chart-box2">
+                            <canvas id="myBarChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                             <strong id="chart-text">${realHome} dollars bet on {game.home_team} vs. ${realAway} dollars bet on {game.away_team}</strong> 
                         </div>
                 )

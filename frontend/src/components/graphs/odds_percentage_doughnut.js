@@ -64,19 +64,15 @@ class OddsPercentageDoughnut extends React.Component {
         if (homeAway > 0) {
             return (
                     <div className="chart-box">
-                        <div className="chart">
-                            <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                        </div>
+                        <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
                         <strong id="chart-text">{game.away_team} are {odds}% to win based on the line</strong>
                     </div>
             )
         } else {
             return (
                 <div className="chart-box">
-                    <div className="chart">
                         <canvas id="myChart" style={{"width": "150px", "height" : "150px"}}></canvas>
-                    </div>
-                    <strong id="chart-text" >{game.home_team} are {odds}% to win based on the line</strong>
+                        <strong id="chart-text" >{game.home_team} are {odds}% to win based on the line</strong>
                 </div>
             )
         }

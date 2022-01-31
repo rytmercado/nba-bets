@@ -32,7 +32,7 @@ class CurrencyBar extends React.Component {
                     for (let i = 0; i < bets.length; i++) {
                         if (bets[i].selection === game.home_team) {
                             home.push(bets[i].amount) 
-                        } else {
+                        } else if (bets[i].selection === game.away_team) {
                             away.push(bets[i].amount) 
                         }
                     }

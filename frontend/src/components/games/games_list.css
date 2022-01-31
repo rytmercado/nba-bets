@@ -166,3 +166,10 @@
     font-family: 'Montserrat';
 }
 
+.big-modal-form {
+    width: 100%;
+}
+
+.body {
+    height: 99%;
+}

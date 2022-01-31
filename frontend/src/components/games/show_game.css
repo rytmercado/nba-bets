@@ -8,9 +8,10 @@ html {
 .game-show {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding-top: 100px;
 }
 
 
@@ -35,26 +36,23 @@ html {
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    padding: 10px;
     z-index: 5;
 }
 
 .stats-box {
     display:flex;
     flex-direction: column;
-    width: 10%;
-    height: 65%;
-    float: right;
+    width: 20%;
+    height: 50vh;
+    float: left;
     /* border: 5px solid black; */
     background-color: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    position: fixed;
-    top: 25%;
-    left: 5%;
-    justify-content: space-evenly;
     z-index: 4;
-    
+    margin: 0 auto;
+    gap: 50px;
+    background-color: darkslategray;
+    border: 5px solid black;
+    border-radius: 5px;
 }
 
 .gamelist, .gamelist-box {
@@ -68,32 +66,16 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
-.comments-box {
-    display:flex;
-    flex-direction: column;
-    width: 25%;
-    height: 65%;
-    float: right;
-    /* border: 5px solid black; */
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    margin-right: 50px;
-    box-sizing: border-box;
-    position: fixed;
-    top: 25%;
-    left: 75%;
-    z-index: 4;
-
-}
-.comments-container {
+.comments {
     display: flex;
-    flex-direction: row;
-    margin-top: 600px;
-    justify-content: center;
-
+    flex-direction: column;
+    width: 20%;
+    height: 50vh;
+    background-color: darkslategray;
+    border: 5px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
 }
-
 
 .chart-container {
     height: 33%;
@@ -107,21 +89,22 @@ html {
     width: 80%;
     padding: 30px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: darkslategray;
     border-bottom: 5px solid black;
+
 }
 
 .chart-box2 {
     width: 80%;
     padding: 30px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: darkslategray;
 }
 
 .chart {
     width: 30%;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: darkslategray;
 }
 
 .odds {
@@ -169,8 +152,8 @@ html {
     background-color: #53d337;
     border: 5px solid black;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
+    width: 55px;
+    height: 25px;
     margin: 0 auto;
     z-index: 2;
     margin-top: -35px;
@@ -183,10 +166,11 @@ html {
     background-color: #53d337;
     border: 5px solid black;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
+    width: 55px;
+    height: 25px;
     margin: 0 auto;
     z-index: 2;
+    margin-top: -35px;
 }
 .game-show-btn {
     position: absolute;
@@ -212,6 +196,19 @@ html {
     padding: 5px 10px 10px 5px;
     border: 1px solid white;
     margin-top: 20px;
+    text-align: center;
+}
+
+#no-chart-text {
+    display: flex;
+    font-size: 10px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 5px 10px 10px 5px;
+    border: 1px solid white;
     text-align: center;
 }
 

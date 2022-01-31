@@ -53,17 +53,17 @@ class Comment extends React.Component {
             let count = this.props.game.comments.length
             return(
                 <div className="comments-container">
-                    <div className="current-comments">
+                    <div className="comments-box">
                         {this.renderComments()} 
                     </div>
-                    <form onSubmit={this.handleSubmit}>
+                    {/* <form onSubmit={this.handleSubmit}>
                         <div className="comment-form">
                         <div className="comment-row">
                             <div className="input-div"> 
                             <span className="input-name"></span>
                             <textarea
                                 rows="2"
-                                value="body"
+                                value="Start talking some smack!"
                                 type='text'
                                 placeholder='Start talking some smack!'
                                 component='input'
@@ -77,7 +77,7 @@ class Comment extends React.Component {
                                 Post
                             </button>
                         </div>
-                    </form>
+                    </form> */}
                 </div>
 
             )

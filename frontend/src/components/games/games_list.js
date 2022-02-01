@@ -14,7 +14,13 @@ class GamesList extends React.Component {
         const games = this.props.games;
         return (
             <div className="gameslist">
-                {games.map(game => <GamesListItemContainer key={game._id} game={game} />)}
+                {games.map(game => {
+                    if (game.home_score === -1){
+                        return null
+                      } else {
+                          return <GamesListItemContainer key={game._id} game={game} />
+                      }
+                })}
             </div>
         )
         

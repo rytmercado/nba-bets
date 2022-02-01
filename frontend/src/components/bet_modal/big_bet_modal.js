@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from '../../images/smallest-logo.JPG'
 import * as NBAIcons from 'react-nba-logos';
+import  CommentContainer  from '../comments/comment_container';
+import DoughnutContainer from '../graphs/doughnut_container';
+import {Animated} from 'react-animated-css';
+import CurrencyBarContainer from '../graphs/currency_container'
 
 class BigBetModal extends React.Component {
     constructor(props) {
@@ -11,13 +15,17 @@ class BigBetModal extends React.Component {
             userId: '',
             selection: '', 
             amount: 1000,
-            leftcolor: "darkslategray",
-            rightcolor: "darkslategray",
+            leftcolor: "white",
+            rightcolor: "white",
+            stats: false,
+            chat: false,
         }
 
         this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.selectLine = this.selectLine.bind(this);
+        this.toggleStats = this.toggleStats.bind(this);
+        this.toggleChat = this.toggleChat.bind(this);
 
 
     }
@@ -40,12 +48,12 @@ class BigBetModal extends React.Component {
         const homeTeam = this.props.game.home_team;
         if (line === "away") {
             this.setState({leftcolor: '#53d337',
-            rightcolor: 'darkslategray',
+            rightcolor: 'white',
             selection: `${awayTeam}`})
         
         } else {
             this.setState({rightcolor: '#53d337',
-            leftcolor: 'darkslategray', 
+            leftcolor: 'white', 
             selection: `${homeTeam}` })
         }
     }
@@ -82,10 +90,30 @@ class BigBetModal extends React.Component {
         );
     }
 
+    toggleStats() {
+            const prevState = this.state.stats
+            return (
+                this.setState({
+                    stats: !prevState
+                })
+            )
+    }
+
+    toggleChat() {
+        const prevState = this.state.chat
+        return (
+            this.setState({
+                chat: !prevState
+            })
+        )
+}
+
+
     
 
 
     render () {
+        const g = this.props.game;
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL size={300}/>,
             "Boston Celtics": <NBAIcons.BOS size={300}/>,
@@ -118,37 +146,57 @@ class BigBetModal extends React.Component {
             "Utah Jazz": <NBAIcons.UTA size={300}/>,
             "Washington Wizards": <NBAIcons.WAS size={300}/>
         }
-        return (
-                <div className="big-modal">
-                    <div className="big-modal-logos">
-                        {NBALogos[this.props.game.away_team]}
-                        <p className="at">VS</p>
-                        {NBALogos[this.props.game.home_team]}
+        if (g) {
+
+            return (
+                <div className="game-show">
+                    <Animated animationIn="slideInDown" animationOut="slideOutUp" animationInDuration={1000} animationOutDuration={0} isVisible={this.state.stats}>
+                        <div className="stats-box">
+                            <DoughnutContainer g={g} />
+                            <CurrencyBarContainer g={g} />
+                        </div>
+                    </Animated>
+                    <div className="big-modal">
+                        <div className="big-modal-logos">
+                            {NBALogos[this.props.game.away_team]}
+                            <p className="at">VS</p>
+                            {NBALogos[this.props.game.home_team]}
+                        </div>
+                        <div className="big-modal-form" onSubmit={this.handleSubmit}>
+                            <div className="big-modal-header">
+                                <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
+                            </div>
+                            <div className="big-modal-body">
+                                    <div className="lines">
+                                        <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</button>
+                                        <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</button>
+                                        
+                                    </div>
+                                    <div className="wager?">
+                                        <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>
+                                    </div>
+                                    <label className="big-bet-amount" htmlFor="amount">Bet Amount:</label>
+                                    <input className="big-modal-amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                                    <div className="big-modal-footer">	
+                                        <div className="big-bet-button" aria-label="statistics" onClick={() => this.toggleStats()}>Stats 📈</div>
+                                        <div className="big-bet-button" onClick={this.handleSubmit}>Place Bet 💰</div>
+                                        <div className="big-bet-button" onClick={() => this.toggleChat()}>Chat 😎</div>
+                                    </div>
+                                    <div className="errors">{this.renderErrors()}</div>
+                            </div>
+                        </div>
                     </div>
-                    <form className="big-modal-form" onSubmit={this.handleSubmit}>
-                        <div className="big-modal-header">
-                            <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
-                        </div>
-                        <div className="big-modal-body">
-                                <div className="lines">
-                                    <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</button>
-                                    <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</button>
-                                    
-                                </div>
-                                <div className="wager?">
-                                    <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>
-                                </div>
-                                <label className="big-bet-amount" htmlFor="amount">Bet Amount:</label>
-                                <input className="big-modal-amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
-                                <div className="big-modal-footer">
-                                    <button className="big-bet-button" type="submit">Place Bet</button>
-                                </div>
-                                <div className="errors">{this.renderErrors()}</div>
-                        </div>
-                    </form>
+                    <Animated animationIn="slideInDown" animationOut="slideOutUp" animationInDuration={1000} animationOutDuration={0} isVisible={this.state.chat}>
+                            <div className="comments">
+                                <CommentContainer g={g} />
+                            </div>
+                    </Animated>
                 </div>
-        )
-        }         
+            )
+            }  else {
+                return null;
+            }       
+        }
     } 
 
 export default BigBetModal;

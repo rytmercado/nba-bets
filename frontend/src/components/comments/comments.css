@@ -83,3 +83,7 @@
 .comment-timestamps {
   font-size: small;
 }
+
+.no-comments {
+  color: white;
+}

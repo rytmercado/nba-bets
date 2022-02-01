@@ -10,6 +10,8 @@ import BetsBarContainer from '../graphs/bets_bar_container'
 import BigBetModalContainer from '../bet_modal/big_bet_modal_container'
 import GameModalContainer from '../bet_modal/game_modal_container'
 
+
+
 class ShowGame extends React.Component {
     constructor(props) {
         super(props)
@@ -22,7 +24,6 @@ class ShowGame extends React.Component {
 
     render () {
         const games = this.props.games;
-        console.log(games)
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL />,
             "Boston Celtics": <NBAIcons.BOS />,
@@ -56,34 +57,24 @@ class ShowGame extends React.Component {
             "Washington Wizards": <NBAIcons.WAS />
         }
         const g = games.find(game => game._id === this.props.match.params.id);
-        if (g === undefined || games.length === 0){
+        if (games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {
             return (
                 <div>
-                <div className="main-nav">
-                    <NavBarContainer/>
-                </div>
-                <br/>
-                <div className="gamelist-box">
-                    <GamesListContainer games={games}/>
-                </div>
-                <div className="game-show">
-                    <div className="stats-box">
-                        <h1 className="stats-header">Stats</h1>
-                        <DoughnutContainer g={g} />
-                        <CurrencyBarContainer g={g} />
+                    <div className="main-nav">
+                        <NavBarContainer/>
                     </div>
+                    <br/>
+                    <div className="gamelist-box">
+                        <GamesListContainer games={games}/>
+                    </div>
+                    <br/>
                     <div className="game-box">
                         <BigBetModalContainer g={g}/>
                         <CountDownContainer g={g} />
                     </div>
-                    <div className="comments">
-                        <h1 className="chat-header">Chat</h1>
-                        <CommentContainer g={g} />
-                    </div>
                 </div>
-            </div>
             )
         } else {
             return (
@@ -91,24 +82,15 @@ class ShowGame extends React.Component {
                     <div className="main-nav">
                         <NavBarContainer/>
                     </div>
+                    <br/>
                     <div className="gamelist-box">
                         <GamesListContainer games={games}/>
                     </div>
-                    <div className="game-show">
-                        <div className="stats-box">
-                            <h1 className="stats-header">Stats</h1>
-                            <DoughnutContainer g={g} />
-                            <CurrencyBarContainer g={g} />
-                        </div>
-                        <div className="game-box">
-                            <GameModalContainer g={g}/>
-                        </div>
-                        <div className="comments-box">
-                            <h1 className="chat-header">Chat</h1>
-                            <CommentContainer g={g} />
-                        </div>
+                    <br/>
+                    <div className="game-box">
+                        <BigBetModalContainer g={g}/>
+                        <CountDownContainer g={g} />
                     </div>
-                    
                 </div>
             )
         }

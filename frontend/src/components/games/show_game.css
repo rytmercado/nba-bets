@@ -29,8 +29,8 @@ html {
 
 .game-box {
     display: flex;
-    width: 40vh;
-    height: 70vh;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,14 @@ html {
     box-shadow: 4px 4px 4px 4px #303030;
     margin-top: 50px;
     z-index: 2;
-    justify-content:space-between;
+}
+
+
+
+.comments-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
 }
 
 .chart-box {
@@ -131,7 +138,6 @@ html {
     font-family: 'Montserrat';
     margin: 0 auto;
     justify-content: center;
-    margin-top: 50px;
 }
 
 .team-name2 {
@@ -211,14 +217,17 @@ html {
 
 .big-bet-button {
     background-color: #53d337;
-    border: 1px solid #53d337;
-    border-radius: 4px;
-    padding: 10px 20px 10px 20px;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
+    border-radius: 5px;
     font-family: 'Montserrat';
-    border: 1px solid black;
+    border: 1px solid white;
+    cursor: pointer;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .chart-box {

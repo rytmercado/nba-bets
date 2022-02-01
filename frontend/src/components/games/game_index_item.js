@@ -109,6 +109,7 @@ class GameIndexItem extends React.Component {
                                     <div className="team-logo">
                                         {NBALogos[game.away_team]}
                                     </div>
+                                    <p className="team-away-home">AWAY</p>
                                     <h2 className="game-team-name">{game.away_team}</h2>
                                     <button className="game-bet-odds">{a_odds}</button>
                                 </div>
@@ -143,6 +144,7 @@ class GameIndexItem extends React.Component {
                                     <div className="team-logo">
                                     {NBALogos[game.home_team]}
                                     </div>
+                                    <p className="team-away-home">HOME</p>
                                     <h2 className="game-team-name">{game.home_team}</h2>
                                     <button className="game-bet-odds">{h_odds}</button>
                                 </div>

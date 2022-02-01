@@ -133,7 +133,6 @@ strong {
 
 .game-team-name {
     text-align: center;
-    margin-top: 15px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -271,4 +270,9 @@ strong {
 
 .all-games{
     margin-top: 100px;
+}
+
+.team-away-home {
+    margin-top: 15px;
+    font-size: 12px;
 }

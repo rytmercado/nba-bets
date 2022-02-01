@@ -15,6 +15,7 @@ class Comment extends React.Component {
           },
           editModalOpen: false,
           editCommentId: "",
+          commentColor: ["white", "#53d337"]
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -91,38 +92,55 @@ class Comment extends React.Component {
       }
 
       //conditionally render remove, edit buttons 
-      let userButtons;
+      let userButtons = <div className="comment-buttons"><button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>❌</button></div>
       if (this.props.user.id === commentObject.user || this.props.user._id === commentObject.user){
-        userButtons = <div className="comment-buttons">
-                        <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>
-                          Remove 
-                        </button>
-                      </div>
-      } else {
-        userButtons = null 
-      }
-
-      return (
-        <div className="comment">
-          <div className="comment-handles">
-              <div className="comment-handle">
-                {commentObject.handle}
+        return (
+          <div className="comment">
+            <div className="comment-bar">
+                <div className="comment-body" onDoubleClick={(e) => this.setState({editModalOpen: true, editCommentId: commentObject._id })}>
+                  {commentObject.body}
+                </div>
+                <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} commentId={this.state.editCommentId} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId} userId={this.props.user._id} updateComment={this.props.updateComment}/> 
+            </div>
+            <div className="comment-buttons">
+            <div className="comment-handles">
+              <div className="comment-owner">
+                <i className="i">{commentObject.handle}</i>
               </div>
+              {userButtons}
               <div className="comment-timestamps">
-                {updatedAt}
+                <i className="i">{updatedAt}</i>
               </div>
             </div>
-            {userButtons}
-            <div className="comment-body" onDoubleClick={(e) => this.setState({editModalOpen: true, editCommentId: commentObject._id })}>
-              {commentObject.body}
             </div>
-            <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} commentId={this.state.editCommentId} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId} userId={this.props.user._id} updateComment={this.props.updateComment}/> 
-        </div>
-      )
-    })
+          </div>
+        )
+        } else {
+          return (
+            <div className="comment">
+            <div className="comment-bar2">
+                <div className="comment-body2" onDoubleClick={(e) => this.setState({editModalOpen: true, editCommentId: commentObject._id })}>
+                  {commentObject.body}
+                </div>
+                <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} commentId={this.state.editCommentId} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId} userId={this.props.user._id} updateComment={this.props.updateComment}/> 
+            </div>
+            <div className="comment-buttons">
+            <div className="comment-handles">
+              <div className="comment-owner">
+                <i className="i">{commentObject.handle}</i>
+              </div>
+              {userButtons}
+              <div className="comment-timestamps">
+                <i className="i">{updatedAt}</i>
+              </div>
+            </div>
+            </div>
+          </div>
+          )}
+  })
+  return comments; 
+}
 
-      return comments; 
-  }
 
   render() {
     let comments;
@@ -136,8 +154,7 @@ class Comment extends React.Component {
     //if its the user's own comments 
             return(
                 <div className="comments-container">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="comment-form">
+                  <div className="comment-form" onSubmit={this.handleSubmit}>
                         <div className="comment-row">
                             <div className="input-div"> 
                             <span className="input-name"></span>
@@ -149,15 +166,14 @@ class Comment extends React.Component {
                                 component='input'
                                 
                                 onChange={this.handleChange("body")}></textarea>  
-                            </div>
                         </div> 
-                        </div>
+                    </div>
                         <div className="comment-btn-div">
                             <button className="comment-post-btn" type="submit">
                                 Post
                             </button>
                         </div>
-                    </form>
+                    </div>
                     <div className="current-comments">
                         {comments}
                         

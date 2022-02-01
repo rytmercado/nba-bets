@@ -218,11 +218,16 @@ html {
 .big-bet-button {
     background-color: #53d337;
     border-radius: 5px;
-    padding: 15px 30px 15px 30px;
     font-family: 'Montserrat';
     border: 1px solid white;
     cursor: pointer;
+    width: 180px;
+    height: 60px;
+    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .chart-box {

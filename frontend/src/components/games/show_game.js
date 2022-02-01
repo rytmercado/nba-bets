@@ -73,7 +73,6 @@ class ShowGame extends React.Component {
                     <br/>
                     <div className="game-box">
                         <BigBetModalContainer g={g}/>
-                        <CountDownContainer g={g} />
                     </div>
                 </div>
             )

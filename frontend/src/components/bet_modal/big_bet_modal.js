@@ -197,13 +197,10 @@ class BigBetModal extends React.Component {
                             {NBALogos[this.props.game.home_team]}
                         </div>
                         <div className="big-modal-form" onSubmit={this.handleSubmit}>
-                            <div className="big-modal-header">
-                                <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
-                            </div>
                             <div className="big-modal-body">
                                     <div className="lines">
-                                        <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</button>
-                                        <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</button>
+                                        <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} (AWAY) {this.printOdds(this.props.game.away_odds)}</button>
+                                        <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} (HOME) {this.printOdds(this.props.game.home_odds)}</button>
                                     </div>
                                     <div className="wager?">
                                         <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>

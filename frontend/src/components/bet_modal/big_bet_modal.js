@@ -4,7 +4,9 @@ import * as NBAIcons from 'react-nba-logos';
 import  CommentContainer  from '../comments/comment_container';
 import DoughnutContainer from '../graphs/doughnut_container';
 import {Animated} from 'react-animated-css';
-import CurrencyBarContainer from '../graphs/currency_container'
+import CurrencyBarContainer from '../graphs/currency_container';
+import Toast from '../toast/toast';
+import checkIcon from '../../images/success.png'
 
 class BigBetModal extends React.Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class BigBetModal extends React.Component {
             rightcolor: "white",
             stats: false,
             chat: false,
+            isSubmitted: false
         }
 
         this.renderErrors = this.renderErrors.bind(this);
@@ -28,6 +31,10 @@ class BigBetModal extends React.Component {
         this.toggleChat = this.toggleChat.bind(this);
 
 
+    }
+
+    componentDidMount(){
+        this.props.fetchUser(this.props.userId);
     }
 
 
@@ -75,6 +82,16 @@ class BigBetModal extends React.Component {
             amount: this.state.amount,
         }
         this.props.postBet(object)
+            .then(res => {
+                if(typeof res !== "undefined"){
+                    if(typeof res.bet !== "undefined"){
+                        this.setState({isSubmitted: true})
+                        this.props.fetchUser(this.props.userId)
+                        setTimeout(() => {
+                            this.setState({isSubmitted: false})}, 8000);
+                        }
+                }
+            })
     }
 
 
@@ -113,6 +130,21 @@ class BigBetModal extends React.Component {
 
 
     render () {
+        const testList = [
+                {
+                id: 1,
+                title: 'Success!',
+                description: 'Navigate to your profile page to view your bet.',
+                backgroundColor: '#5cb85c',
+                icon: checkIcon
+                },
+            ];
+
+        let toast;
+        if(this.state.isSubmitted){
+            toast = <Toast toastList={testList} position="top-right"/>
+        }
+        
         const g = this.props.game;
         const NBALogos = {
             "Atlanta Hawks": <NBAIcons.ATL size={300}/>,
@@ -150,6 +182,7 @@ class BigBetModal extends React.Component {
 
             return (
                 <div className="game-show">
+                    {toast}
                     <Animated animationIn="slideInDown" animationOut="slideOutUp" animationInDuration={1000} animationOutDuration={0} isVisible={this.state.stats}>
                         <div className="stats-box">
                             <DoughnutContainer g={g} />
@@ -170,7 +203,6 @@ class BigBetModal extends React.Component {
                                     <div className="lines">
                                         <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</button>
                                         <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</button>
-                                        
                                     </div>
                                     <div className="wager?">
                                         <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>

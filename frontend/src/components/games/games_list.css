@@ -129,6 +129,17 @@
     border: 2px solid black;
 }
 
+.big-bet-team-score {
+    padding: 20px 50px 20px 50px;
+    font-family: 'Montserrat';
+    color: black;
+    border: 2px solid black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .big-bet-amount {
     background: black;
     color: white;
@@ -139,6 +150,16 @@
     display: flex;
     padding: 20px;
     background-color: black;
+}
+
+.scores {
+    display: flex;
+    padding: 20px;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+
 }
 
 .lines:focus {
@@ -162,10 +183,30 @@
     background-color: black;
     color: white;
     font-family: 'Montserrat';
-    padding-bottom: 20px;
 }
 
 .big-modal-form {
     width: 100%;
 }
 
+.big-modal-errors {
+    color: red;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: black;
+}
+
+.big-bet-lock {
+    background-color: red;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    border: 1px solid white;
+    cursor: pointer;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

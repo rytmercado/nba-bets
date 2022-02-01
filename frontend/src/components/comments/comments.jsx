@@ -1,5 +1,6 @@
 import React from 'react';
 import EditCommentModal from './edit_comment_modal';
+import { useParams } from "react-router-dom";
 
 class Comment extends React.Component {
     constructor(props) {
@@ -20,6 +21,8 @@ class Comment extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.deleteComment = this.deleteComment.bind(this)
         this.editComment = this.editComment.bind(this);
+        this.createComment = this.createComment.bind(this);
+
     }
 
 
@@ -59,25 +62,77 @@ class Comment extends React.Component {
         this.setState({comment: {...this.state.comment, [field]: e.currentTarget.value}})
     }
   }
-  
-  handleSubmit() {
-      if (this.state.comment.userId.length > 1 && this.state.comment.gameId.length > 1 && this.state.comment.handle.length > 1){
-        this.props.postComment(this.state.comment)
-      }
-      this.setState(state => {
-        return {
-          comment: {
-            userId: state.comment.userId,
-            handle: state.comment.handle,
-            gameId: state.comment.gameId,
-            body: "",
-            parentComment: null 
-          },
-        }
 
-      }, () => (this.props.postComment(this.state.comment)))
+  createComment(comment){
+    let url = new URL(window.location)
+    let gameId = url.hash.slice(12);
+
+    comment.gameId = gameId;
+    console.log(this.props.g._id, gameId)
+
+    if (typeof comment.userId.length !== "undefined" && comment.userId.length > 2){
+        if (typeof comment.handle.length !== "undefined" && comment.handle.length > 2){
+          this.props.postComment(comment)
+          return true 
+        }
+        else{
+          comment.handle = this.props.user.handle
+          return this.createComment(comment);
+        }
+      } 
+      else {
+      comment.userId = this.props.user._id
+      return this.createComment(comment);
+    }
   }
 
+  
+  handleSubmit(e) {
+    e.preventDefault()
+    if (this.createComment(this.state.comment)){
+      this.setState({
+        comment:{
+          ...this.state.comment,
+          body: "",
+        }
+      })
+    }
+
+    
+    
+    // if(typeof this.state.comment.userId === "undefined"){
+    //   console.log("post 1")
+    //   this.props.postComment({
+    //     userId: this.props.user._id,
+    //     handle: this.props.user.handle,
+    //     body: this.state.comment.body,
+    //     gameId: this.props.g._id,
+    //     parentComment: null 
+    //   })
+    // } else {
+    //   if (this.state.comment.userId.length > 1 && this.state.comment.gameId.length > 1 && this.state.comment.handle.length > 1){
+    //     console.log("post 2")
+    //     this.props.postComment(this.state.comment)
+    //   } else {
+    //     this.setState(state => {
+    //       return {
+    //         comment: {
+    //           userId: this.props.user._id,
+    //           handle: this.props.user.handle,
+    //           gameId: this.props.g._id,
+    //           body: state.comment.body,
+    //           parentComment: null 
+    //         },
+    //       }
+  
+    //     }, () => {
+    //       this.props.postComment(this.state.comment)})
+    //   }
+    // }
+      
+  }
+
+  
   renderComments(commentsArray){
     let comments = commentsArray; 
     comments = commentsArray.map(commentObject => {

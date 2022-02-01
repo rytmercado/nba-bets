@@ -125,7 +125,7 @@ class GamesListItem extends React.Component {
                                 </div>
                             </div></Link>
                     )       
-                    } else {
+                    } else if (game.home_score > -1 && game.away_score > -1) {
                         return (
                             <Link to={`/game/show/${game._id}`}>
                                 <div className="game-block">
@@ -151,13 +151,12 @@ class GamesListItem extends React.Component {
                                             </div>
                                 </div>
                             </div></Link>
-                    )
-                    }
-                } else {
-                    return (
-                        <div>GAMESLISTITEM</div>
-                    )
+                    )} else {
+                    return null;
                 }
+        } else {
+            return null
+        }
 }
 }
 

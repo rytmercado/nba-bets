@@ -138,7 +138,7 @@ class GamesListItem extends React.Component {
                                             </div>
                                             <div className="game-row-city">
                                                 <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
-                                                <span className="gl-odds2">{game.away_score}?</span>
+                                                <span className="gl-odds2">{game.away_score}</span>
                                             </div>
                                 </div>
                                 <div className="game-block-row">
@@ -147,7 +147,7 @@ class GamesListItem extends React.Component {
                                             </div>
                                             <div className="game-row-city">
                                                 <strong className="gl-odds">{this.nameshortener(game.away_team)}</strong>
-                                                <span className="gl-odds2">{game.home_score}?</span>
+                                                <span className="gl-odds2">{game.home_score}</span>
                                             </div>
                                 </div>
                             </div></Link>

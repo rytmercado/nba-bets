@@ -100,7 +100,7 @@
  
 .modal-body {
     padding: 10px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;

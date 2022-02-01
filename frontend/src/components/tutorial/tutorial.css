@@ -59,7 +59,8 @@
 .tutorial-modal-footer {
   padding: 10px;
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .tutorial-modal-title {
@@ -79,4 +80,8 @@
   height: 200px;
   width: 600px;
   z-index: 9;
+}
+
+.table {
+  margin-top: 50px;
 }

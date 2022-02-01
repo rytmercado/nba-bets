@@ -7,7 +7,6 @@ import {Animated} from 'react-animated-css';
 import CurrencyBarContainer from '../graphs/currency_container';
 import Toast from '../toast/toast';
 import checkIcon from '../../images/success.png'
-import CurrencyBarContainer from '../graphs/currency_container'
 import CountDownContainer from '../count_down/count_down_container';
 
 class BigBetModal extends React.Component {

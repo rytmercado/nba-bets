@@ -179,16 +179,13 @@ class Comment extends React.Component {
                 </div>
                 <EditCommentModal onClose={() => this.setState({editModalOpen: false})} comment={commentObject} commentId={this.state.editCommentId} modalOpen={this.state.editModalOpen} gameId={this.state.comment.gameId} userId={this.props.user._id} updateComment={this.props.updateComment}/> 
             </div>
-            <div className="comment-buttons">
-            <div className="comment-handles">
+            <div className="comment-handles2">
               <div className="comment-owner">
                 <i className="i">{commentObject.handle}</i>
               </div>
-              {userButtons}
               <div className="comment-timestamps">
                 <i className="i">{updatedAt}</i>
               </div>
-            </div>
             </div>
           </div>
           )}

@@ -70,6 +70,8 @@
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
+  justify-content: flex-end;
+  margin-left: 2%;
 }
 
 .comment-handles {
@@ -78,6 +80,16 @@
   justify-content: space-between;
   background-color: black;
   width: 70%;
+  margin-left: 2%;
+}
+
+.comment-handles2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  width: 70%;
+  margin-left: 28%;
 }
 
 .comment-owner, .comment-timestamps {
@@ -106,6 +118,8 @@
   font-size: auto;
   padding: 5px 10px 5px 10px;
   border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .comment-bar2 {
@@ -116,6 +130,8 @@
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 28%;
+
 
 }
 

@@ -34,7 +34,7 @@
     box-sizing: border-box;
     position: fixed;
 	background: transparent;
-    z-index: 3
+    z-index: 10;
 }
 
 .notification {

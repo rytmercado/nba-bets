@@ -95,6 +95,7 @@
     background-color: black;
     border-radius: 5px;
     box-shadow: 4px 4px 4px 4px #303030;
+    padding-bottom: 20px;
 }
 
 .big-modal-logos {
@@ -144,6 +145,7 @@
     background: black;
     color: white;
     font-family: 'Montserrat';
+    padding-top: 20px;
 }
 
 .lines {

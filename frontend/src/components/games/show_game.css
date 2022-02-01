@@ -27,6 +27,7 @@ html {
     font-family: 'Lucida Grande', sans-serif;
 }
 
+
 .game-box {
     display: flex;
     width: 100%;
@@ -56,21 +57,25 @@ html {
     margin-top: 50px;
 }
 
-.gamelist, .gamelist-box {
+.gameslist  {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     max-height: 120px;
-    max-width: 100vh;
-    margin: 0 auto;
+    max-width: 700px;
     z-index: 4;
     position: fixed;
-    left: 25%;
+    margin-top: 55px;
+    text-align: center;
 }
 
 .gamelist-box {
-    margin-top: 55px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
 
 .comments {
     display: flex;
@@ -138,6 +143,13 @@ html {
     font-family: 'Montserrat';
     margin: 0 auto;
     justify-content: center;
+    background-color: black;
+
+}
+
+.countdown > h1 {
+    background-color: black;
+    color: white;
 }
 
 .team-name2 {

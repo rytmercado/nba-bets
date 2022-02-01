@@ -5,6 +5,7 @@ import  CommentContainer  from '../comments/comment_container';
 import DoughnutContainer from '../graphs/doughnut_container';
 import {Animated} from 'react-animated-css';
 import CurrencyBarContainer from '../graphs/currency_container'
+import CountDownContainer from '../count_down/count_down_container';
 
 class BigBetModal extends React.Component {
     constructor(props) {
@@ -182,6 +183,7 @@ class BigBetModal extends React.Component {
                                         <div className="big-bet-button" onClick={this.handleSubmit}>Place Bet 💰</div>
                                         <div className="big-bet-button" onClick={() => this.toggleChat()}>Chat 😎</div>
                                     </div>
+                                    <CountDownContainer g={g} />
                                     <div className="big-modal-errors">{this.renderErrors()}</div>
                             </div>
                         </div>

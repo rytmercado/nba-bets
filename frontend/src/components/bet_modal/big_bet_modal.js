@@ -197,6 +197,7 @@ class BigBetModal extends React.Component {
                             <p className="at">VS</p>
                             {NBALogos[this.props.game.home_team]}
                         </div>
+                        <CountDownContainer g={g} />
                         <div className="big-modal-form" onSubmit={this.handleSubmit}>
                             <div className="big-modal-body">
                                     <div className="lines">
@@ -213,7 +214,6 @@ class BigBetModal extends React.Component {
                                         <div className="big-bet-button" onClick={this.handleSubmit}>Place Bet 💰</div>
                                         <div className="big-bet-button" onClick={() => this.toggleChat()}>Chat 😎</div>
                                     </div>
-                                    <CountDownContainer g={g} />
                                     <div className="big-modal-errors">{this.renderErrors()}</div>
                             </div>
                         </div>

@@ -144,13 +144,14 @@ html {
     font-family: 'Montserrat';
     margin: 0 auto;
     justify-content: center;
-    background-color: black;
-
+    font-size: 35px;
+    background-color: transparent;
 }
 
 .countdown > h1 {
-    background-color: black;
-    color: white;
+    background: transparent;
+    padding: 20px;
+    background-color: transparent;
 }
 
 .team-name2 {

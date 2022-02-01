@@ -63,9 +63,6 @@ class Comment extends React.Component {
   handleSubmit() {
       if (this.state.comment.userId.length > 1 && this.state.comment.gameId.length > 1 && this.state.comment.handle.length > 1){
         this.props.postComment(this.state.comment)
-      } else {
-        this.setState({comment: {...this.state.comment, userId: this.props.user.id, handle: this.props.user.handle,  gameId: this.props.g._id}},
-          () => (this.props.postComment(this.state.comment)))
       }
       this.setState(state => {
         return {
@@ -78,7 +75,7 @@ class Comment extends React.Component {
           },
         }
 
-      })
+      }, () => (this.props.postComment(this.state.comment)))
   }
 
   renderComments(commentsArray){

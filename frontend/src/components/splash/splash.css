@@ -1,9 +1,14 @@
 .main-splash {
     font-family:'Lucida Sans', Arial, sans-serif;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     background-color: #000000;
+}
+
+.logo {
+    width: 50%;
+    height: 50%;
 }
 
 .main-splash img {
@@ -11,6 +16,16 @@
     width: 100%;
     height: 100vh;
     background-color: #000000;
+}
+
+.splash-text {
+    color: #CBB26A;
+    background-color: #000000;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    padding: 0px 10px 0px 10px;
 }
 
 .age-buttons {
@@ -21,11 +36,12 @@
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    width: 700px;
-    height:740px;
-    /* top: 5%;
-    left: 36.5%; */
+    width: 50%;
+    /* width: 700px; */
+    /* height: 740px; */
+    top: 10%;
     border-radius: 8px;
+    color: #CBB26A;
 }
 
 .age-buttons span {

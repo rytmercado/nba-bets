@@ -12,11 +12,11 @@ class SplashForm extends React.Component {
         <img className="bg" src="https://www.nba.com/bulls/sites/bulls/files/covid-19.jpg" />
         <div className="age-buttons">
             <img className="logo" src="https://i.ibb.co/nDm0spD/logo-medium.jpg" />
-            <strong>Please verify your age to participate</strong>
-            <Link className="button-text" to={'/signup'}><button id="button1">I am 18+</button></Link>
-            {/* <Link className="button-text2" to={'https://www.tiktok.com/'}><button id="button2">Not 18</button></Link> */}
-            <a className="button-text2"><button id="button2">Not 18</button></a>
-            <p id="errors"></p>
+            <div className="splash-text">
+              Welcome to NBAA Bets! NBAA Bets is a MERN-Stack web-application that is modeled after real-life live sports betting applications and is specific to NBA Basketball games.
+              We utilized two different free API's that retrieve live odds every 2 hours and live game results every 10 minutes to give the use the most up to date experience and information.
+              Feel free to navigate around the application to view the profile page and show pages and go place some bets!
+            </div>
             <footer>
               Copyright &copy; 2021 NBAA Bets
             </footer>

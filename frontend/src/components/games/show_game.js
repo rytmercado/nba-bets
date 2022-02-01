@@ -8,6 +8,7 @@ import CurrencyBarContainer from '../graphs/currency_container'
 import GamesListContainer from '../games/games_list_container';
 import BetsBarContainer from '../graphs/bets_bar_container'
 import BigBetModalContainer from '../bet_modal/big_bet_modal_container'
+import BigGameModalContainer from '../bet_modal/big_game_modal_container';
 import GameModalContainer from '../bet_modal/game_modal_container'
 
 
@@ -88,8 +89,7 @@ class ShowGame extends React.Component {
                     </div>
                     <br/>
                     <div className="game-box">
-                        <BigBetModalContainer g={g}/>
-                        <CountDownContainer g={g} />
+                        <BigGameModalContainer g={g}/>
                     </div>
                 </div>
             )

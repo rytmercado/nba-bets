@@ -6,57 +6,22 @@ import DoughnutContainer from '../graphs/doughnut_container';
 import {Animated} from 'react-animated-css';
 import CurrencyBarContainer from '../graphs/currency_container'
 
-class BigBetModal extends React.Component {
+class BigGameModal extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            game: this.props.game._id,
-            userId: '',
-            selection: '', 
-            amount: 1000,
-            leftcolor: "white",
-            rightcolor: "white",
             stats: false,
             chat: false,
         }
 
         this.renderErrors = this.renderErrors.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.selectLine = this.selectLine.bind(this);
         this.toggleStats = this.toggleStats.bind(this);
         this.toggleChat = this.toggleChat.bind(this);
 
 
     }
 
-
-    handleInput(type) {
-        return e => {
-            this.setState({[type]: e.currentTarget.value})
-        }
-      }
-
-    handleAmount(type) {
-        return e => {
-            this.setState({ [type]: e.currentTarget.value })
-        }
-    }
-
-    selectLine(line) {
-        const awayTeam = this.props.game.away_team;
-        const homeTeam = this.props.game.home_team;
-        if (line === "away") {
-            this.setState({leftcolor: '#53d337',
-            rightcolor: 'white',
-            selection: `${awayTeam}`})
-        
-        } else {
-            this.setState({rightcolor: '#53d337',
-            leftcolor: 'white', 
-            selection: `${homeTeam}` })
-        }
-    }
 
     printOdds (odds) {
         if (odds > 0) {
@@ -66,16 +31,7 @@ class BigBetModal extends React.Component {
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault(); 
-        const object = {
-            game: this.state.game,
-            userId: this.props.session.user._id,
-            selection: this.state.selection, 
-            amount: this.state.amount,
-        }
-        this.props.postBet(object)
-    }
+    
 
 
     renderErrors() {
@@ -167,22 +123,22 @@ class BigBetModal extends React.Component {
                                 <h5 className="big-modal-title">{this.props.game.away_team} at {this.props.game.home_team}</h5>
                             </div>
                             <div className="big-modal-body">
-                                    <div className="lines">
-                                        <button className="big-bet-team-name" htmlFor="home-team" onClick={() => this.selectLine("away")} style={{backgroundColor: this.state.leftcolor}}>{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</button>
-                                        <button className="big-bet-team-name" htmlFor="away-team" onClick={() => this.selectLine("home")} style={{backgroundColor: this.state.rightcolor}}>{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</button>
-                                        
+                                    <div className="scores">
+                                        <button className="big-bet-team-score">{this.props.game.away_score}</button>
+                                        <button className="big-bet-team-score">{this.props.game.home_score}</button>
                                     </div>
                                     <div className="wager?">
-                                        <p className="ready-to-wager">Ready to bet? Select a team's line and enter a bet amount.</p>
+                                        <p className="ready-to-wager">Pregame odds </p>
                                     </div>
-                                    <label className="big-bet-amount" htmlFor="amount">Bet Amount:</label>
-                                    <input className="big-modal-amount" onChange={this.handleAmount("amount")} value={this.state.amount}/>
+                                    <div className="lines">
+                                        <div className="big-bet-team-name" htmlFor="home-team" >{this.props.game.away_team} {this.printOdds(this.props.game.away_odds)}</div>
+                                        <div className="big-bet-team-name" htmlFor="away-team" >{this.props.game.home_team} {this.printOdds(this.props.game.home_odds)}</div>
+                                    </div>
                                     <div className="big-modal-footer">	
                                         <div className="big-bet-button" aria-label="statistics" onClick={() => this.toggleStats()}>Stats 📈</div>
-                                        <div className="big-bet-button" onClick={this.handleSubmit}>Place Bet 💰</div>
+                                        <div className="big-bet-lock" >Bets Locked </div>
                                         <div className="big-bet-button" onClick={() => this.toggleChat()}>Chat 😎</div>
                                     </div>
-                                    <div className="big-modal-errors">{this.renderErrors()}</div>
                             </div>
                         </div>
                     </div>
@@ -199,4 +155,4 @@ class BigBetModal extends React.Component {
         }
     } 
 
-export default BigBetModal;
+export default BigGameModal;

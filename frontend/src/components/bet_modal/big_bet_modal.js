@@ -54,12 +54,12 @@ class BigBetModal extends React.Component {
         const awayTeam = "false";
         const homeTeam = "true";
         if (line === "away") {
-            this.setState({leftcolor: '#53d337',
+            this.setState({leftcolor: '#CBB26A',
             rightcolor: 'white',
             selection: `${awayTeam}`})
         
         } else if (line === "home") {
-            this.setState({rightcolor: '#53d337',
+            this.setState({rightcolor: '#CBB26A',
             leftcolor: 'white', 
             selection: `${homeTeam}` })
         } else {

@@ -1,5 +1,5 @@
 # NBAA-Bets
-A MERN-stack NBA betting app with live odds, scores, and results.
+A MERN-stack NBA betting app with live odds, scores, and results. Users will be able to place bets on real-life NBA Games before they start. If bet hits, the user will be rewarded the payout. If the bet misses, the money placed will be lost. Users can navigate to their profile page to view past bets placed as well as a line graph that shows the trend of money increasing and decreasing on the account.
 
 ## Table of Contents
 1. [Description](#description)

@@ -154,7 +154,7 @@ class Comment extends React.Component {
     //if its the user's own comments 
             return(
                 <div className="comments-container">
-                  <div className="comment-form" onSubmit={this.handleSubmit}>
+                  <form className="comment-form" onSubmit={this.handleSubmit}>
                         <div className="comment-row">
                             <div className="input-div"> 
                             <span className="input-name"></span>
@@ -173,7 +173,7 @@ class Comment extends React.Component {
                                 Post
                             </button>
                         </div>
-                    </div>
+                    </form>
                     <div className="current-comments">
                         {comments}
                         

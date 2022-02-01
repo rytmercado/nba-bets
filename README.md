@@ -21,7 +21,6 @@ A MERN-stack NBA betting app with live odds, scores, and results. Users will be 
  * A production README
  * Real-time NBA game odds and scores.
  * Nav links to include links to this project's Github repo and team member's Linkedin.
- * Ability to add more currency to fund future bets.
 
 ## Technologies <a name="technologies"></a>
  * Mongoose

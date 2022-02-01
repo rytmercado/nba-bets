@@ -25,7 +25,6 @@ class Comment extends React.Component {
   }
   
   handleSubmit() {
-        const comments = Object.values(this.props.game.comments)
         this.setState({ userId: this.props.user.id, gameId: this.props.game._id, handle: this.props.user.handle }, () => {
             this.props.postComment(this.state)
         })
@@ -60,26 +59,25 @@ class Comment extends React.Component {
                     <div className="comments-box">
                         {this.renderComments()} 
                     </div>
-                    <form onSubmit={this.handleSubmit} className="comment-form">
+                    <div className="comment-form">
                         <div className="comment-row">
                             <div className="input-div"> 
-                            <span className="input-name"></span>
-                            <textarea
-                                rows="2"
-                                value="Start talking some smack!"
-                                type='text'
-                                placeholder='Start talking some smack!'
-                                component='input'
-                                
-                                onChange={() => this.handleChange("body")}></textarea>  
-                        </div> 
+                                <textarea
+                                    rows="2"
+                                    value="Start talking some smack!"
+                                    type='text'
+                                    placeholder='Start talking some smack!'
+                                    component='input'
+                                    
+                                    onChange={() => this.handleChange("body")}></textarea>  
+                            </div> 
                         </div>
                         <div className="comment-btn-div">
-                            <button className="comment-post-btn" type="submit">
+                            <button className="comment-post-btn" onClick={() => this.handleSubmit()}>
                                 Post
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
 
             )

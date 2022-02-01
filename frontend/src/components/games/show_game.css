@@ -84,7 +84,14 @@ html {
     box-shadow: 4px 4px 4px 4px #303030;
     margin-top: 50px;
     z-index: 2;
-    justify-content:space-between;
+}
+
+
+
+.comments-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
 }
 
 .chart-box {
@@ -131,7 +138,6 @@ html {
     font-family: 'Montserrat';
     margin: 0 auto;
     justify-content: center;
-    margin-top: 50px;
 }
 
 .team-name2 {
@@ -216,6 +222,7 @@ html {
     font-family: 'Montserrat';
     border: 1px solid white;
     cursor: pointer;
+    display: flex;
 }
 
 .chart-box {

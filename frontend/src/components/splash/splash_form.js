@@ -17,7 +17,8 @@ class SplashForm extends React.Component {
               We utilized two different free API's that retrieve live odds every 2 hours and live game results every 10 minutes to give the use the most up to date experience and information.
               Feel free to navigate around the application to view the profile page and show pages and go place some bets!
             </div>
-            <footer>
+            <Link className="button-text" to={'/signup'}><button id="button1">Continue</button></Link>
+            <footer className="copyright-footer">
               Copyright &copy; 2021 NBAA Bets
             </footer>
         </div>

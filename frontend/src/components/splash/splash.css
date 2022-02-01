@@ -6,11 +6,6 @@
     background-color: #000000;
 }
 
-.logo {
-    width: 50%;
-    height: 50%;
-}
-
 .main-splash img {
     margin: 0 auto 0 auto;
     width: 100%;
@@ -24,8 +19,8 @@
     font-size: 20px;
     text-align: center;
     margin-top: -100px;
-    margin-bottom: 50px;
-    padding: 0px 10px 0px 10px;
+    margin-bottom: 40px;
+    padding: 0px 20px 0px 20px;
 }
 
 .age-buttons {
@@ -70,10 +65,11 @@
 
 .age-buttons button {
     cursor: pointer;
-    padding: 40px;
+    padding: 25px;
     height: 25px;
     width: 250px;
     border-radius: 4px;
+    background-color: black;
 }
 
 .age-buttons img {
@@ -84,8 +80,8 @@
 #button1 {
     background-color:#CBB26A;
     color: black;
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -106,4 +102,6 @@ button span {
     margin-bottom: 5px;
 }
 
-
+.copyright-footer {
+    margin-top: 50px;
+}

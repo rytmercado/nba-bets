@@ -27,7 +27,6 @@ class BigBetModal extends React.Component {
 
         this.renderErrors = this.renderErrors.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.selectLine = this.selectLine.bind(this);
         this.toggleStats = this.toggleStats.bind(this);
         this.toggleChat = this.toggleChat.bind(this);
 
@@ -52,17 +51,19 @@ class BigBetModal extends React.Component {
     }
 
     selectLine(line) {
-        const awayTeam = this.props.game.away_team;
-        const homeTeam = this.props.game.home_team;
+        const awayTeam = "false";
+        const homeTeam = "true";
         if (line === "away") {
             this.setState({leftcolor: '#53d337',
             rightcolor: 'white',
             selection: `${awayTeam}`})
         
-        } else {
+        } else if (line === "home") {
             this.setState({rightcolor: '#53d337',
             leftcolor: 'white', 
             selection: `${homeTeam}` })
+        } else {
+            return null
         }
     }
 

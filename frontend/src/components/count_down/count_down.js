@@ -30,18 +30,18 @@ class CountDown extends React.Component {
           let minutes = parseInt(slicedTime.slice(3,5)) - (new Date().getMinutes())
           let seconds = parseInt(slicedTime.slice(6,8)) - (new Date().getSeconds())
           const total = hours + minutes + seconds
-          if (minutes < 0) {
-              minutes = 60 + minutes;
-              hours += 1
+          if (minutes === 0) {
+              minutes = 60;
+              hours -= 1
           } else if (minutes >= 60 ) {
             minutes = minutes - 60 
-            hours -= 1
-          } if (seconds < 0) {
-            seconds = 60 + seconds;
+            hours += 1
+          } if (seconds === 0) {
+            seconds = 60;
             minutes -= 1 
           } else if (seconds >= 60) {
             seconds = 60 - seconds
-            minutes += 1
+            minutes -= 1
           }
             let finalMinutes = minutes.toString();
             let finalSeconds = seconds.toString();

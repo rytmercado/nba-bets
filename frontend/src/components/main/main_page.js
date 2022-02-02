@@ -45,9 +45,9 @@ class MainPage extends React.Component {
             <div class="dropup">
               <button class="dropbtn">LinkedIn</button>
               <div class="dropup-content">
-                <a href="https://www.linkedin.com/in/cheungwesley/">Wesley Cheung</a>
-                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/">Owen Winzeler</a>
-                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/">Tyler Harper</a>
+                <a href="https://www.linkedin.com/in/cheungwesley/" target="_blank">Wesley Cheung</a>
+                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/" target="_blank">Owen Winzeler</a>
+                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/" target="_blank">Tyler Harper</a>
                 <a href="">Ry Mercado</a>
               </div>
             </div>
@@ -55,11 +55,11 @@ class MainPage extends React.Component {
             <div class="dropup">
               <button class="dropbtn-github">GitHub</button>
               <div class="dropup-content">
-                <a href="https://github.com/wesleycheungg">Wesley Cheung</a>
-                <a href="https://github.com/woahwinzeler">Owen Winzeler</a>
-                <a href="https://github.com/tharpercp">Tyler Harper</a>
-                <a href="https://github.com/rytmercado">Ry Mercado</a>
-                <a href="https://github.com/rytmercado/nba-bets">GitHub Project</a>
+                <a href="https://github.com/wesleycheungg" target="_blank">Wesley Cheung</a>
+                <a href="https://github.com/woahwinzeler" target="_blank">Owen Winzeler</a>
+                <a href="https://github.com/tharpercp" target="_blank">Tyler Harper</a>
+                <a href="https://github.com/rytmercado" target="_blank">Ry Mercado</a>
+                <a href="https://github.com/rytmercado/nba-bets" target="_blank">GitHub Project</a>
               </div>
             </div>
           </div>

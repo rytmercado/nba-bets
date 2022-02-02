@@ -21,7 +21,7 @@ router.get('/:gameId', (req, res) => {
   Game.findById(req.params.gameId, (err, game) => {
     if (!!game){
       return res.json(game)
-    } else{
+    } else {
       return res.status(404).json({"msg": "Game not found"})
     }
   })

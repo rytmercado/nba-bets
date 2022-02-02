@@ -58,7 +58,6 @@ router.patch('/update', (req, res) => {
       if (!!game){
         // return res.json(game.comments[0]._id)
        for (let i = 0; i < game.comments.length; i++){
-         console.log(game.comments[i]._id)
          if (game.comments[i]._id.toString() === req.body.commentId){
           if(game.comments[i].user.toString() === req.body.userId){
             game.comments[i].body = req.body.body; 
@@ -85,8 +84,6 @@ router.delete('/:gameId/delete/:commentId/:userId', (req, res) => {
       return res.status(422).json(err)
     } else {
       if (!!game){
-        console.log(typeof req.params.commentId)
-        console.log(typeof game.comments[0]._id.toString())
         for (let i = 0; i < game.comments.length; i++) {
           if (game.comments[i]._id.toString() === req.params.commentId) {
            if (game.comments[i].user.toString() === req.params.userId) {

@@ -6,9 +6,6 @@ class EditCommentModal extends React.Component {
     super(props)
 
     //body, commentId, gameId, handle, user
-
-    console.log(this.props)
-
     this.state = {
       comment: {
         userId: "",

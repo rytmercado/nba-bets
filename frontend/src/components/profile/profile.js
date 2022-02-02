@@ -21,7 +21,6 @@ class Profile extends React.Component {
 
     render() {
         if(!this.props.currentUser){
-            console.log(this.props)
             return null
         }
         return(

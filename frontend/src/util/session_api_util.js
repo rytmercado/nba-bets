@@ -18,6 +18,5 @@ export const login = (userData) => {
 };
 
 export const fetchUser = userId => {
-  console.log(userId, "fetchUser")
   return axios.get(`/api/users/show/${userId}`)
 }

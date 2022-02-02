@@ -69,7 +69,6 @@ class Comment extends React.Component {
     let gameId = url.hash.slice(12);
 
     comment.gameId = gameId;
-    console.log(this.props.g._id, gameId)
 
     if (typeof comment.userId.length !== "undefined" && comment.userId.length > 2){
         if (typeof comment.handle.length !== "undefined" && comment.handle.length > 2){

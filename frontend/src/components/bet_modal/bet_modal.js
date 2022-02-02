@@ -58,10 +58,8 @@ class BetModal extends React.Component {
             .then(res => {
                 if(typeof res !== "undefined"){
                     if(typeof res.bet !== "undefined"){
-                        console.log(this.state)
                         this.setState({isSubmitted: true})
                         this.props.fetchUser(this.props.userId)
-                        console.log(this.state)
                         setTimeout(() => {
                             this.setState({isSubmitted: false})}, 5000);
                         }

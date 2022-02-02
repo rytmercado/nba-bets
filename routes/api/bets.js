@@ -25,9 +25,7 @@ router.get('/games/index/:gameId', (req, res) => {
 })
 
 router.delete('/:betId', (req, res) => {
-  console.log(req.params.betId)
   Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
-    console.log(bet)
     if(bet === null){
       return res.status(404).json({"msg": "bet already deleted"})
     }

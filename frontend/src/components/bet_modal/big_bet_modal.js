@@ -78,7 +78,7 @@ class BigBetModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         const object = {
-            game: this.state.game,
+            game: this.props.game._id,
             userId: this.props.session.user._id,
             selection: this.state.selection, 
             amount: this.state.amount,

@@ -58,7 +58,7 @@ class MainPage extends React.Component {
                 <a href="https://github.com/wesleycheungg" target="_blank">Wesley Cheung</a>
                 <a href="https://github.com/woahwinzeler" target="_blank">Owen Winzeler</a>
                 <a href="https://github.com/tharpercp" target="_blank">Tyler Harper</a>
-                <a href="https://github.com/rytmercado">Ry Mercado</a>
+                <a href="https://github.com/rytmercado" target="_blank">Ry Mercado</a>
                 <a href="https://github.com/rytmercado/nba-bets">GitHub Project</a>
               </div>
             </div>

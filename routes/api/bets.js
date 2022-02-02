@@ -71,7 +71,7 @@ router.post('/create', (req, res) => {
   }
   User.findById(req.body.userId, (err, user) => {
 
-    if (req.body.amount <= 0){
+    if (req.body.amount <= 1){
       return res.status(422).json({"msg": "User must bet at least 1 unit of currency"})
     }
 

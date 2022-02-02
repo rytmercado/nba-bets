@@ -78,7 +78,7 @@ class BigBetModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         const object = {
-            game: this.props.game._id,
+            game: this.state.game,
             userId: this.props.session.user._id,
             selection: this.state.selection, 
             amount: this.state.amount,
@@ -101,7 +101,7 @@ class BigBetModal extends React.Component {
         return(
             <ul>
             {Object.values(this.props.errors).map((error, i) => (
-                <li className="errors" key={i}>
+                <li className="show-page-errors" key={i}>
                     {error}
                 </li>
             ))}

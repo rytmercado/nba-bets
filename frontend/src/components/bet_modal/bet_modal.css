@@ -164,7 +164,14 @@ input:focus {
     font-size: 18px;
     padding: 5px;
 }
+.show-page-errors{
+  margin: 0 auto;
+    flex-grow: 1;
+    color: red;
+    padding-top: 5px;
+    background-color: black;
 
+}
 .errors {
     margin: 0 auto;
     flex-grow: 1;

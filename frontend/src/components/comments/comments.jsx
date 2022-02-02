@@ -147,7 +147,10 @@ class Comment extends React.Component {
       }
 
       //conditionally render remove, edit buttons 
-      let userButtons = <div className="comment-buttons"><button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>❌</button></div>
+      let userButtons = <div className="comment-buttons">
+                          <button className="comment-delete" onClick={this.deleteComment} name={commentObject._id}>❌</button>
+                          <button className="comment-edit" onClick={(e) => this.setState({editModalOpen: true, editCommentId: commentObject._id })} name={commentObject._id}>✏️</button>
+                        </div>
       if (this.props.user.id === commentObject.user || this.props.user._id === commentObject.user){
         return (
           <div className="comment">

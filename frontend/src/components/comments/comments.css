@@ -144,9 +144,11 @@
 }
 
 .comment-buttons {
+  display: flex;
   background-color: black;
-  padding-left: 5px;
-  padding-right: 5px;
+  width: 100%;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .comment-delete {
@@ -154,4 +156,15 @@
   width: 2px;
   background-color: black;
   margin-top: -5px;
+  padding: 5px;
+  margin-left: 10%;
+}
+
+.comment-edit {
+  height: 2px;
+  width: 2px;
+  background-color: black;
+  margin-top: -5px;
+  padding: 5px;
+  margin-left: 10%;
 }

@@ -65,9 +65,9 @@ class EditCommentModal extends React.Component {
             <textarea className="comment-text-area" cols="30" rows="10"
             onChange={this.handleChange("body")}
             >{this.props.comment.body}</textarea>
-            {/* <div className="comment-button-container"> */}
-              <button onClick={this.handleSubmit} className="comment-button"> Post </button>
-            {/* </div> */}
+            <div className="comment-button-container">
+              <button onClick={this.handleSubmit} className="comment-button">Save Changes</button>
+            </div>
             </div>
             <div className="modal-screen"></div>
           </div>

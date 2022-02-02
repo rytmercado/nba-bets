@@ -1,7 +1,6 @@
 .comment-modal{
   border: 10px solid black;
-  margin-bottom: 400px;
-  background-color: rgb(12, 143, 16);
+  background-image:  linear-gradient(to right, #53d337 , yellow);
   z-index: 4;
   position: absolute;
   left: 50%;
@@ -11,25 +10,34 @@
 }
 
 .comment-text-area{
-  margin: 70px; 
+  margin: 10vh;
+  text-align: auto; 
 }
 
 .comment-modal-title{
   text-align: center;
   padding: 5px;
-  background-color: rgb(12, 143, 16);
-  font-size: xx-large;
+  background-image:  linear-gradient(to right, #53d337 , yellow);
+  font-family: 'Montserrat';
+  font-size: 30px;
+  border-bottom: 10px solid black;
 
 }
 
 .comment-button-container{
   /* text-align: center; */
-  display: center;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-top: 10px solid black;
+  background-image:  linear-gradient(to right, #53d337 , yellow);
 }
 
 .comment-button{
   text-align: center;
-  padding-left: 46%;
-  padding-right: 46%;
-  background-color: rgb(12, 143, 16);
+  width: 50%;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  border-radius: 10px;
+
+
 }

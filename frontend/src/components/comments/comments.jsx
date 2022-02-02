@@ -1,6 +1,6 @@
-import React from 'react';
 import EditCommentModal from './edit_comment_modal';
-import { useParams } from "react-router-dom";
+import React, { useState } from 'react'
+import InputEmoji from 'react-input-emoji'
 
 class Comment extends React.Component {
     constructor(props) {
@@ -60,7 +60,7 @@ class Comment extends React.Component {
 
   handleChange(field) {
     return e => {
-        this.setState({comment: {...this.state.comment, [field]: e.currentTarget.value}})
+        this.setState({comment: {...this.state.comment, [field]: e.value}})
     }
   }
 
@@ -207,19 +207,6 @@ class Comment extends React.Component {
             return(
                 <div className="comments-container">
                   <form className="comment-form" onSubmit={this.handleSubmit}>
-                        <div className="comment-row">
-                            <div className="input-div"> 
-                            <span className="input-name"></span>
-                            <textarea
-                                rows="2"
-                                value={this.state.comment.body}
-                                type='text'
-                                placeholder='Start talking some smack!'
-                                component='input'
-                                
-                                onChange={this.handleChange("body")}></textarea>  
-                        </div> 
-                    </div>
                         <div className="comment-btn-div">
                             <button className="comment-post-btn" type="submit">
                                 Post
@@ -229,6 +216,16 @@ class Comment extends React.Component {
                     <div className="current-comments">
                         {comments}
                         
+                    </div>
+                    <div className="comment-row">
+                          <div className="input-div"> 
+                              <InputEmoji
+                                
+                                value={this.state.comment.body}
+                                onChange={this.handleChange("body")}
+                                placeholder="Start talking some smack!"
+                              />
+                          </div> 
                     </div>
                 </div>
 

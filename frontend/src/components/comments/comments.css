@@ -155,3 +155,7 @@
   background-color: black;
   margin-top: -5px;
 }
+
+.input-emoji {
+  justify-self: flex-end;
+}

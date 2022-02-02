@@ -27,41 +27,43 @@ class CountDown extends React.Component {
         if (start) {
           //removing excess non-date-time data
           const slicedTime = start.slice(11,19)
-          //Subtracting game start time from current time 
-          let hours = parseInt(slicedTime.slice(0, 2)) - 10 + 24 - (new Date().getHours())
+
+          //Subtracting game start time from current time
+          console.log(slicedTime) 
+          console.log(slicedTime.slice(0,2))
+          let hours = parseInt(slicedTime.slice(0, 2)) + 16 - (new Date().getHours())
           let minutes = parseInt(slicedTime.slice(3,5)) - (new Date().getMinutes())
           let seconds = parseInt(slicedTime.slice(6,8)) - (new Date().getSeconds())
           //clock rollover 
-          if (minutes <= 0) {
-              if (hours > 1) {
-                minutes = 59;
-                hours -= 1
-              }
-          } else if (minutes >= 60 ) {
-            minutes = minutes - 60 
-            hours += 1
-          } if (seconds === 0) {
-            seconds = 60;
-            minutes -= 1 
+          if (hours < 0) {
+              hours = "";
+          } else if (minutes < 0) {
+            minutes = parseInt(slicedTime.slice(3,5)) -  (60 - (new Date().getMinutes())) *-1
+            if (hours > 0) {
+              hours -= 1;
+            }
+          } if (seconds < 0) {
+            seconds = parseInt(slicedTime.slice(6,8)) - (60 - (new Date().getSeconds())) *-1
+            if (minutes > 0) {
+              minutes -= 1 
+            } else if (minutes === 0 && hours > 1) {
+              hours -= 1
+            }
           } else if (seconds >= 60) {
             seconds = 60 - seconds
             minutes -= 1
           }
-            //Formatting the time into similar string
-            if (minutes < 10 && minutes > 0) {
-              finalMinutes = "0" + minutes.toString()
-            } else if (seconds > 0 && seconds < 10) {
-              finalSeconds = "0" + seconds.toString()
-            } else if (hours < 0) {
-              hours = "";
-            } else if (minutes < 0) {
-              minutes = "";
-            } else if (seconds < 0) {
-              seconds = "";
-            }
 
-            let finalMinutes = minutes.toString();
-            let finalSeconds = seconds.toString();
+          let finalMinutes = minutes.toString();
+          let finalSeconds = seconds.toString();
+            //Formatting the time into similar string
+            if (minutes < 10 && minutes >= 0) {
+              finalMinutes = "0" + minutes.toString()
+            } else if (seconds >= 0 && seconds < 10) {
+              finalSeconds = "0" + seconds.toString()
+            } 
+
+            
 
         return(
             <div className="countdown">

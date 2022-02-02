@@ -45,9 +45,9 @@ class MainPage extends React.Component {
             <div class="dropup">
               <button class="dropbtn">LinkedIn</button>
               <div class="dropup-content">
-                <a href="https://www.linkedin.com/in/cheungwesley/">Wesley Cheung</a>
-                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/">Owen Winzeler</a>
-                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/">Tyler Harper</a>
+                <a href="https://www.linkedin.com/in/cheungwesley/" target="_blank">Wesley Cheung</a>
+                <a href="https://www.linkedin.com/in/owen-winzeler-1a6b22228/" target="_blank">Owen Winzeler</a>
+                <a href="https://www.linkedin.com/in/tyler-harper-43a61677/" target="_blank">Tyler Harper</a>
                 <a href="">Ry Mercado</a>
               </div>
             </div>

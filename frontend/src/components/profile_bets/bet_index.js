@@ -52,21 +52,21 @@ class BetIndex extends React.Component {
             if(this.state.betSelection === "ALL"){
                 betsIndex = Object.values(this.props.bets).reverse().map( bet => {
                 return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                    <BetIndexItem className="bet-list" key={bet.id} getGame={this.props.getGame} bet={bet} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if(this.state.betSelection === "LOST") {
                 let lost = Object.values(this.props.bets).reverse().filter( bet => bet.status === "Lost");
                 betsIndex = lost.map( bet => {
                 return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet}  getGame={this.props.getGame} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if(this.state.betSelection === "WON"){
                 let won = Object.values(this.props.bets).reverse().filter( bet => bet.status === "Won");
                 betsIndex = won.map( bet => {
                 return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} getGame={this.props.getGame} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if(this.state.betSelection === "UNSETTLED"){
@@ -75,7 +75,7 @@ class BetIndex extends React.Component {
                 });
                 betsIndex = unsettled.map( bet => {
                 return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} getGame={this.props.getGame} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if(this.state.betSelection === "SETTLED"){
@@ -84,7 +84,7 @@ class BetIndex extends React.Component {
                 });
                 betsIndex = settled.map( bet => {
                 return(
-                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} deleteBet={this.props.deleteBet}/>
+                    <BetIndexItem className="bet-list" key={bet.id} bet={bet} getGame={this.props.getGame} deleteBet={this.props.deleteBet}/>
                 )
                 })
             } else if (this.state.betSelection === "GRAPH"){

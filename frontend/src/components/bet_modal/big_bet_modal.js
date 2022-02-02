@@ -16,9 +16,9 @@ class BigBetModal extends React.Component {
         this.state = {
             game: this.props.game._id,
             userId: '',
-            selection: '', 
+            selection: this.props.game.away_team, 
             amount: 1000,
-            leftcolor: "white",
+            leftcolor: "#CBB26A",
             rightcolor: "white",
             stats: false,
             chat: false,

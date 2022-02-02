@@ -55,7 +55,7 @@ class MainPage extends React.Component {
             <div class="dropup">
               <button class="dropbtn-github">GitHub</button>
               <div class="dropup-content">
-                <a href="https://github.com/wesleycheungg">Wesley Cheung</a>
+                <a href="https://github.com/wesleycheungg" target="_blank">Wesley Cheung</a>
                 <a href="https://github.com/woahwinzeler">Owen Winzeler</a>
                 <a href="https://github.com/tharpercp">Tyler Harper</a>
                 <a href="https://github.com/rytmercado">Ry Mercado</a>

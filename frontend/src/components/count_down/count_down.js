@@ -25,14 +25,18 @@ class CountDown extends React.Component {
     render() {
         const start = this.props.game.start_time
         if (start) {
+          //removing excess non-date-time data
           const slicedTime = start.slice(11,19)
+          //Subtracting game start time from current time 
           let hours = parseInt(slicedTime.slice(0, 2)) - 10 + 24 - (new Date().getHours())
           let minutes = parseInt(slicedTime.slice(3,5)) - (new Date().getMinutes())
           let seconds = parseInt(slicedTime.slice(6,8)) - (new Date().getSeconds())
-          const total = hours + minutes + seconds
-          if (minutes === 0) {
-              minutes = 60;
-              hours -= 1
+          //clock rollover 
+          if (minutes <= 0) {
+              if (hours > 1) {
+                minutes = 59;
+                hours -= 1
+              }
           } else if (minutes >= 60 ) {
             minutes = minutes - 60 
             hours += 1
@@ -43,13 +47,22 @@ class CountDown extends React.Component {
             seconds = 60 - seconds
             minutes -= 1
           }
+            //Formatting the time into similar string
+            if (minutes < 10 && minutes > 0) {
+              finalMinutes = "0" + minutes.toString()
+            } else if (seconds > 0 && seconds < 10) {
+              finalSeconds = "0" + seconds.toString()
+            } else if (hours < 0) {
+              hours = "";
+            } else if (minutes < 0) {
+              minutes = "";
+            } else if (seconds < 0) {
+              seconds = "";
+            }
+
             let finalMinutes = minutes.toString();
             let finalSeconds = seconds.toString();
-            if (finalMinutes < 10) {
-              finalMinutes = "0" + minutes.toString()
-            } else if (finalSeconds < 10) {
-              finalSeconds = "0" + seconds.toString()
-            }      
+
         return(
             <div className="countdown">
               <h1>Bets will lock in {hours}:{finalMinutes}:{finalSeconds}</h1>

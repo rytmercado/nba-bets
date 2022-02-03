@@ -58,7 +58,6 @@ class ShowGame extends React.Component {
             "Washington Wizards": <NBAIcons.WAS />
         }
         const g = games.find(game => game._id === this.props.match.params.id);
-        console.log(g)
         if (games.length === 0){
             return null
         } else if (g.status === 'Incomplete') {

@@ -6,7 +6,7 @@ class BetIndexItem extends React.Component{
         super(props)
 
         this.onDelete = this.onDelete.bind(this)
-        console.log(this.props)
+        
         this.state = {
             status: true
         }

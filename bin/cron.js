@@ -14,12 +14,10 @@ const tasks = () => {
     getGameOdds();
 
     cron.schedule('*/2 * * * *', () => {
-      console.log('running every 2 minutes');
       getGameResults();
     });
 
     cron.schedule('0 0 */4 * * *', () => {
-        console.log('running every 4 hours');
         getGameOdds();
     });
 }

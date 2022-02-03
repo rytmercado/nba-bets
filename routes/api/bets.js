@@ -25,9 +25,7 @@ router.get('/games/index/:gameId', (req, res) => {
 })
 
 router.delete('/:betId', (req, res) => {
-  console.log(req.params.betId)
   Bet.findByIdAndDelete(req.params.betId, (err, bet) => {
-    console.log(bet)
     if(bet === null){
       return res.status(404).json({"msg": "bet already deleted"})
     }
@@ -73,7 +71,7 @@ router.post('/create', (req, res) => {
   }
   User.findById(req.body.userId, (err, user) => {
 
-    if (req.body.amount <= 0){
+    if (req.body.amount <= 1){
       return res.status(422).json({"msg": "User must bet at least 1 unit of currency"})
     }
 

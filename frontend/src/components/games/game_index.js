@@ -9,7 +9,7 @@ class GameIndex extends React.Component {
 
     }
 
-    componentDidMount () {
+    componentDidMount () { 
         this.props.fetchAllGames()                  
     }
 

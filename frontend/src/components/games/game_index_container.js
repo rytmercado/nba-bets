@@ -13,4 +13,4 @@ const mDTP = dispatch => ({
     clearBetErrors: () => dispatch(clearBetErrors())
   });
 
-export default connect(mSTP, mDTP)(GameIndex); 
+export default connect(mSTP, mDTP)(GameIndex);

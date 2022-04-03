@@ -42,7 +42,7 @@ export const clearBetErrors = () => dispatch => {
 }
 
 
-export const postBet = bet => dispatch => ( 
+export const postBet = bet => dispatch => (
     BetApiUtil.postBet(bet)
         .then( (payload) => {
             // debugger

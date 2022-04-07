@@ -55,6 +55,7 @@ const getGameOdds = () => {
           if (game === null){
 
             let newGame = new Game(odds_obj)
+            console.log(newGame)
             newGame.save()
 
           } else {
@@ -62,6 +63,7 @@ const getGameOdds = () => {
 
               game.home_odds = odds_obj.home_odds
               game.away_odds = odds_obj.away_odds
+              console.log(game)
               game.save()
             }
           }
